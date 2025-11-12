@@ -143,51 +143,94 @@ const CaseStudy = () => {
 
           {/* Process */}
           <section className="not-prose">
-            <h2 className="text-3xl font-semibold mb-8 font-sans text-foreground border-b border-border pb-4" style={{letterSpacing: '-0.02em'}}>Process</h2>
-            <div className="space-y-10">
-              {caseStudy.process.map((phase: any, index: number) => (
-                <div key={index} className="bg-card border border-border rounded-lg p-8">
-                  <h3 className="text-2xl font-semibold mb-4 font-sans text-foreground">{index + 1}. {phase.phase}</h3>
-                  <p className="text-foreground mb-6 font-serif text-lg leading-relaxed">{phase.description}</p>
-                  {phase.insights.length > 0 && (
-                    <div className="mb-6">
-                      <ul className="space-y-3">
-                        {phase.insights.map((insight: any, i: number) => (
-                          <li key={i} className="flex items-start gap-3">
-                            <span className="text-success mt-1 font-bold">→</span>
-                            <span className="font-serif text-foreground">{insight}</span>
-                          </li>
-                        ))}
-                      </ul>
+            <h2 className="text-3xl font-semibold mb-12 font-sans text-foreground border-b border-border pb-4" style={{letterSpacing: '-0.02em'}}>Process</h2>
+            <div className="space-y-20">
+              {caseStudy.process.map((phase: any, index: number) => {
+                // Check if this phase is image-only (no text content)
+                const isImageOnly = !phase.phase && !phase.description && phase.insights.every((i: any) => typeof i !== 'string');
+                
+                if (isImageOnly) {
+                  return (
+                    <div key={index} className="space-y-6">
+                      {phase.insights.map((insight: any, i: number) => (
+                        <div key={i} className="w-full">
+                          {insight}
+                        </div>
+                      ))}
                     </div>
-                  )}
-                  {phase.pain_points && phase.pain_points.length > 0 && (
-                    <div className="mt-6 bg-destructive/10 p-6 rounded-lg border border-destructive/20">
-                      <h4 className="text-sm font-semibold mb-4 font-sans uppercase tracking-wider text-foreground">Pain Points</h4>
-                      <ul className="grid gap-3 sm:grid-cols-2">
-                        {phase.pain_points.map((p: string, j: number) => (
-                          <li key={j} className="flex items-start gap-3 bg-background/50 rounded-md px-6 py-5">
-                            <span className="text-destructive font-bold">✕</span>
-                            <span className="text-sm font-sans text-foreground">{p}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                  {phase.design_system && phase.design_system.length > 0 && (
-                    <div className="mt-6 bg-success/10 p-6 rounded-lg border border-success/20">
-                      <ul className="grid gap-3 sm:grid-cols-2">
-                        {phase.design_system.map((d: string, k: number) => (
-                          <li key={k} className="flex items-start gap-3 bg-background/50 rounded-md p-4">
-                            <span className="text-success mt-1 font-bold">✓</span>
-                            <span className="text-sm font-sans text-foreground">{d}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                </div>
-              ))}
+                  );
+                }
+
+                return (
+                  <div key={index} className="space-y-8">
+                    {phase.phase && (
+                      <div className="space-y-4">
+                        <h3 className="text-2xl font-semibold font-sans text-foreground tracking-tight">
+                          {index + 1}. {phase.phase}
+                        </h3>
+                        {phase.description && (
+                          <p className="text-foreground font-serif text-lg leading-relaxed max-w-3xl">
+                            {phase.description}
+                          </p>
+                        )}
+                      </div>
+                    )}
+                    
+                    {phase.insights.length > 0 && (
+                      <div className="space-y-6">
+                        {phase.insights.map((insight: any, i: number) => {
+                          // Check if insight is a React element (image)
+                          if (typeof insight !== 'string') {
+                            return (
+                              <div key={i} className="w-full rounded-lg overflow-hidden border border-border">
+                                {insight}
+                              </div>
+                            );
+                          }
+                          // Text insight
+                          return (
+                            <div key={i} className="flex items-start gap-3 max-w-3xl">
+                              <span className="text-success mt-1 font-bold flex-shrink-0">→</span>
+                              <span className="font-serif text-foreground text-lg leading-relaxed">{insight}</span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+
+                    {phase.pain_points && phase.pain_points.length > 0 && (
+                      <div className="bg-destructive/10 p-8 rounded-lg border border-destructive/20">
+                        <h4 className="text-xs font-semibold mb-6 font-sans uppercase tracking-wider text-muted-foreground">
+                          Pain Points
+                        </h4>
+                        <ul className="grid gap-4 sm:grid-cols-2">
+                          {phase.pain_points.map((p: string, j: number) => (
+                            <li key={j} className="flex items-center justify-center text-center bg-background/50 rounded-md px-6 py-5 min-h-[80px]">
+                              <div className="flex items-center gap-3">
+                                <span className="text-destructive font-bold flex-shrink-0">✕</span>
+                                <span className="text-sm font-sans text-foreground">{p}</span>
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {phase.design_system && phase.design_system.length > 0 && (
+                      <div className="bg-success/10 p-8 rounded-lg border border-success/20">
+                        <ul className="grid gap-4 sm:grid-cols-2">
+                          {phase.design_system.map((d: string, k: number) => (
+                            <li key={k} className="flex items-start gap-3 bg-background/50 rounded-md p-4">
+                              <span className="text-success mt-1 font-bold flex-shrink-0">✓</span>
+                              <span className="text-sm font-sans text-foreground">{d}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </section>
 
@@ -212,8 +255,56 @@ const CaseStudy = () => {
           </section>
         </article>
 
+        {/* Project Navigation */}
+        <div className="container max-w-4xl mx-auto px-6 mt-20">
+          <div className="flex items-center justify-between gap-4 pb-12 border-b border-border">
+            {(() => {
+              const allSlugs = Object.keys(caseStudies);
+              const currentIndex = allSlugs.indexOf(slug || '');
+              const prevSlug = currentIndex > 0 ? allSlugs[currentIndex - 1] : null;
+              const nextSlug = currentIndex < allSlugs.length - 1 ? allSlugs[currentIndex + 1] : null;
+
+              return (
+                <>
+                  <Button 
+                    variant="ghost" 
+                    asChild 
+                    className={`text-foreground hover:text-foreground ${!prevSlug ? 'invisible' : ''}`}
+                  >
+                    {prevSlug ? (
+                      <Link to={`/case-study/${prevSlug}`}>
+                        ← Previous Project
+                      </Link>
+                    ) : (
+                      <span>← Previous Project</span>
+                    )}
+                  </Button>
+                  
+                  <Button variant="outline" asChild className="text-foreground border-border hover:bg-accent">
+                    <Link to="/">Back to Home</Link>
+                  </Button>
+
+                  <Button 
+                    variant="ghost" 
+                    asChild 
+                    className={`text-foreground hover:text-foreground ${!nextSlug ? 'invisible' : ''}`}
+                  >
+                    {nextSlug ? (
+                      <Link to={`/case-study/${nextSlug}`}>
+                        Next Project →
+                      </Link>
+                    ) : (
+                      <span>Next Project →</span>
+                    )}
+                  </Button>
+                </>
+              );
+            })()}
+          </div>
+        </div>
+
         {/* CTA */}
-        <div className="container max-w-4xl mx-auto px-6 mt-20 pt-12 border-t border-border text-center">
+        <div className="container max-w-4xl mx-auto px-6 mt-12 pt-12 border-t border-border text-center">
           <h3 className="text-2xl font-semibold mb-6 text-foreground">Interested in working together?</h3>
           <Button size="lg" asChild className="rounded-full font-sans">
             <Link to="/contact">→ get in touch</Link>

@@ -10,7 +10,7 @@ const kidneyquest: CaseStudy = {
   hero: "/placeholder.svg",
   overview: {
     context:
-      "Designing a mobile web AR mini-game to complement NKF’s inflatable kidney exhibit. Visitors scan a QR, answer quick questions, earn Orbs, and toss them to clear toxins. This replaces the need for paper handouts with a fun, self-directed experience.",
+      "Designing a mobile web AR mini-game to complement NKF's inflatable kidney exhibit. Visitors scan a QR, answer quick questions, earn Orbs, and toss them to clear toxins. This replaces the need for paper handouts with a fun, self-directed experience.",
     goals: [
       "Cut printed brochures/worksheets by ≥50% at events",
       "Achieve ≥80% positive ease/engagement feedback",
@@ -50,41 +50,40 @@ const kidneyquest: CaseStudy = {
     {
       phase: "Synthesise",
       description:
-        "Affinity mapping of interview/survey data.",
+        "Affinity mapping of interview and survey data revealed patterns in visitor behavior and content preferences.",
       insights: [
-        <img src="/affinitymapping.png" alt="Affinity Mapping" />,
+        <img src="/affinitymapping.png" alt="Affinity Mapping" className="w-full h-auto" />,
         "One concept per screen improved comprehension and speed",
         "Visible progress + countdown increased focus within 3-minute cap",
-        "Neutral, gain-framed feedback reduced anxiety vs. ‘pass/fail’",
+        "Neutral, gain-framed feedback reduced anxiety vs. 'pass/fail'",
         "Optional 30-second risk micro-screener bridges to screening action"
       ]
     },
     {
       phase: "Ideation",
       description:
-        "Led group brainstorming (Crazy 8s) and product ideation",
+        "Led group brainstorming sessions using Crazy 8s methodology to rapidly explore diverse solutions and converge on the most promising concepts.",
       insights: [
-        <img src="/ideation.png" alt="Ideation" />
-        ]
+        <img src="/ideation.png" alt="Ideation sketches showing various game concepts" className="w-full h-auto" />
+      ]
     },
     {
       phase: "Prototype Solutions",
       description:
-        "Produced lo-fi prototypes and framed a user flow",
+        "Developed low-fidelity prototypes and mapped the complete user journey from QR scan to completion.",
       insights: [
-        <img src="/userflow.png" alt="User Flow"/>,
-        <img src="/NKFds.png" alt="NKF Design System"/>,
+        <img src="/userflow.png" alt="User flow diagram" className="w-full h-auto" />,
         "Design System was adapted from NKF existing guidelines to ensure brand consistency",
-
+        <img src="/designsystem.png" alt="NKF Design System components" className="w-full h-auto" />
       ]
     },
     {
-        phase: "",
-        description: "",
-        insights: [
-          <img src="/NKFhifi.png" alt="NKF Hi Fi"/>,
-        ]
-      },
+      phase: "",
+      description: "",
+      insights: [
+        <img src="/NKFhifi.png" alt="High-fidelity prototype screens" className="w-full h-auto" />
+      ]
+    }
   ],
   nextSteps: {
     shipped: [
