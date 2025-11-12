@@ -169,7 +169,7 @@ const CaseStudy = () => {
                           {index + 1}. {phase.phase}
                         </h3>
                         {phase.description && (
-                          <p className="text-foreground font-serif text-lg leading-relaxed max-w-3xl">
+                          <p className="text-foreground font-serif text-lg leading-relaxed">
                             {phase.description}
                           </p>
                         )}
@@ -191,7 +191,7 @@ const CaseStudy = () => {
                           }
                           // Text insight
                           return (
-                            <div key={i} className="flex items-start gap-3 max-w-3xl">
+                            <div key={i} className="flex items-start gap-3">
                               <span className="text-success mt-1 font-bold flex-shrink-0">→</span>
                               <span className="font-serif text-foreground text-lg leading-relaxed">{insight}</span>
                             </div>
