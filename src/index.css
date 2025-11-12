@@ -8,43 +8,31 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Adrian Zumbrunnen-inspired calm, credible palette */
-    --background: 240 20% 97%; /* #F7F7FA near-white */
-    --foreground: 216 29% 7%; /* #101317 ink-dark */
-    
-    --card: 0 0% 100%;
-    --card-foreground: 216 29% 7%;
-    
-    --popover: 0 0% 100%;
-    --popover-foreground: 216 29% 7%;
-    
-    /* Teal accent for CTAs and focus */
-    --primary: 183 78% 29%; /* #0E7C86 */
-    --primary-foreground: 0 0% 100%;
-    
-    --secondary: 220 13% 95%;
-    --secondary-foreground: 216 29% 7%;
-    
-    --muted: 220 13% 97%;
-    --muted-foreground: 215 13% 38%; /* #5B6470 */
-    
-    --accent: 183 78% 29%;
-    --accent-foreground: 0 0% 100%;
-    
-    --success: 122 39% 33%; /* #2E7D32 */
-    --success-foreground: 0 0% 100%;
-    
-    --warning: 30 86% 34%; /* #A15C08 */
-    --warning-foreground: 0 0% 100%;
-    
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-    
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 183 78% 29%;
-    
-    --radius: 0.5rem;
+    /* Dark theme - Adrian Zumbrunnen-inspired */
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 7%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 0 0% 20%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 63% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 98%;
+    --warning: 28 87% 50%;
+    --warning-foreground: 0 0% 98%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 0% 98%;
+    --radius: 2rem;
     
     /* 8pt spacing grid */
     --spacing-1: 0.5rem;  /* 8px */
@@ -69,66 +57,14 @@ All colors MUST be HSL.
     /* Smooth transitions */
     --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 220 13% 9%;
-    --foreground: 0 0% 98%;
-    
-    --card: 220 13% 12%;
-    --card-foreground: 0 0% 98%;
-    
-    --popover: 220 13% 12%;
-    --popover-foreground: 0 0% 98%;
-    
-    --primary: 183 78% 40%; /* Brighter teal for dark mode */
-    --primary-foreground: 0 0% 100%;
-    
-    --secondary: 220 13% 16%;
-    --secondary-foreground: 0 0% 98%;
-    
-    --muted: 220 13% 16%;
-    --muted-foreground: 215 13% 60%;
-    
-    --accent: 183 78% 40%;
-    --accent-foreground: 0 0% 100%;
-    
-    --success: 122 39% 45%;
-    --success-foreground: 0 0% 100%;
-    
-    --warning: 30 86% 50%;
-    --warning-foreground: 0 0% 100%;
-    
-    --destructive: 0 62% 50%;
-    --destructive-foreground: 0 0% 100%;
-    
-    --border: 220 13% 20%;
-    --input: 220 13% 20%;
-    --ring: 183 78% 40%;
-
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-background: 0 0% 10%;
+    --sidebar-foreground: 0 0% 98%;
     --sidebar-primary: 0 0% 98%;
-    --sidebar-primary-foreground: 240 5.9% 10%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-primary-foreground: 0 0% 7%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 0 0% 98%;
   }
 }
 

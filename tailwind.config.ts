@@ -19,6 +19,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['Space Mono', 'Courier New', 'monospace'],
         serif: ['Source Serif 4', 'Crimson Text', 'Georgia', 'serif'],
       },
       spacing: {

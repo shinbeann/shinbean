@@ -70,7 +70,7 @@ const Index = () => {
       <MultilingualHero />
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-4 bg-muted/30">
+      <section id="projects" className="py-20 px-4 bg-background">
         <div className="container max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="space-y-6 mb-12">
