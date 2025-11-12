@@ -45,6 +45,8 @@ const MultilingualHero = () => {
             {GREETINGS[currentIndex].text.toLowerCase()}.
             <br />
             i'm
+            <br />
+            Shin Lee.
           </h1>
           
           {/* Language Chips - User Control */}
@@ -70,7 +72,7 @@ const MultilingualHero = () => {
         {/* Bio */}
         <div className="max-w-2xl">
           <p className="text-base md:text-lg text-foreground/80 leading-relaxed font-sans">
-            Shin Lee. I'm a computer science undergraduate, drawn to human-centered design, 
+            I'm a computer science undergraduate, drawn to human-centered design, 
             elevating people's stories into data-backed decisions via mixed-methods 
             research and iterative prototyping to ship intuitive, inclusive products.
           </p>

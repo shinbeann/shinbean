@@ -166,9 +166,9 @@ const CaseStudy = () => {
                       <h4 className="text-sm font-semibold mb-4 font-mono uppercase tracking-wider text-foreground">Pain Points</h4>
                       <ul className="grid gap-3 sm:grid-cols-2">
                         {phase.pain_points.map((p: string, j: number) => (
-                          <li key={j} className="flex items-start gap-3 bg-background/50 rounded-md p-4">
-                            <span className="text-destructive mt-1 font-bold">✕</span>
-                            <span className="text-sm font-serif text-foreground">{p}</span>
+                          <li key={j} className="flex items-center justify-center gap-3 bg-background/50 rounded-md px-6 py-5 text-center">
+                            <span className="text-destructive font-bold">✕</span>
+                            <span className="text-sm font-sans text-foreground">{p}</span>
                           </li>
                         ))}
                       </ul>
