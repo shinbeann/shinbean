@@ -257,7 +257,7 @@ const CaseStudy = () => {
 
         {/* Project Navigation */}
         <div className="container max-w-4xl mx-auto px-6 mt-20">
-          <div className="flex items-center justify-between gap-4 pb-12 border-b border-border">
+          <div className="flex items-center justify-between gap-4 pb-12">
             {(() => {
               const allSlugs = Object.keys(caseStudies);
               const currentIndex = allSlugs.indexOf(slug || '');
