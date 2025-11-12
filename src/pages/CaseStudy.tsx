@@ -215,7 +215,7 @@ const CaseStudy = () => {
         {/* CTA */}
         <div className="container max-w-4xl mx-auto px-6 mt-20 pt-12 border-t border-border text-center">
           <h3 className="text-2xl font-semibold mb-6 text-foreground">Interested in working together?</h3>
-          <Button size="lg" asChild className="rounded-full font-mono">
+          <Button size="lg" asChild className="rounded-full font-sans">
             <Link to="/contact">→ get in touch</Link>
           </Button>
         </div>
