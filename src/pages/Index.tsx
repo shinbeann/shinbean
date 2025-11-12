@@ -1,9 +1,8 @@
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
+import MultilingualHero from "@/components/MultilingualHero";
 import ProjectCard from "@/components/ProjectCard";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 
 const projects = [
@@ -54,20 +53,21 @@ const projects = [
 ];
 
 const Index = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const categories = ["All Projects", "Work", "Passion"];
+  const [selectedCategory, setSelectedCategory] = useState<string>("All Projects");
 
-  const filteredProjects = selectedCategory === "all"
+  const filteredProjects = selectedCategory === "All Projects"
     ? projects
-    : selectedCategory === "work"
-    ? projects.filter(p => p.category.toLowerCase() === "professional" || p.category.toLowerCase() === "school")
-    : projects.filter(p => p.category.toLowerCase() === selectedCategory);
+    : selectedCategory === "Work"
+    ? projects.filter(p => p.category === "Professional" || p.category === "School")
+    : projects.filter(p => p.category === selectedCategory);
 
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
       
       {/* Hero Section */}
-      <Hero />
+      <MultilingualHero />
 
       {/* Projects Section */}
       <section id="projects" className="py-20 px-4 bg-muted/30">
@@ -77,36 +77,24 @@ const Index = () => {
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
               Selected Work
             </h2>
+          </div>
             
-            {/* Filter Tabs */}
-            <Tabs defaultValue="all" className="w-full">
-              <TabsList className="bg-background">
-                <TabsTrigger 
-                  value="all"
-                  onClick={() => setSelectedCategory("all")}
-                >
-                  All Projects
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="Professional"
-                  onClick={() => setSelectedCategory("professional")}
-                >
-                  Professional
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="school"
-                  onClick={() => setSelectedCategory("school")}
-                >
-                  School
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="passion"
-                  onClick={() => setSelectedCategory("passion")}
-                >
-                  Passion
-                </TabsTrigger>
-              </TabsList>
-            </Tabs>
+          {/* Filter Chips */}
+          <div className="flex flex-wrap gap-2 justify-center mb-12">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-4 py-2 rounded-full text-sm font-medium border transition-all duration-200 ${
+                  selectedCategory === cat
+                    ? 'bg-primary text-primary-foreground border-primary shadow-sm'
+                    : 'bg-background text-muted-foreground border-border hover:border-primary hover:text-foreground'
+                }`}
+                aria-pressed={selectedCategory === cat}
+              >
+                {cat}
+              </button>
+            ))}
           </div>
 
           {/* Projects Grid */}

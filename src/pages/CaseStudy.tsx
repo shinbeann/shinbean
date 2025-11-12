@@ -82,10 +82,10 @@ const CaseStudy = () => {
           />
         </header>
 
-        <article className="container max-w-4xl mx-auto px-4 space-y-16">
+        <article className="container max-w-4xl mx-auto px-4 space-y-16 prose prose-slate max-w-none">
           {/* Overview */}
-          <section>
-            <h2 className="text-3xl font-semibold tracking-tight mb-6">Overview</h2>
+          <section className="not-prose">
+            <h2 className="text-3xl font-semibold mb-6 font-sans" style={{letterSpacing: '-0.02em'}}>Overview</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 p-6 bg-muted rounded-lg">
               <div>
                 <h3 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-2">Role</h3>
@@ -108,14 +108,14 @@ const CaseStudy = () => {
                 <p className="text-foreground">{caseStudy.tools}</p>
               </div>
             </div>
-            <p className="text-lg leading-relaxed mb-6">{caseStudy.overview.context}</p>
+            <p className="text-lg leading-relaxed mb-6 font-serif">{caseStudy.overview.context}</p>
             <div>
-              <h3 className="font-semibold mb-3">Project Goals</h3>
+              <h3 className="font-semibold mb-3 font-sans">Project Goals</h3>
               <ul className="space-y-2">
                 {caseStudy.overview.goals.map((goal: string, index: number) => (
                   <li key={index} className="flex items-start gap-2">
                     <span className="text-primary mt-1">•</span>
-                    <span>{goal}</span>
+                    <span className="font-serif">{goal}</span>
                   </li>
                 ))}
               </ul>
@@ -123,16 +123,16 @@ const CaseStudy = () => {
           </section>
 
           {/* Problem & Constraints */}
-          <section>
-            <h2 className="text-3xl font-semibold tracking-tight mb-6">Problem & Constraints</h2>
-            <p className="text-lg leading-relaxed mb-6">{highlightTerms(caseStudy.problem.description, boldTerms)}</p>
+          <section className="not-prose">
+            <h2 className="text-3xl font-semibold mb-6 font-sans" style={{letterSpacing: '-0.02em'}}>Problem & Constraints</h2>
+            <p className="text-lg leading-relaxed mb-6 font-serif">{highlightTerms(caseStudy.problem.description, boldTerms)}</p>
             <div className="border-l-4 border-primary pl-6">
-              <h3 className="font-semibold mb-3">Key Constraints</h3>
+              <h3 className="font-semibold mb-3 font-sans">Key Constraints</h3>
               <ul className="space-y-2 text-muted-foreground">
                 {caseStudy.problem.constraints.map((constraint: string, index: number) => (
                   <li key={index} className="flex items-start gap-2">
                     <span className="text-primary mt-1">•</span>
-                    <span>{constraint}</span>
+                    <span className="font-serif">{constraint}</span>
                   </li>
                 ))}
               </ul>
@@ -140,31 +140,31 @@ const CaseStudy = () => {
           </section>
 
           {/* Process */}
-          <section>
-            <h2 className="text-3xl font-semibold tracking-tight mb-6">Process</h2>
+          <section className="not-prose">
+            <h2 className="text-3xl font-semibold mb-6 font-sans" style={{letterSpacing: '-0.02em'}}>Process</h2>
             <div className="space-y-8">
               {caseStudy.process.map((phase: any, index: number) => (
                 <div key={index} className="border-l-2 border-border pl-6">
-                  <h3 className="text-xl font-semibold mb-3">{phase.phase}</h3>
-                  <p className="text-muted-foreground mb-4">{phase.description}</p>
+                  <h3 className="text-xl font-semibold mb-3 font-sans">{phase.phase}</h3>
+                  <p className="text-muted-foreground mb-4 font-serif">{phase.description}</p>
                   {phase.insights.length > 0 && (
                     <ul className="space-y-1">
                       {phase.insights.map((insight: any, i: number) => (
                         <li key={i} className="text-sm flex items-start gap-2">
                           <span className="text-primary mt-1">→</span>
-                          <span>{insight}</span>
+                          <span className="font-serif">{insight}</span>
                         </li>
                       ))}
                     </ul>
                   )}
                   {phase.pain_points && phase.pain_points.length > 0 && (
                     <div className="mt-4">
-                      <h4 className="text-sm font-semibold mb-2">Pain points</h4>
+                      <h4 className="text-sm font-semibold mb-2 font-sans">Pain points</h4>
                       <ul className="grid gap-2 sm:grid-cols-2">
                         {phase.pain_points.map((p: string, j: number) => (
                           <li key={j} className="flex items-start gap-2 bg-muted rounded-md p-3">
                             <span className="text-primary mt-1">•</span>
-                            <span className="text-sm">{p}</span>
+                            <span className="text-sm font-serif">{p}</span>
                           </li>
                         ))}
                       </ul>
@@ -172,12 +172,12 @@ const CaseStudy = () => {
                   )}
                   {phase.design_system && phase.design_system.length > 0 && (
                     <div className="mt-4">
-                      <h4 className="text-sm font-semibold mb-2">Design System</h4>
+                      <h4 className="text-sm font-semibold mb-2 font-sans">Design System</h4>
                       <ul className="grid gap-2 sm:grid-cols-2">
                         {phase.design_system.map((d: string, k: number) => (
                           <li key={k} className="flex items-start gap-2 bg-muted rounded-md p-3">
                             <span className="text-primary mt-1">•</span>
-                            <span className="text-sm">{d}</span>
+                            <span className="text-sm font-serif">{d}</span>
                           </li>
                         ))}
                       </ul>
@@ -195,14 +195,14 @@ const CaseStudy = () => {
           {/* kept commented out by request */}
 
           {/* Next Steps */}
-          <section>
-            <h2 className="text-3xl font-semibold tracking-tight mb-6">Next Steps</h2>
-            <p className="mb-4 text-muted-foreground">Post-launch roadmap includes:</p>
+          <section className="not-prose">
+            <h2 className="text-3xl font-semibold mb-6 font-sans" style={{letterSpacing: '-0.02em'}}>Next Steps</h2>
+            <p className="mb-4 text-muted-foreground font-serif">Post-launch roadmap includes:</p>
             <ul className="space-y-2">
               {caseStudy.nextSteps.shipped.map((step: string, index: number) => (
                 <li key={index} className="flex items-start gap-2">
                   <span className="text-primary mt-1">→</span>
-                  <span>{step}</span>
+                  <span className="font-serif">{step}</span>
                 </li>
               ))}
             </ul>
