@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
+import aboutMeImage from "@/assets/aboutme.jpg";
 
 const About = () => {
   const skills = [
@@ -27,12 +28,23 @@ const About = () => {
         <article className="container max-w-4xl mx-auto">
           {/* Header */}
           <header className="mb-16">
-            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">About Me</h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              I am a computer science undergraduate, drawn to human-centered design, elevating people's stories into
-              data-backed decisions via mixed-methods research and iterative prototyping to ship intuitive, inclusive
-              products.
-            </p>
+            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-8">About Me</h1>
+            <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+              <div className="flex-shrink-0">
+                <img 
+                  src={aboutMeImage} 
+                  alt="Gayshin Lee" 
+                  className="w-64 h-64 object-cover rounded-lg shadow-lg"
+                />
+              </div>
+              <div className="flex-1">
+                <p className="text-xl text-muted-foreground leading-relaxed">
+                  I am a computer science undergraduate, drawn to human-centered design, elevating people's stories into
+                  data-backed decisions via mixed-methods research and iterative prototyping to ship intuitive, inclusive
+                  products.
+                </p>
+              </div>
+            </div>
           </header>
 
           {/* Background */}
