@@ -53,13 +53,11 @@ const projects = [
 ];
 
 const Index = () => {
-  const categories = ["All Projects", "Work", "Passion"];
+  const categories = ["All Projects", "Professional", "School", "Passion"];
   const [selectedCategory, setSelectedCategory] = useState<string>("All Projects");
 
   const filteredProjects = selectedCategory === "All Projects"
     ? projects
-    : selectedCategory === "Work"
-    ? projects.filter(p => p.category === "Professional" || p.category === "School")
     : projects.filter(p => p.category === selectedCategory);
 
   return (

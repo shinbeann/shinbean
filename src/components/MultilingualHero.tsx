@@ -76,16 +76,34 @@ const MultilingualHero = () => {
           </p>
         </div>
 
-        {/* CTA */}
-        <div className="pt-4">
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+          <Button 
+            onClick={scrollToProjects}
+            size="lg"
+            className="group bg-accent hover:bg-accent/90 text-background"
+          >
+            View Work
+            <ArrowDown className="ml-2 w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+          </Button>
           <Button 
             variant="outline" 
             size="lg"
-            className="rounded-full font-mono"
             asChild
           >
-            <a href="/contact">→ say hi</a>
+            <a href="/contact">Contact</a>
           </Button>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="pt-12 animate-bounce">
+          <button 
+            onClick={scrollToProjects}
+            className="text-muted-foreground hover:text-foreground transition-colors"
+            aria-label="Scroll to projects"
+          >
+            <ArrowDown className="w-6 h-6 mx-auto" />
+          </button>
         </div>
       </div>
     </section>
