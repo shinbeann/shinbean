@@ -3,119 +3,39 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
-
-// Mock case study data - replace with real data/API
-const caseStudies: Record<string, any> = {
-  "healthcare-platform": {
-    title: "Healthcare Platform Redesign",
-    role: "Lead Product Designer",
-    timeline: "6 months (Jan - Jun 2023)",
-    team: "1 PM, 2 Engineers, 1 Designer (me)",
-    tools: "Figma, Maze, Google Analytics, Optimal Workshop",
-    hero: "/placeholder.svg",
-    
-    overview: {
-      context: "A regional healthcare provider needed to modernize their patient portal, which was causing frustration and high drop-off rates during critical tasks like appointment booking.",
-      goals: [
-        "Reduce appointment booking time by 50%",
-        "Increase completion rate to 80%+",
-        "Improve mobile experience (60% of traffic)"
-      ]
-    },
-    
-    problem: {
-      description: "Users faced a confusing 7-step booking process with redundant information requests and unclear navigation. Analytics showed 40% drop-off at step 3, and support tickets about booking issues increased 25% month-over-month.",
-      constraints: [
-        "Must integrate with legacy EMR system",
-        "HIPAA compliance requirements",
-        "Limited engineering resources (2 devs)",
-        "6-month hard deadline for regulatory compliance"
-      ]
-    },
-    
-    process: [
-      {
-        phase: "Research",
-        description: "Conducted 12 user interviews, analyzed 3 months of analytics data, and performed competitive analysis of 8 healthcare portals.",
-        insights: [
-          "Users wanted to see available times immediately",
-          "Insurance verification caused most confusion",
-          "Mobile users abandoned at higher rates (52%)"
-        ]
-      },
-      {
-        phase: "Synthesis",
-        description: "Created user journey maps, identified 5 key pain points, and prioritized based on impact vs. effort matrix.",
-        insights: [
-          "Navigation structure was the #1 issue",
-          "Insurance fields could be optional with smart defaults",
-          "Desktop and mobile needed different approaches"
-        ]
-      },
-      {
-        phase: "Strategy",
-        description: "Developed new IA collapsing 7 steps to 3, designed progressive disclosure pattern for optional fields, and mobile-first responsive strategy.",
-        insights: []
-      },
-      {
-        phase: "Design & Test",
-        description: "Built prototypes in Figma, ran 3 rounds of usability testing with 5 participants each, and iterated based on feedback.",
-        insights: [
-          "Round 1: 60% task success (baseline: 40%)",
-          "Round 2: 75% task success after nav changes",
-          "Round 3: 87% task success after field optimization"
-        ]
-      }
-    ],
-    
-    solution: {
-      highlights: [
-        "Collapsed 7-step flow to 3 clear stages: Select → Confirm → Done",
-        "Introduced real-time slot availability calendar (no more back-and-forth)",
-        "Implemented smart defaults for returning users (80% of users)",
-        "Created mobile-optimized date picker (reduced input errors by 34%)",
-        "Added progress indicator and ability to save/resume booking"
-      ],
-      components: [
-        "Date picker component with accessibility enhancements",
-        "Smart form system with conditional fields",
-        "Responsive layout system for mobile-first approach"
-      ]
-    },
-    
-    results: {
-      quantitative: [
-        { metric: "Booking completion rate", before: "60%", after: "87%", change: "+27%" },
-        { metric: "Average booking time", before: "8.5 min", after: "3.2 min", change: "-62%" },
-        { metric: "Mobile completion rate", before: "48%", after: "84%", change: "+36%" },
-        { metric: "Support tickets", before: "~180/month", after: "~45/month", change: "-75%" }
-      ],
-      qualitative: [
-        "NPS score increased from 32 to 61",
-        "Patient satisfaction rating: 4.6/5 (up from 2.8/5)",
-        '"Finally feels like a modern healthcare experience" - user feedback'
-      ]
-    },
-    
-    personalVoice: "This project taught me the importance of balancing user needs with technical constraints. The biggest challenge was convincing stakeholders that removing fields (insurance verification) would actually improve data quality—turned out, optional fields with smart defaults had 95% completion vs. 60% for required fields. I also learned to design for the 'happy path' first, then layer in edge cases, rather than trying to accommodate everything upfront.",
-    
-    nextSteps: {
-      shipped: [
-        "A/B test appointment reminders (SMS vs. email vs. both)",
-        "Expand to prescription refills and test results",
-        "Integration with Apple Health / Google Fit"
-      ]
-    },
-    
-    tags: ["Healthcare", "Mobile-First", "User Research", "IA", "Usability Testing"]
-  }
-};
+import caseStudies from "@/case-studies";
 
 const CaseStudy = () => {
   const { slug } = useParams<{ slug: string }>();
   const caseStudy = slug ? caseStudies[slug] : null;
+
+  // Highlight specific phrases in problem description
+  const boldTerms = [
+    "slow",
+    "keyword-dependent",
+    "inaccessible without stable connectivity",
+    "rely on supervisors",
+    "faster",
+    "reliable access even under poor connectivity",
+    "natural language search",
+    "decentralised decisions"
+  ];
+
+  const escapeRegExp = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const highlightTerms = (text: string, terms: string[]) => {
+    const pattern = terms.map(escapeRegExp).sort((a, b) => b.length - a.length).join("|");
+    const regex = new RegExp(`(${pattern})`, "gi");
+    const lowerSet = new Set(terms.map(t => t.toLowerCase()));
+    return text.split(regex).map((part, i) =>
+      lowerSet.has(part.toLowerCase()) ? (
+        <strong key={i} className="font-semibold">{part}</strong>
+      ) : (
+        <span key={i}>{part}</span>
+      )
+    );
+  };
 
   if (!caseStudy) {
     return (
@@ -169,15 +89,19 @@ const CaseStudy = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 p-6 bg-muted rounded-lg">
               <div>
                 <h3 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-2">Role</h3>
-                <p className="text-foreground">{caseStudy.role}</p>
+                <p className="text-foreground">
+                  {Array.isArray(caseStudy.roles) && caseStudy.roles.length
+                    ? caseStudy.roles.join(" · ")
+                    : caseStudy.role}
+                </p>
               </div>
               <div>
                 <h3 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-2">Timeline</h3>
                 <p className="text-foreground">{caseStudy.timeline}</p>
               </div>
               <div>
-                <h3 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-2">Team</h3>
-                <p className="text-foreground">{caseStudy.team}</p>
+                <h3 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-2">Client</h3>
+                <p className="text-foreground">{caseStudy.client}</p>
               </div>
               <div>
                 <h3 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-2">Tools</h3>
@@ -201,7 +125,7 @@ const CaseStudy = () => {
           {/* Problem & Constraints */}
           <section>
             <h2 className="text-3xl font-semibold tracking-tight mb-6">Problem & Constraints</h2>
-            <p className="text-lg leading-relaxed mb-6">{caseStudy.problem.description}</p>
+            <p className="text-lg leading-relaxed mb-6">{highlightTerms(caseStudy.problem.description, boldTerms)}</p>
             <div className="border-l-4 border-primary pl-6">
               <h3 className="font-semibold mb-3">Key Constraints</h3>
               <ul className="space-y-2 text-muted-foreground">
@@ -225,7 +149,7 @@ const CaseStudy = () => {
                   <p className="text-muted-foreground mb-4">{phase.description}</p>
                   {phase.insights.length > 0 && (
                     <ul className="space-y-1">
-                      {phase.insights.map((insight: string, i: number) => (
+                      {phase.insights.map((insight: any, i: number) => (
                         <li key={i} className="text-sm flex items-start gap-2">
                           <span className="text-primary mt-1">→</span>
                           <span>{insight}</span>
@@ -233,74 +157,42 @@ const CaseStudy = () => {
                       ))}
                     </ul>
                   )}
+                  {phase.pain_points && phase.pain_points.length > 0 && (
+                    <div className="mt-4">
+                      <h4 className="text-sm font-semibold mb-2">Pain points</h4>
+                      <ul className="grid gap-2 sm:grid-cols-2">
+                        {phase.pain_points.map((p: string, j: number) => (
+                          <li key={j} className="flex items-start gap-2 bg-muted rounded-md p-3">
+                            <span className="text-primary mt-1">•</span>
+                            <span className="text-sm">{p}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {phase.design_system && phase.design_system.length > 0 && (
+                    <div className="mt-4">
+                      <h4 className="text-sm font-semibold mb-2">Design System</h4>
+                      <ul className="grid gap-2 sm:grid-cols-2">
+                        {phase.design_system.map((d: string, k: number) => (
+                          <li key={k} className="flex items-start gap-2 bg-muted rounded-md p-3">
+                            <span className="text-primary mt-1">•</span>
+                            <span className="text-sm">{d}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
           </section>
 
           {/* Solution Highlights */}
-          <section>
-            <h2 className="text-3xl font-semibold tracking-tight mb-6">Solution Highlights</h2>
-            <ul className="space-y-4 mb-8">
-              {caseStudy.solution.highlights.map((highlight: string, index: number) => (
-                <li key={index} className="flex items-start gap-3">
-                  <span className="w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-semibold flex-shrink-0 mt-0.5">
-                    {index + 1}
-                  </span>
-                  <span className="text-foreground">{highlight}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="bg-muted p-6 rounded-lg">
-              <h3 className="font-semibold mb-3">Key Components Designed</h3>
-              <ul className="space-y-2">
-                {caseStudy.solution.components.map((component: string, index: number) => (
-                  <li key={index} className="text-sm text-muted-foreground">• {component}</li>
-                ))}
-              </ul>
-            </div>
-          </section>
+          {/* kept commented out by request */}
 
           {/* Results & Impact */}
-          <section className="bg-primary/5 -mx-4 px-4 md:-mx-8 md:px-8 py-12 rounded-lg">
-            <h2 className="text-3xl font-semibold tracking-tight mb-8">Results & Impact</h2>
-            
-            <div className="mb-8">
-              <h3 className="font-semibold mb-4">Quantitative Metrics</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {caseStudy.results.quantitative.map((result: any, index: number) => (
-                  <div key={index} className="bg-background p-4 rounded-lg">
-                    <p className="text-sm text-muted-foreground mb-2">{result.metric}</p>
-                    <div className="flex items-baseline gap-4">
-                      <span className="text-sm line-through text-muted-foreground">{result.before}</span>
-                      <span className="text-2xl font-semibold text-primary">{result.after}</span>
-                      <span className="text-sm font-medium text-primary">{result.change}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h3 className="font-semibold mb-4">Qualitative Outcomes</h3>
-              <ul className="space-y-2">
-                {caseStudy.results.qualitative.map((result: string, index: number) => (
-                  <li key={index} className="flex items-start gap-2">
-                    <span className="text-primary mt-1">✓</span>
-                    <span>{result}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
-
-          {/* Personal Voice */}
-          <section>
-            <h2 className="text-3xl font-semibold tracking-tight mb-6">What I Learned</h2>
-            <div className="border-l-4 border-primary pl-6 italic text-lg leading-relaxed">
-              {caseStudy.personalVoice}
-            </div>
-          </section>
+          {/* kept commented out by request */}
 
           {/* Next Steps */}
           <section>

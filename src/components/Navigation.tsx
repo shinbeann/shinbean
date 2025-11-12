@@ -11,7 +11,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16 px-4">
           {/* Logo/Name */}
           <NavLink to="/" className="text-lg font-semibold tracking-tight hover:text-primary transition-colors">
-            Shin Lee
+            Gay Shin Lee
           </NavLink>
 
           {/* Desktop Navigation */}

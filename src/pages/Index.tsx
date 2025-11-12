@@ -5,34 +5,34 @@ import Hero from "@/components/Hero";
 import ProjectCard from "@/components/ProjectCard";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-// Mock project data - replace with real data
+
 const projects = [
   {
     id: 1,
-    title: "Healthcare Platform Redesign",
-    role: "Lead Product Designer",
-    problem: "Complex navigation caused 40% drop-off during appointment booking",
-    outcome: "Reduced booking time by 60%, increased completion rate to 87%",
-    tags: ["Healthcare", "Mobile", "User Research", "IA"],
-    image: "/placeholder.svg",
-    slug: "healthcare-platform",
+    title: "Hybrid RAG",
+    roles: ["Lead UX Researcher"],
+    problem: "SPF need a faster, more intuitive, and reliable access to SOPs and references that still works offline.",
+    outcome: "-",
+    tags: ["UX Research", "RAG", "Android"],
+    image: "/htx.png",
+    slug: "hybridrag",
     category: "Professional" as const,
   },
   {
     id: 2,
-    title: "E-Commerce Checkout Flow",
-    role: "UX Designer",
+    title: "KidneyQuest",
+    roles: ["UX Designer", "UI/UX Designer"],
     problem: "High cart abandonment due to 5-step checkout process",
     outcome: "18% increase in conversion, reduced checkout to 3 steps",
     tags: ["E-Commerce", "Conversion", "A/B Testing"],
     image: "/placeholder.svg",
-    slug: "ecommerce-checkout",
+    slug: "kidneyquest",
     category: "Professional" as const,
   },
   {
     id: 3,
     title: "University Course Registration",
-    role: "UX/UI Designer",
+    roles: ["UX/UI Designer"],
     problem: "Students struggled to find and register for courses efficiently",
     outcome: "95% task success rate, 4.8/5 satisfaction score",
     tags: ["Education", "Web", "Usability Testing"],
@@ -43,7 +43,7 @@ const projects = [
   {
     id: 4,
     title: "Personal Finance Tracker",
-    role: "Product Designer",
+    roles: ["Product Designer"],
     problem: "Existing apps lacked visual insight into spending patterns",
     outcome: "Featured on Product Hunt, 1000+ early adopters",
     tags: ["Fintech", "Data Viz", "Mobile"],
@@ -88,10 +88,16 @@ const Index = () => {
                   All Projects
                 </TabsTrigger>
                 <TabsTrigger 
-                  value="work"
-                  onClick={() => setSelectedCategory("work")}
+                  value="Professional"
+                  onClick={() => setSelectedCategory("professional")}
                 >
-                  Work
+                  Professional
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="school"
+                  onClick={() => setSelectedCategory("school")}
+                >
+                  School
                 </TabsTrigger>
                 <TabsTrigger 
                   value="passion"

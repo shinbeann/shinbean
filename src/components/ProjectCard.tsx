@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 
 interface ProjectCardProps {
   title: string;
-  role: string;
+  // support either a single role or multiple roles
+  role?: string;
+  roles?: string[];
   problem: string;
   outcome: string;
   tags: string[];
@@ -14,7 +16,8 @@ interface ProjectCardProps {
   category: "Professional" | "School" | "Passion";
 }
 
-const ProjectCard = ({ title, role, problem, outcome, tags, image, slug, category }: ProjectCardProps) => {
+const ProjectCard = ({ title, role, roles, problem, outcome, tags, image, slug, category }: ProjectCardProps) => {
+  const roleItems = roles && roles.length ? roles : role ? [role] : [];
   return (
     <Link to={`/case-study/${slug}`}>
       <Card className="group overflow-hidden border border-border hover:border-primary/50 transition-all duration-300 h-full">
@@ -34,7 +37,7 @@ const ProjectCard = ({ title, role, problem, outcome, tags, image, slug, categor
             {category}
           </Badge>
 
-          {/* Title and Role */}
+          {/* Title and Role(s) */}
           <div>
             <div className="flex items-start justify-between gap-2">
               <h3 className="text-xl font-semibold tracking-tight group-hover:text-primary transition-colors">
@@ -42,7 +45,9 @@ const ProjectCard = ({ title, role, problem, outcome, tags, image, slug, categor
               </h3>
               <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
             </div>
-            <p className="text-sm text-muted-foreground mt-1">{role}</p>
+            {roleItems.length > 0 && (
+              <p className="text-sm text-muted-foreground mt-1">{roleItems.join(" · ")}</p>
+            )}
           </div>
 
           {/* Problem → Outcome */}

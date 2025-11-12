@@ -1,0 +1,149 @@
+import { CaseStudy } from "@/types/caseStudy";
+
+const hybridrag: CaseStudy = {
+  slug: "hybridrag",
+  title: "Hybrid RAG for Singapore Police Force",
+  roles: ["Lead Product Designer"],
+  timeline: "1 year (Sep 2025 - May 2026)",
+  client: "HTX (Home Team Science & Technology Agency)",
+  tools: "Figma",
+  hero: "/htx.png",
+  overview: {
+    context:
+      "To develop a  hybrid, offline-first RAG assistant that gives Singapore Police Force (SPF) ground response officers fast, arrestability-aware guidance (Penal Code, SOPs, quick-reference playbooks) that still works in connectivity blackspots.",
+    goals: [
+      "Cut on-scene lookup time by ≥50% (time to first relevant extract and rationale)",
+      "Achieve 100% successful guidance completion in offline conditions",
+      "Deliver a one-hand, mobile-first experience tuned for standard-issue Android devices",
+    ],
+  },
+  problem: {
+    description:
+      "Existing information retrieval solutions hinder operational efficiency within the SPF. Ground Response Force officers currently face inefficient and time-consuming procedures when accessing Standard Operating Procedures (SOPs) or reference materials. The existing knowledge base is slow, keyword-dependent, and often inaccessible without stable connectivity, forcing officers to rely on supervisors for clarification. There is a clear need to provide officers with faster, more intuitive, and reliable access even under poor connectivity to important information. A system that enables natural language search and empowers officers to make decentralised decisions, would significantly enhance frontline decision-making and operational responsiveness. ",
+    constraints: [
+      "Must operate offline with on-device retrieval",
+      "Sensitive content controls",
+      "Android hardware ",
+      "Strict scope alignment with HTX/SPF review cadence and security sign-offs",
+    ],
+  },
+  process: [
+    {
+      phase: "Empathise",
+      description:
+        "Conducted 4 user interviews, and sent a survey to 10 SPF ground response officers, translated into a user persona",
+      insights: [
+        <img src="/Capstone Persona.png" alt="Capstone Persona" className="rounded-lg shadow-md" />,
+      ],
+      pain_points: [
+        "Connectivity blackspots break coordination and lookups",
+        "‘Grey area’ legal classification raises hesitation",
+        "Recall gaps across penal codes/protocols",
+        "Harsh field ergonomics (rain, gloves, glare, one-hand use)",
+        "Reliance on seniors for ad-hoc answers",
+        "Slow legacy lookups and non-searchable ‘logbook’",
+      ],
+    },
+    {
+      phase: "Synthesise",
+      description: "Prioritised features based on MoSCoW matrix.",
+      insights: [
+        "Connectivity blackspots and legal ambiguity are Must-solve problems",
+        "UI must be Kindle-like (fast, low-clutter), optimised for one-hand use",
+      ],
+    },
+    {
+      phase: "Competitive Audit",
+      description: "Quick market/adjacent research used for inspiration.",
+      insights: [
+        <a
+          href="https://sso.agc.gov.sg/SL/PFA2004-RG1?DocDate=20220901&WholeDoc=1"
+          target="_blank"
+          rel="noreferrer"
+          className="underline text-primary"
+        >
+          SPF Police regulations document
+        </a>,
+        <a
+          href="https://www.thestandard.com.hk/hong-kong-news/article/308361/Upgraded-police-app-features-chatbot"
+          target="_blank"
+          rel="noreferrer"
+          className="underline text-primary"
+        >
+          Hong Kong Police Chatbot
+        </a>,
+        <a
+          href="https://www.behance.net/gallery/88963413/Standard-Operating-Procedure?tracking_source=search_projects%7CStandard+operating+procedure+search+app&l=21"
+          target="_blank"
+          rel="noreferrer"
+          className="underline text-primary"
+        >
+          Standard Operating Procedure search app (Behance)
+        </a>,
+      ],
+    },
+    {
+      phase: "Prototype Solutions (Ongoing)",
+      description:
+        "Iteration of Lo-Fi prototypes in Figma, and creation of Design System",
+      insights: [
+        <img src="/designsystem.png" alt="Design System" className="rounded-lg shadow-md" />,
+      ],
+      design_system: [
+        "Tokens: color, spacing, typography, radii, shadows",
+        "Type scale tuned for small screens (readable in glare)",
+        "Core components: Button, Input, Card, Badge, Tabs, Dialog, Toast",
+        "State patterns: hover/focus/active/disabled with ≥4.5:1 contrast",
+        "Documentation in Figma with usage, do/don't, and variants",
+      ],
+    },
+  ],
+  solution: {
+    highlights: [
+      "Collapsed 7-step flow to 3 clear stages: Select → Confirm → Done",
+      "Introduced real-time slot availability calendar (no more back-and-forth)",
+      "Implemented smart defaults for returning users (80% of users)",
+      "Created mobile-optimized date picker (reduced input errors by 34%)",
+      "Added progress indicator and ability to save/resume booking",
+    ],
+    components: [
+      "Date picker component with accessibility enhancements",
+      "Smart form system with conditional fields",
+      "Responsive layout system for mobile-first approach",
+    ],
+  },
+  results: {
+    quantitative: [
+      { metric: "Booking completion rate", before: "60%", after: "87%", change: "+27%" },
+      { metric: "Average booking time", before: "8.5 min", after: "3.2 min", change: "-62%" },
+      { metric: "Mobile completion rate", before: "48%", after: "84%", change: "+36%" },
+      { metric: "Support tickets", before: "~180/month", after: "~45/month", change: "-75%" },
+    ],
+    qualitative: [
+      "NPS score increased from 32 to 61",
+      "Patient satisfaction rating: 4.6/5 (up from 2.8/5)",
+      '"Finally feels like a modern healthcare experience" - user feedback',
+    ],
+  },
+  personalVoice:
+    "This project taught me the importance of balancing user needs with technical constraints. The biggest challenge was convincing stakeholders that removing fields (insurance verification) would actually improve data quality—turned out, optional fields with smart defaults had 95% completion vs. 60% for required fields. I also learned to design for the 'happy path' first, then layer in edge cases, rather than trying to accommodate everything upfront.",
+  nextSteps: {
+    shipped: [
+      "Hi-Fi prototypes for usability testing",
+      "Develop a concreate A/B test plan, and the success matrix",
+      "A/B test appointment reminders (to HTX via email)",
+      "Iterate prototype based on feedback",
+    ],
+  },
+  tags: [
+    "User Research",
+    "Contextual Inquiry",
+    "MoSCoW",
+    "Cognitive Walkthrough",
+    "Usability Testing",
+    "RAG",
+    "Android",
+  ],
+};
+
+export default hybridrag;
