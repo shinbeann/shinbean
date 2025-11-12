@@ -2,68 +2,89 @@ import { CaseStudy } from "@/types/caseStudy";
 
 const kidneyquest: CaseStudy = {
   slug: "kidneyquest",
-  title: "KidneyQuest – Patient Education & Triage",
+  title: "KidneyQuest",
   roles: ["UX Designer", "UI Designer"],
-  timeline: "12 weeks (Jan 2025 – Mar 2025)",
-  client: "University Capstone",
-  tools: "Figma, FigJam",
+  timeline: "4 months (Sept – Dec 2025)",
+  client: "The National Kidney Foundation (NKF)",
+  tools: "Figma, Figma Make",
   hero: "/placeholder.svg",
   overview: {
     context:
-      "Helping CKD patients and caregivers understand treatment options and next steps through a guided, plain-language experience.",
+      "Designing a mobile web AR mini-game to complement NKF’s inflatable kidney exhibit. Visitors scan a QR, answer quick questions, earn Orbs, and toss them to clear toxins. This replaces the need for paper handouts with a fun, self-directed experience.",
     goals: [
-      "Reduce time to find relevant guidance to under 30 seconds",
-      "Improve confidence in next steps (self-reported ≥ 4/5)",
-      "Design for accessibility and mobile-first use",
-    ],
+      "Cut printed brochures/worksheets by ≥50% at events",
+      "Achieve ≥80% positive ease/engagement feedback",
+      "Ensure ≥3 key takeaways recalled within a ≤3-minute session",
+      "Mobile-first, multilingual, offline-friendly"
+    ]
   },
   problem: {
     description:
-      "Patients struggle to find actionable, trustworthy information in a stressful moment. Resources are scattered, medical jargon is dense, and information architecture is not optimised for task-based navigation.",
+      "Event-goers encounter dense brochures and static displays that are easy to ignore under time pressure. Content recall is low, queues are dynamic, and paper materials are unsustainable. We need a fast, accessible, and engaging way to deliver kidney-health essentials without increasing manpower.",
     constraints: [
-      "Medical language must be simplified without loss of meaning",
-      "Mobile-first with offline-friendly reading",
-      "Scope limited to education and triage guidance (no PHI)",
-    ],
+      "Total playtime target ≤3 minutes (queue-safe)",
+      "PDPA-safe: on-device processing by default, no PII required",
+      "Mobile web/PWA; must work with spotty connectivity (offline fallback)",
+      "Camera permissions optional with non-camera path",
+      "Operable on common smartphones at public venues, minimal set-up for staff"
+    ]
   },
   process: [
     {
       phase: "Empathise",
       description:
-        "Spoke with 3 patients and 2 clinicians; mapped decision points and common misconceptions.",
+        "Interviewed 3 participants and ran a survey with 61 respondents to understand what draws people to public exhibits and why they walk past.",
       insights: [
-        "Patients need reassurance before details",
-        "Caregivers act as information gatekeepers",
+        "Stopping power depends on clarity at first glance and interactivity",
+        "Visitors are often in a rush; most will give 2–5 minutes max",
+        "Giveaways/freebies motivate attention but content must be relatable",
+        "Simple, game-like tasks beat long reading on small screens"
       ],
       pain_points: [
-        "Dense jargon blocks comprehension",
-        "Too many links, not enough guidance",
-        "Hard to skim on small screens",
-        "Unclear ‘what do I do now?’",
-      ],
+        "Looks boring/irrelevant or unclear purpose on first look",
+        "Little time, crowded venues, attention is fragmented",
+        "Dense text/jargon causing low retention",
+        "Paper handouts are often discarded and unsustainable"
+      ]
     },
     {
       phase: "Synthesise",
-      description: "Framed tasks around top questions and designed a minimal IA.",
+      description:
+        "Affinity mapping of interview/survey data.",
       insights: [
-        "Group by task (‘Decide’, ‘Prepare’, ‘Ask your doctor’) vs. body systems",
-        "Use progressive disclosure to lower cognitive load",
-      ],
+        <img src="/affinitymapping.png" alt="Affinity Mapping" />,
+        "One concept per screen improved comprehension and speed",
+        "Visible progress + countdown increased focus within 3-minute cap",
+        "Neutral, gain-framed feedback reduced anxiety vs. ‘pass/fail’",
+        "Optional 30-second risk micro-screener bridges to screening action"
+      ]
     },
     {
-      phase: "Prototype Solutions (Ongoing)",
+      phase: "Ideation",
       description:
-        "Low-fi flows tested remotely; iterated copy and CTA placement based on usability findings.",
+        "Led group brainstorming (Crazy 8s) and product ideation",
       insights: [
-        "Primary CTA at top and bottom improved completion",
-        "Chunked content (cards) outperformed long paragraphs",
-      ],
-      design_system: [
-        "Type scale with ≥16px base and 1.25 ratio",
-        "Cards, Steppers, Callouts, Link Buttons",
-        "High contrast color tokens and focus states",
-      ],
+        <img src="/ideation.png" alt="Ideation" />
+        ]
     },
+    {
+      phase: "Prototype Solutions",
+      description:
+        "Produced lo-fi prototypes and framed a user flow",
+      insights: [
+        <img src="/userflow.png" alt="User Flow"/>,
+        <img src="/NKFds.png" alt="NKF Design System"/>,
+        "Design System was adapted from NKF existing guidelines to ensure brand consistency",
+
+      ]
+    },
+    {
+        phase: "",
+        description: "",
+        insights: [
+          <img src="/NKFhifi.png" alt="NKF Hi Fi"/>,
+        ]
+      },
   ],
   nextSteps: {
     shipped: [
