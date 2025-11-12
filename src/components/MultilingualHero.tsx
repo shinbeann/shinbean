@@ -44,7 +44,7 @@ const MultilingualHero = () => {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-mono font-normal text-foreground transition-all duration-500 leading-tight">
             {GREETINGS[currentIndex].text.toLowerCase()}.
             <br />
-            i'm Shin Lee.
+            i'm
           </h1>
           
           {/* Language Chips - User Control */}
@@ -70,7 +70,7 @@ const MultilingualHero = () => {
         {/* Bio */}
         <div className="max-w-2xl">
           <p className="text-base md:text-lg text-foreground/80 leading-relaxed font-sans">
-            I'm a computer science undergraduate, drawn to human-centered design, 
+            Shin Lee. I'm a computer science undergraduate, drawn to human-centered design, 
             elevating people's stories into data-backed decisions via mixed-methods 
             research and iterative prototyping to ship intuitive, inclusive products.
           </p>

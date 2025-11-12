@@ -90,7 +90,7 @@ const CaseStudy = () => {
             <h2 className="text-3xl font-semibold mb-8 font-sans text-foreground" style={{letterSpacing: '-0.02em'}}>Overview</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 p-6 bg-accent/50 rounded-lg border border-border">
               <div>
-                <h3 className="font-semibold text-xs uppercase tracking-wider text-muted-foreground mb-3 font-mono">Role</h3>
+                <h3 className="font-semibold text-xs uppercase tracking-wider text-muted-foreground mb-3 font-sans">Role</h3>
                 <p className="text-foreground text-base">
                   {Array.isArray(caseStudy.roles) && caseStudy.roles.length
                     ? caseStudy.roles.join(" · ")
@@ -98,15 +98,15 @@ const CaseStudy = () => {
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-xs uppercase tracking-wider text-muted-foreground mb-3 font-mono">Timeline</h3>
+                <h3 className="font-semibold text-xs uppercase tracking-wider text-muted-foreground mb-3 font-sans">Timeline</h3>
                 <p className="text-foreground text-base">{caseStudy.timeline}</p>
               </div>
               <div>
-                <h3 className="font-semibold text-xs uppercase tracking-wider text-muted-foreground mb-3 font-mono">Client</h3>
+                <h3 className="font-semibold text-xs uppercase tracking-wider text-muted-foreground mb-3 font-sans">Client</h3>
                 <p className="text-foreground text-base">{caseStudy.client}</p>
               </div>
               <div>
-                <h3 className="font-semibold text-xs uppercase tracking-wider text-muted-foreground mb-3 font-mono">Tools</h3>
+                <h3 className="font-semibold text-xs uppercase tracking-wider text-muted-foreground mb-3 font-sans">Tools</h3>
                 <p className="text-foreground text-base">{caseStudy.tools}</p>
               </div>
             </div>
@@ -151,7 +151,6 @@ const CaseStudy = () => {
                   <p className="text-foreground mb-6 font-serif text-lg leading-relaxed">{phase.description}</p>
                   {phase.insights.length > 0 && (
                     <div className="mb-6">
-                      <h4 className="text-sm font-semibold mb-3 font-mono uppercase tracking-wider text-muted-foreground">Insights</h4>
                       <ul className="space-y-3">
                         {phase.insights.map((insight: any, i: number) => (
                           <li key={i} className="flex items-start gap-3">
@@ -177,7 +176,6 @@ const CaseStudy = () => {
                   )}
                   {phase.design_system && phase.design_system.length > 0 && (
                     <div className="mt-6 bg-success/10 p-6 rounded-lg border border-success/20">
-                      <h4 className="text-sm font-semibold mb-4 font-mono uppercase tracking-wider text-foreground">Design System</h4>
                       <ul className="grid gap-3 sm:grid-cols-2">
                         {phase.design_system.map((d: string, k: number) => (
                           <li key={k} className="flex items-start gap-3 bg-background/50 rounded-md p-4">
