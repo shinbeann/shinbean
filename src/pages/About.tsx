@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
-import aboutMeImage from "@/assets/aboutme.jpg";
+import aboutMeImage from "/public/aboutme.jpg";
 
 const About = () => {
   const skills = [
@@ -33,8 +33,8 @@ const About = () => {
               <div className="flex-shrink-0">
                 <img 
                   src={aboutMeImage} 
-                  alt="Gayshin Lee" 
-                  className="w-64 h-64 object-cover rounded-lg shadow-lg"
+                  alt="Gay shin Lee" 
+                  className="w-64 h-65 object-cover shadow-lg"
                 />
               </div>
               <div className="flex-1">
