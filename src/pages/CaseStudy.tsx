@@ -266,7 +266,6 @@ const CaseStudy = () => {
           {/* Next Steps */}
           <section className="not-prose bg-card p-8 rounded-lg border border-border">
             <h2 className="text-3xl font-semibold mb-6 font-sans text-foreground" style={{letterSpacing: '-0.02em'}}>Next Steps</h2>
-            <p className="mb-6 text-foreground font-serif text-lg">Post-launch roadmap includes:</p>
             <ul className="space-y-4">
               {caseStudy.nextSteps.shipped.map((step: string, index: number) => (
                 <li key={index} className="flex items-start gap-3 bg-warning/10 p-4 rounded-lg border border-warning/20">

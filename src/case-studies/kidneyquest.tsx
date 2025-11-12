@@ -7,7 +7,7 @@ const kidneyquest: CaseStudy = {
   timeline: "4 months (Sept – Dec 2025)",
   client: "The National Kidney Foundation (NKF)",
   tools: "Figma, Figma Make",
-  hero: "/placeholder.svg",
+  hero: "/kidneyquest.png",
   overview: {
     context:
       "Designing a mobile web AR mini-game to complement NKF's inflatable kidney exhibit. Visitors scan a QR, answer quick questions, earn Orbs, and toss them to clear toxins. This replaces the need for paper handouts with a fun, self-directed experience.",
@@ -82,9 +82,9 @@ const kidneyquest: CaseStudy = {
   finalPrototype: <img src="/NKFhifi.png" alt="High-fidelity prototype screens" className="w-[70%] h-auto mx-auto" />,
   nextSteps: {
     shipped: [
-      "Hi-fi prototype with annotated copy",
-      "Content audit for readability (grade 7–8)",
-      "Second round of moderated tests",
+      "Usability test approval from NKF",
+      "Conduct usability test with 5-7 participants",
+      "Second round of iterations based on feedback",
     ],
   },
   tags: ["Healthcare", "Accessibility", "Usability Testing"],
