@@ -163,10 +163,10 @@ const CaseStudy = () => {
                   )}
                   {phase.pain_points && phase.pain_points.length > 0 && (
                     <div className="mt-6 bg-destructive/10 p-6 rounded-lg border border-destructive/20">
-                      <h4 className="text-sm font-semibold mb-4 font-mono uppercase tracking-wider text-foreground">Pain Points</h4>
+                      <h4 className="text-sm font-semibold mb-4 font-sans uppercase tracking-wider text-foreground">Pain Points</h4>
                       <ul className="grid gap-3 sm:grid-cols-2">
                         {phase.pain_points.map((p: string, j: number) => (
-                          <li key={j} className="flex items-center justify-center gap-3 bg-background/50 rounded-md px-6 py-5 text-center">
+                          <li key={j} className="flex items-start gap-3 bg-background/50 rounded-md px-6 py-5">
                             <span className="text-destructive font-bold">✕</span>
                             <span className="text-sm font-sans text-foreground">{p}</span>
                           </li>
@@ -180,7 +180,7 @@ const CaseStudy = () => {
                         {phase.design_system.map((d: string, k: number) => (
                           <li key={k} className="flex items-start gap-3 bg-background/50 rounded-md p-4">
                             <span className="text-success mt-1 font-bold">✓</span>
-                            <span className="text-sm font-serif text-foreground">{d}</span>
+                            <span className="text-sm font-sans text-foreground">{d}</span>
                           </li>
                         ))}
                       </ul>
