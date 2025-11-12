@@ -81,7 +81,7 @@ const MultilingualHero = () => {
           <Button 
             onClick={scrollToProjects}
             size="lg"
-            className="group bg-accent hover:bg-accent/90 text-background"
+            className="group bg-foreground hover:bg-foreground/90 text-background"
           >
             View Work
             <ArrowDown className="ml-2 w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
@@ -96,13 +96,13 @@ const MultilingualHero = () => {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="pt-12 animate-bounce">
+        <div className="pt-12 flex justify-center animate-bounce">
           <button 
             onClick={scrollToProjects}
             className="text-muted-foreground hover:text-foreground transition-colors"
             aria-label="Scroll to projects"
           >
-            <ArrowDown className="w-6 h-6 mx-auto" />
+            <ArrowDown className="w-6 h-6" />
           </button>
         </div>
       </div>
