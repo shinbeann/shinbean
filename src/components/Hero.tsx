@@ -10,15 +10,10 @@ const Hero = () => {
   return (
     <section className="min-h-screen flex items-center justify-center px-4 pt-16">
       <div className="container max-w-4xl mx-auto text-center space-y-8">
-        {/* Name & Role */}
-        <div className="space-y-4">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight">
-            Shin Lee
-          </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground">
-            UX/UI Designer
-          </p>
-        </div>
+        {/* Role */}
+        <p className="text-xl md:text-2xl text-muted-foreground">
+          UX/UI Designer
+        </p>
 
         {/* Bio */}
         <div className="max-w-2xl mx-auto">

@@ -9,17 +9,41 @@ import { useState } from "react";
 import { toast } from "sonner";
 
 const Contact = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Mock form submission - in production, this would send to a backend
-    toast.success("Message sent! I'll get back to you soon.");
-    setFormData({ name: "", email: "", message: "" });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-contact-email`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      toast.success("Message sent! I'll get back to you soon.");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast.error("Failed to send message. Please try again or email me directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -80,8 +104,8 @@ const Contact = () => {
                   />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full">
-                  Send Message
+                <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </div>

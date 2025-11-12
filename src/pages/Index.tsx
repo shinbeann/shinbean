@@ -56,8 +56,10 @@ const projects = [
 const Index = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
-  const filteredProjects = selectedCategory === "all" 
-    ? projects 
+  const filteredProjects = selectedCategory === "all"
+    ? projects
+    : selectedCategory === "work"
+    ? projects.filter(p => p.category.toLowerCase() === "professional" || p.category.toLowerCase() === "school")
     : projects.filter(p => p.category.toLowerCase() === selectedCategory);
 
   return (
@@ -86,16 +88,10 @@ const Index = () => {
                   All Projects
                 </TabsTrigger>
                 <TabsTrigger 
-                  value="professional"
-                  onClick={() => setSelectedCategory("professional")}
+                  value="work"
+                  onClick={() => setSelectedCategory("work")}
                 >
-                  Professional
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="school"
-                  onClick={() => setSelectedCategory("school")}
-                >
-                  School
+                  Work
                 </TabsTrigger>
                 <TabsTrigger 
                   value="passion"
