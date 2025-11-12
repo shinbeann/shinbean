@@ -7,6 +7,13 @@ import { Label } from "@/components/ui/label";
 import { Mail, Linkedin, FileText } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import { z } from "zod";
+
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
+  email: z.string().trim().email("Please enter a valid email address").max(255, "Email must be less than 255 characters"),
+  message: z.string().trim().min(10, "Message must be at least 10 characters").max(1000, "Message must be less than 1000 characters")
+});
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -21,6 +28,9 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
+      // Validate form data
+      const validatedData = contactSchema.parse(formData);
+
       const response = await fetch(
         `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-contact-email`,
         {
@@ -28,19 +38,23 @@ const Contact = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(formData),
+          body: JSON.stringify(validatedData),
         }
       );
 
       if (!response.ok) {
-        throw new Error("Failed to send message");
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Failed to send message");
       }
 
       toast.success("Message sent! I'll get back to you soon.");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
-      console.error("Error sending message:", error);
-      toast.error("Failed to send message. Please try again or email me directly.");
+      if (error instanceof z.ZodError) {
+        toast.error(error.errors[0].message);
+      } else {
+        toast.error("Failed to send message. Please try again or email me directly.");
+      }
     } finally {
       setIsSubmitting(false);
     }
