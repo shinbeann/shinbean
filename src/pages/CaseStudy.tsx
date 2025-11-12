@@ -242,6 +242,25 @@ const CaseStudy = () => {
           {/* Results & Impact */}
           {/* kept commented out by request */}
 
+          {/* Personal Voice */}
+          {caseStudy.personalVoice && (
+            <section className="not-prose bg-accent/30 p-8 rounded-lg border border-border">
+              <h2 className="text-3xl font-semibold mb-6 font-sans text-foreground" style={{letterSpacing: '-0.02em'}}>Personal Voice</h2>
+              <p className="text-lg leading-relaxed font-serif text-foreground italic">
+                {caseStudy.personalVoice}
+              </p>
+            </section>
+          )}
+
+          {/* Final Prototype */}
+          {caseStudy.finalPrototype && (
+            <section className="not-prose">
+              <div className="w-full flex justify-center">
+                {caseStudy.finalPrototype}
+              </div>
+            </section>
+          )}
+
           {/* Next Steps */}
           <section className="not-prose bg-card p-8 rounded-lg border border-border">
             <h2 className="text-3xl font-semibold mb-6 font-sans text-foreground" style={{letterSpacing: '-0.02em'}}>Next Steps</h2>

@@ -77,14 +77,9 @@ const kidneyquest: CaseStudy = {
         <img src="/designsystem.png" alt="NKF Design System components" className="w-full h-auto" />
       ]
     },
-    {
-      phase: "",
-      description: "",
-      insights: [
-        <img src="/NKFhifi.png" alt="High-fidelity prototype screens" className="w-[70%] h-auto mx-auto" />
-      ]
-    }
   ],
+  personalVoice: "This project taught me the value of designing within real-world constraints—short attention spans, crowded venues, and minimal setup time. Balancing engagement with education required constant iteration and user testing. I learned to prioritize clarity and speed without sacrificing impact, and to design for accessibility from the start rather than as an afterthought.",
+  finalPrototype: <img src="/NKFhifi.png" alt="High-fidelity prototype screens" className="w-[70%] h-auto mx-auto" />,
   nextSteps: {
     shipped: [
       "Hi-fi prototype with annotated copy",
