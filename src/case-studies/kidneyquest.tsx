@@ -81,7 +81,7 @@ const kidneyquest: CaseStudy = {
       phase: "",
       description: "",
       insights: [
-        <img src="/NKFhifi.png" alt="High-fidelity prototype screens" className="w-full h-auto" />
+        <img src="/NKFhifi.png" alt="High-fidelity prototype screens" className="w-[70%] h-auto mx-auto" />
       ]
     }
   ],

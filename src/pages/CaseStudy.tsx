@@ -181,8 +181,10 @@ const CaseStudy = () => {
                         {phase.insights.map((insight: any, i: number) => {
                           // Check if insight is a React element (image)
                           if (typeof insight !== 'string') {
+                            // Check if it's a design system image by looking at alt text
+                            const isDesignSystem = insight.props?.alt?.toLowerCase().includes('design system');
                             return (
-                              <div key={i} className="w-full rounded-lg overflow-hidden border border-border">
+                              <div key={i} className={`${isDesignSystem ? 'w-4/5 mx-auto' : 'w-full'} rounded-lg overflow-hidden border border-border`}>
                                 {insight}
                               </div>
                             );
@@ -272,7 +274,7 @@ const CaseStudy = () => {
                     className={`text-foreground hover:text-foreground ${!prevSlug ? 'invisible' : ''}`}
                   >
                     {prevSlug ? (
-                      <Link to={`/case-study/${prevSlug}`}>
+                      <Link to={`/case-study/${prevSlug}`} onClick={() => window.scrollTo(0, 0)}>
                         ← Previous Project
                       </Link>
                     ) : (
@@ -290,7 +292,7 @@ const CaseStudy = () => {
                     className={`text-foreground hover:text-foreground ${!nextSlug ? 'invisible' : ''}`}
                   >
                     {nextSlug ? (
-                      <Link to={`/case-study/${nextSlug}`}>
+                      <Link to={`/case-study/${nextSlug}`} onClick={() => window.scrollTo(0, 0)}>
                         Next Project →
                       </Link>
                     ) : (
