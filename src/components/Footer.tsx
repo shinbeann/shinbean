@@ -8,15 +8,15 @@ const Footer = () => {
           {/* Contact Info */}
           <div className="flex items-center gap-6">
             <a 
-              href="mailto:hello@designer.com" 
+              href="mailto:gayshinlee@gmail.com" 
               className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Email"
             >
               <Mail className="w-4 h-4" />
-              <span>hello@designer.com</span>
+              <span>gayshinlee@gmail.com</span>
             </a>
             <a 
-              href="https://linkedin.com/in/designer" 
+              href="https://www.linkedin.com/in/shin-lee-gay/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"

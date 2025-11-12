@@ -6,7 +6,7 @@ const About = () => {
   const skills = [
     "User Research", "Usability Testing", "Information Architecture",
     "Interaction Design", "Prototyping", "Design Systems",
-    "Figma", "Adobe XD", "Sketch", "HTML/CSS", "React",
+    "Figma", "Sketch", "HTML/CSS", "React",
     "A/B Testing", "Analytics", "Accessibility (WCAG)"
   ];
 
@@ -22,9 +22,9 @@ const About = () => {
               About Me
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              I'm a UX/UI designer who believes great design is invisible—it simply works. 
-              My approach combines rigorous research with creative problem-solving to craft 
-              experiences that users love and businesses value.
+              I am a Computer Science Undergraduate, drawn to human-centered design, 
+              elevating people's stories into data-backed decisions via mixed-methods 
+              research and iterative prototyping to ship intuitive, inclusive products.
             </p>
           </header>
 
@@ -33,9 +33,9 @@ const About = () => {
             <h2 className="text-2xl font-semibold tracking-tight">Background</h2>
             <div className="space-y-4 text-foreground/90 leading-relaxed">
               <p>
-                With over 5 years of experience in product design, I've worked across healthcare, 
-                e-commerce, and SaaS platforms. My journey began with a degree in Human-Computer 
-                Interaction, where I discovered my passion for making complex systems intuitive.
+                With experience spanning product research and design, I've contributed to projects 
+                across healthcare, public safety, and education. My path into UX grew from a 
+                fascination with making complex tools feel simple and trustworthy.
               </p>
               <p>
                 I'm driven by measurable impact. Whether it's reducing task completion time, 
@@ -43,8 +43,10 @@ const About = () => {
                 design decisions in data and user feedback.
               </p>
               <p>
-                Currently, I'm focused on designing enterprise tools that empower teams while 
-                exploring how AI can enhance—not replace—human decision-making in design processes.
+                I work at the intersection of UX and emerging AI Experience (AX). With my recent 
+                project exploring how agents interact with secure systems. As AX matures, I'm 
+                especially interested in trust, predictability, and making multi-step, cross-system 
+                tasks easier for agents so the experience feels simpler and safer for end users.
               </p>
             </div>
           </section>
@@ -100,10 +102,9 @@ const About = () => {
           <section className="space-y-6">
             <h2 className="text-2xl font-semibold tracking-tight">Beyond Work</h2>
             <p className="text-foreground/90 leading-relaxed">
-              When I'm not designing, you'll find me mentoring aspiring designers, writing about 
-              UX on Medium, or exploring local coffee shops with a sketchbook. I'm also passionate 
-              about sustainable design practices and how our industry can reduce its environmental 
-              impact.
+              You might catch me reading books (lately <em>Hooked</em> by Nir Eyal), or practising 
+              violin as I work towards Grade 8. I am also passionate about cloud architecture and 
+              the rise of agentic workflows in AI.
             </p>
           </section>
         </article>

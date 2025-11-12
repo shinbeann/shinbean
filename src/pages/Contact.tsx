@@ -92,19 +92,19 @@ const Contact = () => {
               <div className="space-y-6">
                 {/* Email */}
                 <a 
-                  href="mailto:hello@designer.com"
+                  href="mailto:gayshinlee@gmail.com"
                   className="flex items-start gap-4 p-4 rounded-lg border border-border hover:border-primary/50 hover:bg-muted/50 transition-all group"
                 >
                   <Mail className="w-5 h-5 text-primary mt-0.5" />
                   <div>
                     <h3 className="font-semibold mb-1 group-hover:text-primary transition-colors">Email</h3>
-                    <p className="text-sm text-muted-foreground">hello@designer.com</p>
+                    <p className="text-sm text-muted-foreground">gayshinlee@gmail.com</p>
                   </div>
                 </a>
 
                 {/* LinkedIn */}
                 <a 
-                  href="https://linkedin.com/in/designer"
+                  href="https://www.linkedin.com/in/shin-lee-gay/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-4 p-4 rounded-lg border border-border hover:border-primary/50 hover:bg-muted/50 transition-all group"
@@ -118,7 +118,7 @@ const Contact = () => {
 
                 {/* Resume */}
                 <a 
-                  href="/resume.pdf"
+                  href="/GAYSHINLEE_resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-4 p-4 rounded-lg border border-border hover:border-primary/50 hover:bg-muted/50 transition-all group"
@@ -134,9 +134,12 @@ const Contact = () => {
               {/* Availability */}
               <div className="mt-8 p-6 rounded-lg bg-muted">
                 <h3 className="font-semibold mb-2">Current Availability</h3>
-                <p className="text-sm text-muted-foreground">
-                  I'm currently available for freelance projects and full-time opportunities. 
-                  Typical response time: 24-48 hours.
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  I'm seeking <strong>hybrid</strong> or <strong>part-time</strong> roles starting <strong>January 2026</strong>, 
+                  and open to <strong>full-time</strong> opportunities beginning <strong>June 2026</strong>.
+                </p>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Typical response time: <strong>24-48 hours</strong>.
                 </p>
               </div>
             </div>

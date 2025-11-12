@@ -13,19 +13,19 @@ const Hero = () => {
         {/* Name & Role */}
         <div className="space-y-4">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight">
-            UX/UI Designer
+            Shin Lee
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground">
-            Designing intuitive, data-driven digital experiences
+            UX/UI Designer
           </p>
         </div>
 
         {/* Bio */}
         <div className="max-w-2xl mx-auto">
           <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
-            I craft user-centered solutions that balance business goals with human needs. 
-            With 5+ years of experience, I've shipped products used by millions, 
-            improving task success rates by 18% and NPS scores by 12 points on average.
+            I am a Computer Science Undergraduate, drawn to human-centered design, 
+            elevating people's stories into data-backed decisions via mixed-methods 
+            research and iterative prototyping to ship intuitive, inclusive products.
           </p>
         </div>
 
