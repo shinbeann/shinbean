@@ -33,8 +33,8 @@ const hybridrag: CaseStudy = {
       description:
         "Conducted 4 user interviews, and sent a survey to 10 SPF ground response officers, translated into a user persona",
       insights: [
-        "Completed CITI Social & Behavioral research training to ensure ethical study design and data handling (certificate verification: www.citiprogram.org/verify/?weddbabd5-684a-4120-82cf-507f8b58d78c-72700129).",
-        <img src="/Capstone Persona.png" alt="Capstone Persona" className="rounded-lg shadow-md" />,
+        <>Completed CITI Social & Behavioral research training to ensure ethical study design and data handling (certificate verification: <a href="https://www.citiprogram.org/verify/?weddbabd5-684a-4120-82cf-507f8b58d78c-72700129" target="_blank" rel="noopener noreferrer" className="underline">www.citiprogram.org/verify/?weddbabd5-684a-4120-82cf-507f8b58d78c-72700129</a>).</>,
+        <img src="/Capstone Persona.png" alt="Capstone Persona" className="rounded-lg" />,
       ],
       pain_points: [
         "Connectivity blackspots break coordination and lookups",
@@ -57,8 +57,8 @@ const hybridrag: CaseStudy = {
       phase: "Competitive Audit",
       description: "Quick market/adjacent research used for inspiration.",
       insights: [
-        "SPF Police regulations document",
-        "Hong Kong Police Chatbot",
+        <><a href="https://sso.agc.gov.sg/SL/PFA2004-RG1?DocDate=20220901&WholeDoc=1" target="_blank" rel="noopener noreferrer" className="underline">SPF Police regulations document</a></>,
+        <><a href="https://www.thestandard.com.hk/hong-kong-news/article/308361/Upgraded-police-app-features-chatbot" target="_blank" rel="noopener noreferrer" className="underline">Hong Kong Police Chatbot</a></>,
         "Standard Operating Procedure search app (Behance)",
       ],
     },
