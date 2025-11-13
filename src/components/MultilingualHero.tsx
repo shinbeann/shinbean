@@ -44,7 +44,8 @@ const MultilingualHero = () => {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-mono font-normal text-foreground transition-all duration-500 leading-tight">
             {GREETINGS[currentIndex].text.toLowerCase()}.
             <br />
-            i'm 
+            i'm
+            <br />
             Shin Lee.
           </h1>
           

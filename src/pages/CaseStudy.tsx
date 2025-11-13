@@ -51,14 +51,14 @@ const CaseStudy = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-background">
       <Navigation />
       
       <main className="flex-grow pt-24 pb-20">
         {/* Back Button */}
-        <div className="container max-w-5xl mx-auto px-4 mb-8">
-          <Button variant="ghost" asChild>
-            <Link to="/">
+        <div className="container max-w-5xl mx-auto px-6 mb-8">
+          <Button variant="ghost" asChild className="text-foreground hover:text-foreground">
+            <Link to="/" onClick={() => window.scrollTo(0, 0)}>
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Work
             </Link>
@@ -66,56 +66,58 @@ const CaseStudy = () => {
         </div>
 
         {/* Hero */}
-        <header className="container max-w-5xl mx-auto px-4 mb-16">
-          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
+        <header className="container max-w-5xl mx-auto px-6 mb-16">
+          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6 text-foreground font-sans">
             {caseStudy.title}
           </h1>
           <div className="flex flex-wrap gap-2 mb-8">
             {caseStudy.tags.map((tag: string, index: number) => (
-              <Badge key={index} variant="secondary">{tag}</Badge>
+              <Badge key={index} variant="secondary" className="bg-accent text-foreground border border-border">
+                {tag}
+              </Badge>
             ))}
           </div>
           <img 
             src={caseStudy.hero} 
             alt={`${caseStudy.title} hero`}
-            className="w-full aspect-[16/9] object-cover rounded-lg"
+            className="w-full aspect-[16/9] object-cover rounded-lg opacity-70"
           />
         </header>
 
-        <article className="container max-w-4xl mx-auto px-4 space-y-16">
+        <article className="container max-w-4xl mx-auto px-6 space-y-16 prose prose-slate max-w-none prose-invert">
           {/* Overview */}
-          <section>
-            <h2 className="text-3xl font-semibold tracking-tight mb-6">Overview</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 p-6 bg-muted rounded-lg">
+          <section className="not-prose bg-card p-8 rounded-lg border border-border">
+            <h2 className="text-3xl font-semibold mb-8 font-sans text-foreground" style={{letterSpacing: '-0.02em'}}>Overview</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 p-6 bg-accent/50 rounded-lg border border-border">
               <div>
-                <h3 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-2">Role</h3>
-                <p className="text-foreground">
+                <h3 className="font-semibold text-xs uppercase tracking-wider text-muted-foreground mb-3 font-sans">Role</h3>
+                <p className="text-foreground text-base">
                   {Array.isArray(caseStudy.roles) && caseStudy.roles.length
                     ? caseStudy.roles.join(" · ")
                     : caseStudy.role}
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-2">Timeline</h3>
-                <p className="text-foreground">{caseStudy.timeline}</p>
+                <h3 className="font-semibold text-xs uppercase tracking-wider text-muted-foreground mb-3 font-sans">Timeline</h3>
+                <p className="text-foreground text-base">{caseStudy.timeline}</p>
               </div>
               <div>
-                <h3 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-2">Client</h3>
-                <p className="text-foreground">{caseStudy.client}</p>
+                <h3 className="font-semibold text-xs uppercase tracking-wider text-muted-foreground mb-3 font-sans">Client</h3>
+                <p className="text-foreground text-base">{caseStudy.client}</p>
               </div>
               <div>
-                <h3 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-2">Tools</h3>
-                <p className="text-foreground">{caseStudy.tools}</p>
+                <h3 className="font-semibold text-xs uppercase tracking-wider text-muted-foreground mb-3 font-sans">Tools</h3>
+                <p className="text-foreground text-base">{caseStudy.tools}</p>
               </div>
             </div>
-            <p className="text-lg leading-relaxed mb-6">{caseStudy.overview.context}</p>
+            <p className="text-lg leading-relaxed mb-8 font-serif text-foreground">{caseStudy.overview.context}</p>
             <div>
-              <h3 className="font-semibold mb-3">Project Goals</h3>
-              <ul className="space-y-2">
+              <h3 className="font-semibold mb-4 font-sans text-foreground text-xl">Project Goals</h3>
+              <ul className="space-y-3">
                 {caseStudy.overview.goals.map((goal: string, index: number) => (
-                  <li key={index} className="flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    <span>{goal}</span>
+                  <li key={index} className="flex items-start gap-3">
+                    <span className="text-success mt-1 font-bold text-lg">→</span>
+                    <span className="font-serif text-foreground">{goal}</span>
                   </li>
                 ))}
               </ul>
@@ -123,16 +125,16 @@ const CaseStudy = () => {
           </section>
 
           {/* Problem & Constraints */}
-          <section>
-            <h2 className="text-3xl font-semibold tracking-tight mb-6">Problem & Constraints</h2>
-            <p className="text-lg leading-relaxed mb-6">{highlightTerms(caseStudy.problem.description, boldTerms)}</p>
-            <div className="border-l-4 border-primary pl-6">
-              <h3 className="font-semibold mb-3">Key Constraints</h3>
-              <ul className="space-y-2 text-muted-foreground">
+          <section className="not-prose">
+            <h2 className="text-3xl font-semibold mb-8 font-sans text-foreground border-b border-border pb-4" style={{letterSpacing: '-0.02em'}}>Problem & Constraints</h2>
+            <p className="text-lg leading-relaxed mb-8 font-serif text-foreground">{highlightTerms(caseStudy.problem.description, boldTerms)}</p>
+            <div className="bg-destructive/10 border-l-4 border-destructive pl-8 py-6 rounded-r-lg">
+              <h3 className="font-semibold mb-4 font-sans text-foreground text-xl uppercase tracking-wide text-sm">Key Constraints</h3>
+              <ul className="space-y-3">
                 {caseStudy.problem.constraints.map((constraint: string, index: number) => (
-                  <li key={index} className="flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    <span>{constraint}</span>
+                  <li key={index} className="flex items-start gap-3">
+                    <span className="text-destructive mt-1 font-bold">✕</span>
+                    <span className="font-serif text-foreground">{constraint}</span>
                   </li>
                 ))}
               </ul>
@@ -140,51 +142,97 @@ const CaseStudy = () => {
           </section>
 
           {/* Process */}
-          <section>
-            <h2 className="text-3xl font-semibold tracking-tight mb-6">Process</h2>
-            <div className="space-y-8">
-              {caseStudy.process.map((phase: any, index: number) => (
-                <div key={index} className="border-l-2 border-border pl-6">
-                  <h3 className="text-xl font-semibold mb-3">{phase.phase}</h3>
-                  <p className="text-muted-foreground mb-4">{phase.description}</p>
-                  {phase.insights.length > 0 && (
-                    <ul className="space-y-1">
+          <section className="not-prose">
+            <h2 className="text-3xl font-semibold mb-12 font-sans text-foreground border-b border-border pb-4" style={{letterSpacing: '-0.02em'}}>Process</h2>
+            <div className="space-y-20">
+              {caseStudy.process.map((phase: any, index: number) => {
+                // Check if this phase is image-only (no text content)
+                const isImageOnly = !phase.phase && !phase.description && phase.insights.every((i: any) => typeof i !== 'string');
+                
+                if (isImageOnly) {
+                  return (
+                    <div key={index} className="space-y-6">
                       {phase.insights.map((insight: any, i: number) => (
-                        <li key={i} className="text-sm flex items-start gap-2">
-                          <span className="text-primary mt-1">→</span>
-                          <span>{insight}</span>
-                        </li>
+                        <div key={i} className="w-full">
+                          {insight}
+                        </div>
                       ))}
-                    </ul>
-                  )}
-                  {phase.pain_points && phase.pain_points.length > 0 && (
-                    <div className="mt-4">
-                      <h4 className="text-sm font-semibold mb-2">Pain points</h4>
-                      <ul className="grid gap-2 sm:grid-cols-2">
-                        {phase.pain_points.map((p: string, j: number) => (
-                          <li key={j} className="flex items-start gap-2 bg-muted rounded-md p-3">
-                            <span className="text-primary mt-1">•</span>
-                            <span className="text-sm">{p}</span>
-                          </li>
-                        ))}
-                      </ul>
                     </div>
-                  )}
-                  {phase.design_system && phase.design_system.length > 0 && (
-                    <div className="mt-4">
-                      <h4 className="text-sm font-semibold mb-2">Design System</h4>
-                      <ul className="grid gap-2 sm:grid-cols-2">
-                        {phase.design_system.map((d: string, k: number) => (
-                          <li key={k} className="flex items-start gap-2 bg-muted rounded-md p-3">
-                            <span className="text-primary mt-1">•</span>
-                            <span className="text-sm">{d}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                </div>
-              ))}
+                  );
+                }
+
+                return (
+                  <div key={index} className="space-y-8">
+                    {phase.phase && (
+                      <div className="space-y-4">
+                        <h3 className="text-2xl font-semibold font-sans text-foreground tracking-tight">
+                          {index + 1}. {phase.phase}
+                        </h3>
+                        {phase.description && (
+                          <p className="text-foreground font-serif text-lg leading-relaxed">
+                            {phase.description}
+                          </p>
+                        )}
+                      </div>
+                    )}
+                    
+                    {phase.insights.length > 0 && (
+                      <div className="space-y-6">
+                        {phase.insights.map((insight: any, i: number) => {
+                          // Check if insight is a React element (image)
+                          if (typeof insight !== 'string') {
+                            // Check if it's a design system image by looking at alt text
+                            const isDesignSystem = insight.props?.alt?.toLowerCase().includes('design system');
+                            return (
+                              <div key={i} className={`${isDesignSystem ? 'w-4/5 mx-auto' : 'w-full'} rounded-lg overflow-hidden border border-border`}>
+                                {insight}
+                              </div>
+                            );
+                          }
+                          // Text insight
+                          return (
+                            <div key={i} className="flex items-start gap-3">
+                              <span className="text-success mt-1 font-bold flex-shrink-0">→</span>
+                              <span className="font-serif text-foreground text-lg leading-relaxed">{insight}</span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+
+                    {phase.pain_points && phase.pain_points.length > 0 && (
+                      <div className="bg-destructive/10 p-8 rounded-lg border border-destructive/20">
+                        <h4 className="text-xs font-semibold mb-6 font-sans uppercase tracking-wider text-muted-foreground">
+                          Pain Points
+                        </h4>
+                        <ul className="grid gap-4 sm:grid-cols-2">
+                          {phase.pain_points.map((p: string, j: number) => (
+                            <li key={j} className="flex items-center justify-center text-center bg-background/50 rounded-md px-6 py-5 min-h-[80px]">
+                              <div className="flex items-center gap-3">
+                                <span className="text-destructive font-bold flex-shrink-0">✕</span>
+                                <span className="text-sm font-sans text-foreground">{p}</span>
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {phase.design_system && phase.design_system.length > 0 && (
+                      <div className="bg-success/10 p-8 rounded-lg border border-success/20">
+                        <ul className="grid gap-4 sm:grid-cols-2">
+                          {phase.design_system.map((d: string, k: number) => (
+                            <li key={k} className="flex items-start gap-3 bg-background/50 rounded-md p-4">
+                              <span className="text-success mt-1 font-bold flex-shrink-0">✓</span>
+                              <span className="text-sm font-sans text-foreground">{d}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </section>
 
@@ -194,26 +242,94 @@ const CaseStudy = () => {
           {/* Results & Impact */}
           {/* kept commented out by request */}
 
+          {/* Final Thoughts */}
+          {caseStudy.personalVoice && (
+            <section className="not-prose py-8">
+              <h2 className="text-3xl font-semibold mb-6 font-sans text-foreground" style={{letterSpacing: '-0.02em'}}>Final Thoughts</h2>
+              <blockquote className="border-l-4 border-primary pl-6 py-2">
+                <p className="text-lg leading-relaxed font-serif text-foreground italic">
+                  {caseStudy.personalVoice}
+                </p>
+              </blockquote>
+            </section>
+          )}
+
+          {/* Final Prototype */}
+          {caseStudy.finalPrototype && (
+            <section className="not-prose">
+              <div className="w-full flex justify-center">
+                {caseStudy.finalPrototype}
+              </div>
+            </section>
+          )}
+
           {/* Next Steps */}
-          <section>
-            <h2 className="text-3xl font-semibold tracking-tight mb-6">Next Steps</h2>
-            <p className="mb-4 text-muted-foreground">Post-launch roadmap includes:</p>
-            <ul className="space-y-2">
+          <section className="not-prose bg-card p-8 rounded-lg border border-border">
+            <h2 className="text-3xl font-semibold mb-6 font-sans text-foreground" style={{letterSpacing: '-0.02em'}}>Next Steps</h2>
+            <ul className="space-y-4">
               {caseStudy.nextSteps.shipped.map((step: string, index: number) => (
-                <li key={index} className="flex items-start gap-2">
-                  <span className="text-primary mt-1">→</span>
-                  <span>{step}</span>
+                <li key={index} className="flex items-start gap-3 bg-warning/10 p-4 rounded-lg border border-warning/20">
+                  <span className="text-warning mt-1 font-bold">→</span>
+                  <span className="font-serif text-foreground">{step}</span>
                 </li>
               ))}
             </ul>
           </section>
         </article>
 
+        {/* Project Navigation */}
+        <div className="container max-w-4xl mx-auto px-6 mt-20">
+          <div className="flex items-center justify-between gap-4 pb-12">
+            {(() => {
+              const allSlugs = Object.keys(caseStudies);
+              const currentIndex = allSlugs.indexOf(slug || '');
+              const prevSlug = currentIndex > 0 ? allSlugs[currentIndex - 1] : null;
+              const nextSlug = currentIndex < allSlugs.length - 1 ? allSlugs[currentIndex + 1] : null;
+
+              return (
+                <>
+                  <Button 
+                    variant="ghost" 
+                    asChild 
+                    className={`text-foreground hover:text-foreground ${!prevSlug ? 'invisible' : ''}`}
+                  >
+                    {prevSlug ? (
+                      <Link to={`/case-study/${prevSlug}`} onClick={() => window.scrollTo(0, 0)}>
+                        ← Previous Project
+                      </Link>
+                    ) : (
+                      <span>← Previous Project</span>
+                    )}
+                  </Button>
+                  
+                  <Button variant="outline" asChild className="text-foreground border-border hover:bg-accent">
+                    <Link to="/" onClick={() => window.scrollTo(0, 0)}>Back to Home</Link>
+                  </Button>
+
+                  <Button 
+                    variant="ghost" 
+                    asChild 
+                    className={`text-foreground hover:text-foreground ${!nextSlug ? 'invisible' : ''}`}
+                  >
+                    {nextSlug ? (
+                      <Link to={`/case-study/${nextSlug}`} onClick={() => window.scrollTo(0, 0)}>
+                        Next Project →
+                      </Link>
+                    ) : (
+                      <span>Next Project →</span>
+                    )}
+                  </Button>
+                </>
+              );
+            })()}
+          </div>
+        </div>
+
         {/* CTA */}
-        <div className="container max-w-4xl mx-auto px-4 mt-20 pt-12 border-t border-border text-center">
-          <h3 className="text-2xl font-semibold mb-4">Interested in working together?</h3>
-          <Button size="lg" asChild>
-            <Link to="/contact">Get in Touch</Link>
+        <div className="container max-w-4xl mx-auto px-6 mt-12 pt-12 border-t border-border text-center">
+          <h3 className="text-2xl font-semibold mb-6 text-foreground">Interested in working together?</h3>
+          <Button size="lg" asChild className="rounded-full font-sans">
+            <Link to="/contact">→ get in touch</Link>
           </Button>
         </div>
       </main>
