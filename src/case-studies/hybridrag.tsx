@@ -33,6 +33,7 @@ const hybridrag: CaseStudy = {
       description:
         "Conducted 4 user interviews, and sent a survey to 10 SPF ground response officers, translated into a user persona",
       insights: [
+        "Completed CITI Social & Behavioral research training to ensure ethical study design and data handling (certificate verification: www.citiprogram.org/verify/?weddbabd5-684a-4120-82cf-507f8b58d78c-72700129).",
         <img src="/Capstone Persona.png" alt="Capstone Persona" className="rounded-lg shadow-md" />,
       ],
       pain_points: [

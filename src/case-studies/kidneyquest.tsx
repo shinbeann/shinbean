@@ -36,7 +36,7 @@ const kidneyquest: CaseStudy = {
         "Interviewed 3 participants and ran a survey with 61 respondents to understand what draws people to public exhibits and why they walk past.",
       insights: [
         "Stopping power depends on clarity at first glance and interactivity",
-        "Visitors are often in a rush; most will give 2–5 minutes max",
+        "Visitors are often in a rush, most will give 2–5 minutes maximum",
         "Giveaways/freebies motivate attention but content must be relatable",
         "Simple, game-like tasks beat long reading on small screens"
       ],
@@ -62,7 +62,7 @@ const kidneyquest: CaseStudy = {
     {
       phase: "Ideation",
       description:
-        "Led group brainstorming sessions using Crazy 8s methodology to rapidly explore diverse solutions and converge on the most promising concepts.",
+        "Led group brainstorming sessions, and used Crazy 8s methodology to rapidly explore diverse wireframing.",
       insights: [
         <img src="/ideation.png" alt="Ideation sketches showing various game concepts" className="w-full h-auto" />
       ]

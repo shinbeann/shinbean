@@ -177,7 +177,7 @@ const CaseStudy = () => {
                     )}
                     
                     {phase.insights.length > 0 && (
-                      <div className="space-y-6">
+                      <div className="space-y-1">
                         {phase.insights.map((insight: any, i: number) => {
                           // Check if insight is a React element (image)
                           if (typeof insight !== 'string') {
