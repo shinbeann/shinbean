@@ -36,7 +36,7 @@ const projects = [
     timeline: "4 months (Sep – Dec 2025)",
     tags: ["Education", "Web", "Usability Testing"],
     image: "/placeholder.svg",
-    slug: "course-registration",
+    slug: "flowtutor",
     category: "School" as const,
   },
   {
