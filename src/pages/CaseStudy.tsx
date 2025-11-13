@@ -110,7 +110,7 @@ const CaseStudy = () => {
                 <p className="text-foreground text-base">{caseStudy.tools}</p>
               </div>
             </div>
-            <p className="text-lg leading-relaxed mb-8 font-serif text-muted-foreground">{caseStudy.overview.context}</p>
+            <p className="text-lg leading-relaxed mb-8 font-serif text-foreground">{caseStudy.overview.context}</p>
             <div>
               <h3 className="font-semibold mb-4 font-sans text-foreground text-xl">Project Goals</h3>
               <ul className="space-y-3">
@@ -127,7 +127,7 @@ const CaseStudy = () => {
           {/* Problem & Constraints */}
           <section className="not-prose">
             <h2 className="text-3xl font-semibold mb-8 font-sans text-foreground border-b border-border pb-4" style={{letterSpacing: '-0.02em'}}>Problem & Constraints</h2>
-            <p className="text-lg leading-relaxed mb-8 font-serif text-muted-foreground">{highlightTerms(caseStudy.problem.description, boldTerms)}</p>
+            <p className="text-lg leading-relaxed mb-8 font-serif text-foreground">{highlightTerms(caseStudy.problem.description, boldTerms)}</p>
             <div className="bg-destructive/10 border-l-4 border-destructive pl-8 py-6 rounded-r-lg">
               <h3 className="font-semibold mb-4 font-sans text-foreground text-xl tracking-wide text-sm">Key Constraints</h3>
               <ul className="space-y-3">
@@ -275,8 +275,8 @@ const CaseStudy = () => {
             <h2 className="text-3xl font-semibold mb-6 font-sans text-foreground" style={{letterSpacing: '-0.02em'}}>Next Steps</h2>
             <ul className="space-y-4">
               {caseStudy.nextSteps.shipped.map((step: string, index: number) => (
-                <li key={index} className="flex items-start gap-3 bg-warning/10 p-4 rounded-lg border border-warning/20">
-                  <span className="text-warning mt-1 font-bold">→</span>
+                <li key={index} className="flex items-start gap-3">
+                  <span className="text-foreground mt-1 font-bold">→</span>
                   <span className="font-serif text-foreground">{step}</span>
                 </li>
               ))}
