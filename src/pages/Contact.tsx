@@ -69,7 +69,7 @@ const Contact = () => {
           {/* Header */}
           <header className="mb-16 text-center">
             <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
-              Let's Work Together
+              Let's Work Together!
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               I'm always interested in hearing about new projects and opportunities. 

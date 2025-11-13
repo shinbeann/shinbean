@@ -93,7 +93,7 @@ const MultilingualHero = () => {
             size="lg"
             asChild
           >
-            <a href="/contact">Contact</a>
+            <a href="/contact">Say hi</a>
           </Button>
         </div>
 
