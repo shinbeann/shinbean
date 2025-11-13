@@ -50,7 +50,6 @@ export interface CaseStudy {
   solution?: SolutionSection;
   results?: ResultsSection;
   personalVoice?: string;
-  finalPrototype?: ReactNode;
   nextSteps: NextStepsSection;
   tags: string[];
 }

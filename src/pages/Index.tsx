@@ -1,8 +1,9 @@
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import MultilingualHero from "@/components/MultilingualHero";
+import Hero from "@/components/MultilingualHero";
 import ProjectCard from "@/components/ProjectCard";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 
 const projects = [
@@ -11,7 +12,7 @@ const projects = [
     title: "Hybrid RAG",
     roles: ["Lead UX Researcher"],
     problem: "SPF need a faster, more intuitive, and reliable access to SOPs and references that still works offline.",
-    timeline: "9 months (Sep 2025 - May 2026)",
+    outcome: "-",
     tags: ["UX Research", "RAG", "Android"],
     image: "/htx.png",
     slug: "hybridrag",
@@ -21,89 +22,91 @@ const projects = [
     id: 2,
     title: "KidneyQuest",
     roles: ["UX Designer", "UI/UX Designer"],
-    problem: "A mobile, interactive experience that minimises staff time and paper is needed to teach the public kidney-health essentials.",
-    timeline: "4 months (Sep – Dec 2025)",
-    tags: ["UX Research", "Healthcare", "AR"],
-    image: "/kidneyquest.png",
+    problem: "High cart abandonment due to 5-step checkout process",
+    outcome: "18% increase in conversion, reduced checkout to 3 steps",
+    tags: ["E-Commerce", "Conversion", "A/B Testing"],
+    image: "/placeholder.svg",
     slug: "kidneyquest",
     category: "Professional" as const,
   },
   {
     id: 3,
-    title: "FlowTutor",
-    roles: ["UI/UX Designer"],
-    problem: "Self-directed learners using YouTube tutorials constantly pause, scrub, and context-switch to find specific steps,causing overload, lost flow, and errors.",
-    timeline: "4 months (Sep – Dec 2025)",
+    title: "University Course Registration",
+    roles: ["UX/UI Designer"],
+    problem: "Students struggled to find and register for courses efficiently",
+    outcome: "95% task success rate, 4.8/5 satisfaction score",
     tags: ["Education", "Web", "Usability Testing"],
     image: "/placeholder.svg",
-    slug: "flowtutor",
+    slug: "course-registration",
     category: "School" as const,
   },
   {
-    id: 5,
-    title: "Reimagining CaringBridge",
-    roles: ["UX/UI Designer"],
-    problem: "CaringBridge’s utilitarian design create a cold, impersonal experience during emotionally sensitive health journeys.",
-    timeline: "2 months (Nov – Dec 2024)",
-    tags: ["UX Research", "Healthcare"],
-    image: "/CBhero.png",
-    slug: "caringbridge",
-    category: "Passion" as const,
-  },
-  {
     id: 4,
-    title: "Stratus",
+    title: "Personal Finance Tracker",
     roles: ["Product Designer"],
-    problem: "Existing journaling apps lack discreet privacy controls, effortless entry, and reliable retrieval, reducing journaling consistency.",
-    timeline: "2 years (Jul 2025 - Jul 2027)",
-    tags: ["UX Research", "Full Stack Software", "Flutter"],
+    problem: "Existing apps lacked visual insight into spending patterns",
+    outcome: "Featured on Product Hunt, 1000+ early adopters",
+    tags: ["Fintech", "Data Viz", "Mobile"],
     image: "/placeholder.svg",
-    slug: "stratus",
+    slug: "finance-tracker",
     category: "Passion" as const,
   },
 ];
 
 const Index = () => {
-  const categories = ["All Projects", "Professional", "School", "Passion"];
-  const [selectedCategory, setSelectedCategory] = useState<string>("All Projects");
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
-  const filteredProjects = selectedCategory === "All Projects"
+  const filteredProjects = selectedCategory === "all"
     ? projects
-    : projects.filter(p => p.category === selectedCategory);
+    : selectedCategory === "work"
+    ? projects.filter(p => p.category.toLowerCase() === "professional" || p.category.toLowerCase() === "school")
+    : projects.filter(p => p.category.toLowerCase() === selectedCategory);
 
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
       
       {/* Hero Section */}
-      <MultilingualHero />
+      <Hero />
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-4 bg-background">
+      <section id="projects" className="py-20 px-4 bg-muted/30">
         <div className="container max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="space-y-6 mb-12">
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
               Selected Work
             </h2>
-          </div>
             
-          {/* Filter Chips */}
-          <div className="flex flex-wrap gap-2 justify-center mb-12">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 rounded-full text-sm font-medium border transition-all duration-200 ${
-                  selectedCategory === cat
-                    ? 'bg-primary text-primary-foreground border-primary shadow-sm'
-                    : 'bg-background text-muted-foreground border-border hover:border-primary hover:text-foreground'
-                }`}
-                aria-pressed={selectedCategory === cat}
-              >
-                {cat}
-              </button>
-            ))}
+            {/* Filter Tabs */}
+            <Tabs defaultValue="all" className="w-full">
+              <TabsList className="bg-background">
+                <TabsTrigger 
+                  value="all"
+                  onClick={() => setSelectedCategory("all")}
+                >
+                  All Projects
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="Professional"
+                  onClick={() => setSelectedCategory("professional")}
+                >
+                  Professional
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="school"
+                  onClick={() => setSelectedCategory("school")}
+                >
+                  School
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="passion"
+                  onClick={() => setSelectedCategory("passion")}
+                >
+                  Passion
+                </TabsTrigger>
+              </TabsList>
+            </Tabs>
           </div>
 
           {/* Projects Grid */}

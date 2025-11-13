@@ -4,7 +4,7 @@ const hybridrag: CaseStudy = {
   slug: "hybridrag",
   title: "Hybrid RAG for Singapore Police Force",
   roles: ["Lead Product Designer"],
-  timeline: "9 months (Sep 2025 - May 2026)",
+  timeline: "1 year (Sep 2025 - May 2026)",
   client: "HTX (Home Team Science & Technology Agency)",
   tools: "Figma",
   hero: "/htx.png",
@@ -56,9 +56,30 @@ const hybridrag: CaseStudy = {
       phase: "Competitive Audit",
       description: "Quick market/adjacent research used for inspiration.",
       insights: [
-        "SPF Police regulations document",
-        "Hong Kong Police Chatbot",
-        "Standard Operating Procedure search app (Behance)",
+        <a
+          href="https://sso.agc.gov.sg/SL/PFA2004-RG1?DocDate=20220901&WholeDoc=1"
+          target="_blank"
+          rel="noreferrer"
+          className="underline text-primary"
+        >
+          SPF Police regulations document
+        </a>,
+        <a
+          href="https://www.thestandard.com.hk/hong-kong-news/article/308361/Upgraded-police-app-features-chatbot"
+          target="_blank"
+          rel="noreferrer"
+          className="underline text-primary"
+        >
+          Hong Kong Police Chatbot
+        </a>,
+        <a
+          href="https://www.behance.net/gallery/88963413/Standard-Operating-Procedure?tracking_source=search_projects%7CStandard+operating+procedure+search+app&l=21"
+          target="_blank"
+          rel="noreferrer"
+          className="underline text-primary"
+        >
+          Standard Operating Procedure search app (Behance)
+        </a>,
       ],
     },
     {

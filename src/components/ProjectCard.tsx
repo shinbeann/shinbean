@@ -9,27 +9,25 @@ interface ProjectCardProps {
   role?: string;
   roles?: string[];
   problem: string;
-  timeline: string;
+  outcome: string;
   tags: string[];
   image: string;
   slug: string;
   category: "Professional" | "School" | "Passion";
 }
 
-const ProjectCard = ({ title, role, roles, problem, timeline, tags, image, slug, category }: ProjectCardProps) => {
+const ProjectCard = ({ title, role, roles, problem, outcome, tags, image, slug, category }: ProjectCardProps) => {
   const roleItems = roles && roles.length ? roles : role ? [role] : [];
   return (
     <Link to={`/case-study/${slug}`}>
-      <Card className="group overflow-hidden border border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300 h-full">
+      <Card className="group overflow-hidden border border-border hover:border-primary/50 transition-all duration-300 h-full">
         {/* Project Image */}
-        <div className="aspect-[16/10] overflow-hidden bg-muted relative">
+        <div className="aspect-[16/10] overflow-hidden bg-muted">
           <img 
             src={image} 
             alt={`${title} project preview`}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
-          {/* Subtle overlay on hover */}
-          <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/5 transition-colors duration-300" />
         </div>
 
         {/* Content */}
@@ -52,13 +50,13 @@ const ProjectCard = ({ title, role, roles, problem, timeline, tags, image, slug,
             )}
           </div>
 
-          {/* Problem → Outcome (visible on hover/focus) */}
-          <div className="space-y-2 text-sm opacity-70 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity">
+          {/* Problem → Outcome */}
+          <div className="space-y-2 text-sm">
             <p className="text-muted-foreground">
-              <span className="font-medium text-foreground">Problem →</span> {problem}
+              <span className="font-medium text-foreground">Problem:</span> {problem}
             </p>
             <p className="text-muted-foreground">
-              <span className="font-medium text-foreground">Timeline →</span> {timeline}
+              <span className="font-medium text-foreground">Outcome:</span> {outcome}
             </p>
           </div>
 

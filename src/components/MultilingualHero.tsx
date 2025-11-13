@@ -44,8 +44,7 @@ const MultilingualHero = () => {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-mono font-normal text-foreground transition-all duration-500 leading-tight">
             {GREETINGS[currentIndex].text.toLowerCase()}.
             <br />
-            i'm
-            <br />
+            i'm 
             Shin Lee.
           </h1>
           
@@ -93,7 +92,7 @@ const MultilingualHero = () => {
             size="lg"
             asChild
           >
-            <a href="/contact">Say hi</a>
+            <a href="/contact">Contact</a>
           </Button>
         </div>
 
