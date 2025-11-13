@@ -9,14 +9,14 @@ interface ProjectCardProps {
   role?: string;
   roles?: string[];
   problem: string;
-  outcome: string;
+  timeline: string;
   tags: string[];
   image: string;
   slug: string;
   category: "Professional" | "School" | "Passion";
 }
 
-const ProjectCard = ({ title, role, roles, problem, outcome, tags, image, slug, category }: ProjectCardProps) => {
+const ProjectCard = ({ title, role, roles, problem, timeline, tags, image, slug, category }: ProjectCardProps) => {
   const roleItems = roles && roles.length ? roles : role ? [role] : [];
   return (
     <Link to={`/case-study/${slug}`}>
@@ -58,7 +58,7 @@ const ProjectCard = ({ title, role, roles, problem, outcome, tags, image, slug, 
               <span className="font-medium text-foreground">Problem →</span> {problem}
             </p>
             <p className="text-muted-foreground">
-              <span className="font-medium text-foreground">Outcome →</span> {outcome}
+              <span className="font-medium text-foreground">Timeline →</span> {timeline}
             </p>
           </div>
 

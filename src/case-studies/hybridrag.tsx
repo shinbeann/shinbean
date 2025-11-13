@@ -4,7 +4,7 @@ const hybridrag: CaseStudy = {
   slug: "hybridrag",
   title: "Hybrid RAG for Singapore Police Force",
   roles: ["Lead Product Designer"],
-  timeline: "1 year (Sep 2025 - May 2026)",
+  timeline: "9 months (Sep 2025 - May 2026)",
   client: "HTX (Home Team Science & Technology Agency)",
   tools: "Figma",
   hero: "/htx.png",
