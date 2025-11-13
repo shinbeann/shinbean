@@ -10,7 +10,7 @@ const Navigation = () => {
       <div className="container mx-auto">
         <div className="flex items-center justify-between h-16 px-4">
           {/* Logo/Name */}
-          <NavLink to="/" className="text-lg font-semibold tracking-tight hover:text-primary transition-colors">
+          <NavLink to="/" onClick={() => window.scrollTo(0, 0)} className="text-lg font-semibold tracking-tight hover:text-primary transition-colors">
             Gay Shin Lee
           </NavLink>
 
@@ -18,6 +18,7 @@ const Navigation = () => {
           <div className="hidden md:flex items-center gap-8">
             <NavLink 
               to="/" 
+              onClick={() => window.scrollTo(0, 0)}
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               activeClassName="text-foreground"
             >
@@ -25,6 +26,7 @@ const Navigation = () => {
             </NavLink>
             <NavLink 
               to="/about" 
+              onClick={() => window.scrollTo(0, 0)}
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               activeClassName="text-foreground"
             >
@@ -32,6 +34,7 @@ const Navigation = () => {
             </NavLink>
             <NavLink 
               to="/contact" 
+              onClick={() => window.scrollTo(0, 0)}
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               activeClassName="text-foreground"
             >
@@ -55,7 +58,7 @@ const Navigation = () => {
             <div className="flex flex-col gap-4 p-4">
               <NavLink 
                 to="/" 
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => { window.scrollTo(0, 0); setIsMenuOpen(false); }}
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
                 activeClassName="text-foreground"
               >
@@ -63,7 +66,7 @@ const Navigation = () => {
               </NavLink>
               <NavLink 
                 to="/about" 
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => { window.scrollTo(0, 0); setIsMenuOpen(false); }}
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
                 activeClassName="text-foreground"
               >
@@ -71,7 +74,7 @@ const Navigation = () => {
               </NavLink>
               <NavLink 
                 to="/contact" 
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => { window.scrollTo(0, 0); setIsMenuOpen(false); }}
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
                 activeClassName="text-foreground"
               >
