@@ -110,13 +110,13 @@ const CaseStudy = () => {
                 <p className="text-foreground text-base">{caseStudy.tools}</p>
               </div>
             </div>
-            <p className="text-lg leading-relaxed mb-8 font-serif text-foreground">{caseStudy.overview.context}</p>
+            <p className="text-lg leading-relaxed mb-8 font-serif text-muted-foreground">{caseStudy.overview.context}</p>
             <div>
               <h3 className="font-semibold mb-4 font-sans text-foreground text-xl">Project Goals</h3>
               <ul className="space-y-3">
                 {caseStudy.overview.goals.map((goal: string, index: number) => (
                   <li key={index} className="flex items-start gap-3">
-                    <span className="text-success mt-1 font-bold text-lg">→</span>
+                    <span className="text-foreground mt-1 font-bold text-lg">→</span>
                     <span className="font-serif text-foreground">{goal}</span>
                   </li>
                 ))}
@@ -127,9 +127,9 @@ const CaseStudy = () => {
           {/* Problem & Constraints */}
           <section className="not-prose">
             <h2 className="text-3xl font-semibold mb-8 font-sans text-foreground border-b border-border pb-4" style={{letterSpacing: '-0.02em'}}>Problem & Constraints</h2>
-            <p className="text-lg leading-relaxed mb-8 font-serif text-foreground">{highlightTerms(caseStudy.problem.description, boldTerms)}</p>
+            <p className="text-lg leading-relaxed mb-8 font-serif text-muted-foreground">{highlightTerms(caseStudy.problem.description, boldTerms)}</p>
             <div className="bg-destructive/10 border-l-4 border-destructive pl-8 py-6 rounded-r-lg">
-              <h3 className="font-semibold mb-4 font-sans text-foreground text-xl uppercase tracking-wide text-sm">Key Constraints</h3>
+              <h3 className="font-semibold mb-4 font-sans text-foreground text-xl tracking-wide text-sm">Key Constraints</h3>
               <ul className="space-y-3">
                 {caseStudy.problem.constraints.map((constraint: string, index: number) => (
                   <li key={index} className="flex items-start gap-3">
@@ -169,7 +169,7 @@ const CaseStudy = () => {
                           {index + 1}. {phase.phase}
                         </h3>
                         {phase.description && (
-                          <p className="text-foreground font-serif text-lg leading-relaxed">
+                          <p className="text-muted-foreground font-serif text-lg leading-relaxed">
                             {phase.description}
                           </p>
                         )}
@@ -189,11 +189,18 @@ const CaseStudy = () => {
                               </div>
                             );
                           }
-                          // Text insight
+                          // Text insight (check if it's a link)
+                          const isLink = insight.startsWith('http') || insight.includes('.com');
                           return (
                             <div key={i} className="flex items-start gap-3">
-                              <span className="text-success mt-1 font-bold flex-shrink-0">→</span>
-                              <span className="font-serif text-foreground text-lg leading-relaxed">{insight}</span>
+                              <span className="text-foreground mt-1 font-bold flex-shrink-0">→</span>
+                              {isLink ? (
+                                <a href={insight} target="_blank" rel="noopener noreferrer" className="font-serif text-foreground text-lg leading-relaxed underline hover:text-primary">
+                                  {insight}
+                                </a>
+                              ) : (
+                                <span className="font-serif text-foreground text-lg leading-relaxed">{insight}</span>
+                              )}
                             </div>
                           );
                         })}
@@ -202,7 +209,7 @@ const CaseStudy = () => {
 
                     {phase.pain_points && phase.pain_points.length > 0 && (
                       <div className="bg-destructive/10 p-8 rounded-lg border border-destructive/20">
-                        <h4 className="text-xs font-semibold mb-6 font-sans uppercase tracking-wider text-muted-foreground">
+                        <h4 className="text-xs font-semibold mb-6 font-sans tracking-wider text-muted-foreground">
                           Pain Points
                         </h4>
                         <ul className="grid gap-4 sm:grid-cols-2">
