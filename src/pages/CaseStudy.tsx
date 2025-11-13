@@ -115,7 +115,7 @@ const CaseStudy = () => {
               <h3 className="font-semibold mb-4 font-sans text-foreground text-xl">Project Goals</h3>
               <ul className="space-y-3">
                 {caseStudy.overview.goals.map((goal: string, index: number) => (
-                  <li key={index} className="flex items-start gap-3">
+                  <li key={index} className="flex items-start gap-4">
                     <span className="text-foreground mt-1 font-bold text-lg">→</span>
                     <span className="font-serif text-foreground">{goal}</span>
                   </li>
@@ -132,7 +132,7 @@ const CaseStudy = () => {
               <h3 className="font-semibold mb-4 font-sans text-foreground text-xl tracking-wide text-sm">Key Constraints</h3>
               <ul className="space-y-3">
                 {caseStudy.problem.constraints.map((constraint: string, index: number) => (
-                  <li key={index} className="flex items-start gap-3">
+                  <li key={index} className="flex items-start gap-4">
                     <span className="text-destructive mt-1 font-bold">✕</span>
                     <span className="font-serif text-foreground">{constraint}</span>
                   </li>
@@ -162,7 +162,7 @@ const CaseStudy = () => {
                 }
 
                 return (
-                  <div key={index} className="space-y-8">
+                  <div key={index} className="space-y-8 border-l-2 border-border pl-8">
                     {phase.phase && (
                       <div className="space-y-4">
                         <h3 className="text-2xl font-semibold font-sans text-foreground tracking-tight">
@@ -192,7 +192,7 @@ const CaseStudy = () => {
                           // Text insight (check if it's a link)
                           const isLink = insight.startsWith('http') || insight.includes('.com');
                           return (
-                            <div key={i} className="flex items-start gap-3">
+                            <div key={i} className="flex items-start gap-4">
                               <span className="text-foreground mt-1 font-bold flex-shrink-0">→</span>
                               {isLink ? (
                                 <a href={insight} target="_blank" rel="noopener noreferrer" className="font-serif text-foreground text-lg leading-relaxed underline hover:text-primary">
@@ -275,7 +275,7 @@ const CaseStudy = () => {
             <h2 className="text-3xl font-semibold mb-6 font-sans text-foreground" style={{letterSpacing: '-0.02em'}}>Next Steps</h2>
             <ul className="space-y-4">
               {caseStudy.nextSteps.shipped.map((step: string, index: number) => (
-                <li key={index} className="flex items-start gap-3">
+                <li key={index} className="flex items-start gap-4">
                   <span className="text-foreground mt-1 font-bold">→</span>
                   <span className="font-serif text-foreground">{step}</span>
                 </li>
