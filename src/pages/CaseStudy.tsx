@@ -58,7 +58,7 @@ const CaseStudy = () => {
         {/* Back Button */}
         <div className="container max-w-5xl mx-auto px-6 mb-8">
           <Button variant="ghost" asChild className="text-foreground hover:text-foreground">
-            <Link to="/">
+            <Link to="/" onClick={() => window.scrollTo(0, 0)}>
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Work
             </Link>
@@ -303,7 +303,7 @@ const CaseStudy = () => {
                   </Button>
                   
                   <Button variant="outline" asChild className="text-foreground border-border hover:bg-accent">
-                    <Link to="/">Back to Home</Link>
+                    <Link to="/" onClick={() => window.scrollTo(0, 0)}>Back to Home</Link>
                   </Button>
 
                   <Button 
