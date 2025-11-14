@@ -74,7 +74,7 @@ const kidneyquest: CaseStudy = {
       insights: [
         <img src="/userflow.png" alt="User flow diagram" className="w-full h-auto" />,
         "Design System was adapted from NKF existing guidelines to ensure brand consistency",
-        <img src="/designsystem.png" alt="NKF Design System components" className="w-full h-auto" />
+        <img src="/NKFds.png" alt="NKF Design System" className="w-full h-auto" />
       ]
     },
   ],
