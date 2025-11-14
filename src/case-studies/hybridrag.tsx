@@ -33,6 +33,7 @@ const hybridrag: CaseStudy = {
       description:
         "Conducted 4 user interviews, and sent a survey to 10 SPF ground response officers, translated into a user persona",
       insights: [
+        "Completed CITI Social & Behavioral research training to ensure ethical study design and data handling.",
         <img src="/Capstone Persona.png" alt="Capstone Persona" className="rounded-lg shadow-md" />,
       ],
       pain_points: [
@@ -105,7 +106,7 @@ const hybridrag: CaseStudy = {
     ],
   },
   personalVoice:
-    "This project taught me the importance of balancing user needs with technical constraints. The biggest challenge was convincing stakeholders that removing fields (insurance verification) would actually improve data quality—turned out, optional fields with smart defaults had 95% completion vs. 60% for required fields. I also learned to design for the 'happy path' first, then layer in edge cases, rather than trying to accommodate everything upfront.",
+    "The biggest challenge I faced was recruiting active SPF personnel for my initial user research, due to access and operational constraints. To work around this, I spoke to ex-SPF officers from my university, using them as subject-matter proxies to surface real incident workflows, pain points, and mental models. While I treated their input as provisional rather than definitive, these conversations helped me quickly build a rough picture of SPF ground operations and shape my early assumptions.\n\nFrom this, I realised that good UX research is not blocked by constraints, but adapts creatively while staying honest about its limitations.",
   nextSteps: {
     shipped: [
       "Hi-Fi prototypes for usability testing",

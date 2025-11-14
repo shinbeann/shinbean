@@ -177,7 +177,7 @@ const CaseStudy = () => {
                     )}
                     
                     {phase.insights.length > 0 && (
-                      <div className="space-y-6">
+                      <div className="space-y-1">
                         {phase.insights.map((insight: any, i: number) => {
                           // Check if insight is a React element (image)
                           if (typeof insight !== 'string') {
@@ -254,7 +254,7 @@ const CaseStudy = () => {
             <section className="not-prose py-8">
               <h2 className="text-3xl font-semibold mb-6 font-sans text-foreground" style={{letterSpacing: '-0.02em'}}>Final Thoughts</h2>
               <blockquote className="border-l-4 border-primary pl-6 py-2">
-                <p className="text-lg leading-relaxed font-serif text-foreground italic">
+                <p className="text-lg leading-relaxed font-serif text-foreground italic whitespace-pre-line">
                   {caseStudy.personalVoice}
                 </p>
               </blockquote>
