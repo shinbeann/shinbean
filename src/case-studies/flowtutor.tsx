@@ -10,7 +10,7 @@ const flowtutor: CaseStudy = {
   hero: "/placeholder.svg",
   overview: {
     context:
-      "FlowTutor is a browser extension designed to enhance the YouTube learning experience. By providing intelligent chapter navigation, progress tracking, and interactive features, it helps learners stay focused and retain information better while watching educational content.",
+      "FlowTutor is a webapp designed to enhance the YouTube learning experience. By providing chapter navigation, progress tracking, and interactive features, it helps learners stay focused and retain information better while watching educational content.",
     goals: [
       "Reduce context-switching and cognitive overload during tutorial viewing",
       "Improve content retention through structured navigation",
@@ -22,16 +22,13 @@ const flowtutor: CaseStudy = {
     description:
       "Self-directed learners using YouTube tutorials constantly pause, scrub, and context-switch to find specific steps, causing cognitive overload, lost flow, and increased errors. The lack of structure in video tutorials makes it difficult to navigate, track progress, and retain information effectively.",
     constraints: [
-      "Must work as a browser extension without requiring YouTube Premium",
-      "Cannot interfere with YouTube's native video player controls",
-      "Must be lightweight and performant to avoid lag",
       "Needs to work across different video lengths and tutorial formats",
       "Must respect YouTube's API rate limits and terms of service"
     ]
   },
   process: [
     {
-      phase: "Research & Discovery",
+      phase: "Emphathise",
       description:
         "Conducted interviews with 8 self-directed learners and analyzed their YouTube learning behaviors to identify pain points.",
       insights: [
@@ -91,7 +88,7 @@ const flowtutor: CaseStudy = {
       "Explore AI-powered chapter detection for videos without timestamps"
     ]
   },
-  tags: ["Education", "Browser Extension", "UX Research"]
+  tags: ["UX Research", "Education", "Browser Extension"]
 };
 
 export default flowtutor;

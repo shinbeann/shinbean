@@ -34,7 +34,7 @@ const hybridrag: CaseStudy = {
         "Conducted 4 user interviews, and sent a survey to 10 SPF ground response officers, translated into a user persona",
       insights: [
         "Completed CITI Social & Behavioral research training to ensure ethical study design and data handling.",
-        <img src="/Capstone Persona.png" alt="Capstone Persona" className="rounded-lg shadow-md" />,
+        <img src="/Capstone Persona.png" alt="Capstone Persona" className="rounded-lg shadow-md mx-auto"/>,
       ],
       pain_points: [
         "Connectivity blackspots break coordination and lookups",
@@ -67,7 +67,7 @@ const hybridrag: CaseStudy = {
       description:
         "Iteration of Lo-Fi prototypes in Figma, and creation of Design System",
       insights: [
-        <img src="/designsystem.png" alt="Design System" className="rounded-lg shadow-md" />,
+        <img src="/designsystem.png" alt="Design System" className="w-[70%] rounded-lg shadow-md mx-auto" />,
       ],
       design_system: [
         "Tokens: color, spacing, typography, radii, shadows",
@@ -110,7 +110,7 @@ const hybridrag: CaseStudy = {
   nextSteps: {
     shipped: [
       "Hi-Fi prototypes for usability testing",
-      "Develop a concreate A/B test plan, and the success matrix",
+      "Develop a concreate A/B test plan, and the success metrics",
       "A/B test appointment reminders (to HTX via email)",
       "Iterate prototype based on feedback",
     ],

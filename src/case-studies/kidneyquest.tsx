@@ -52,7 +52,7 @@ const kidneyquest: CaseStudy = {
       description:
         "Affinity mapping of interview and survey data revealed patterns in visitor behavior and content preferences.",
       insights: [
-        <img src="/affinitymapping.png" alt="Affinity Mapping" className="w-full h-auto" />,
+        <img src="/affinitymapping.png" alt="Affinity Mapping" className="w-[50%] rounded-lg h-auto mx-auto" />,
         "One concept per screen improved comprehension and speed",
         "Visible progress + countdown increased focus within 3-minute cap",
         "Neutral, gain-framed feedback reduced anxiety vs. 'pass/fail'",
@@ -64,7 +64,7 @@ const kidneyquest: CaseStudy = {
       description:
         "Led group brainstorming sessions using Crazy 8s methodology to rapidly explore diverse solutions and converge on the most promising concepts.",
       insights: [
-        <img src="/ideation.png" alt="Ideation sketches showing various game concepts" className="w-full h-auto" />
+        <img src="/ideation.png" alt="Ideation sketches showing various game concepts" className="w-[50%] rounded-lg h-auto mx-auto" />
       ]
     },
     {
@@ -72,13 +72,13 @@ const kidneyquest: CaseStudy = {
       description:
         "Developed low-fidelity prototypes and mapped the complete user journey from QR scan to completion.",
       insights: [
-        <img src="/userflow.png" alt="User flow diagram" className="w-full h-auto" />,
-        "Design System was adapted from NKF existing guidelines to ensure brand consistency",
-        <img src="/NKFds.png" alt="NKF Design System" className="w-full h-auto" />
+        <img src="/userflow.png" alt="User flow diagram" className="w-[80%] rounded-lg mx-auto" />,
+        <img src="/NKFds.png" alt="NKF Design System" className="w-full rounded-lg mx-auto" />,
+        "Design System was adapted from NKF existing guidelines to ensure brand consistency."
       ]
     },
   ],
-  personalVoice: "This project taught me the value of designing within real-world constraints—short attention spans, crowded venues, and minimal setup time. Balancing engagement with education required constant iteration and user testing. I learned to prioritize clarity and speed without sacrificing impact, and to design for accessibility from the start rather than as an afterthought.",
+  personalVoice: "This project taught me the value of designing within real-world constraints—short attention spans, crowded venues, and minimal setup time. Balancing engagement with education required constant iteration and user testing. I learned to prioritise clarity and speed without sacrificing impact, and to design for accessibility from the start rather than as an afterthought.",
   finalPrototype: <img src="/NKFhifi.png" alt="High-fidelity prototype screens" className="w-[70%] h-auto mx-auto" />,
   nextSteps: {
     shipped: [
