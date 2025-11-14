@@ -67,7 +67,7 @@ const hybridrag: CaseStudy = {
       description:
         "Iteration of Lo-Fi prototypes in Figma, and creation of Design System",
       insights: [
-        <img src="/designsystem.png" alt="Design System" className="w-[70%] rounded-lg shadow-md mx-auto" />,
+        <img src="/designsystem.png" alt="Design System" className="w-[80%] rounded-lg shadow-md mx-auto" />,
       ],
       design_system: [
         "Tokens: color, spacing, typography, radii, shadows",
