@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
@@ -52,6 +53,7 @@ const CaseStudy = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <ScrollProgressBar />
       <Navigation />
       
       <main className="flex-grow pt-24 pb-20">
