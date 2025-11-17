@@ -12,9 +12,9 @@ const hybridrag: CaseStudy = {
     context:
       "To develop a  hybrid, offline-first RAG assistant that gives Singapore Police Force (SPF) ground response officers fast, arrestability-aware guidance (Penal Code, SOPs, quick-reference playbooks) that still works in connectivity blackspots.",
     goals: [
-      "Cut on-scene lookup time by ≥50% (time to first relevant extract and rationale)",
-      "Achieve 100% successful guidance completion in offline conditions",
-      "Deliver a one-hand, mobile-first experience tuned for standard-issue Android devices",
+      "-≥50% on-scene lookup (time to first relevant extract and rationale)",
+      "100% successful guidance completion in offline conditions",
+      "One-hand, mobile-first, optimised for standard-issue Android devices",
     ],
   },
   problem: {
@@ -23,7 +23,7 @@ const hybridrag: CaseStudy = {
     constraints: [
       "Must operate offline with on-device retrieval",
       "Sensitive content controls",
-      "Android hardware ",
+      "Android hardware",
       "Strict scope alignment with HTX/SPF review cadence and security sign-offs",
     ],
   },
@@ -31,7 +31,7 @@ const hybridrag: CaseStudy = {
     {
       phase: "Empathise",
       description:
-        "Conducted 4 user interviews, and sent a survey to 10 SPF ground response officers, translated into a user persona",
+        "Conducted 4 user interviews + 10 SPF ground response officers survey, translated into a user persona",
       insights: [
         "Completed CITI Social & Behavioral research training to ensure ethical study design and data handling.",
         <img src="/Capstone Persona.png" alt="Capstone Persona" className="rounded-lg shadow-md mx-auto"/>,
@@ -67,14 +67,7 @@ const hybridrag: CaseStudy = {
       description:
         "Iteration of Lo-Fi prototypes in Figma, and creation of Design System",
       insights: [
-        <img src="/designsystem.png" alt="Design System" className="w-[80%] rounded-lg shadow-md mx-auto" />,
-      ],
-      design_system: [
-        "Tokens: color, spacing, typography, radii, shadows",
-        "Type scale tuned for small screens (readable in glare)",
-        "Core components: Button, Input, Card, Badge, Tabs, Dialog, Toast",
-        "State patterns: hover/focus/active/disabled with ≥4.5:1 contrast",
-        "Documentation in Figma with usage, do/don't, and variants",
+        <img src="/designsystem.png" alt="Design System" className="w-[90%] rounded-lg shadow-md mx-auto" />,
       ],
     },
   ],
@@ -97,7 +90,6 @@ const hybridrag: CaseStudy = {
       { metric: "Booking completion rate", before: "60%", after: "87%", change: "+27%" },
       { metric: "Average booking time", before: "8.5 min", after: "3.2 min", change: "-62%" },
       { metric: "Mobile completion rate", before: "48%", after: "84%", change: "+36%" },
-      { metric: "Support tickets", before: "~180/month", after: "~45/month", change: "-75%" },
     ],
     qualitative: [
       "NPS score increased from 32 to 61",
@@ -111,7 +103,7 @@ const hybridrag: CaseStudy = {
   nextSteps: {
     shipped: [
       "Hi-Fi prototypes for usability testing",
-      "Develop a concreate A/B test plan, and the success metrics",
+      "Develop a concrete A/B test plan, and the success metrics",
       "A/B test appointment reminders (to HTX via email)",
       "Iterate prototype based on feedback",
     ],
