@@ -10,8 +10,8 @@ const projects = [
     id: 1,
     title: "Hybrid RAG",
     roles: ["Lead UX Researcher"],
-    problem: "SPF need a faster, more intuitive, and reliable access to SOPs and references that still works offline.",
-    timeline: "9 months (Sep 2025 - May 2026)",
+    problem: "Singapore Police Force need a faster, more intuitive, and reliable access to SOPs and references that still works offline.",
+    outcome: "-",
     tags: ["UX Research", "RAG", "Android"],
     image: "/htx.png",
     slug: "hybridrag",
@@ -22,7 +22,7 @@ const projects = [
     title: "KidneyQuest",
     roles: ["UX Designer", "UI/UX Designer"],
     problem: "A mobile, interactive experience that minimises staff time and paper is needed to teach the public kidney-health essentials.",
-    timeline: "4 months (Sep – Dec 2025)",
+    outcome: "-",
     tags: ["UX Research", "Healthcare", "AR"],
     image: "/kidneyquest.png",
     slug: "kidneyquest",
@@ -33,7 +33,7 @@ const projects = [
     title: "FlowTutor",
     roles: ["UI/UX Designer"],
     problem: "Self-directed learners using YouTube tutorials constantly pause, scrub, and context-switch to find specific steps,causing overload, lost flow, and errors.",
-    timeline: "4 months (Sep – Dec 2025)",
+    outcome: "-",
     tags: ["Education", "Web", "Usability Testing"],
     image: "/placeholder.svg",
     slug: "flowtutor",
@@ -44,7 +44,7 @@ const projects = [
     title: "Reimagining CaringBridge",
     roles: ["UX/UI Designer"],
     problem: "CaringBridge’s utilitarian design create a cold, impersonal experience during emotionally sensitive health journeys.",
-    timeline: "2 months (Nov – Dec 2024)",
+    outcome: "-",
     tags: ["UX Research", "Healthcare"],
     image: "/CBhero.png",
     slug: "caringbridge",
@@ -55,7 +55,7 @@ const projects = [
     title: "Stratus",
     roles: ["Product Designer"],
     problem: "Existing journaling apps lack discreet privacy controls, effortless entry, and reliable retrieval, reducing journaling consistency.",
-    timeline: "2 years (Jul 2025 - Jul 2027)",
+    outcome: "-",
     tags: ["UX Research", "Full Stack Software", "Flutter"],
     image: "/placeholder.svg",
     slug: "stratus",
@@ -116,21 +116,19 @@ const Index = () => {
           {/* Testimonials Strip */}
           <div className="mt-20 pt-12 border-t border-border">
             <h3 className="text-2xl font-semibold tracking-tight mb-8 text-center">
-              Impact & Recognition
+            Industry Partners & Clients
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center space-y-2">
-                <p className="text-3xl font-semibold text-primary">+18%</p>
-                <p className="text-sm text-muted-foreground">Average task success improvement</p>
-              </div>
-              <div className="text-center space-y-2">
-                <p className="text-3xl font-semibold text-primary">NPS +12</p>
-                <p className="text-sm text-muted-foreground">Net Promoter Score increase</p>
-              </div>
-              <div className="text-center space-y-2">
-                <p className="text-3xl font-semibold text-primary">5/5</p>
-                <p className="text-sm text-muted-foreground">Usability test satisfaction</p>
-              </div>
+            <div className="flex justify-center items-center gap-12 md:gap-20">
+              <img 
+                src="/htxlogo.png" 
+                alt="HTX - Home Team Science & Technology Agency" 
+                className="h-16 md:h-20 w-auto transition-all duration-300"
+              />
+              <img 
+                src="/nkflogo.png" 
+                alt="National Kidney Foundation" 
+                className="h-16 md:h-20 w-auto transition-all duration-300"
+              />
             </div>
           </div>
         </div>

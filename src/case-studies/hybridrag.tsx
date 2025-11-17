@@ -3,11 +3,11 @@ import { CaseStudy } from "@/types/caseStudy";
 const hybridrag: CaseStudy = {
   slug: "hybridrag",
   title: "Hybrid RAG for Singapore Police Force",
-  roles: ["Lead Product Designer"],
+  roles: ["Product Designer"],
   timeline: "9 months (Sep 2025 - May 2026)",
   client: "HTX (Home Team Science & Technology Agency)",
   tools: "Figma",
-  hero: "/htx.png",
+  hero: "/htxhero.png",
   overview: {
     context:
       "To develop a  hybrid, offline-first RAG assistant that gives Singapore Police Force (SPF) ground response officers fast, arrestability-aware guidance (Penal Code, SOPs, quick-reference playbooks) that still works in connectivity blackspots.",
@@ -106,7 +106,8 @@ const hybridrag: CaseStudy = {
     ],
   },
   personalVoice:
-    "The biggest challenge I faced was recruiting active SPF personnel for my initial user research, due to access and operational constraints. To work around this, I spoke to ex-SPF officers from my university, using them as subject-matter proxies to surface real incident workflows, pain points, and mental models. While I treated their input as provisional rather than definitive, these conversations helped me quickly build a rough picture of SPF ground operations and shape my early assumptions.\n\nFrom this, I realised that good UX research is not blocked by constraints, but adapts creatively while staying honest about its limitations.",
+    "The biggest challenge I faced was recruiting active SPF personnel for my initial user research, due to access and operational constraints. To work around this, I spoke to ex-SPF officers from my university, using them as subject-matter proxies to surface real incident workflows, pain points, and mental models." + 
+    "While I treated their input as provisional rather than definitive, these conversations helped me quickly build a rough picture of SPF ground operations and shape my early assumptions.\n\nFrom this, I realised that good UX research is not blocked by constraints, but adapts creatively while staying honest about its limitations.",
   nextSteps: {
     shipped: [
       "Hi-Fi prototypes for usability testing",

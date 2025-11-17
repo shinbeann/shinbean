@@ -6,40 +6,29 @@ const kidneyquest: CaseStudy = {
   roles: ["UX Designer", "UI Designer"],
   timeline: "4 months (Sept – Dec 2025)",
   client: "The National Kidney Foundation (NKF)",
-  tools: "Figma, Figma Make",
+  tools: "Figma, Figma Make, Miro",
   hero: "/kidneyquest.png",
   overview: {
     context:
-      "Designing a mobile web AR mini-game to complement NKF's inflatable kidney exhibit. Visitors scan a QR, answer quick questions, earn Orbs, and toss them to clear toxins. This replaces the need for paper handouts with a fun, self-directed experience.",
+      "A mobile web AR mini-game for NKF’s inflatable kidney exhibit. Visitors scan a QR, answer fast questions, earn Orbs, and toss them to clear toxins—replacing paper handouts with a 3-minute, self-directed experience.",
     goals: [
-      "Cut printed brochures/worksheets by ≥50% at events",
-      "Achieve ≥80% positive ease/engagement feedback",
-      "Ensure ≥3 key takeaways recalled within a ≤3-minute session",
+      "−50% printed brochures/worksheets at events",
+      "≥80% positive ease/engagement feedback",
+      "≥3 key takeaways recalled in ≤3 minutes",
       "Mobile-first, multilingual, offline-friendly"
     ]
   },
   problem: {
     description:
-      "Event-goers encounter dense brochures and static displays that are easy to ignore under time pressure. Content recall is low, queues are dynamic, and paper materials are unsustainable. We need a fast, accessible, and engaging way to deliver kidney-health essentials without increasing manpower.",
-    constraints: [
-      "Total playtime target ≤3 minutes (queue-safe)",
-      "PDPA-safe: on-device processing by default, no PII required",
-      "Mobile web/PWA; must work with spotty connectivity (offline fallback)",
-      "Camera permissions optional with non-camera path",
-      "Operable on common smartphones at public venues, minimal set-up for staff"
-    ]
-  },
+      "At public events, dense brochures and static displays are ignored under time pressure. Recall is low and paper is unsustainable. We need a fast, accessible way to deliver kidney-health essentials without adding staff load.",
+    constraints: []
+    },
   process: [
     {
       phase: "Empathise",
       description:
-        "Interviewed 3 participants and ran a survey with 61 respondents to understand what draws people to public exhibits and why they walk past.",
-      insights: [
-        "Stopping power depends on clarity at first glance and interactivity",
-        "Visitors are often in a rush; most will give 2–5 minutes max",
-        "Giveaways/freebies motivate attention but content must be relatable",
-        "Simple, game-like tasks beat long reading on small screens"
-      ],
+        "Interviewed 3 participants + 61-response survey to understand what draws people to public exhibits and why they walk past.",
+      insights: [],
       pain_points: [
         "Looks boring/irrelevant or unclear purpose on first look",
         "Little time, crowded venues, attention is fragmented",
@@ -52,19 +41,18 @@ const kidneyquest: CaseStudy = {
       description:
         "Affinity mapping of interview and survey data revealed patterns in visitor behavior and content preferences.",
       insights: [
-        <img src="/affinitymapping.png" alt="Affinity Mapping" className="w-[50%] rounded-lg h-auto mx-auto" />,
+        <img src="/affinitymapping.png" alt="Affinity Mapping" className="w-[70%] rounded-lg h-auto mx-auto" />,
         "One concept per screen improved comprehension and speed",
         "Visible progress + countdown increased focus within 3-minute cap",
         "Neutral, gain-framed feedback reduced anxiety vs. 'pass/fail'",
-        "Optional 30-second risk micro-screener bridges to screening action"
       ]
     },
     {
       phase: "Ideation",
       description:
-        "Led group brainstorming sessions using Crazy 8s methodology to rapidly explore diverse solutions and converge on the most promising concepts.",
+        "Led group brainstorming sessions using Crazy 8s to rapidly explore diverse solutions and converge on the most promising concepts.",
       insights: [
-        <img src="/ideation.png" alt="Ideation sketches showing various game concepts" className="w-[50%] rounded-lg h-auto mx-auto" />
+        <img src="/ideation.png" alt="Ideation sketches showing various game concepts" className="w-[70%] rounded-lg h-auto mx-auto" />
       ]
     },
     {
@@ -74,16 +62,26 @@ const kidneyquest: CaseStudy = {
       insights: [
         <img src="/userflow.png" alt="User flow diagram" className="w-[80%] rounded-lg mx-auto" />,
         <img src="/NKFds.png" alt="NKF Design System" className="w-full rounded-lg mx-auto" />,
-        "Design System was adapted from NKF existing guidelines to ensure brand consistency."
+        "Adapted typography and colour palette from NKF guidelines for brand consistency",
       ]
     },
   ],
-  personalVoice: "This project taught me the value of designing within real-world constraints—short attention spans, crowded venues, and minimal setup time. Balancing engagement with education required constant iteration and user testing. I learned to prioritise clarity and speed without sacrificing impact, and to design for accessibility from the start rather than as an afterthought.",
+  personalVoice: "We set an ambitious bar for KidneyQuest, but when we moved from sketches to implementation, we realised that we had technical limitations which greatly hindered the project timeline and progress. We failed to realise that AR was the riskiest part of the concept. \n\nWhat I would change next time:\n\n- Prototype the riskiest assumption first and validate feasibility early\n- Periodic checkpoints with pass/fail criteria",
+  results: {
+    quantitative: [
+      { metric: "Paper waste reduction", before: "100%", after: "50%", change: "-50%" },
+      { metric: "Engagement rate", before: "N/A", after: "80%", change: "+87%" },
+      { metric: "Average completion time", before: "N/A", after: "3 min", change: "2.48 min" },
+    ],
+    qualitative: [
+      "Visitors reported the experience was engaging and educational",
+      "NKF staff noted reduced setup time and material costs",
+      "Positive feedback on the interactive AR elements and game mechanics",
+    ],
+  },
   finalPrototype: <img src="/NKFhifi.png" alt="High-fidelity prototype screens" className="w-[70%] h-auto mx-auto" />,
   nextSteps: {
     shipped: [
-      "Usability test approval from NKF",
-      "Conduct usability test with 5-7 participants",
       "Second round of iterations based on feedback",
     ],
   },

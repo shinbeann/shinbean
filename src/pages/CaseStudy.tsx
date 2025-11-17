@@ -126,21 +126,25 @@ const CaseStudy = () => {
             </div>
           </section>
 
-          {/* Problem & Constraints */}
+          {/* Problem */}
           <section className="not-prose">
-            <h2 className="text-3xl font-semibold mb-8 font-sans text-foreground border-b border-border pb-4" style={{letterSpacing: '-0.02em'}}>Problem & Constraints</h2>
-            <p className="text-lg leading-relaxed mb-8 font-serif text-foreground">{highlightTerms(caseStudy.problem.description, boldTerms)}</p>
-            <div className="bg-destructive/10 border-l-4 border-destructive pl-8 py-6 rounded-r-lg">
-              <h3 className="font-semibold mb-4 font-sans text-foreground text-xl tracking-wide text-sm">Key Constraints</h3>
-              <ul className="space-y-3">
-                {caseStudy.problem.constraints.map((constraint: string, index: number) => (
-                  <li key={index} className="flex items-start gap-4">
-                    <span className="text-destructive mt-1 font-bold">✕</span>
-                    <span className="font-serif text-foreground">{constraint}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <h2 className="text-3xl font-semibold mb-8 font-sans text-foreground border-b border-border pb-4" style={{letterSpacing: '-0.02em'}}>Problem</h2>
+            <p className="text-lg leading-relaxed font-serif text-foreground">{highlightTerms(caseStudy.problem.description, boldTerms)}</p>
+            
+            {/* Constraints (only show if they exist) */}
+            {caseStudy.problem.constraints && caseStudy.problem.constraints.length > 0 && (
+              <div className="mt-8 p-6 bg-destructive/10 border-l-4 border-destructive rounded-r-lg">
+                <h3 className="font-semibold text-lg mb-4 text-foreground">Key Constraints</h3>
+                <ul className="space-y-2">
+                  {caseStudy.problem.constraints.map((constraint: string, i: number) => (
+                    <li key={i} className="flex items-start gap-3 text-muted-foreground">
+                      <span className="text-destructive mt-1">▸</span>
+                      <span>{constraint}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </section>
 
           {/* Process */}
@@ -186,7 +190,7 @@ const CaseStudy = () => {
                             // Check if it's a design system image by looking at alt text
                             const isDesignSystem = insight.props?.alt?.toLowerCase().includes('design system');
                             return (
-                              <div key={i} className={`${isDesignSystem ? 'w-4/5 mx-auto' : 'w-full'} rounded-lg overflow-hidden border border-border`}>
+                              <div key={i} className={`${isDesignSystem ? 'w-4/5 mx-auto' : 'w-full'} overflow-hidden`}>
                                 {insight}
                               </div>
                             );
@@ -210,17 +214,13 @@ const CaseStudy = () => {
                     )}
 
                     {phase.pain_points && phase.pain_points.length > 0 && (
-                      <div className="bg-destructive/10 p-8 rounded-lg border border-destructive/20">
-                        <h4 className="text-xs font-semibold mb-6 font-sans tracking-wider text-muted-foreground">
-                          Pain Points
-                        </h4>
-                        <ul className="grid gap-4 sm:grid-cols-2">
-                          {phase.pain_points.map((p: string, j: number) => (
-                            <li key={j} className="flex items-center justify-center text-center bg-background/50 rounded-md px-6 py-5 min-h-[80px]">
-                              <div className="flex items-center gap-3">
-                                <span className="text-destructive font-bold flex-shrink-0">✕</span>
-                                <span className="text-sm font-sans text-foreground">{p}</span>
-                              </div>
+                      <div className="mt-8 p-6 bg-destructive/10 border-l-4 border-destructive rounded-r-lg">
+                        <h3 className="font-semibold text-lg mb-4 text-foreground">Pain Points</h3>
+                        <ul className="space-y-2">
+                          {phase.pain_points.map((point: string, i: number) => (
+                            <li key={i} className="flex items-start gap-3 text-muted-foreground">
+                              <span className="text-destructive mt-1">▸</span>
+                              <span>{point}</span>
                             </li>
                           ))}
                         </ul>
@@ -249,7 +249,43 @@ const CaseStudy = () => {
           {/* kept commented out by request */}
 
           {/* Results & Impact */}
-          {/* kept commented out by request */}
+          {caseStudy.results && (
+            <section className="not-prose">
+              <h2 className="text-3xl font-semibold mb-8 font-sans text-foreground border-b border-border pb-4" style={{letterSpacing: '-0.02em'}}>Results & Impact</h2>
+              
+              {caseStudy.results.quantitative && caseStudy.results.quantitative.length > 0 && (
+                <div className="mb-12">
+                  <h3 className="text-xl font-semibold mb-6 font-sans text-foreground">Quantitative Metrics</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {caseStudy.results.quantitative.map((result: any, index: number) => (
+                      <div key={index} className="bg-card p-6 rounded-lg border border-border text-center">
+                        <p className="text-sm text-muted-foreground mb-2 font-sans">{result.metric}</p>
+                        <p className="text-3xl font-bold text-primary mb-1">{result.after}</p>
+                        <p className="text-sm text-success font-semibold">{result.change}</p>
+                        {result.before !== "N/A" && (
+                          <p className="text-xs text-muted-foreground mt-2">from {result.before}</p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {caseStudy.results.qualitative && caseStudy.results.qualitative.length > 0 && (
+                <div>
+                  <h3 className="text-xl font-semibold mb-6 font-sans text-foreground">Qualitative Impact</h3>
+                  <ul className="space-y-4">
+                    {caseStudy.results.qualitative.map((item: string, index: number) => (
+                      <li key={index} className="flex items-start gap-4 bg-accent/30 p-4 rounded-lg">
+                        <span className="text-primary mt-1 font-bold">✓</span>
+                        <span className="font-serif text-foreground">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </section>
+          )}
 
           {/* Final Thoughts */}
           {caseStudy.personalVoice && (

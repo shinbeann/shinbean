@@ -9,14 +9,14 @@ interface ProjectCardProps {
   role?: string;
   roles?: string[];
   problem: string;
-  timeline: string;
+  outcome: string;
   tags: string[];
   image: string;
   slug: string;
   category: "Professional" | "School" | "Passion";
 }
 
-const ProjectCard = ({ title, role, roles, problem, timeline, tags, image, slug, category }: ProjectCardProps) => {
+const ProjectCard = ({ title, role, roles, problem, outcome, tags, image, slug, category }: ProjectCardProps) => {
   const roleItems = roles && roles.length ? roles : role ? [role] : [];
   return (
     <Link to={`/case-study/${slug}`}>
@@ -39,7 +39,7 @@ const ProjectCard = ({ title, role, roles, problem, timeline, tags, image, slug,
             {category}
           </Badge>
 
-          {/* Title and Role(s) */}
+          {/* Title */}
           <div>
             <div className="flex items-start justify-between gap-2">
               <h3 className="text-xl font-semibold tracking-tight group-hover:text-primary transition-colors">
@@ -47,9 +47,6 @@ const ProjectCard = ({ title, role, roles, problem, timeline, tags, image, slug,
               </h3>
               <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
             </div>
-            {roleItems.length > 0 && (
-              <p className="text-sm text-muted-foreground mt-1">{roleItems.join(" · ")}</p>
-            )}
           </div>
 
           {/* Problem → Outcome (visible on hover/focus) */}
@@ -58,7 +55,7 @@ const ProjectCard = ({ title, role, roles, problem, timeline, tags, image, slug,
               <span className="font-medium text-foreground">Problem →</span> {problem}
             </p>
             <p className="text-muted-foreground">
-              <span className="font-medium text-foreground">Timeline →</span> {timeline}
+              <span className="font-medium text-foreground">Outcome →</span> {outcome}
             </p>
           </div>
 
