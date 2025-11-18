@@ -7,7 +7,7 @@ const flowtutor: CaseStudy = {
   timeline: "4 months (Sep – Dec 2025)",
   client: "Academic Project",
   tools: "Figma, Miro, UserTesting",
-  hero: "/placeholder.svg",
+  hero: "/FThero.png",
   overview: {
     context:
       "FlowTutor is a webapp designed to enhance the YouTube learning experience. By providing chapter navigation, progress tracking, and interactive features, it helps learners stay focused and retain information better while watching educational content.",
