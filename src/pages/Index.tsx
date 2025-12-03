@@ -277,24 +277,6 @@ const Index = () => {
             </div>
           </motion.section>
 
-          {/* Industry Partners Strip (kept from previous layout) */}
-          <section className="pt-12 border-t border-border/60">
-            <h3 className="text-2xl font-semibold tracking-tight mb-8 text-center">
-              Industry Partners &amp; Clients
-            </h3>
-            <div className="flex justify-center items-center gap-12 md:gap-20 opacity-90">
-              <img
-                src="/htxlogo.png"
-                alt="HTX - Home Team Science &amp; Technology Agency logo"
-                className="h-16 md:h-20 w-auto transition-all duration-300"
-              />
-              <img
-                src="/nkflogo.png"
-                alt="National Kidney Foundation logo"
-                className="h-16 md:h-20 w-auto transition-all duration-300"
-              />
-            </div>
-          </section>
         </div>
       </main>
 
