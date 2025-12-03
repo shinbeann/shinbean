@@ -32,6 +32,8 @@ All colors MUST be HSL.
     --border: 0 0% 20%;
     --input: 0 0% 20%;
     --ring: 0 0% 98%;
+    --nav-on-dark: 0 0% 98%;
+    --nav-on-light: 0 0% 7%;
     --radius: 2rem;
     
     /* 8pt spacing grid */

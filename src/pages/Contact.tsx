@@ -62,7 +62,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navigation />
+      <Navigation tone="dark" enableSmartHide={false} />
       
       <main className="flex-grow pt-24 pb-20 px-4">
         <div className="container max-w-4xl mx-auto">

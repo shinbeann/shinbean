@@ -27,7 +27,7 @@ const Index = () => {
     <div
       className={`min-h-screen flex flex-col transition-colors duration-700 ${projectBackgroundClasses[activeProject]}`}
     >
-      <Navigation />
+      <Navigation tone={activeProject === "hybridrag" ? "dark" : "light"} enableSmartHide />
 
       {/* Intro Hero */}
       <MultilingualHero />
