@@ -83,7 +83,7 @@ const Footer = () => {
   const [showConfetti, setShowConfetti] = useState(false);
 
   const handleCopyEmail = async () => {
-    const email = "hello@shinbean.studio";
+    const email = "gayshinlee@gmail.com";
 
     try {
       if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -118,7 +118,7 @@ const Footer = () => {
           {/* Big statement */}
           <div className="space-y-6 md:space-y-8">
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-              Contact · Studio
+              Contact
             </p>
             <h2 className="font-semibold leading-none tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
               Let&apos;s Build Something.
@@ -145,7 +145,7 @@ const Footer = () => {
                   </p>
                   <div className="flex flex-wrap items-baseline gap-x-3 gap-y-2">
                     <span className="font-mono text-2xl md:text-3xl tracking-tight">
-                      hello@shinbean.studio
+                      gayshinlee@gmail.com
                     </span>
                     <span className="text-xs font-medium text-primary">
                       {copied ? "Copied!" : "Click to copy"}
