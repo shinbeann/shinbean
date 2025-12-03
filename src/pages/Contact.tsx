@@ -65,15 +65,15 @@ const Contact = () => {
       <Navigation tone="dark" enableSmartHide={false} />
       
       <main className="flex-grow pt-24 pb-20 px-4">
-        <div className="container max-w-4xl mx-auto">
+        <div className="container max-w-6xl mx-auto">
           {/* Header */}
-          <header className="mb-16 text-center">
-            <h1 className="text-4xl md:text-5xl font-mono font-semibold tracking-tight mb-6">
-              Let's Work Together
+          <header className="mb-16 md:mb-20 max-w-xl">
+            <h1 className="text-3xl md:text-4xl font-mono font-semibold tracking-tight mb-4">
+              Let's work together.
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              I'm always interested in hearing about new projects and opportunities. 
-              Whether you have a question or just want to say hi, feel free to reach out.
+            <p className="text-sm md:text-base text-foreground/80 max-w-2xl">
+              I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want
+              to say hi, feel free to reach out.
             </p>
           </header>
 

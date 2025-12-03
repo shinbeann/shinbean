@@ -152,16 +152,17 @@ All colors MUST be HSL.
   }
 
   .nav-dot-work {
-    @apply relative pl-5;
+    @apply relative;
+    padding-left: 1rem; /* leave ~5px breathing room between dot and label */
   }
 
   .nav-dot-work::before {
     content: "";
     position: absolute;
-    left: 0.75rem;
+    left: 0.5rem;
     top: 50%;
-    width: 0.4rem;
-    height: 0.4rem;
+    width: 5px;
+    height: 5px;
     border-radius: 9999px;
     background-color: hsl(var(--nav-dot));
     transform: translateY(-50%);
