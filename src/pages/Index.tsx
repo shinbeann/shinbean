@@ -89,26 +89,9 @@ const Index = () => {
           </div>
             
           {/* Filter Chips */}
-          <div className="flex flex-wrap gap-2 justify-center mb-12">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 rounded-full text-sm font-medium border transition-all duration-200 ${
-                  selectedCategory === cat
-                    ? 'bg-primary text-primary-foreground border-primary shadow-sm'
-                    : 'bg-background text-muted-foreground border-border hover:border-primary hover:text-foreground'
-                }`}
-                aria-pressed={selectedCategory === cat}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {filteredProjects.map((project) => (
+            {projects.map((project) => (
               <ProjectCard key={project.id} {...project} />
             ))}
           </div>
