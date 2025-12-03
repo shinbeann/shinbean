@@ -34,6 +34,7 @@ All colors MUST be HSL.
     --ring: 0 0% 98%;
     --nav-on-dark: 0 0% 98%;
     --nav-on-light: 0 0% 7%;
+    --nav-dot: 0 82% 56%;
     --radius: 2rem;
     
     /* 8pt spacing grid */
@@ -148,5 +149,21 @@ All colors MUST be HSL.
 
   .bg-flowtutor {
     background: radial-gradient(circle at top, hsl(var(--flowtutor-soft)) 0%, hsl(var(--background)) 80%);
+  }
+
+  .nav-dot-work {
+    @apply relative pl-5;
+  }
+
+  .nav-dot-work::before {
+    content: "";
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 9999px;
+    background-color: hsl(var(--nav-dot));
+    transform: translateY(-50%);
   }
 }
