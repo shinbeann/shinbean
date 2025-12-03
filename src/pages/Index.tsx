@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import MultilingualHero from "@/components/MultilingualHero";
@@ -64,14 +64,8 @@ const projects = [
 ];
 
 const Index = () => {
-  const categories = ["All Projects", "Professional", "School", "Passion"];
-  const [selectedCategory, setSelectedCategory] = useState<string>("All Projects");
-
-  const filteredProjects = selectedCategory === "All Projects"
-    ? projects
-    : projects.filter(p => p.category === selectedCategory);
-
   return (
+
     <div className="min-h-screen flex flex-col">
       <Navigation />
       
