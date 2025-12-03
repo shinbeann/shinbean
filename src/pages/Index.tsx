@@ -27,7 +27,7 @@ const Index = () => {
     >
       <Navigation tone={activeProject === "hybridrag" ? "dark" : "light"} enableSmartHide />
 
-      <main className="flex-1 px-4 pb-24">
+      <main className="flex-1 px-4 pt-24 pb-24">
         <div className="container max-w-6xl mx-auto space-y-32">
           {/* KidneyQuest Section */}
           <motion.section
