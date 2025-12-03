@@ -25,10 +25,11 @@ const About = () => {
       <Navigation tone="dark" enableSmartHide={false} />
 
       <main className="flex-grow pt-24 pb-20 px-4">
-        <article className="container max-w-4xl mx-auto">
+        <article className="container max-w-6xl mx-auto">
           {/* Header */}
-          <header className="mb-16">
-            <h1 className="text-4xl md:text-5xl font-mono font-semibold tracking-tight mb-8">About Me</h1>
+          <header className="mb-16 space-y-6">
+            <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">About · Profile</p>
+            <h1 className="text-3xl md:text-4xl font-mono font-semibold tracking-tight">About Me</h1>
             <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
               <div className="flex-shrink-0">
                 <img 
@@ -38,7 +39,7 @@ const About = () => {
                 />
               </div>
               <div className="flex-1">
-                <p className="text-xl text-muted-foreground leading-relaxed">
+                <p className="text-sm md:text-base text-foreground/80 leading-relaxed">
                   I am a computer science undergraduate, drawn to human-centered design, elevating people's stories into
                   data-backed decisions via mixed-methods research and iterative prototyping to ship intuitive, inclusive
                   products.

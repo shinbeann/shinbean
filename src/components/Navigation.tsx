@@ -85,8 +85,8 @@ const Navigation = ({ tone = "dark", enableSmartHide = true }: NavigationProps) 
             <NavLink
               to="/"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-foreground"
-              activeClassName="nav-dot-work text-foreground"
+              className="nav-dot-work text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-foreground"
+              activeClassName="text-foreground"
             >
               WORK
             </NavLink>
@@ -132,8 +132,8 @@ const Navigation = ({ tone = "dark", enableSmartHide = true }: NavigationProps) 
                   window.scrollTo({ top: 0, behavior: "smooth" });
                   setIsMenuOpen(false);
                 }}
-                className="rounded-2xl px-4 py-2 text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:bg-muted/60 hover:text-foreground"
-                activeClassName="nav-dot-work text-foreground bg-muted"
+                className="nav-dot-work rounded-2xl px-4 py-2 text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:bg-muted/60 hover:text-foreground"
+                activeClassName="text-foreground bg-muted"
               >
                 WORK
               </NavLink>
