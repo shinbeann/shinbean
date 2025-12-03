@@ -46,7 +46,7 @@ const About = () => {
                 Profile
               </p>
               <h1 className="text-2xl md:text-3xl font-semibold text-foreground">
-                Shinbean — CS × Design
+                Gay Shin Lee
               </h1>
               <p className="text-sm md:text-base text-muted-foreground max-w-prose leading-relaxed">
                 I am a Computer Science Engineer drawn to human-centered design. I elevate stories into data-backed
