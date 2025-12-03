@@ -21,14 +21,14 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-flowtutor">
       <Navigation tone="dark" enableSmartHide={false} />
 
       <main className="flex-grow pt-24 pb-20 px-4">
         <article className="container max-w-4xl mx-auto">
           {/* Header */}
           <header className="mb-16">
-            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-8">About Me</h1>
+            <h1 className="text-4xl md:text-5xl font-mono font-semibold tracking-tight mb-8">About Me</h1>
             <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
               <div className="flex-shrink-0">
                 <img 

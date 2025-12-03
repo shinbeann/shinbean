@@ -67,16 +67,17 @@ const Navigation = ({ tone = "dark", enableSmartHide = true }: NavigationProps) 
     >
       <div className={cn("relative", toneClass)}>
         <div className="flex items-center gap-4 rounded-full border border-border/60 bg-background/70 px-4 py-2 backdrop-blur-xl shadow-lg md:px-6 md:py-3">
-          {/* Logo/Name */}
+          {/* ABOUT entry (replaces brand) */}
           <NavLink
-            to="/"
+            to="/about"
             onClick={() => {
               window.scrollTo({ top: 0, behavior: "smooth" });
               setIsMenuOpen(false);
             }}
-            className="text-sm font-semibold tracking-tight transition-colors hover:text-primary"
+            className="text-xs font-medium uppercase tracking-[0.2em] transition-colors hover:text-primary"
+            activeClassName="text-foreground"
           >
-            Gay Shin Lee
+            ABOUT
           </NavLink>
 
           {/* Desktop Navigation */}
@@ -114,6 +115,17 @@ const Navigation = ({ tone = "dark", enableSmartHide = true }: NavigationProps) 
         {isMenuOpen && (
           <div className="absolute left-0 right-0 mt-3 rounded-3xl border border-border/80 bg-background/95 p-3 shadow-xl backdrop-blur-xl md:hidden">
             <div className="flex flex-col gap-1">
+              <NavLink
+                to="/about"
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                  setIsMenuOpen(false);
+                }}
+                className="rounded-2xl px-4 py-2 text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:bg-muted/60 hover:text-foreground"
+                activeClassName="bg-muted text-foreground"
+              >
+                ABOUT
+              </NavLink>
               <NavLink
                 to="/"
                 onClick={() => {
