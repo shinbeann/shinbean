@@ -65,6 +65,12 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 0 0% 20%;
     --sidebar-ring: 0 0% 98%;
+
+    /* Project-specific vibes */
+    --kidneyquest-gold: 37 82% 60%;
+    --kidneyquest-teal: 194 49% 33%;
+    --hybridrag-deep: 210 10% 9%;
+    --flowtutor-soft: 210 40% 30%;
   }
 }
 
@@ -126,5 +132,19 @@ All colors MUST be HSL.
   /* Focus styles for accessibility */
   *:focus-visible {
     @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer components {
+  .bg-kidneyquest {
+    background: radial-gradient(circle at top left, hsl(var(--kidneyquest-gold)) 0%, hsl(var(--background)) 55%);
+  }
+
+  .bg-hybridrag {
+    background: radial-gradient(circle at top, hsl(var(--hybridrag-deep)) 0%, hsl(var(--background)) 75%);
+  }
+
+  .bg-flowtutor {
+    background: radial-gradient(circle at top, hsl(var(--flowtutor-soft)) 0%, hsl(var(--background)) 80%);
   }
 }
