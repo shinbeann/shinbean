@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import MultilingualHero from "@/components/MultilingualHero";
-
  type ActiveProject = "kidneyquest" | "hybridrag" | "flowtutor";
 
 const projectBackgroundClasses: Record<ActiveProject, string> = {
@@ -28,9 +26,6 @@ const Index = () => {
       className={`min-h-screen flex flex-col transition-colors duration-700 ${projectBackgroundClasses[activeProject]}`}
     >
       <Navigation tone={activeProject === "hybridrag" ? "dark" : "light"} enableSmartHide />
-
-      {/* Intro Hero */}
-      <MultilingualHero />
 
       <main className="flex-1 px-4 pb-24">
         <div className="container max-w-6xl mx-auto space-y-32">

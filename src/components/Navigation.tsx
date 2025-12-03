@@ -90,14 +90,6 @@ const Navigation = ({ tone = "dark", enableSmartHide = true }: NavigationProps) 
             >
               WORK
             </NavLink>
-            <NavLink
-              to="/contact"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-foreground"
-              activeClassName="text-foreground"
-            >
-              CONTACT
-            </NavLink>
           </div>
 
           {/* Mobile Menu Button */}
@@ -136,17 +128,6 @@ const Navigation = ({ tone = "dark", enableSmartHide = true }: NavigationProps) 
                 activeClassName="text-foreground bg-muted"
               >
                 WORK
-              </NavLink>
-              <NavLink
-                to="/contact"
-                onClick={() => {
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                  setIsMenuOpen(false);
-                }}
-                className="rounded-2xl px-4 py-2 text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:bg-muted/60 hover:text-foreground"
-                activeClassName="bg-muted text-foreground"
-              >
-                CONTACT
               </NavLink>
             </div>
           </div>
