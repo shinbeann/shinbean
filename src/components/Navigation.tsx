@@ -74,7 +74,7 @@ const Navigation = ({ tone = "dark", enableSmartHide = true }: NavigationProps) 
               window.scrollTo({ top: 0, behavior: "smooth" });
               setIsMenuOpen(false);
             }}
-            className="text-xs font-medium uppercase tracking-[0.2em] transition-colors hover:text-primary"
+            className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-foreground"
             activeClassName="text-foreground"
           >
             ABOUT

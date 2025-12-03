@@ -61,14 +61,14 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-flowtutor">
       <Navigation tone="dark" enableSmartHide={false} />
       
       <main className="flex-grow pt-24 pb-20 px-4">
         <div className="container max-w-4xl mx-auto">
           {/* Header */}
           <header className="mb-16 text-center">
-            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
+            <h1 className="text-4xl md:text-5xl font-mono font-semibold tracking-tight mb-6">
               Let's Work Together
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
