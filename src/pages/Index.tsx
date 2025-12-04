@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { KidneyQuestInteractiveDemo } from "@/components/KidneyQuestInteractiveDemo";
+
  type ActiveProject = "kidneyquest" | "hybridrag" | "flowtutor";
 
 const projectBackgroundClasses: Record<ActiveProject, string> = {
@@ -63,12 +65,7 @@ const Index = () => {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="aspect-[16/10] rounded-3xl border border-border/60 bg-card/60 backdrop-blur-sm overflow-hidden flex items-center justify-center"
               >
-                <div className="w-[70%] max-w-md aspect-[9/16] rounded-[2.5rem] border border-border bg-gradient-to-b from-card to-background shadow-2xl flex items-center justify-center relative">
-                  <div className="w-4/5 h-2/5 rounded-2xl border border-accent/40 bg-gradient-to-br from-[hsl(var(--kidneyquest-gold))] to-[hsl(var(--kidneyquest-teal))]" />
-                  <span className="absolute bottom-5 text-xs text-muted-foreground">
-                    WebAR scanner hero (placeholder)
-                  </span>
-                </div>
+                <KidneyQuestInteractiveDemo />
               </motion.div>
 
               <motion.div
