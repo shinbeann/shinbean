@@ -55,12 +55,11 @@ export const KidneyQuestInteractiveDemo = () => {
           <span className="h-1.5 w-1.5 rounded-full bg-background/70" />
         </div>
 
-        {/* Inner screen */}
-        <div className="relative flex h-[92%] w-[92%] items-center justify-center overflow-hidden rounded-[2rem] bg-gradient-to-b from-primary/10 to-accent/20">
+        <div className="relative flex h-[88%] w-[88%] items-center justify-center overflow-hidden rounded-[2rem] bg-gradient-to-b from-primary/10 to-accent/20">
           <img
             src="/kidneyquest-language.png"
             alt="KidneyQuest language selection screen with four language options"
-            className="h-[92%] w-auto object-contain pointer-events-none select-none drop-shadow-xl"
+            className="h-full w-full object-contain pointer-events-none select-none drop-shadow-xl"
           />
         </div>
       </div>
@@ -79,8 +78,7 @@ export const KidneyQuestInteractiveDemo = () => {
           <span className="h-1.5 w-1.5 rounded-full bg-background/70" />
         </div>
 
-        {/* Inner screen */}
-        <div className="relative h-[92%] w-[92%] overflow-hidden rounded-[2rem] bg-background/95">
+        <div className="relative h-[88%] w-[88%] overflow-hidden rounded-[2rem] bg-background/95">
           <AnimatePresence mode="wait">
             {currentScreen === "quiz" && (
               <motion.div
@@ -95,7 +93,7 @@ export const KidneyQuestInteractiveDemo = () => {
                 <img
                   src="/kidneyquest-quiz.png"
                   alt="KidneyQuest quiz question screen showing kidney function question and answer options"
-                  className="h-[92%] w-auto object-contain pointer-events-none select-none drop-shadow-xl"
+                  className="h-full w-full object-contain pointer-events-none select-none drop-shadow-xl"
                 />
 
                 {/* Correct answer hotspot (Option B) */}
@@ -138,11 +136,11 @@ export const KidneyQuestInteractiveDemo = () => {
                 transition={{ duration: 0.3, ease: "easeOut" }}
                 className="relative flex h-full w-full items-center justify-center bg-gradient-to-b from-emerald-700/70 to-emerald-500/70"
               >
-                <img
-                  src="/kidneyquest-success.png"
-                  alt="KidneyQuest success screen showing restored healthy kidney illustration"
-                  className="h-[92%] w-auto object-contain pointer-events-none select-none drop-shadow-xl"
-                />
+              <img
+                src="/kidneyquest-success.png"
+                alt="KidneyQuest success screen showing restored healthy kidney illustration"
+                className="h-full w-full object-contain pointer-events-none select-none drop-shadow-xl"
+              />
 
                 {/* Replay button overlay */}
                 <button
