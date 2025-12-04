@@ -48,19 +48,19 @@ export const KidneyQuestInteractiveDemo = () => {
     <div className="flex w-full max-w-4xl flex-col items-center justify-center gap-6 sm:flex-row">
       {/* Static Language screen phone (full-frame image) */}
       <div
-        className="relative flex w-[70%] max-w-xs items-center justify-center"
+        className="relative flex aspect-[9/19] w-[70%] max-w-xs items-center justify-center"
         aria-label="KidneyQuest language selection screen"
       >
         <img
           src={kidneyQuestLanguagePhone}
           alt="KidneyQuest language selection on a mobile phone"
-          className="h-auto w-full select-none object-contain drop-shadow-[0_18px_45px_rgba(15,23,42,0.7)]"
+          className="h-full w-full select-none object-contain drop-shadow-[0_18px_45px_rgba(15,23,42,0.7)]"
         />
       </div>
 
       {/* Interactive Quiz / Success phone (uses full-frame quiz image) */}
       <motion.div
-        className="relative flex w-[70%] max-w-xs items-center justify-center"
+        className="relative flex aspect-[9/19] w-[70%] max-w-xs items-center justify-center"
         animate={isShaking ? { x: [0, -4, 4, -3, 3, 0] } : { x: 0 }}
         transition={isShaking ? { duration: 0.4, ease: "easeInOut" } : undefined}
         onClick={handleMissClick}
@@ -75,12 +75,12 @@ export const KidneyQuestInteractiveDemo = () => {
               animate="visible"
               exit="exit"
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="relative w-full"
+              className="relative h-full w-full"
             >
               <img
                 src={kidneyQuestQuizPhone}
                 alt="KidneyQuest quiz question on a mobile phone"
-                className="h-auto w-full select-none object-contain drop-shadow-[0_18px_45px_rgba(15,23,42,0.7)]"
+                className="h-full w-full select-none object-contain drop-shadow-[0_18px_45px_rgba(15,23,42,0.7)]"
               />
 
               {/* Correct answer hotspot (Option B) */}
@@ -123,13 +123,13 @@ export const KidneyQuestInteractiveDemo = () => {
               animate="visible"
               exit="exit"
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="relative w-full"
+              className="relative h-full w-full"
             >
-              <div className="relative w-full">
+              <div className="relative h-full w-full">
                 <img
                   src="/kidneyquest-success.png"
                   alt="KidneyQuest success screen showing restored healthy kidney illustration"
-                  className="h-auto w-full select-none object-contain drop-shadow-[0_18px_45px_rgba(15,23,42,0.7)]"
+                  className="h-full w-full select-none object-contain drop-shadow-[0_18px_45px_rgba(15,23,42,0.7)]"
                 />
 
                 {/* Replay button overlay */}
