@@ -165,7 +165,7 @@ export const KidneyQuestInteractiveDemo = () => {
               <motion.button
                 type="button"
                 onClick={(e) => handleAnswerClick("A", e)}
-                className="absolute left-[13%] right-[13%] top-[47%] h-[9%] cursor-pointer flex items-center justify-start px-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70"
+                className="absolute left-[13%] right-[13%] top-[47%] h-[9%] cursor-pointer flex items-center justify-start px-2 sm:px-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70"
                 style={{
                   borderRadius: '14px',
                   border: '2px solid #1A4A5C',
@@ -173,24 +173,24 @@ export const KidneyQuestInteractiveDemo = () => {
                   boxShadow: '0 2px 0 0 rgba(0, 0, 0, 0.25)',
                   color: '#FFF',
                   fontFamily: 'Arial',
-                  fontSize: '14px',
                   fontStyle: 'normal',
                   fontWeight: 400,
-                  lineHeight: '17px',
                 }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.95 }}
                 animate={clickedButton === "A" ? { scale: 0.95 } : {}}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                <span>A. Break down food into energy</span>
+                <span className="text-[10px] sm:text-xs md:text-sm leading-tight sm:leading-normal whitespace-normal break-words">
+                  A. Break down food into energy
+                </span>
               </motion.button>
 
               {/* Answer Button B (Correct Answer) */}
               <motion.button
                 type="button"
                 onClick={(e) => handleAnswerClick("B", e)}
-                className="absolute left-[13%] right-[13%] top-[57.5%] h-[9%] cursor-pointer flex items-center justify-start px-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70"
+                className="absolute left-[13%] right-[13%] top-[57.5%] h-[9%] cursor-pointer flex items-center justify-start px-2 sm:px-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70"
                 style={{
                   borderRadius: '14px',
                   border: '2px solid #1A4A5C',
@@ -198,24 +198,24 @@ export const KidneyQuestInteractiveDemo = () => {
                   boxShadow: '0 2px 0 0 rgba(0, 0, 0, 0.25)',
                   color: '#FFF',
                   fontFamily: 'Arial',
-                  fontSize: '14px',
                   fontStyle: 'normal',
                   fontWeight: 400,
-                  lineHeight: '17px',
                 }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.95 }}
                 animate={clickedButton === "B" ? { scale: 0.95 } : {}}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                <span>B. Filter blood, remove waste and excess fluid</span>
+                <span className="text-[10px] sm:text-xs md:text-sm leading-tight sm:leading-normal whitespace-normal break-words">
+                  B. Filter blood, remove waste and excess fluid
+                </span>
               </motion.button>
 
               {/* Answer Button C */}
               <motion.button
                 type="button"
                 onClick={(e) => handleAnswerClick("C", e)}
-                className="absolute left-[13%] right-[13%] top-[68%] h-[9%] cursor-pointer flex items-center justify-start px-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70"
+                className="absolute left-[13%] right-[13%] top-[68%] h-[9%] cursor-pointer flex items-center justify-start px-2 sm:px-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70"
                 style={{
                   borderRadius: '14px',
                   border: '2px solid #1A4A5C',
@@ -223,24 +223,24 @@ export const KidneyQuestInteractiveDemo = () => {
                   boxShadow: '0 2px 0 0 rgba(0, 0, 0, 0.25)',
                   color: '#FFF',
                   fontFamily: 'Arial',
-                  fontSize: '14px',
                   fontStyle: 'normal',
                   fontWeight: 400,
-                  lineHeight: '17px',
                 }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.95 }}
                 animate={clickedButton === "C" ? { scale: 0.95 } : {}}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                <span>C. Produce insulin for sugar control</span>
+                <span className="text-[10px] sm:text-xs md:text-sm leading-tight sm:leading-normal whitespace-normal break-words">
+                  C. Produce insulin for sugar control
+                </span>
               </motion.button>
 
               {/* Answer Button D */}
               <motion.button
                 type="button"
                 onClick={(e) => handleAnswerClick("D", e)}
-                className="absolute left-[13%] right-[13%] top-[78.5%] h-[9%] cursor-pointer flex items-center justify-start px-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70"
+                className="absolute left-[13%] right-[13%] top-[78.5%] h-[9%] cursor-pointer flex items-center justify-start px-2 sm:px-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70"
                 style={{
                   borderRadius: '14px',
                   border: '2px solid #1A4A5C',
@@ -248,17 +248,17 @@ export const KidneyQuestInteractiveDemo = () => {
                   boxShadow: '0 2px 0 0 rgba(0, 0, 0, 0.25)',
                   color: '#FFF',
                   fontFamily: 'Arial',
-                  fontSize: '14px',
                   fontStyle: 'normal',
                   fontWeight: 400,
-                  lineHeight: '17px',
                 }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.95 }}
                 animate={clickedButton === "D" ? { scale: 0.95 } : {}}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                <span>D. Pump blood like the heart</span>
+                <span className="text-[10px] sm:text-xs md:text-sm leading-tight sm:leading-normal whitespace-normal break-words">
+                  D. Pump blood like the heart
+                </span>
               </motion.button>
 
               {/* Success Modal - Overlay Card */}
