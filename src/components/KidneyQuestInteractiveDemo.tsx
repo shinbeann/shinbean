@@ -103,7 +103,7 @@ export const KidneyQuestInteractiveDemo = () => {
                   type="button"
                   data-hotspot
                   onClick={handleCorrectAnswer}
-                  className="hover-scale absolute left-[8%] right-[8%] top-[56%] h-[10%] cursor-pointer rounded-xl border border-success/60 bg-success/0 transition-colors duration-200 hover:bg-success/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70"
+                  className="hover-scale absolute left-[8%] right-[8%] top-[56%] h-[10%] cursor-pointer rounded-xl bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70"
                   aria-label="Select correct answer"
                 />
 

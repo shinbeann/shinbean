@@ -63,7 +63,7 @@ const Index = () => {
               <motion.div
                 {...scrollReveal}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="aspect-[16/10] rounded-3xl border border-border/60 bg-card/60 backdrop-blur-sm overflow-hidden flex items-center justify-center"
+                className="rounded-3xl border border-border/60 bg-card/60 backdrop-blur-sm flex items-center justify-center px-4 py-8 md:px-8"
               >
                 <KidneyQuestInteractiveDemo />
               </motion.div>
