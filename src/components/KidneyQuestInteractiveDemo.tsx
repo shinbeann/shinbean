@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 
 import kidneyQuestLanguagePhone from "@/assets/kidneyquest-language-phone.png";
-import kidneyQuestQuizPhone from "@/assets/kidneyquest-quiz-phone.png";
+import kidneyQuestQuizPhone from "@/assets/kidneyquest-quiz-phone-v2.png";
 
 type KidneyQuestScreen = "quiz" | "success";
 
