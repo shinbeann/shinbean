@@ -50,8 +50,10 @@ const About = () => {
               </h1>
               <p className="text-sm md:text-base text-muted-foreground max-w-prose leading-relaxed">
                 My initial interest in AI evolved into a fascination with how humans actually interact with them.
-                This shifted my passion from pure development to User Experience, specifically within Agentic
-                Experience (AX).
+                This shifted my passion from pure development to User Experience, specifically within
+                <strong> Agentic Experience (AX)</strong>.
+              </p>
+              <p className="text-sm md:text-base text-muted-foreground max-w-prose leading-relaxed">
                 These days, instead of just designing static screens, I am interested in designing relationships
                 between humans and autonomous systems. I work on bridging the gap between algorithmic capabilities
                 and human intent, ensuring that AI agents are not only helpful, but also transparent and
