@@ -40,7 +40,7 @@ const Index = () => {
           >
             {/* Sticky Heading */}
             <div className="md:w-1/3 sticky top-28 self-start space-y-4">
-              <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
+              <p className="text-xs uppercase tracking-[0.25em] text-foreground/80">
                 KidneyQuest · AR / Healthcare
               </p>
               <h2 className="text-3xl md:text-4xl font-mono">
@@ -52,7 +52,7 @@ const Index = () => {
               </p>
               <Link
                 to="/case-study/kidneyquest"
-                className="story-link text-sm text-muted-foreground"
+                className="story-link text-sm text-foreground/80 hover:text-primary focus-visible:text-primary"
               >
                 View KidneyQuest case study
               </Link>
