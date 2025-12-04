@@ -49,8 +49,13 @@ const About = () => {
                 Gay Shin Lee
               </h1>
               <p className="text-sm md:text-base text-muted-foreground max-w-prose leading-relaxed">
-                I am a Computer Science Engineer drawn to human-centered design. I elevate stories into data-backed
-                decisions via mixed-methods research and iterative prototyping.
+                My initial interest in AI evolved into a fascination with how humans actually interact with them.
+                This shifted my passion from pure development to User Experience, specifically within Agentic
+                Experience (AX).
+                These days, instead of just designing static screens, I am interested in designing relationships
+                between humans and autonomous systems. I work on bridging the gap between algorithmic capabilities
+                and human intent, ensuring that AI agents are not only helpful, but also transparent and
+                trustworthy rather than just black-box tools.
               </p>
             </header>
           </motion.section>
