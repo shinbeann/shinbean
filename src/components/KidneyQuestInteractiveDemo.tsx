@@ -73,10 +73,9 @@ export const KidneyQuestInteractiveDemo = () => {
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="relative flex h-full w-full items-center justify-center bg-gradient-to-b from-primary/10 to-accent/20"
             >
-              {/* TODO: Replace this placeholder with your Language Selection image */}
               <img
-                src="/placeholder.svg"
-                alt="KidneyQuest language selection placeholder"
+                src="/kidneyquest-language.png"
+                alt="KidneyQuest language selection screen with four language options"
                 className="h-[92%] w-auto object-contain pointer-events-none select-none drop-shadow-xl"
               />
 
@@ -101,10 +100,9 @@ export const KidneyQuestInteractiveDemo = () => {
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="relative flex h-full w-full items-center justify-center bg-gradient-to-b from-[hsl(var(--kidneyquest-gold))] to-[hsl(var(--kidneyquest-teal))]"
             >
-              {/* TODO: Replace this placeholder with your Quiz Question image */}
               <img
-                src="/placeholder.svg"
-                alt="KidneyQuest quiz question placeholder"
+                src="/kidneyquest-quiz.png"
+                alt="KidneyQuest quiz question screen showing kidney function question and answer options"
                 className="h-[92%] w-auto object-contain pointer-events-none select-none drop-shadow-xl"
               />
 
@@ -148,10 +146,9 @@ export const KidneyQuestInteractiveDemo = () => {
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="relative flex h-full w-full items-center justify-center bg-gradient-to-b from-emerald-700/70 to-emerald-500/70"
             >
-              {/* TODO: Replace this placeholder with your Restored Kidney / Correct image */}
               <img
-                src="/placeholder.svg"
-                alt="KidneyQuest success placeholder"
+                src="/kidneyquest-success.png"
+                alt="KidneyQuest success screen showing restored healthy kidney illustration"
                 className="h-[92%] w-auto object-contain pointer-events-none select-none drop-shadow-xl"
               />
 
