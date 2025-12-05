@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -52,9 +53,10 @@ const Index = () => {
               </p>
               <Link
                 to="/case-study/kidneyquest"
-                className="story-link text-sm text-foreground/80 hover:text-primary focus-visible:text-primary"
+                className="story-link text-sm text-foreground/80 hover:text-primary focus-visible:text-primary inline-flex items-center gap-1.5"
               >
                 View KidneyQuest case study
+                <ArrowUpRight className="h-3.5 w-3.5" />
               </Link>
             </div>
 
@@ -126,9 +128,10 @@ const Index = () => {
               </p>
               <Link
                 to="/case-study/hybridrag"
-                className="story-link text-sm text-muted-foreground"
+                className="story-link text-sm text-muted-foreground inline-flex items-center gap-1.5"
               >
                 View HybridRAG case study
+                <ArrowUpRight className="h-3.5 w-3.5" />
               </Link>
             </div>
 
@@ -137,18 +140,13 @@ const Index = () => {
               <motion.div
                 {...scrollReveal}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="aspect-[16/10] rounded-3xl border border-border/70 bg-gradient-to-b from-background to-[hsl(var(--hybridrag-deep))] overflow-hidden flex items-center justify-center relative"
+                className="rounded-3xl border border-border/70 overflow-hidden"
               >
-                <div className="w-[60%] max-w-md aspect-[9/16] rounded-[2.2rem] border border-border bg-gradient-to-b from-background to-card shadow-[0_0_80px_rgba(0,0,0,0.9)] flex items-center justify-center">
-                  <div className="w-4/5 h-2/5 rounded-2xl border border-accent/40 bg-gradient-to-b from-accent/60 to-background flex items-center justify-center">
-                    <span className="text-xs text-muted-foreground">
-                      0% Connectivity · &lt;2s Latency
-                    </span>
-                  </div>
-                </div>
-                <span className="absolute bottom-5 text-xs text-muted-foreground">
-                  Samsung device mockup (placeholder)
-                </span>
+                <img
+                  src="/hybridrag-hero.png"
+                  alt="HybridRAG mobile application showing SOP search interface with three smartphone screens displaying search, results, and document view"
+                  className="w-full h-auto object-contain"
+                />
               </motion.div>
 
               <motion.div
@@ -213,9 +211,10 @@ const Index = () => {
               </p>
               <Link
                 to="/case-study/flowtutor"
-                className="story-link text-sm text-muted-foreground"
+                className="story-link text-sm text-muted-foreground inline-flex items-center gap-1.5"
               >
                 View FlowTutor case study
+                <ArrowUpRight className="h-3.5 w-3.5" />
               </Link>
             </div>
 
