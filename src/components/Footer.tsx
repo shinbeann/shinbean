@@ -124,8 +124,7 @@ const Footer = () => {
               Let&apos;s Build Something.
             </h2>
             <p className="max-w-md text-sm md:text-base text-foreground/80 leading-relaxed">
-              Open to roles and collaborations at the intersection of AI, product, and research. Prefer direct, thoughtful
-              emails over cold outreach sequences.
+              Currently looking for internship or full-time roles where I can contribute to user-centric products. If you are looking for a designer who speaks the language of engineers and advocates for the needs of users, I’d love to chat.
             </p>
           </div>
 
