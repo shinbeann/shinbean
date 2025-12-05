@@ -125,7 +125,7 @@ const About = () => {
                   </div>
                   <div className="space-y-0.5">
                     <p className="text-sm font-medium text-foreground">TechCreate Group</p>
-                    <p className="text-xs text-muted-foreground">Product Designer</p>
+                    <p className="text-xs text-muted-foreground">Fullstack Software Engineer</p>
                   </div>
                 </div>
                 <p className="text-xs text-muted-foreground md:text-sm">2025</p>
@@ -142,7 +142,7 @@ const About = () => {
                   </div>
                   <div className="space-y-0.5">
                     <p className="text-sm font-medium text-foreground">DBS Bank</p>
-                    <p className="text-xs text-muted-foreground">UX Design Intern</p>
+                    <p className="text-xs text-muted-foreground">QA Tester</p>
                   </div>
                 </div>
                 <p className="text-xs text-muted-foreground md:text-sm">2024</p>
