@@ -6,6 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { KidneyQuestInteractiveDemo } from "@/components/KidneyQuestInteractiveDemo";
+import { BentoGrid } from "@/components/BentoGrid";
 
  type ActiveProject = "kidneyquest" | "hybridrag" | "flowtutor";
 
@@ -42,7 +43,7 @@ const Index = () => {
             {/* Sticky Heading */}
             <div className="md:w-1/3 sticky top-28 self-start space-y-4">
               <p className="text-xs uppercase tracking-[0.25em] text-foreground/80">
-                KidneyQuest · AR / Healthcare
+                <span className="font-bold">KidneyQuest</span> — AR / Healthcare
               </p>
               <h2 className="text-3xl md:text-4xl font-mono">
                 Gamifying health education.
@@ -51,13 +52,6 @@ const Index = () => {
                 A browser-based AR mini-game for the National Kidney Foundation that
                 turns kidney health education into a playful, memorable experience.
               </p>
-              <Link
-                to="/case-study/kidneyquest"
-                className="story-link text-sm text-foreground/80 hover:text-primary focus-visible:text-primary inline-flex items-center gap-1.5"
-              >
-                View KidneyQuest case study
-                <ArrowUpRight className="h-3.5 w-3.5" />
-              </Link>
             </div>
 
             {/* Story & Media */}
@@ -116,7 +110,7 @@ const Index = () => {
             {/* Sticky Heading */}
             <div className="md:w-1/3 sticky top-28 self-start space-y-4">
               <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
-                HybridRAG · AI / Mobile
+                <span className="font-bold">HybridRAG</span> — AI / Mobile
               </p>
               <h2 className="text-3xl md:text-4xl font-mono">
                 Intelligence in the dark.
@@ -126,13 +120,6 @@ const Index = () => {
                 Singapore Police Force officers informed—even in connectivity
                 blackspots.
               </p>
-              <Link
-                to="/case-study/hybridrag"
-                className="story-link text-sm text-muted-foreground inline-flex items-center gap-1.5"
-              >
-                View HybridRAG case study
-                <ArrowUpRight className="h-3.5 w-3.5" />
-              </Link>
             </div>
 
             {/* Story & Media */}
@@ -199,7 +186,7 @@ const Index = () => {
             {/* Sticky Heading */}
             <div className="md:w-1/3 sticky top-28 self-start space-y-4">
               <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
-                FlowTutor · EdTech / Web
+                <span className="font-bold">FlowTutor</span> — Web · AI / Edtech
               </p>
               <h2 className="text-3xl md:text-4xl font-mono">
                 Streamlined learning.
@@ -209,66 +196,36 @@ const Index = () => {
                 searchable learning flow—so self-directed learners stay in the
                 zone.
               </p>
-              <Link
-                to="/case-study/flowtutor"
-                className="story-link text-sm text-muted-foreground inline-flex items-center gap-1.5"
-              >
-                View FlowTutor case study
-                <ArrowUpRight className="h-3.5 w-3.5" />
-              </Link>
+              <div className="space-y-6 mt-6">
+                <div className="space-y-2">
+                  <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
+                    Challenge
+                  </h3>
+                  <p className="text-sm text-foreground/80">
+                    Learners constantly pause, scrub, and rewatch tutorials,
+                    breaking flow and losing where they left off.
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
+                    Solution
+                  </h3>
+                  <p className="text-sm text-foreground/80">
+                    A structured &ldquo;step timeline&rdquo; that syncs with the video,
+                    with bookmarks, checkmarks, and contextual notes.
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* Story & Media */}
             <div className="md:w-2/3 space-y-10">
               <motion.div
-                {...scrollReveal}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="aspect-[16/10] rounded-3xl border border-border/60 bg-card/70 backdrop-blur-sm overflow-hidden flex items-center justify-center"
+                initial={{ opacity: 1 }}
+                animate={{ opacity: 1 }}
+                className="rounded-3xl overflow-hidden"
               >
-                <div className="w-full h-full grid grid-cols-12 gap-4 px-8 py-6">
-                  <div className="col-span-8 rounded-2xl border border-border bg-background/60" />
-                  <div className="col-span-4 space-y-3">
-                    <div className="h-6 rounded-full bg-muted/60" />
-                    <div className="h-6 rounded-full bg-muted/40" />
-                    <div className="h-6 rounded-full bg-muted/30" />
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                {...scrollReveal}
-                transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-                className="space-y-6"
-              >
-                <div className="grid gap-6 md:grid-cols-3">
-                  <div className="space-y-2">
-                    <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
-                      Challenge
-                    </h3>
-                    <p className="text-sm text-foreground/80">
-                      Learners constantly pause, scrub, and rewatch tutorials,
-                      breaking flow and losing where they left off.
-                    </p>
-                  </div>
-                  <div className="space-y-2">
-                    <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
-                      Solution
-                    </h3>
-                    <p className="text-sm text-foreground/80">
-                      A structured &ldquo;step timeline&rdquo; that syncs with the video,
-                      with bookmarks, checkmarks, and contextual notes.
-                    </p>
-                  </div>
-                  <div className="space-y-2">
-                    <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
-                      Visuals
-                    </h3>
-                    <p className="text-sm text-foreground/80">
-                      Clean, academic typography and accessible contrast keep
-                      the interface calm even when content is dense.
-                    </p>
-                  </div>
-                </div>
+                <BentoGrid />
               </motion.div>
             </div>
           </motion.section>
