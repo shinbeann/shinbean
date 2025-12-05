@@ -177,11 +177,11 @@ const HeroInputCard = () => {
   const [inputValue, setInputValue] = useState("");
 
   return (
-    <BentoCard className="col-span-1 md:col-span-3 lg:col-span-4 px-7 pt-4 pb-4">
+    <BentoCard className="col-span-1 md:col-span-3 lg:col-span-4 px-4 sm:px-6 md:px-7 pt-4 pb-4">
       <div className="space-y-3.5">
         <div className="space-y-1.5">
-          <h2 className="text-2xl font-bold text-gray-900">FlowTutor</h2>
-          <p className="text-sm text-gray-600">Learn smarter with AI-powered tutorial assistance.</p>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 break-words">FlowTutor</h2>
+          <p className="text-xs sm:text-sm text-gray-600 break-words">Learn smarter with AI-powered tutorial assistance.</p>
         </div>
 
         <div className="space-y-2.5">
@@ -326,11 +326,11 @@ const QuizCard = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <BentoCard delay={0.2} className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-1 px-4 pt-3.5 pb-2.5 h-full">
+    <BentoCard delay={0.2} className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-1 px-3 sm:px-4 pt-3.5 pb-2.5 h-full">
       <div className="h-full flex flex-col">
         <div className="mb-2.5">
           <h3 className="text-base font-bold text-gray-900 mb-1.5">Quiz Time</h3>
-          <p className="text-xs text-gray-600 mb-2.5 leading-relaxed">
+          <p className="text-xs text-gray-600 mb-2.5 leading-relaxed break-words">
             The transcript compares transformers to RNNs when discussing reasoning and step-wise logic. Which issue about transformers is highlighted?
           </p>
         </div>
@@ -452,7 +452,7 @@ const NoteEditorCard = () => {
   };
 
   return (
-    <BentoCard delay={0.4} className="px-5 pt-3.5 pb-2.5 h-full flex flex-col">
+    <BentoCard delay={0.4} className="px-3 sm:px-4 md:px-5 pt-3.5 pb-2.5 h-full flex flex-col">
       <div
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -509,19 +509,19 @@ const NoteEditorCard = () => {
 
 export const BentoGrid = () => {
   return (
-    <div className="w-full bg-white p-5 md:p-7 rounded-2xl border-2 border-gray-200 shadow-2xl min-h-[490px]">
+    <div className="w-full bg-white p-4 sm:p-5 md:p-7 rounded-2xl border-2 border-gray-200 shadow-2xl min-h-[400px] md:min-h-[490px]">
       <div 
-        className="grid gap-3.5" 
+        className="grid gap-3 md:gap-3.5" 
         style={{ 
-          gridAutoRows: 'minmax(120px, auto)',
+          gridAutoRows: 'minmax(100px, auto)',
           gridTemplateColumns: 'repeat(1, minmax(0, 1fr))',
         }}
       >
         <div style={{ gridColumn: '1 / -1' }}>
           <HeroInputCard />
         </div>
-        <div className="grid gap-5" style={{ gridColumn: '1 / -1', gridTemplateColumns: '1.4fr 2.6fr', gridTemplateRows: '1fr auto' }}>
-          <div style={{ gridRow: 'span 2' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-5" style={{ gridColumn: '1 / -1' }}>
+          <div className="md:row-span-2">
             <AITransparencyCard />
           </div>
           <div>

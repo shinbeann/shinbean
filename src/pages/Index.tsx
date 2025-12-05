@@ -31,31 +31,31 @@ const Index = () => {
     >
       <Navigation tone={activeProject === "hybridrag" ? "dark" : "light"} enableSmartHide />
 
-      <main className="flex-1 px-4 pt-24 pb-24">
-        <div className="container max-w-6xl mx-auto space-y-32">
+      <main className="flex-1 px-4 sm:px-6 pt-24 pb-24 overflow-x-hidden">
+        <div className="container max-w-6xl mx-auto space-y-20 md:space-y-32">
           {/* KidneyQuest Section */}
           <motion.section
             id="kidneyquest"
-            className="min-h-[80vh] flex flex-col md:flex-row gap-10 md:gap-16 items-start"
+            className="min-h-[80vh] flex flex-col md:flex-row gap-6 md:gap-16 items-start"
             onViewportEnter={() => setActiveProject("kidneyquest")}
             viewport={{ amount: 0.4, once: false }}
           >
             {/* Sticky Heading */}
-            <div className="md:w-1/3 sticky top-28 self-start space-y-4">
+            <div className="w-full md:w-1/3 md:sticky md:top-28 self-start space-y-4 mb-8 md:mb-0">
               <p className="text-xs uppercase tracking-[0.25em] text-foreground/80">
                 <span className="font-bold">KidneyQuest</span> — AR / Healthcare
               </p>
-              <h2 className="text-3xl md:text-4xl font-mono">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono break-words">
                 Gamifying health education.
               </h2>
-              <p className="text-sm md:text-base text-foreground/80">
+              <p className="text-sm md:text-base text-foreground/80 break-words">
                 A browser-based AR mini-game for the National Kidney Foundation that
                 turns kidney health education into a playful, memorable experience.
               </p>
             </div>
 
             {/* Story & Media */}
-            <div className="md:w-2/3 space-y-10">
+            <div className="w-full md:w-2/3 space-y-6 md:space-y-10">
               <motion.div
                 {...scrollReveal}
                 transition={{ duration: 0.6, ease: "easeOut" }}
@@ -103,19 +103,19 @@ const Index = () => {
           {/* HybridRAG Section */}
           <motion.section
             id="hybridrag"
-            className="min-h-[80vh] flex flex-col md:flex-row gap-10 md:gap-16 items-start"
+            className="min-h-[80vh] flex flex-col md:flex-row gap-6 md:gap-16 items-start"
             onViewportEnter={() => setActiveProject("hybridrag")}
             viewport={{ amount: 0.4, once: false }}
           >
             {/* Sticky Heading */}
-            <div className="md:w-1/3 sticky top-28 self-start space-y-4">
+            <div className="w-full md:w-1/3 md:sticky md:top-28 self-start space-y-4 mb-8 md:mb-0">
               <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
                 <span className="font-bold">HybridRAG</span> — AI / Mobile
               </p>
-              <h2 className="text-3xl md:text-4xl font-mono">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono break-words">
                 Intelligence in the dark.
               </h2>
-              <p className="text-sm md:text-base text-foreground/80">
+              <p className="text-sm md:text-base text-foreground/80 break-words">
                 An offline retrieval-augmented generation system that keeps
                 Singapore Police Force officers informed—even in connectivity
                 blackspots.
@@ -123,7 +123,7 @@ const Index = () => {
             </div>
 
             {/* Story & Media */}
-            <div className="md:w-2/3 space-y-10">
+            <div className="w-full md:w-2/3 space-y-6 md:space-y-10">
               <motion.div
                 {...scrollReveal}
                 transition={{ duration: 0.6, ease: "easeOut" }}
@@ -179,38 +179,38 @@ const Index = () => {
           {/* FlowTutor Section */}
           <motion.section
             id="flowtutor"
-            className="min-h-[80vh] flex flex-col md:flex-row gap-10 md:gap-16 items-start"
+            className="min-h-[80vh] flex flex-col md:flex-row gap-6 md:gap-16 items-start"
             onViewportEnter={() => setActiveProject("flowtutor")}
             viewport={{ amount: 0.4, once: false }}
           >
             {/* Sticky Heading */}
-            <div className="md:w-1/3 sticky top-28 self-start space-y-4">
+            <div className="w-full md:w-1/3 md:sticky md:top-28 self-start space-y-4 mb-8 md:mb-0">
               <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
                 <span className="font-bold">FlowTutor</span> — Web · AI / Edtech
               </p>
-              <h2 className="text-3xl md:text-4xl font-mono">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono break-words">
                 Streamlined learning.
               </h2>
-              <p className="text-sm md:text-base text-foreground/80">
+              <p className="text-sm md:text-base text-foreground/80 break-words">
                 A concept for turning chaotic YouTube tutorials into a guided,
                 searchable learning flow—so self-directed learners stay in the
                 zone.
               </p>
-              <div className="space-y-6 mt-6">
+              <div className="space-y-4 md:space-y-6 mt-4 md:mt-6">
                 <div className="space-y-2">
-                  <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
+                  <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground break-words">
                     Challenge
                   </h3>
-                  <p className="text-sm text-foreground/80">
+                  <p className="text-sm text-foreground/80 break-words">
                     Learners constantly pause, scrub, and rewatch tutorials,
                     breaking flow and losing where they left off.
                   </p>
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
+                  <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground break-words">
                     Solution
                   </h3>
-                  <p className="text-sm text-foreground/80">
+                  <p className="text-sm text-foreground/80 break-words">
                     A structured &ldquo;step timeline&rdquo; that syncs with the video,
                     with bookmarks, checkmarks, and contextual notes.
                   </p>
@@ -219,7 +219,7 @@ const Index = () => {
             </div>
 
             {/* Story & Media */}
-            <div className="md:w-2/3 space-y-10">
+            <div className="w-full md:w-2/3 space-y-6 md:space-y-10">
               <motion.div
                 initial={{ opacity: 1 }}
                 animate={{ opacity: 1 }}
