@@ -146,13 +146,10 @@ const Footer = () => {
                     <span className="font-mono text-2xl md:text-3xl tracking-tight">
                       gayshinlee@gmail.com
                     </span>
-                    <span className="text-xs font-medium text-primary">
+                    <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary backdrop-blur-sm border border-primary/20">
                       {copied ? "Copied!" : "Click to copy"}
                     </span>
                   </div>
-                  <p className="text-xs md:text-sm text-muted-foreground max-w-sm">
-                    I usually respond within 24–48 hours. Share context, constraints, and what a great outcome looks like.
-                  </p>
                 </div>
               </button>
             </div>
@@ -176,7 +173,7 @@ const Footer = () => {
                 </MagneticLink>
                 <MagneticLink
                   href="https://read.cv/"
-                  label="Read.cv"
+                  label="Resume"
                   ariaLabel="Open Read.cv profile"
                 >
                   <BookOpen className="h-4 w-4" />
