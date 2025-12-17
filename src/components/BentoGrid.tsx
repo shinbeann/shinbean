@@ -11,9 +11,8 @@ import {
   Zap,
   CheckCircle,
   Star,
-  HardDrive,
-  CloudOff,
-  ShieldCheck,
+  Lightbulb,
+  Anchor,
 } from "lucide-react";
 
 // Mock data for Activity Feed
@@ -50,15 +49,24 @@ interface StatCardProps {
 const StatCard = ({ value, icon: Icon, label, gradientFrom, gradientTo, pillBg, pillText, delay = 0 }: StatCardProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
-  const [displayValue, setDisplayValue] = useState("0");
-
+  
   // Extract numeric value and suffix
   const numericMatch = value.match(/(\d+\.?\d*)(.*)/);
   const numericValue = numericMatch ? parseFloat(numericMatch[1]) : 0;
   const suffix = numericMatch ? numericMatch[2] : "";
+  const isNumeric = numericMatch !== null;
+  
+  // Initialize display value: if not numeric, show immediately; otherwise start at 0
+  const [displayValue, setDisplayValue] = useState(isNumeric ? "0" : value);
 
   useEffect(() => {
     if (isInView) {
+      // If value is not numeric (like "p<0.05"), display immediately
+      if (!isNumeric) {
+        setDisplayValue(value);
+        return;
+      }
+
       const duration = 2000; // 2 seconds
       const steps = 60;
       const increment = numericValue / steps;
@@ -77,7 +85,7 @@ const StatCard = ({ value, icon: Icon, label, gradientFrom, gradientTo, pillBg, 
 
       return () => clearInterval(timer);
     }
-  }, [isInView, numericValue, value, suffix]);
+  }, [isInView, numericValue, value, suffix, isNumeric]);
 
   return (
       <motion.div
@@ -114,9 +122,9 @@ const StatsRow = () => {
   return (
     <div className="grid grid-cols-3 gap-2 h-full">
       <StatCard
-        value="2.5x"
+        value="25.0%"
         icon={Zap}
-        label="Faster Learning"
+        label="Higher Retention"
         gradientFrom="#8B5CF6"
         gradientTo="#3B82F6"
         pillBg="bg-purple-100"
@@ -124,9 +132,9 @@ const StatsRow = () => {
         delay={0}
       />
       <StatCard
-        value="92%"
+        value="p<0.05"
         icon={CheckCircle}
-        label="Completion Rate"
+        label="Significance"
         gradientFrom="#3B82F6"
         gradientTo="#06B6D4"
         pillBg="bg-blue-100"
@@ -264,26 +272,6 @@ const AITransparencyCard = () => {
     );
   };
 
-  const PrivacyItem = ({ 
-    icon: Icon, 
-    label 
-  }: { 
-    icon: React.ComponentType<{ className?: string }>; 
-    label: string;
-  }) => {
-    return (
-      <motion.div
-        whileHover={{ scale: 1.05 }}
-        className="flex flex-col items-center gap-2 p-3 rounded-md hover:bg-gray-100 transition-colors"
-      >
-        <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center p-2">
-          <Icon className="h-4 w-4 text-gray-700" />
-        </div>
-        <p className="text-xs text-gray-700 text-center font-medium leading-tight">{label}</p>
-      </motion.div>
-    );
-  };
-
   return (
     <BentoCard delay={0.1} className="p-4 h-full flex flex-col">
       <div className="flex-1 flex flex-col space-y-3.5">
@@ -306,14 +294,15 @@ const AITransparencyCard = () => {
           </div>
         </div>
 
-        {/* Section 2: Privacy & Data */}
-        <div className="bg-gray-50 rounded-lg p-2.5">
-          <h4 className="text-xs font-semibold text-gray-900 mb-2">Privacy & Data</h4>
-          <div className="grid grid-cols-3 gap-1.5">
-            <PrivacyItem icon={HardDrive} label="Data Stored Locally" />
-            <PrivacyItem icon={CloudOff} label="No Perm. Storage" />
-            <PrivacyItem icon={ShieldCheck} label="Clear Anytime" />
+        {/* Section 2: Transcript Grounding Info */}
+        <div className="mt-2 mb-2 p-3 bg-gray-50 rounded-lg border border-gray-200">
+          <div className="flex items-center gap-2 mb-1.5">
+            <Anchor className="w-4 h-3.5 text-gray-700" />
+            <h4 className="text-xs font-semibold text-gray-900">Transcript Grounding</h4>
           </div>
+          <p className="text-xs text-gray-700 leading-relaxed">
+            Constraining the AI to the video transcript eliminates hallucinations and guarantees 100% source accuracy.
+          </p>
         </div>
       </div>
     </BentoCard>
@@ -428,80 +417,45 @@ const ActivityFeedCard = () => {
   );
 };
 
-// Card 5: Note Editor
-const NoteEditorCard = () => {
-  const [isHovered, setIsHovered] = useState(false);
-  const [typedText, setTypedText] = useState("");
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-    let currentIndex = 0;
-    const typingInterval = setInterval(() => {
-      if (currentIndex < ghostTypingText.length) {
-        setTypedText(ghostTypingText.slice(0, currentIndex + 1));
-        currentIndex++;
-      } else {
-        clearInterval(typingInterval);
-      }
-    }, 30);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    setTimeout(() => setTypedText(""), 500);
-  };
-
+// Card 5: Smart Notes (Square Card)
+const SmartNotesCard = () => {
   return (
-    <BentoCard delay={0.4} className="px-5 pt-3.5 pb-2.5 h-full flex flex-col">
-      <div
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        className="flex-1 flex flex-col space-y-2"
-      >
-        <div className="flex items-center justify-between">
-          <h3 className="text-base font-bold text-gray-900">My Notes</h3>
-          <button className="px-3 py-2 rounded-md bg-gray-100 hover:bg-gray-200 text-xs font-medium text-gray-700 flex items-center gap-1.5 transition-colors">
-            <Upload className="h-3.5 w-3.5" />
-            Export
-          </button>
+    <BentoCard delay={0.4} className="p-5 h-full flex flex-col cursor-pointer">
+      <div className="flex-1 flex flex-col space-y-4">
+        {/* Icon Container */}
+        <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+          <FileText className="w-6 h-6 text-white" />
         </div>
+        
+        {/* Title */}
+        <h3 className="text-lg font-bold text-gray-900">Smart Notes</h3>
+        
+        {/* Body Text */}
+        <p className="text-sm text-gray-600 leading-relaxed">
+          Take organized notes with AI-suggested key points and timestamps.
+        </p>
+      </div>
+    </BentoCard>
+  );
+};
 
-        <div className="flex gap-1.5">
-          <button className="w-8 h-8 rounded-md bg-gray-100 hover:bg-gray-200 flex items-center justify-center p-2 transition-colors">
-            <Bold className="h-4 w-4 text-gray-700" />
-          </button>
-          <button className="w-8 h-8 rounded-md bg-gray-100 hover:bg-gray-200 flex items-center justify-center p-2 transition-colors">
-            <Italic className="h-4 w-4 text-gray-700" />
-          </button>
-          <button className="w-8 h-8 rounded-md bg-gray-100 hover:bg-gray-200 flex items-center justify-center p-2 transition-colors">
-            <Underline className="h-4 w-4 text-gray-700" />
-          </button>
-          <button className="w-8 h-8 rounded-md bg-gray-100 hover:bg-gray-200 flex items-center justify-center p-2 transition-colors">
-            <Strikethrough className="h-4 w-4 text-gray-700" />
-          </button>
-          <button className="w-8 h-8 rounded-md bg-gray-100 hover:bg-gray-200 flex items-center justify-center p-2 transition-colors">
-            <List className="h-4 w-4 text-gray-700" />
-          </button>
+// Card 6: Quick Quiz (Square Card)
+const QuickQuizCard = () => {
+  return (
+    <BentoCard delay={0.5} className="p-5 h-full flex flex-col cursor-pointer">
+      <div className="flex-1 flex flex-col space-y-4">
+        {/* Icon Container */}
+        <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-orange-500 to-pink-600 flex items-center justify-center">
+          <Lightbulb className="w-6 h-6 text-white" />
         </div>
-
-        <div className="flex-1 min-h-[50px] rounded-lg border-2 border-gray-200 bg-white px-2.5 py-2">
-          {isHovered ? (
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap"
-            >
-              {typedText}
-              <motion.span
-                animate={{ opacity: [1, 0] }}
-                transition={{ duration: 0.8, repeat: Infinity }}
-                className="inline-block w-2 h-3.5 bg-purple-500 ml-1"
-              />
-            </motion.p>
-          ) : (
-            <p className="text-sm text-gray-500">Write your thoughts or key takeaways here...</p>
-          )}
-        </div>
+        
+        {/* Title */}
+        <h3 className="text-lg font-bold text-gray-900">Quick Quiz</h3>
+        
+        {/* Body Text */}
+        <p className="text-sm text-gray-600 leading-relaxed">
+          Test your knowledge instantly with auto-generated questions from the video.
+        </p>
       </div>
     </BentoCard>
   );
@@ -520,19 +474,19 @@ export const BentoGrid = () => {
         <div style={{ gridColumn: '1 / -1' }}>
           <HeroInputCard />
         </div>
-        <div className="grid gap-5" style={{ gridColumn: '1 / -1', gridTemplateColumns: '1.4fr 2.6fr', gridTemplateRows: '1fr auto' }}>
-          <div style={{ gridRow: 'span 2' }}>
-            <AITransparencyCard />
-          </div>
-          <div>
-            <NoteEditorCard />
-          </div>
-          <div>
+        <div className="grid gap-5" style={{ gridColumn: '1 / -1', gridTemplateColumns: '2.6fr 1.4fr', gridTemplateRows: 'auto auto' }}>
+          <div style={{ gridColumn: '1', gridRow: '1' }}>
             <StatsRow />
           </div>
-        </div>
-        <div style={{ gridColumn: '1 / -1' }}>
-          <QuizCard />
+          <div style={{ gridColumn: '1', gridRow: '2' }}>
+            <div className="grid grid-cols-2 gap-4">
+              <SmartNotesCard />
+              <QuickQuizCard />
+            </div>
+          </div>
+          <div style={{ gridColumn: '2', gridRow: '1 / 3' }}>
+            <AITransparencyCard />
+          </div>
         </div>
       </div>
     </div>
