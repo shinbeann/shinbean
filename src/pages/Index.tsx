@@ -1,65 +1,236 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { FlowTutorHero } from "@/components/FlowTutorHero";
-import { ProjectBentoCard } from "@/components/ProjectBentoCard";
+import { KidneyQuestInteractiveDemo } from "@/components/KidneyQuestInteractiveDemo";
+import { BentoGrid } from "@/components/BentoGrid";
+
+ type ActiveProject = "kidneyquest" | "hybridrag" | "flowtutor";
+
+const projectBackgroundClasses: Record<ActiveProject, string> = {
+  kidneyquest: "bg-kidneyquest",
+  hybridrag: "bg-hybridrag",
+  flowtutor: "bg-flowtutor",
+};
+
+const scrollReveal = {
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.3 },
+};
 
 const Index = () => {
+  const [activeProject, setActiveProject] = useState<ActiveProject>("kidneyquest");
+
   return (
-    <div className="min-h-screen flex flex-col bg-background">
-      <Navigation tone="dark" enableSmartHide />
+    <div
+      className={`min-h-screen flex flex-col transition-colors duration-700 ${projectBackgroundClasses[activeProject]}`}
+    >
+      <Navigation tone={activeProject === "hybridrag" ? "dark" : "light"} enableSmartHide />
 
-      <main className="flex-1">
-        {/* Section 1: FlowTutor Hero - Flagship Project */}
-        <FlowTutorHero />
-
-        {/* Generous breathing room - Korean UI trait */}
-        <div className="h-24 md:h-32" />
-
-        {/* Section 2: Secondary Bento Grid */}
-        <section className="px-4 sm:px-6 pb-24 md:pb-32">
-          <div className="container max-w-6xl mx-auto">
-            {/* Section header */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.6 }}
-              className="mb-12 md:mb-16"
-            >
-              <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground mb-3">
-                More Projects
+      <main className="flex-1 px-4 pt-24 pb-24">
+        <div className="container max-w-6xl mx-auto space-y-32">
+          {/* KidneyQuest Section */}
+          <motion.section
+            id="kidneyquest"
+            className="min-h-[80vh] flex flex-col md:flex-row gap-10 md:gap-16 items-start"
+            onViewportEnter={() => setActiveProject("kidneyquest")}
+            viewport={{ amount: 0.4, once: false }}
+          >
+            {/* Sticky Heading */}
+            <div className="md:w-1/3 sticky top-28 self-start space-y-4">
+              <p className="text-xs uppercase tracking-[0.25em] text-foreground/80">
+                <span className="font-bold">KidneyQuest</span> — AR / Healthcare
               </p>
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-                Featured Work
+              <h2 className="text-3xl md:text-4xl font-mono">
+                Gamifying health education.
               </h2>
-            </motion.div>
-
-            {/* 2-Column Bento Grid */}
-            <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-              {/* Left Card: HybridRAG */}
-              <ProjectBentoCard
-                slug="hybridrag"
-                tag="GovTech / System Design"
-                title="HybridRAG"
-                description="Offline-first information retrieval for the Singapore Police Force."
-                image="/hybridrag-hero.png"
-                imageAlt="HybridRAG mobile application showing SOP search interface with three smartphone screens displaying search, results, and document view"
-              />
-
-              {/* Right Card: KidneyQuest */}
-              <ProjectBentoCard
-                slug="kidneyquest"
-                tag="Gamification / 3D Experience"
-                title="KidneyQuest"
-                description="A VR educational journey for the NKF."
-                image="/kidneyquest.png"
-                imageAlt="KidneyQuest AR game interface showcasing the colorful 3D kidney character and quiz interface"
-              />
+              <p className="text-sm md:text-base text-foreground/80">
+                A browser-based AR mini-game for the National Kidney Foundation that
+                turns kidney health education into a playful, memorable experience.
+              </p>
             </div>
-          </div>
-        </section>
+
+            {/* Story & Media */}
+            <div className="md:w-2/3 space-y-10">
+              <motion.div
+                {...scrollReveal}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="rounded-3xl border border-border/60 bg-card/60 backdrop-blur-sm flex items-center justify-center px-4 py-8 md:px-8"
+              >
+                <KidneyQuestInteractiveDemo />
+              </motion.div>
+
+              <motion.div
+                {...scrollReveal}
+                transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+                className="grid gap-6 md:grid-cols-3"
+              >
+                <div className="space-y-2">
+                  <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
+                    Challenge
+                  </h3>
+                  <p className="text-sm text-foreground/80">
+                    Make kidney health education engaging in busy public spaces
+                    without asking people to download an app.
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
+                    Execution
+                  </h3>
+                  <p className="text-sm text-foreground/80">
+                    Designed a WebAR game flow that guides players through
+                    bite-sized trivia, rewards, and subtle behavior nudges.
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
+                    Visuals
+                  </h3>
+                  <p className="text-sm text-foreground/80">
+                    Organic shapes, soft gradients, and a friendly mascot make
+                    kidney health feel approachable instead of clinical.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          </motion.section>
+
+          {/* HybridRAG Section */}
+          <motion.section
+            id="hybridrag"
+            className="min-h-[80vh] flex flex-col md:flex-row gap-10 md:gap-16 items-start"
+            onViewportEnter={() => setActiveProject("hybridrag")}
+            viewport={{ amount: 0.4, once: false }}
+          >
+            {/* Sticky Heading */}
+            <div className="md:w-1/3 sticky top-28 self-start space-y-4">
+              <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
+                <span className="font-bold">HybridRAG</span> — AI / Mobile
+              </p>
+              <h2 className="text-3xl md:text-4xl font-mono">
+                Intelligence in the dark.
+              </h2>
+              <p className="text-sm md:text-base text-foreground/80">
+                An offline retrieval-augmented generation system that keeps
+                Singapore Police Force officers informed—even in connectivity
+                blackspots.
+              </p>
+            </div>
+
+            {/* Story & Media */}
+            <div className="md:w-2/3 space-y-10">
+              <motion.div
+                {...scrollReveal}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="rounded-3xl border border-border/70 overflow-hidden"
+              >
+                <img
+                  src="/hybridrag-hero.png"
+                  alt="HybridRAG mobile application showing SOP search interface with three smartphone screens displaying search, results, and document view"
+                  className="w-full h-auto object-contain"
+                />
+              </motion.div>
+
+              <motion.div
+                {...scrollReveal}
+                transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+                className="space-y-6"
+              >
+                <div className="grid gap-6 md:grid-cols-3">
+                  <div className="space-y-2">
+                    <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
+                      Conflict
+                    </h3>
+                    <p className="text-sm text-foreground/80">
+                      In basements and alleyways, officers lose connectivity and
+                      can&apos;t search legal references during critical moments.
+                    </p>
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
+                      Architecture
+                    </h3>
+                    <p className="text-sm text-foreground/80">
+                      Mobile RAG pipeline using on-device vector search,
+                      centroid clustering to compress memory, and Llama.cpp +
+                      ObjectBox for fully offline inference.
+                    </p>
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
+                      UX Detail
+                    </h3>
+                    <p className="text-sm text-foreground/80">
+                      Natural language search surfaces recognisable scenarios
+                      instead of cryptic legal codes—optimised for recognition
+                      over recall.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.section>
+
+          {/* FlowTutor Section */}
+          <motion.section
+            id="flowtutor"
+            className="min-h-[80vh] flex flex-col md:flex-row gap-10 md:gap-16 items-start"
+            onViewportEnter={() => setActiveProject("flowtutor")}
+            viewport={{ amount: 0.4, once: false }}
+          >
+            {/* Sticky Heading */}
+            <div className="md:w-1/3 sticky top-28 self-start space-y-4">
+              <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
+                <span className="font-bold">FlowTutor</span> — Web · AI / Edtech
+              </p>
+              <h2 className="text-3xl md:text-4xl font-mono">
+                Streamlined learning.
+              </h2>
+              <p className="text-sm md:text-base text-foreground/80">
+                A concept for turning chaotic YouTube tutorials into a guided,
+                searchable learning flow—so self-directed learners stay in the
+                zone.
+              </p>
+              <div className="space-y-6 mt-6">
+                <div className="space-y-2">
+                  <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
+                    Challenge
+                  </h3>
+                  <p className="text-sm text-foreground/80">
+                    Learners constantly pause, scrub, and rewatch tutorials,
+                    breaking flow and losing where they left off.
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
+                    Solution
+                  </h3>
+                  <p className="text-sm text-foreground/80">
+                    A structured &ldquo;step timeline&rdquo; that syncs with the video,
+                    with bookmarks, checkmarks, and contextual notes.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Story & Media */}
+            <div className="md:w-2/3 space-y-10">
+              <motion.div
+                initial={{ opacity: 1 }}
+                animate={{ opacity: 1 }}
+                className="rounded-3xl overflow-hidden"
+              >
+                <BentoGrid />
+              </motion.div>
+            </div>
+          </motion.section>
+
+        </div>
       </main>
 
       <Footer />
