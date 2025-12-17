@@ -4,38 +4,42 @@
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
+Korean Bento Grid Premium Dark Mode
 */
 
 @layer base {
   :root {
-    /* Dark theme - Adrian Zumbrunnen-inspired */
-    --background: 0 0% 7%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 7%;
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 60%;
-    --accent: 0 0% 20%;
-    --accent-foreground: 0 0% 98%;
+    /* Premium Matte Black Theme */
+    --background: 0 0% 4%;
+    --foreground: 0 0% 96%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 96%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 0 0% 96%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 85%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 0 0% 16%;
+    --accent-foreground: 0 0% 96%;
     --destructive: 0 63% 50%;
     --destructive-foreground: 0 0% 98%;
     --success: 142 71% 45%;
     --success-foreground: 0 0% 98%;
     --warning: 28 87% 50%;
     --warning-foreground: 0 0% 98%;
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 0 0% 98%;
-    --nav-on-dark: 0 0% 98%;
-    --nav-on-light: 0 0% 7%;
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 0 0% 96%;
+    --nav-on-dark: 0 0% 96%;
+    --nav-on-light: 0 0% 4%;
     --nav-dot: 0 82% 56%;
-    --radius: 2rem;
+    --radius: 1.5rem;
+    
+    /* Accent glow for glassmorphism */
+    --accent-glow: 220 60% 50%;
     
     /* 8pt spacing grid */
     --spacing-1: 0.5rem;  /* 8px */
@@ -48,26 +52,27 @@ All colors MUST be HSL.
     --spacing-12: 6rem;   /* 96px */
     --spacing-16: 8rem;   /* 128px */
     
-    /* Responsive typography scale: 48/56, 36/44, 24/32, 18/28, 16/26 */
-    --text-xs: 0.875rem;      /* 14px */
-    --text-sm: 1rem;          /* 16px / 26px line-height */
-    --text-base: 1.125rem;    /* 18px / 28px line-height */
-    --text-lg: 1.25rem;       /* 20px */
-    --text-xl: 1.5rem;        /* 24px / 32px line-height */
-    --text-2xl: 2.25rem;      /* 36px / 44px line-height */
-    --text-3xl: 3rem;         /* 48px / 56px line-height */
+    /* Responsive typography scale */
+    --text-xs: 0.875rem;
+    --text-sm: 1rem;
+    --text-base: 1.125rem;
+    --text-lg: 1.25rem;
+    --text-xl: 1.5rem;
+    --text-2xl: 2.25rem;
+    --text-3xl: 3rem;
+    --text-4xl: 3.75rem;
     
     /* Smooth transitions */
-    --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --sidebar-background: 0 0% 10%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 0 0% 98%;
-    --sidebar-primary-foreground: 0 0% 7%;
-    --sidebar-accent: 0 0% 15%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 0 0% 20%;
-    --sidebar-ring: 0 0% 98%;
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 0 0% 96%;
+    --sidebar-primary-foreground: 0 0% 4%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 0 0% 16%;
+    --sidebar-ring: 0 0% 96%;
 
     /* Project-specific vibes */
     --kidneyquest-gold: 37 82% 60%;
@@ -139,6 +144,21 @@ All colors MUST be HSL.
 }
 
 @layer components {
+  /* Hero matte background with subtle depth */
+  .bg-hero-matte {
+    background: 
+      radial-gradient(ellipse 80% 50% at 50% 0%, hsl(var(--accent-glow) / 0.08) 0%, transparent 50%),
+      linear-gradient(180deg, hsl(var(--background)) 0%, hsl(0 0% 3%) 100%);
+  }
+
+  /* Bento card shadow on hover */
+  .shadow-bento {
+    box-shadow: 
+      0 25px 50px -12px hsl(0 0% 0% / 0.5),
+      0 0 0 1px hsl(var(--border) / 0.3);
+  }
+
+  /* Legacy project backgrounds */
   .bg-kidneyquest {
     background: radial-gradient(circle at top left, hsl(var(--kidneyquest-gold)) 0%, hsl(var(--background)) 55%);
   }
@@ -153,7 +173,7 @@ All colors MUST be HSL.
 
   .nav-dot-work {
     @apply relative;
-    padding-left: 1rem; /* leave ~5px breathing room between dot and label */
+    padding-left: 1rem;
   }
 
   .nav-dot-work::before {
