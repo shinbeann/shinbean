@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { KidneyQuestInteractiveDemo } from "@/components/KidneyQuestInteractiveDemo";
@@ -38,29 +40,17 @@ const Index = () => {
                 Streamlined learning.
               </h2>
               <p className="text-sm md:text-base text-blue-100/70">
-                A concept for turning chaotic YouTube tutorials into a guided,
-                searchable learning flow—so self-directed learners stay in the
+                A concept for turning chaotic YouTube tutorials into interactive lessons, allowing learners to ask questions, generate quizzes, and instantly jump to relevant timestamps for more efficient self-directed learning
                 zone.
               </p>
-              <div className="space-y-6 mt-6">
-                <div className="space-y-2">
-                  <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-400/60">
-                    Challenge
-                  </h3>
-                  <p className="text-sm text-blue-100/70">
-                    Learners constantly pause, scrub, and rewatch tutorials,
-                    breaking flow and losing where they left off.
-                  </p>
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-400/60">
-                    Solution
-                  </h3>
-                  <p className="text-sm text-blue-100/70">
-                    A structured &ldquo;step timeline&rdquo; that syncs with the video,
-                    with bookmarks, checkmarks, and contextual notes.
-                  </p>
-                </div>
+              <div className="mt-6">
+                <Link 
+                  to="/case-study/flowtutor" 
+                  className="text-sm text-blue-300/80 hover:text-blue-200 transition-colors underline inline-flex items-center gap-1"
+                >
+                  Click here to view case study
+                  <ArrowUpRight className="w-4 h-4" />
+                </Link>
               </div>
             </div>
 
