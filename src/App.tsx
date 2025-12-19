@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import CaseStudy from "./pages/CaseStudy";
+import FlowTutorCaseStudy from "./pages/FlowTutorCaseStudy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -19,6 +20,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
+          <Route path="/case-study/flowtutor" element={<FlowTutorCaseStudy />} />
           {/* Temporarily disabled */}
           {/* <Route path="/case-study/:slug" element={<CaseStudy />} /> */}
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
