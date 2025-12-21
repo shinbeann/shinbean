@@ -131,18 +131,22 @@ const ComparisonCard = ({ title, beforeVisual, afterVisual, caption, delay }: {
       className="bg-white/5 border border-white/10 rounded-xl p-8 space-y-6"
     >
       <h3 className="text-xl font-bold text-white tracking-tight">{title}</h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="relative bg-neutral-900/50 rounded-lg border border-red-500/20 p-6 flex items-center justify-center min-h-[180px]">
-          <div className="absolute top-3 left-3 px-2 py-1 bg-red-500/20 border border-red-500/30 rounded text-[10px] font-mono text-red-400 uppercase tracking-wider">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="relative bg-neutral-900/50 rounded-xl border border-white/10 overflow-hidden">
+          <div className="absolute top-3 left-3 z-10 px-2 py-1 bg-black/70 backdrop-blur-sm border border-white/20 rounded text-[10px] font-mono text-white uppercase tracking-wider">
             Before
           </div>
-          {beforeVisual}
+          <div className="aspect-[4/3] flex items-center justify-center p-4">
+            {beforeVisual}
+          </div>
         </div>
-        <div className="relative bg-neutral-900/50 rounded-lg border border-green-500/20 p-6 flex items-center justify-center min-h-[180px]">
-          <div className="absolute top-3 left-3 px-2 py-1 bg-green-500/20 border border-green-500/30 rounded text-[10px] font-mono text-green-400 uppercase tracking-wider">
+        <div className="relative bg-neutral-900/50 rounded-xl border border-white/10 overflow-hidden">
+          <div className="absolute top-3 left-3 z-10 px-2 py-1 bg-black/70 backdrop-blur-sm border border-white/20 rounded text-[10px] font-mono text-white uppercase tracking-wider">
             After
           </div>
-          {afterVisual}
+          <div className="aspect-[4/3] flex items-center justify-center p-4">
+            {afterVisual}
+          </div>
         </div>
       </div>
       <p className="text-xs text-neutral-500 font-mono text-center">{caption}</p>
@@ -817,10 +821,10 @@ const FlowTutorCaseStudy = () => {
           <ComparisonCard
             title="Simplifying Onboarding"
             beforeVisual={
-              <img src={onboardingBefore} alt="Before: Wireframe showing file upload and URL input" className="w-full h-auto max-h-[160px] object-contain rounded" />
+              <img src={onboardingBefore} alt="Before: Wireframe showing file upload and URL input" className="w-full h-full object-cover rounded-lg" />
             }
             afterVisual={
-              <img src={onboardingAfter} alt="After: Streamlined URL-first FlowTutor interface" className="w-full h-auto max-h-[160px] object-contain rounded" />
+              <img src={onboardingAfter} alt="After: Streamlined URL-first FlowTutor interface" className="w-full h-full object-cover rounded-lg" />
             }
             caption="Removed file-picker friction for a URL-first workflow."
             delay={0}
