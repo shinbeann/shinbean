@@ -826,7 +826,7 @@ const FlowTutorCaseStudy = () => {
             afterVisual={
               <img src={onboardingAfter} alt="After: Streamlined URL-first FlowTutor interface" className="w-full h-full object-contain rounded-lg" />
             }
-            caption="Removed file-picker friction for a URL-first workflow."
+            caption="Constrained the system to a single, high-value input method (YouTube URLs) to eliminate decision fatigue and streamline the onboarding process."
             delay={0}
           />
           <ComparisonCard
