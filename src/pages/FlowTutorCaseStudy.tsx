@@ -129,14 +129,14 @@ const ComparisonCard = ({ title, beforeVisual, afterVisual, caption, delay }: {
       className="bg-white/5 border border-white/10 rounded-xl p-8 space-y-6"
     >
       <h3 className="text-xl font-bold text-white tracking-tight">{title}</h3>
-      <div className="grid grid-rows-2 gap-4">
-        <div className="relative bg-neutral-900/50 rounded-lg border border-red-500/20 p-6 flex items-center justify-center min-h-[200px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="relative bg-neutral-900/50 rounded-lg border border-red-500/20 p-6 flex items-center justify-center min-h-[180px]">
           <div className="absolute top-3 left-3 px-2 py-1 bg-red-500/20 border border-red-500/30 rounded text-[10px] font-mono text-red-400 uppercase tracking-wider">
             Before
           </div>
           {beforeVisual}
         </div>
-        <div className="relative bg-neutral-900/50 rounded-lg border border-green-500/20 p-6 flex items-center justify-center min-h-[200px]">
+        <div className="relative bg-neutral-900/50 rounded-lg border border-green-500/20 p-6 flex items-center justify-center min-h-[180px]">
           <div className="absolute top-3 left-3 px-2 py-1 bg-green-500/20 border border-green-500/30 rounded text-[10px] font-mono text-green-400 uppercase tracking-wider">
             After
           </div>
@@ -811,21 +811,7 @@ const FlowTutorCaseStudy = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <ComparisonCard
-            title="Fixing Heuristic #6"
-            beforeVisual={
-              <div className="text-neutral-500 font-mono text-lg">[04:20]</div>
-            }
-            afterVisual={
-              <div className="px-4 py-2 bg-purple-600 rounded-lg text-white font-medium flex items-center gap-2 text-sm">
-                <div className="w-2 h-2 bg-white rounded-full" />
-                04:20 Jump to Concept
-              </div>
-            }
-            caption="Transformed static timestamps into interactive jump-links."
-            delay={0}
-          />
+        <div className="space-y-8">
           <ComparisonCard
             title="Simplifying Onboarding"
             beforeVisual={
@@ -845,6 +831,20 @@ const FlowTutorCaseStudy = () => {
               </div>
             }
             caption="Removed file-picker friction for a URL-first workflow."
+            delay={0}
+          />
+          <ComparisonCard
+            title="Fixing Heuristic #6"
+            beforeVisual={
+              <div className="text-neutral-500 font-mono text-lg">[04:20]</div>
+            }
+            afterVisual={
+              <div className="px-4 py-2 bg-purple-600 rounded-lg text-white font-medium flex items-center gap-2 text-sm">
+                <div className="w-2 h-2 bg-white rounded-full" />
+                04:20 Jump to Concept
+              </div>
+            }
+            caption="Transformed static timestamps into interactive jump-links."
             delay={0.1}
           />
         </div>
