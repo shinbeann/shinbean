@@ -824,7 +824,7 @@ const FlowTutorCaseStudy = () => {
               <img src={onboardingBefore} alt="Before: Wireframe showing file upload and URL input" className="w-full h-full object-cover rounded-lg" />
             }
             afterVisual={
-              <img src={onboardingAfter} alt="After: Streamlined URL-first FlowTutor interface" className="w-full h-full object-cover rounded-lg" />
+              <img src={onboardingAfter} alt="After: Streamlined URL-first FlowTutor interface" className="w-full h-full object-contain rounded-lg" />
             }
             caption="Removed file-picker friction for a URL-first workflow."
             delay={0}
