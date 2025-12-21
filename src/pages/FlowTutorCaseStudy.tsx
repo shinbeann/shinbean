@@ -821,7 +821,7 @@ const FlowTutorCaseStudy = () => {
           <ComparisonCard
             title="Simplifying Onboarding"
             beforeVisual={
-              <img src={onboardingBefore} alt="Before: Wireframe showing file upload and URL input" className="w-full h-full object-cover rounded-lg" />
+              <img src={onboardingBefore} alt="Before: Wireframe showing file upload and URL input" className="w-full h-full object-contain rounded-lg" />
             }
             afterVisual={
               <img src={onboardingAfter} alt="After: Streamlined URL-first FlowTutor interface" className="w-full h-full object-contain rounded-lg" />
