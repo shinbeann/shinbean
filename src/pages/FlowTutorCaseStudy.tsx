@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 import { ArrowLeft, ArrowRight, Code, Brain, Layout, Sliders, ChevronRight, Search, Zap, Layers, AlertCircle, Eye, AlertTriangle, BookOpen, MessageSquare, FileText, CheckCircle, GripVertical, Sparkles, Maximize } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import onboardingBefore from "@/assets/flowtutor-onboarding-before.png";
+import onboardingAfter from "@/assets/flowtutor-onboarding-after.png";
 
 // --- COMPONENTS ---
 
@@ -815,20 +817,10 @@ const FlowTutorCaseStudy = () => {
           <ComparisonCard
             title="Simplifying Onboarding"
             beforeVisual={
-              <div className="border-2 border-dashed border-neutral-600 rounded-xl p-8 text-center w-full">
-                <div className="text-neutral-500 font-mono text-sm mb-2">Drag & Drop File</div>
-                <div className="text-neutral-600 text-xs">or click to browse</div>
-              </div>
+              <img src={onboardingBefore} alt="Before: Wireframe showing file upload and URL input" className="w-full h-auto max-h-[160px] object-contain rounded" />
             }
             afterVisual={
-              <div className="w-full max-w-sm p-2 bg-black border border-white/20 rounded-lg flex gap-2">
-                <div className="flex-1 bg-neutral-900 rounded px-3 py-2 text-neutral-500 font-mono text-sm">
-                  paste youtube link...
-                </div>
-                <div className="w-8 h-8 bg-white rounded flex items-center justify-center">
-                  <ArrowRight className="w-4 h-4 text-black" />
-                </div>
-              </div>
+              <img src={onboardingAfter} alt="After: Streamlined URL-first FlowTutor interface" className="w-full h-auto max-h-[160px] object-contain rounded" />
             }
             caption="Removed file-picker friction for a URL-first workflow."
             delay={0}
