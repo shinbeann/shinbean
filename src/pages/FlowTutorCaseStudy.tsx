@@ -114,12 +114,18 @@ const HeuristicCard = ({
   );
 };
 
-// 4. Comparison Card (Refinement Section)
-const ComparisonCard = ({ title, beforeVisual, afterVisual, caption, delay }: { 
+// 4. Transformation Showcase (Refinement Section)
+const TransformationShowcase = ({ 
+  title, 
+  beforeVisual, 
+  afterVisual, 
+  improvements,
+  delay 
+}: { 
   title: string, 
   beforeVisual: React.ReactNode, 
   afterVisual: React.ReactNode, 
-  caption: string,
+  improvements: string[],
   delay: number 
 }) => {
   return (
@@ -128,28 +134,66 @@ const ComparisonCard = ({ title, beforeVisual, afterVisual, caption, delay }: {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay }}
-      className="bg-white/5 border border-white/10 rounded-xl p-8 space-y-6"
+      className="bg-slate-900/80 backdrop-blur-xl border border-white/10 rounded-2xl p-8 space-y-8"
     >
-      <h3 className="text-xl font-bold text-white tracking-tight">{title}</h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="relative bg-neutral-900/50 rounded-xl border border-red-500/30 overflow-hidden">
-          <div className="absolute top-3 left-3 z-10 px-2 py-1 bg-red-500/20 backdrop-blur-sm border border-red-500/50 rounded text-[10px] font-mono text-red-400 uppercase tracking-wider">
-            Before
+      <h3 className="text-2xl font-bold text-white tracking-tight">{title}</h3>
+      
+      {/* Transformation Visual */}
+      <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+        {/* Before - Concept */}
+        <div className="relative flex-1 w-full bg-slate-950/50 backdrop-blur-md rounded-xl border border-white/10 overflow-hidden opacity-80">
+          <div className="absolute top-3 left-3 z-10 px-3 py-1.5 bg-neutral-800/80 backdrop-blur-sm border border-neutral-600/50 rounded-md text-[10px] font-mono text-neutral-400 uppercase tracking-wider">
+            Concept
           </div>
-          <div className="aspect-[4/3] flex items-center justify-center p-4">
+          <div className="aspect-[4/3] flex items-center justify-center p-6">
             {beforeVisual}
           </div>
         </div>
-        <div className="relative bg-neutral-900/50 rounded-xl border border-green-500/30 overflow-hidden">
-          <div className="absolute top-3 left-3 z-10 px-2 py-1 bg-green-500/20 backdrop-blur-sm border border-green-500/50 rounded text-[10px] font-mono text-green-400 uppercase tracking-wider">
-            After
+
+        {/* Arrow Connector */}
+        <div className="flex-shrink-0 hidden md:flex items-center justify-center">
+          <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-600 to-purple-400 flex items-center justify-center shadow-lg shadow-purple-500/30">
+            <ChevronRight className="w-8 h-8 text-white" />
           </div>
-          <div className="aspect-[4/3] flex items-center justify-center p-4">
+        </div>
+        
+        {/* Mobile Arrow */}
+        <div className="flex md:hidden items-center justify-center py-2">
+          <div className="w-12 h-12 rounded-full bg-gradient-to-b from-purple-600 to-purple-400 flex items-center justify-center shadow-lg shadow-purple-500/30 rotate-90">
+            <ChevronRight className="w-6 h-6 text-white" />
+          </div>
+        </div>
+
+        {/* After - Final UI */}
+        <div className="relative flex-[1.15] w-full bg-slate-950/50 backdrop-blur-md rounded-xl border border-green-500/30 overflow-hidden shadow-xl shadow-green-500/10">
+          <div className="absolute top-3 left-3 z-10 px-3 py-1.5 bg-green-500/20 backdrop-blur-sm border border-green-500/40 rounded-md text-[10px] font-mono text-green-400 uppercase tracking-wider">
+            Final UI
+          </div>
+          <div className="aspect-[4/3] flex items-center justify-center p-6">
             {afterVisual}
           </div>
         </div>
       </div>
-      <p className="text-xs text-neutral-500 font-mono text-center">{caption}</p>
+
+      {/* Key Improvements */}
+      <div className="pt-6 border-t border-white/10">
+        <p className="text-xs font-mono text-neutral-500 uppercase tracking-wider mb-4">Key Improvements</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {improvements.map((improvement, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: delay + 0.1 * index }}
+              className="flex items-start gap-3"
+            >
+              <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+              <span className="text-sm text-neutral-300">{improvement}</span>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </motion.div>
   );
 };
@@ -680,7 +724,7 @@ const FlowTutorCaseStudy = () => {
         </motion.div>
 
         <div className="space-y-8">
-          <ComparisonCard
+          <TransformationShowcase
             title="Improving Upload Clarity"
             beforeVisual={
               <img src={onboardingBefore} alt="Before: Wireframe showing file upload and URL input" className="w-full h-full object-contain rounded-lg" />
@@ -688,21 +732,31 @@ const FlowTutorCaseStudy = () => {
             afterVisual={
               <img src={onboardingAfter} alt="After: Streamlined URL-first FlowTutor interface" className="w-full h-full object-contain rounded-lg" />
             }
-            caption="Simplified the input method (YouTube URLs)."
+            improvements={[
+              "Reduced cognitive load with single input method",
+              "Eliminated decision fatigue",
+              "URL-first workflow for faster onboarding",
+              "Cleaner visual hierarchy"
+            ]}
             delay={0}
           />
-          <ComparisonCard
+          <TransformationShowcase
             title="Fixing Heuristic #6"
             beforeVisual={
-              <div className="text-neutral-500 font-mono text-lg">[04:20]</div>
+              <div className="text-neutral-500 font-mono text-2xl">[04:20]</div>
             }
             afterVisual={
-              <div className="px-4 py-2 bg-purple-600 rounded-lg text-white font-medium flex items-center gap-2 text-sm">
-                <div className="w-2 h-2 bg-white rounded-full" />
+              <div className="px-5 py-3 bg-purple-600 rounded-lg text-white font-medium flex items-center gap-3 text-base shadow-lg shadow-purple-500/30">
+                <div className="w-2.5 h-2.5 bg-white rounded-full animate-pulse" />
                 04:20 Jump to Concept
               </div>
             }
-            caption="Transformed static timestamps into interactive jump-links."
+            improvements={[
+              "Recognition over recall principle applied",
+              "Clear interactive affordance",
+              "Visual pulse indicator for attention",
+              "Descriptive action label"
+            ]}
             delay={0.1}
           />
         </div>
