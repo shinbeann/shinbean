@@ -141,7 +141,7 @@ const TransformationShowcase = ({
       {/* Transformation Visual */}
       <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
         {/* Before */}
-        <div className="relative flex-1 w-full bg-slate-950/50 backdrop-blur-md rounded-xl border border-white/10 overflow-hidden opacity-80">
+        <div className="relative flex-1 w-full bg-white/5 backdrop-blur-md rounded-xl border border-white/10 overflow-hidden opacity-80">
           <div className="absolute top-3 left-3 z-10 px-3 py-1.5 bg-neutral-800/80 backdrop-blur-sm border border-neutral-600/50 rounded-md text-[10px] font-mono text-neutral-400 uppercase tracking-wider">
             Before
           </div>
@@ -165,7 +165,7 @@ const TransformationShowcase = ({
         </div>
 
         {/* After */}
-        <div className="relative flex-[1.15] w-full bg-slate-950/50 backdrop-blur-md rounded-xl border border-green-500/30 overflow-hidden shadow-xl shadow-green-500/10">
+        <div className="relative flex-[1.15] w-full bg-white/5 backdrop-blur-md rounded-xl border border-green-500/30 overflow-hidden shadow-xl shadow-green-500/10">
           <div className="absolute top-3 left-3 z-10 px-3 py-1.5 bg-green-500/20 backdrop-blur-sm border border-green-500/40 rounded-md text-[10px] font-mono text-green-400 uppercase tracking-wider">
             After
           </div>
@@ -176,8 +176,8 @@ const TransformationShowcase = ({
       </div>
 
       {/* Caption */}
-      <div className="pt-6 border-t border-white/10">
-        <p className="text-sm text-neutral-300">{caption}</p>
+      <div className="pt-6">
+        <p className="text-sm text-neutral-300 text-center">{caption}</p>
       </div>
     </motion.div>
   );
