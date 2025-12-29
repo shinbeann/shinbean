@@ -119,13 +119,13 @@ const TransformationShowcase = ({
   title, 
   beforeVisual, 
   afterVisual, 
-  improvements,
+  caption,
   delay 
 }: { 
   title: string, 
   beforeVisual: React.ReactNode, 
   afterVisual: React.ReactNode, 
-  improvements: string[],
+  caption: string,
   delay: number 
 }) => {
   return (
@@ -134,16 +134,16 @@ const TransformationShowcase = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay }}
-      className="bg-slate-900/80 backdrop-blur-xl border border-white/10 rounded-2xl p-8 space-y-8"
+      className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 space-y-8"
     >
       <h3 className="text-2xl font-bold text-white tracking-tight">{title}</h3>
       
       {/* Transformation Visual */}
       <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
-        {/* Before - Concept */}
+        {/* Before */}
         <div className="relative flex-1 w-full bg-slate-950/50 backdrop-blur-md rounded-xl border border-white/10 overflow-hidden opacity-80">
           <div className="absolute top-3 left-3 z-10 px-3 py-1.5 bg-neutral-800/80 backdrop-blur-sm border border-neutral-600/50 rounded-md text-[10px] font-mono text-neutral-400 uppercase tracking-wider">
-            Concept
+            Before
           </div>
           <div className="aspect-[4/3] flex items-center justify-center p-6">
             {beforeVisual}
@@ -164,10 +164,10 @@ const TransformationShowcase = ({
           </div>
         </div>
 
-        {/* After - Final UI */}
+        {/* After */}
         <div className="relative flex-[1.15] w-full bg-slate-950/50 backdrop-blur-md rounded-xl border border-green-500/30 overflow-hidden shadow-xl shadow-green-500/10">
           <div className="absolute top-3 left-3 z-10 px-3 py-1.5 bg-green-500/20 backdrop-blur-sm border border-green-500/40 rounded-md text-[10px] font-mono text-green-400 uppercase tracking-wider">
-            Final UI
+            After
           </div>
           <div className="aspect-[4/3] flex items-center justify-center p-6">
             {afterVisual}
@@ -175,24 +175,9 @@ const TransformationShowcase = ({
         </div>
       </div>
 
-      {/* Key Improvements */}
+      {/* Caption */}
       <div className="pt-6 border-t border-white/10">
-        <p className="text-xs font-mono text-neutral-500 uppercase tracking-wider mb-4">Key Improvements</p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {improvements.map((improvement, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -10 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: delay + 0.1 * index }}
-              className="flex items-start gap-3"
-            >
-              <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-              <span className="text-sm text-neutral-300">{improvement}</span>
-            </motion.div>
-          ))}
-        </div>
+        <p className="text-sm text-neutral-300">{caption}</p>
       </div>
     </motion.div>
   );
@@ -732,12 +717,7 @@ const FlowTutorCaseStudy = () => {
             afterVisual={
               <img src={onboardingAfter} alt="After: Streamlined URL-first FlowTutor interface" className="w-full h-full object-contain rounded-lg" />
             }
-            improvements={[
-              "Reduced cognitive load with single input method",
-              "Eliminated decision fatigue",
-              "URL-first workflow for faster onboarding",
-              "Cleaner visual hierarchy"
-            ]}
+            caption="Simplified the input method (YouTube URLs)."
             delay={0}
           />
           <TransformationShowcase
@@ -751,12 +731,7 @@ const FlowTutorCaseStudy = () => {
                 04:20 Jump to Concept
               </div>
             }
-            improvements={[
-              "Recognition over recall principle applied",
-              "Clear interactive affordance",
-              "Visual pulse indicator for attention",
-              "Descriptive action label"
-            ]}
+            caption="Applied recognition over recall with clear interactive affordance."
             delay={0.1}
           />
         </div>
