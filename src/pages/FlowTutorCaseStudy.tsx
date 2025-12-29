@@ -132,16 +132,16 @@ const ComparisonCard = ({ title, beforeVisual, afterVisual, caption, delay }: {
     >
       <h3 className="text-xl font-bold text-white tracking-tight">{title}</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="relative bg-neutral-900/50 rounded-xl border border-white/10 overflow-hidden">
-          <div className="absolute top-3 left-3 z-10 px-2 py-1 bg-black/70 backdrop-blur-sm border border-white/20 rounded text-[10px] font-mono text-white uppercase tracking-wider">
+        <div className="relative bg-neutral-900/50 rounded-xl border border-red-500/30 overflow-hidden">
+          <div className="absolute top-3 left-3 z-10 px-2 py-1 bg-red-500/20 backdrop-blur-sm border border-red-500/50 rounded text-[10px] font-mono text-red-400 uppercase tracking-wider">
             Before
           </div>
           <div className="aspect-[4/3] flex items-center justify-center p-4">
             {beforeVisual}
           </div>
         </div>
-        <div className="relative bg-neutral-900/50 rounded-xl border border-white/10 overflow-hidden">
-          <div className="absolute top-3 left-3 z-10 px-2 py-1 bg-black/70 backdrop-blur-sm border border-white/20 rounded text-[10px] font-mono text-white uppercase tracking-wider">
+        <div className="relative bg-neutral-900/50 rounded-xl border border-green-500/30 overflow-hidden">
+          <div className="absolute top-3 left-3 z-10 px-2 py-1 bg-green-500/20 backdrop-blur-sm border border-green-500/50 rounded text-[10px] font-mono text-green-400 uppercase tracking-wider">
             After
           </div>
           <div className="aspect-[4/3] flex items-center justify-center p-4">
@@ -481,95 +481,8 @@ const AnimatedStatItem = ({
   );
 };
 
-// 7. Floating Annotation Component (Postman Style)
-const FloatingAnnotation = ({ 
-  title, 
-  description, 
-  side, 
-  textTop, 
-  imageTop,
-  imageLeft,
-  delay,
-  onHover
-}: { 
-  title: string, 
-  description: string, 
-  side: "left" | "right",
-  textTop: string, // Vertical position of text label
-  imageTop: string, // Top position on image (0-100%)
-  imageLeft: string, // Left position on image (0-100%)
-  delay: number,
-  onHover: (target: string | null) => void
-}) => {
-  const annotationRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(annotationRef, { once: true, amount: 0.3 });
-
-  return (
-    <>
-      {/* Text Label with Dark Glass Backing */}
-      <motion.div
-        ref={annotationRef}
-        initial={{ opacity: 0, x: side === "left" ? -20 : 20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay }}
-        onMouseEnter={() => onHover(title.toLowerCase().replace(/\s+/g, '-'))}
-        onMouseLeave={() => onHover(null)}
-        className={`absolute z-20 w-64 p-4 bg-black/80 backdrop-blur-md border border-white/10 rounded-xl shadow-2xl hidden lg:block group hover:bg-black/90 hover:border-purple-500/30 transition-all`}
-        style={{ 
-          top: textTop,
-          [side === "left" ? "left" : "right"]: "-280px", // Position well outside image boundaries
-          transform: "translateY(-50%)",
-          maxHeight: "160px"
-        }}
-      >
-        <div className={`${side === "left" ? "text-right" : "text-left"}`}>
-          <h3 className="text-xl font-bold text-white mb-2 tracking-tight">{title}</h3>
-          <p className="text-sm text-gray-400 leading-relaxed">{description}</p>
-        </div>
-      </motion.div>
-    </>
-  );
-};
-
-// 8. Product Anatomy Section Component (Static Image with Baked Lines)
+// 7. Product Anatomy Section Component
 const ProductAnatomySection = () => {
-  const leftFeatures = [
-    {
-      title: "Unified Viewport",
-      description: "Combines video player, notes, and AI chat in a single view.",
-      top: "10%"
-    },
-    {
-      title: "Flexible Layout",
-      description: "Draggable divider to resize the Video vs. Chat width.",
-      top: "42%"
-    },
-    {
-      title: "Smart Notes",
-      description: "Rich text editor with timestamp tagging located directly under the video.",
-      top: "70%"
-    }
-  ];
-
-  const rightFeatures = [
-    {
-      title: "Retention Tools",
-      description: "Pin important AI responses to build a study guide.",
-      top: "5%"
-    },
-    {
-      title: "Interactive Chat",
-      description: "Clickable timestamps instantly sync the video to the explanation.",
-      top: "45%"
-    },
-    {
-      title: "Live LLM Integration",
-      description: "Ask context-aware questions based strictly on the video transcript.",
-      top: "88%"
-    }
-  ];
-
   return (
     <section className="py-32 bg-[#080808]">
       <div className="container max-w-7xl mx-auto px-6">
@@ -583,105 +496,54 @@ const ProductAnatomySection = () => {
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">The Unified Workspace.</h2>
         </motion.div>
 
-        {/* Desktop: Static Image with Floating Text */}
-        <div className="relative w-full max-w-7xl mx-auto hidden lg:block">
-          {/* Central Image with Baked Lines */}
+        {/* Desktop: Image with built-in annotations */}
+        <div className="hidden lg:block">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative"
+            className="flex justify-center"
           >
-            <img
-              src="/flowtutor-lines.png"
-              alt="FlowTutor Unified Workspace with Annotations"
-              className="w-full h-auto rounded-xl border border-white/10 shadow-2xl"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.src = "/flowtutor.png";
-              }}
-            />
-
-            {/* Left-Side Text Container */}
-            <div className="absolute left-0 top-0 h-full w-1/3 pointer-events-none">
-              {leftFeatures.map((feature, index) => (
-                <motion.div
-                  key={`left-${index}`}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="absolute pointer-events-auto"
-                  style={{ top: feature.top, transform: 'translateY(-50%)' }}
-                >
-                  <div className="max-w-[200px] ml-4 p-4 bg-black/80 backdrop-blur-md border border-white/10 rounded-xl shadow-2xl text-right">
-                    <h3 className="text-lg font-bold text-white mb-1">{feature.title}</h3>
-                    <p className="text-sm text-gray-400 leading-relaxed">{feature.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Right-Side Text Container */}
-            <div className="absolute right-0 top-0 h-full w-1/3 pointer-events-none">
-              {rightFeatures.map((feature, index) => (
-                <motion.div
-                  key={`right-${index}`}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="absolute pointer-events-auto"
-                  style={{ top: feature.top, transform: 'translateY(-50%)' }}
-                >
-                  <div className="max-w-[200px] mr-4 ml-auto p-4 bg-black/80 backdrop-blur-md border border-white/10 rounded-xl shadow-2xl text-left">
-                    <h3 className="text-lg font-bold text-white mb-1">{feature.title}</h3>
-                    <p className="text-sm text-gray-400 leading-relaxed">{feature.description}</p>
-                  </div>
-                </motion.div>
-              ))}
+            <div className="relative rounded-xl shadow-2xl overflow-visible bg-transparent">
+              <img
+                src="/flowtutor-lines.png"
+                alt="FlowTutor Unified Workspace"
+                className="w-full h-auto"
+                style={{ transform: 'scale(1.2)', transformOrigin: 'center' }}
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  const fallback = target.parentElement?.querySelector('.image-fallback');
+                  if (fallback) {
+                    (fallback as HTMLElement).style.display = 'flex';
+                  }
+                }}
+              />
+              
+              {/* Fallback Placeholder */}
+              <div className="image-fallback hidden w-full aspect-video bg-neutral-900/50 flex items-center justify-center border border-white/5">
+                <span className="text-neutral-600 font-mono text-sm">[FlowTutor Screenshot]</span>
+              </div>
             </div>
           </motion.div>
         </div>
 
-        {/* Mobile/Tablet: Stacked Layout */}
-        <div className="lg:hidden space-y-8">
-          {/* Image First */}
+        {/* Mobile: Image */}
+        <div className="lg:hidden">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative rounded-xl border border-white/10 shadow-2xl overflow-hidden bg-[#0F0F0F]"
+            className="relative rounded-xl shadow-2xl overflow-hidden bg-[#0F0F0F]"
           >
             <img
               src="/flowtutor-lines.png"
               alt="FlowTutor Unified Workspace"
               className="w-full h-auto"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.src = "/flowtutor.png";
-              }}
             />
           </motion.div>
-
-          {/* Feature List Below Image */}
-          <div className="space-y-6">
-            {[...leftFeatures, ...rightFeatures].map((feature, index) => (
-              <motion.div
-                key={`mobile-${index}`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="p-6 bg-white/5 border border-white/10 rounded-xl"
-              >
-                <h3 className="text-lg font-bold text-white mb-2 tracking-tight">{feature.title}</h3>
-                <p className="text-sm text-gray-400 leading-relaxed">{feature.description}</p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
@@ -819,14 +681,14 @@ const FlowTutorCaseStudy = () => {
 
         <div className="space-y-8">
           <ComparisonCard
-            title="Simplifying Onboarding"
+            title="Improving Upload Clarity"
             beforeVisual={
               <img src={onboardingBefore} alt="Before: Wireframe showing file upload and URL input" className="w-full h-full object-contain rounded-lg" />
             }
             afterVisual={
               <img src={onboardingAfter} alt="After: Streamlined URL-first FlowTutor interface" className="w-full h-full object-contain rounded-lg" />
             }
-            caption="Constrained the system to a single, high-value input method (YouTube URLs) to eliminate decision fatigue and streamline the onboarding process."
+            caption="Simplified the input method (YouTube URLs)."
             delay={0}
           />
           <ComparisonCard
