@@ -139,7 +139,7 @@ const TransformationShowcase = ({
       <h3 className="text-2xl font-bold text-white tracking-tight">{title}</h3>
       
       {/* Transformation Visual */}
-      <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+      <div className="flex flex-col md:flex-row items-stretch gap-6 md:gap-10">
         {/* Before */}
         <div className="relative flex-1 w-full bg-white/5 backdrop-blur-md rounded-xl border border-white/10 overflow-hidden opacity-80">
           <div className="absolute top-3 left-3 z-10 px-3 py-1.5 bg-neutral-800/80 backdrop-blur-sm border border-neutral-600/50 rounded-md text-[10px] font-mono text-neutral-400 uppercase tracking-wider">
@@ -150,22 +150,22 @@ const TransformationShowcase = ({
           </div>
         </div>
 
-        {/* Arrow Connector */}
+        {/* Arrow Connector - Ghost Button Style */}
         <div className="flex-shrink-0 hidden md:flex items-center justify-center">
-          <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-600 to-purple-400 flex items-center justify-center shadow-lg shadow-purple-500/30">
-            <ChevronRight className="w-8 h-8 text-white" />
+          <div className="w-10 h-10 rounded-full bg-transparent border border-zinc-700 flex items-center justify-center">
+            <ArrowRight className="w-5 h-5 text-zinc-200" />
           </div>
         </div>
         
         {/* Mobile Arrow */}
-        <div className="flex md:hidden items-center justify-center py-2">
-          <div className="w-12 h-12 rounded-full bg-gradient-to-b from-purple-600 to-purple-400 flex items-center justify-center shadow-lg shadow-purple-500/30 rotate-90">
-            <ChevronRight className="w-6 h-6 text-white" />
+        <div className="flex md:hidden items-center justify-center py-1">
+          <div className="w-9 h-9 rounded-full bg-transparent border border-zinc-700 flex items-center justify-center rotate-90">
+            <ArrowRight className="w-4 h-4 text-zinc-200" />
           </div>
         </div>
 
         {/* After */}
-        <div className="relative flex-[1.15] w-full bg-white/5 backdrop-blur-md rounded-xl border border-green-500/30 overflow-hidden shadow-xl shadow-green-500/10">
+        <div className="relative flex-1 w-full bg-white/5 backdrop-blur-md rounded-xl border border-green-500/30 overflow-hidden shadow-xl shadow-green-500/10">
           <div className="absolute top-3 left-3 z-10 px-3 py-1.5 bg-green-500/20 backdrop-blur-sm border border-green-500/40 rounded-md text-[10px] font-mono text-green-400 uppercase tracking-wider">
             After
           </div>
