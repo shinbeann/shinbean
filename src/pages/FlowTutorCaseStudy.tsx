@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import StackedCardCarousel from "@/components/StackedCardCarousel";
 import { ArrowLeft, ArrowRight, Code, Brain, Layout, Sliders, ChevronRight, Search, Zap, Layers, AlertCircle, Eye, AlertTriangle, BookOpen, MessageSquare, FileText, CheckCircle, GripVertical, Sparkles, Maximize, Puzzle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -839,164 +840,44 @@ const FlowTutorCaseStudy = () => {
             </p>
           </motion.div>
 
-          {/* Comparison Cards Stack */}
-          <div className="space-y-12 md:space-y-16">
-            {/* Card 1: Streamlining the Entry Point */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="bg-[#0A0A0A] border border-white/5 rounded-2xl p-8 md:p-10 hover:border-purple-500/30 transition-all duration-300"
-            >
-              {/* Header */}
-              <div className="flex items-center justify-between mb-8">
-                <div className="flex items-center gap-4">
-                  <h3 className="text-2xl font-bold text-white">1. Streamlining the Entry Point</h3>
-        </div>
-                <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-mono text-neutral-400 uppercase tracking-wider">
-                  NN/g #6: Recognition rather than recall
-                </span>
-      </div>
-
-              {/* Comparison Grid - 50/50 Split */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Before Column */}
-                <div className="space-y-4">
-                  <h4 className="text-sm font-medium text-orange-400">Before </h4>
-                  <div className="aspect-video bg-neutral-900/50 border border-orange-500/20 rounded-lg overflow-hidden">
-                    <img 
-                      src={onboardingBefore} 
-                      alt="Paper prototype showing overlapping pop-up modal" 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <p className="text-sm text-neutral-400 leading-relaxed">
-                    Asking users to 'Upload Files' contradicted their actual habit of streaming videos online.
-                  </p>
-                </div>
-
-                {/* After Column */}
-                <div className="space-y-4">
-                  <h4 className="text-sm font-medium text-emerald-400">After</h4>
-                  <div className="aspect-video bg-neutral-900/50 border border-emerald-500/20 rounded-lg overflow-hidden">
-                    <img 
-                      src={onboardingAfter} 
-                      alt="Unified viewport with clean layout" 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <p className="text-sm text-neutral-400 leading-relaxed">
-                    Switched to a single 'Paste URL' input. This matches the user's mental model of copying & sharing links.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Card 2: Clarifying Interactivity */}
-          <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-[#0A0A0A] border border-white/5 rounded-2xl p-8 md:p-10 hover:border-purple-500/30 transition-all duration-300"
-            >
-              {/* Header */}
-              <div className="flex items-center justify-between mb-8">
-                <div className="flex items-center gap-4">
-                  <h3 className="text-2xl font-bold text-white">2. Clarifying Interactivity</h3>
-                </div>
-                <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-mono text-neutral-400 uppercase tracking-wider">
-                  NN/g #4: Consistency & Standards
-                </span>
-              </div>
-
-              {/* Comparison Grid - 50/50 Split */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Before Column */}
-                <div className="space-y-4">
-                  <h4 className="text-sm font-medium text-orange-400">Before</h4>
-                  <div className="aspect-video bg-neutral-900/50 border border-orange-500/20 rounded-lg overflow-hidden">
-                    <img 
-                      src={pinBefore} 
-                      alt="Paper prototype showing chat interface with overlapping panels" 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <p className="text-sm text-neutral-400 leading-relaxed">
-                    Users ignored the timestamps because they looked like static text.
-                  </p>
-        </div>
-        
-                {/* After Column */}
-                <div className="space-y-4">
-                  <h4 className="text-sm font-medium text-emerald-400">After</h4>
-                  <div className="aspect-video bg-neutral-900/50 border border-emerald-500/20 rounded-lg overflow-hidden">
-                    <img 
-                      src={pinAfter} 
-                      alt="FlowTutor chat interface showing timestamped messages with pin functionality" 
-                      className="w-full h-full object-cover"
-                    />
-        </div>
-                  <p className="text-sm text-neutral-400 leading-relaxed">
-                    Redesigned timestamps as distinct 'Pill Buttons' with clear hover states.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Card 3: Reducing Icon Ambiguity */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-[#0A0A0A] border border-white/5 rounded-2xl p-8 md:p-10 hover:border-purple-500/30 transition-all duration-300"
-            >
-              {/* Header */}
-              <div className="flex items-center justify-between mb-8">
-                <div className="flex items-center gap-4">
-                  <h3 className="text-2xl font-bold text-white">3. Reducing Icon Ambiguity</h3>
-                </div>
-                <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-mono text-neutral-400 uppercase tracking-wider">
-                  NN/g #10: Help and documentation
-                </span>
-        </div>
-
-              {/* Comparison Grid - 50/50 Split */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Before Column */}
-                <div className="space-y-4">
-                  <h4 className="text-sm font-medium text-orange-400">Before</h4>
-                  <div className="aspect-video bg-neutral-900/50 border border-orange-500/20 rounded-lg overflow-hidden">
-                    <img 
-                      src={vpBefore} 
-                      alt="Paper wireframe showing video player interface with main points, transcript, and suggested questions" 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <p className="text-sm text-neutral-400 leading-relaxed">
-                    Lack of help icons made it difficult for users to understand various functions.
-                  </p>
-                </div>
-
-                {/* After Column */}
-                <div className="space-y-4">
-                  <h4 className="text-sm font-medium text-emerald-400">After</h4>
-                  <div className="aspect-video bg-neutral-900/50 border border-emerald-500/20 rounded-lg overflow-hidden">
-                    <img 
-                      src={vpAfter} 
-                      alt="FlowTutor interface showing interactive pill buttons and improved navigation" 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <p className="text-sm text-neutral-400 leading-relaxed">
-                    Added descriptive hover tooltips to all utility icons.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
+          {/* Stacked Card Carousel */}
+          <StackedCardCarousel
+            cards={[
+              {
+                id: 1,
+                title: "Streamlining the Entry Point",
+                heuristic: "NN/g #6: Recognition rather than recall",
+                beforeImage: onboardingBefore,
+                afterImage: onboardingAfter,
+                beforeAlt: "Paper prototype showing overlapping pop-up modal",
+                afterAlt: "Unified viewport with clean layout",
+                beforeDescription: "Asking users to 'Upload Files' contradicted their actual habit of streaming videos online.",
+                afterDescription: "Switched to a single 'Paste URL' input. This matches the user's mental model of copying & sharing links.",
+              },
+              {
+                id: 2,
+                title: "Clarifying Interactivity",
+                heuristic: "NN/g #4: Consistency & Standards",
+                beforeImage: pinBefore,
+                afterImage: pinAfter,
+                beforeAlt: "Paper prototype showing chat interface with overlapping panels",
+                afterAlt: "FlowTutor chat interface showing timestamped messages with pin functionality",
+                beforeDescription: "Users ignored the timestamps because they looked like static text.",
+                afterDescription: "Redesigned timestamps as distinct 'Pill Buttons' with clear hover states.",
+              },
+              {
+                id: 3,
+                title: "Reducing Icon Ambiguity",
+                heuristic: "NN/g #10: Help and documentation",
+                beforeImage: vpBefore,
+                afterImage: vpAfter,
+                beforeAlt: "Paper wireframe showing video player interface with main points, transcript, and suggested questions",
+                afterAlt: "FlowTutor interface showing interactive pill buttons and improved navigation",
+                beforeDescription: "Lack of help icons made it difficult for users to understand various functions.",
+                afterDescription: "Added descriptive hover tooltips to all utility icons.",
+              },
+            ]}
+          />
         </div>
       </section>
 
