@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import StackedCardCarousel from "@/components/StackedCardCarousel";
 import { ArrowLeft, ArrowRight, Code, Brain, Layout, Sliders, ChevronRight, Search, Zap, Layers, AlertCircle, Eye, AlertTriangle, BookOpen, MessageSquare, FileText, CheckCircle, GripVertical, Sparkles, Maximize, Puzzle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -10,8 +9,6 @@ import onboardingBefore from "@/assets/flowtutor-onboarding-before.png";
 import onboardingAfter from "@/assets/flowtutor-onboarding-after.png";
 import pinBefore from "@/assets/flowtutor-pinbefore.png";
 import pinAfter from "@/assets/flowtutor-pinafter.png";
-import vpBefore from "@/assets/flowtutor-vpbefore.png";
-import vpAfter from "@/assets/flowtutor-vpafter.png";
 
 // --- COMPONENTS ---
 
@@ -633,7 +630,7 @@ const FlowTutorCaseStudy = () => {
               OVERVIEW
             </p>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-4">
-              Context Switching Kills Flow.
+              Context Switching Kills Flow
             </h2>
             <div className="space-y-4 text-neutral-400 leading-relaxed text-lg">
               <p>
@@ -840,44 +837,175 @@ const FlowTutorCaseStudy = () => {
             </p>
           </motion.div>
 
-          {/* Stacked Card Carousel */}
-          <StackedCardCarousel
-            cards={[
-              {
-                id: 1,
-                title: "Streamlining the Entry Point",
-                heuristic: "NN/g #6: Recognition rather than recall",
-                beforeImage: onboardingBefore,
-                afterImage: onboardingAfter,
-                beforeAlt: "Paper prototype showing overlapping pop-up modal",
-                afterAlt: "Unified viewport with clean layout",
-                beforeDescription: "Asking users to 'Upload Files' contradicted their actual habit of streaming videos online.",
-                afterDescription: "Switched to a single 'Paste URL' input. This matches the user's mental model of copying & sharing links.",
-              },
-              {
-                id: 2,
-                title: "Clarifying Interactivity",
-                heuristic: "NN/g #4: Consistency & Standards",
-                beforeImage: pinBefore,
-                afterImage: pinAfter,
-                beforeAlt: "Paper prototype showing chat interface with overlapping panels",
-                afterAlt: "FlowTutor chat interface showing timestamped messages with pin functionality",
-                beforeDescription: "Users ignored the timestamps because they looked like static text.",
-                afterDescription: "Redesigned timestamps as distinct 'Pill Buttons' with clear hover states.",
-              },
-              {
-                id: 3,
-                title: "Reducing Icon Ambiguity",
-                heuristic: "NN/g #10: Help and documentation",
-                beforeImage: vpBefore,
-                afterImage: vpAfter,
-                beforeAlt: "Paper wireframe showing video player interface with main points, transcript, and suggested questions",
-                afterAlt: "FlowTutor interface showing interactive pill buttons and improved navigation",
-                beforeDescription: "Lack of help icons made it difficult for users to understand various functions.",
-                afterDescription: "Added descriptive hover tooltips to all utility icons.",
-              },
-            ]}
-          />
+          {/* Comparison Cards Stack */}
+          <div className="space-y-12 md:space-y-16">
+            {/* Card 1: Navigation */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-[#0A0A0A] border border-white/5 rounded-2xl p-8 md:p-10 hover:border-purple-500/30 transition-all duration-300"
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
+                    <Search className="w-6 h-6 text-purple-400" />
+          </div>
+                  <h3 className="text-2xl font-bold text-white">Solving Poor Navigation</h3>
+        </div>
+                <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-mono text-neutral-400 uppercase tracking-wider">
+                  NN/g #4: Consistency
+                </span>
+      </div>
+
+              {/* Comparison Grid - 50/50 Split */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Before Column */}
+                <div className="space-y-4">
+                  <h4 className="text-sm font-medium text-orange-400">Before</h4>
+                  <div className="aspect-video bg-neutral-900/50 border border-orange-500/20 rounded-lg overflow-hidden">
+                    <div className="w-full h-full flex items-center justify-center p-6">
+                      <div className="text-center">
+                        <div className="text-neutral-500 font-mono text-2xl mb-2">[04:20]</div>
+                        <div className="text-xs text-neutral-600">Plain text timestamp</div>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-sm text-neutral-400 leading-relaxed">
+                    Timestamps looked like static text, breaking the mental model.
+                  </p>
+                </div>
+
+                {/* After Column */}
+                <div className="space-y-4">
+                  <h4 className="text-sm font-medium text-emerald-400">After</h4>
+                  <div className="aspect-video bg-neutral-900/50 border border-emerald-500/20 rounded-lg overflow-hidden">
+                    <div className="w-full h-full flex items-center justify-center p-6">
+                      <div className="px-5 py-3 bg-purple-600 rounded-lg text-white font-medium flex items-center gap-3 text-sm shadow-lg shadow-purple-500/30">
+                        <div className="w-2.5 h-2.5 bg-white rounded-full animate-pulse" />
+                        04:20 Jump to Concept
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-sm text-neutral-400 leading-relaxed">
+                    Interactive 'Pill Buttons' with clear hover states.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Card 2: Workflow */}
+          <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-[#0A0A0A] border border-white/5 rounded-2xl p-8 md:p-10 hover:border-purple-500/30 transition-all duration-300"
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
+                    <Layers className="w-6 h-6 text-purple-400" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Solving Fragmented Workflow</h3>
+                </div>
+                <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-mono text-neutral-400 uppercase tracking-wider">
+                  NN/g #2: Match System & Real World
+                </span>
+              </div>
+
+              {/* Comparison Grid - 50/50 Split */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Before Column */}
+                <div className="space-y-4">
+                  <h4 className="text-sm font-medium text-orange-400">Before</h4>
+                  <div className="aspect-video bg-neutral-900/50 border border-orange-500/20 rounded-lg overflow-hidden">
+                    <img 
+                      src={pinBefore} 
+                      alt="Paper prototype showing chat interface with overlapping panels" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <p className="text-sm text-neutral-400 leading-relaxed">
+                    'Upload File' input confused users who primarily stream content.
+                  </p>
+        </div>
+        
+                {/* After Column */}
+                <div className="space-y-4">
+                  <h4 className="text-sm font-medium text-emerald-400">After</h4>
+                  <div className="aspect-video bg-neutral-900/50 border border-emerald-500/20 rounded-lg overflow-hidden">
+                    <img 
+                      src={pinAfter} 
+                      alt="FlowTutor chat interface showing timestamped messages with pin functionality" 
+                      className="w-full h-full object-cover"
+                    />
+        </div>
+                  <p className="text-sm text-neutral-400 leading-relaxed">
+                    Simplified 'Paste URL' input to match user behavior.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Card 3: Clutter */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="bg-[#0A0A0A] border border-white/5 rounded-2xl p-8 md:p-10 hover:border-purple-500/30 transition-all duration-300"
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
+                    <Brain className="w-6 h-6 text-purple-400" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Solving Cognitive Overload</h3>
+                </div>
+                <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-mono text-neutral-400 uppercase tracking-wider">
+                  NN/g #10: Help & Documentation
+                </span>
+        </div>
+
+              {/* Comparison Grid - 50/50 Split */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Before Column */}
+                <div className="space-y-4">
+                  <h4 className="text-sm font-medium text-orange-400">Before </h4>
+                  <div className="aspect-video bg-neutral-900/50 border border-orange-500/20 rounded-lg overflow-hidden">
+                    <img 
+                      src={onboardingBefore} 
+                      alt="Paper prototype showing overlapping pop-up modal" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <p className="text-sm text-neutral-400 leading-relaxed">
+                    Overlapping panels hid context when chat was pinned.
+                  </p>
+                </div>
+
+                {/* After Column */}
+                <div className="space-y-4">
+                  <h4 className="text-sm font-medium text-emerald-400">After</h4>
+                  <div className="aspect-video bg-neutral-900/50 border border-emerald-500/20 rounded-lg overflow-hidden">
+                    <img 
+                      src={onboardingAfter} 
+                      alt="Unified viewport with clean layout" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <p className="text-sm text-neutral-400 leading-relaxed">
+                    Unified 3-column viewport; no overlapping elements.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
