@@ -125,8 +125,8 @@ const StatsRow = () => {
         value="25.0%"
         icon={Zap}
         label="Higher Retention"
-        gradientFrom="#6D28D9"
-        gradientTo="#5B21B6"
+        gradientFrom="#8B5CF6"
+        gradientTo="#3B82F6"
         pillBg="bg-purple-100"
         pillText="text-purple-700"
         delay={0}
@@ -187,29 +187,8 @@ const HeroInputCard = () => {
   return (
     <BentoCard className="col-span-1 md:col-span-3 lg:col-span-4 px-7 pt-4 pb-4">
       <div className="space-y-3.5">
-        <div className="space-y-1.5 text-center">
-          <h2 className="text-2xl font-bold">
-            <span 
-              style={{
-                background: 'linear-gradient(to right, #1e40af, #3b82f6)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}
-            >
-              Flow
-            </span>
-            <span 
-              style={{
-                background: 'linear-gradient(to right, #60a5fa, #93c5fd)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}
-            >
-              Tutor
-            </span>
-          </h2>
+        <div className="space-y-1.5">
+          <h2 className="text-2xl font-bold text-gray-900">FlowTutor</h2>
           <p className="text-sm text-gray-600">Learn smarter with AI-powered tutorial assistance.</p>
         </div>
 
@@ -220,15 +199,7 @@ const HeroInputCard = () => {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="Paste your YouTube tutorial link here"
-              className="w-full px-2.5 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:outline-none transition-all text-sm"
-              onFocus={(e) => {
-                e.currentTarget.style.borderColor = '#665ed4';
-                e.currentTarget.style.boxShadow = '0 0 0 2px rgba(102, 94, 212, 0.2)';
-              }}
-              onBlur={(e) => {
-                e.currentTarget.style.borderColor = '';
-                e.currentTarget.style.boxShadow = '';
-              }}
+              className="w-full px-2.5 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 transition-all text-sm"
             />
           </div>
 
@@ -237,10 +208,7 @@ const HeroInputCard = () => {
             onMouseLeave={() => setIsHovering(false)}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full text-white font-semibold py-2 px-4 rounded-lg shadow-lg hover:shadow-xl transition-all relative overflow-hidden text-sm"
-            style={{
-              background: 'linear-gradient(to right, #665ed4, #5a52c4)',
-            }}
+            className="w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold py-2 px-4 rounded-lg shadow-lg hover:shadow-xl transition-all relative overflow-hidden text-sm"
           >
             <AnimatePresence>
               {isHovering && (
@@ -289,9 +257,8 @@ const AITransparencyCard = () => {
         <button
           onClick={onToggle}
           className={`relative w-9 h-5 rounded-full p-1 transition-colors duration-300 ${
-            isOn ? '' : 'bg-gray-300'
+            isOn ? 'bg-purple-600' : 'bg-gray-300'
           }`}
-          style={isOn ? { backgroundColor: '#665ed4' } : {}}
         >
           <motion.div
             layout
@@ -380,25 +347,9 @@ const QuizCard = () => {
                 onClick={() => setSelectedOption(index)}
                 className={`w-full text-left px-2.5 py-1.5 rounded-md border-2 transition-all ${
                   selectedOption === index
-                    ? ""
-                    : "border-gray-200 bg-gray-50"
+                    ? "border-purple-500 bg-purple-50"
+                    : "border-gray-200 bg-gray-50 hover:border-purple-300 hover:bg-purple-50/50"
                 }`}
-                style={selectedOption === index ? {
-                  borderColor: '#665ed4',
-                  backgroundColor: 'rgba(102, 94, 212, 0.1)',
-                } : {}}
-                onMouseEnter={(e) => {
-                  if (selectedOption !== index) {
-                    e.currentTarget.style.borderColor = 'rgba(102, 94, 212, 0.5)';
-                    e.currentTarget.style.backgroundColor = 'rgba(102, 94, 212, 0.05)';
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (selectedOption !== index) {
-                    e.currentTarget.style.borderColor = '';
-                    e.currentTarget.style.backgroundColor = '';
-                  }
-                }}
               >
                 <span className="text-xs text-gray-700 leading-tight">{option}</span>
               </motion.button>
@@ -442,12 +393,7 @@ const ActivityFeedCard = () => {
               onMouseLeave={() => setHoveredIndex(null)}
               className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors"
             >
-              <div 
-                className="w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold text-sm"
-                style={{
-                  background: 'linear-gradient(to bottom right, rgba(102, 94, 212, 0.8), #665ed4)',
-                }}
-              >
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center text-white font-semibold text-sm">
                 {item.user[0]}
               </div>
               <div className="flex-1 min-w-0">
@@ -477,12 +423,7 @@ const SmartNotesCard = () => {
     <BentoCard delay={0.4} className="p-5 h-full flex flex-col cursor-pointer">
       <div className="flex-1 flex flex-col space-y-4">
         {/* Icon Container */}
-        <div 
-          className="w-12 h-12 rounded-lg flex items-center justify-center"
-          style={{
-            background: 'linear-gradient(to bottom right, #3b82f6, #665ed4)',
-          }}
-        >
+        <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
           <FileText className="w-6 h-6 text-white" />
         </div>
         

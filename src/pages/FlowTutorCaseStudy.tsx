@@ -529,17 +529,17 @@ const ProductAnatomySection = () => {
                 {/* Fallback Placeholder */}
                 <div className="image-fallback hidden w-full aspect-video bg-neutral-900/50 flex items-center justify-center border border-white/5">
                   <span className="text-neutral-600 font-mono text-sm">[FlowTutor Screenshot]</span>
-                </div>
               </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
+                </div>
 
         {/* Mobile: Image */}
         <div className="lg:hidden">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+                        viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="relative rounded-xl shadow-2xl overflow-hidden bg-[#0F0F0F]"
           >
@@ -558,12 +558,12 @@ const ProductAnatomySection = () => {
 // --- PAGE ---
 
 const FlowTutorCaseStudy = () => {
-  return (
+                    return (
     <div className="min-h-screen bg-[#050505] text-white selection:bg-purple-500/30 font-sans">
       <Navigation tone="dark" />
 
       {/* 1. HERO */}
-      <section className="relative min-h-screen flex flex-col pt-24 pb-16">
+      <section className="relative min-h-screen flex flex-col pt-32 pb-20">
         <div className="container max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -572,18 +572,18 @@ const FlowTutorCaseStudy = () => {
             className="mb-12"
           >
             {/* Top Navigation Row */}
-            <div className="flex justify-between items-center mb-8 text-sm tracking-widest text-neutral-500 font-mono uppercase">
+            <div className="flex justify-between items-center mb-16 text-sm tracking-widest text-neutral-500 font-mono uppercase">
                <Link to="/" className="hover:text-white transition-colors">← Back</Link>
                <span>FlowTutor • Concept 2025</span>
             </div>
 
             {/* Title */}
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-8 text-white max-w-4xl">
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-16 text-white max-w-4xl">
               The future of AI-powered learning assistance.
             </h1>
 
             {/* Hero Image */}
-            <div className="w-full max-h-[65vh] bg-[#111] rounded-lg overflow-hidden mb-8 border border-white/10">
+            <div className="w-full aspect-[16/9] bg-[#111] rounded-lg overflow-hidden mb-16 border border-white/10">
                <img 
                  src="/FThero.png" 
                  alt="FlowTutor Hero" 
@@ -614,58 +614,6 @@ const FlowTutorCaseStudy = () => {
         </div>
       </section>
 
-      {/* PROJECT SNAPSHOT */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-neutral-100">
-            {/* Left Column - Context */}
-            <div className="md:col-span-4 space-y-8">
-              <div className="space-y-2">
-                <p className="text-xs uppercase tracking-widest text-neutral-400 font-medium">Role</p>
-                <p className="text-base text-neutral-900 font-medium">Product Designer & Researcher</p>
-              </div>
-              <div className="space-y-2">
-                <p className="text-xs uppercase tracking-widest text-neutral-400 font-medium">Timeline</p>
-                <p className="text-base text-neutral-900 font-medium">14 Weeks (Iterative Design)</p>
-              </div>
-              <div className="space-y-2">
-                <p className="text-xs uppercase tracking-widest text-neutral-400 font-medium">Team</p>
-                <p className="text-base text-neutral-900 font-medium">Group 05 (UI Design & Implementation)</p>
-              </div>
-            </div>
-
-            {/* Middle Column - The Narrative Hook */}
-            <div className="md:col-span-5 space-y-10">
-              <div className="space-y-4">
-                <p className="text-xs uppercase tracking-widest text-neutral-400 font-medium">The Challenge</p>
-                <p className="text-lg text-neutral-900 leading-relaxed">
-                  Video learning is broken by context switching. Students lose focus when juggling YouTube, ChatGPT, and notes.
-                </p>
-              </div>
-              <div className="space-y-4">
-                <p className="text-xs uppercase tracking-widest text-neutral-400 font-medium">The Solution</p>
-                <p className="text-lg text-neutral-900 leading-relaxed">
-                  A unified 'Single Viewport' interface that integrates AI assistance directly into the video timeline, eliminating cognitive drift.
-                </p>
-              </div>
-            </div>
-
-            {/* Right Column - Impact Metrics */}
-            <div className="md:col-span-3 space-y-8">
-              <div className="space-y-2">
-                <p className="text-6xl font-bold text-emerald-600">+25%</p>
-                <p className="text-base text-neutral-900 font-medium">Increase in Retention</p>
-                <p className="text-sm text-neutral-500">Validated vs. YouTube Baseline (p&lt;0.05)</p>
-              </div>
-              <div className="space-y-2">
-                <p className="text-3xl font-semibold text-neutral-900">N=40</p>
-                <p className="text-base text-neutral-900 font-medium">User Study Participants</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* 2. PHASE 01: UNCOVERING THE DISCONNECT */}
       <section className="py-24 md:py-32 container max-w-7xl mx-auto px-6">
         {/* Hero Section - Split Layout */}
@@ -685,9 +633,9 @@ const FlowTutorCaseStudy = () => {
                 <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-8">
                   Video learning is broken by context switching.
                 </h2>
-          </motion.div>
-        </div>
-        
+                  </motion.div>
+            </div>
+
             {/* Right: Body */}
             <div>
                       <motion.div
@@ -700,7 +648,7 @@ const FlowTutorCaseStudy = () => {
                   When learning from tutorials, students are forced into a manual cycle of pausing, scrubbing, and jumping timestamps to locate specific steps. This friction creates cognitive overload, causing users to lose their 'flow' and make errors.
                 </p>
               </motion.div>
-        </div>
+            </div>
           </div>
         </div>
 
@@ -734,7 +682,7 @@ const FlowTutorCaseStudy = () => {
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
                 <Search className="w-6 h-6 text-purple-400" />
-        </div>
+              </div>
               <div className="flex-1 space-y-3">
                 <h3 className="text-xl font-bold text-white">Poor Navigation</h3>
                 <p className="text-neutral-400 leading-relaxed">
@@ -750,7 +698,7 @@ const FlowTutorCaseStudy = () => {
           </motion.div>
 
           {/* Card 2: Fragmented Workflow */}
-          <motion.div
+                      <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -786,7 +734,7 @@ const FlowTutorCaseStudy = () => {
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
                 <Brain className="w-6 h-6 text-purple-400" />
-          </div>
+              </div>
               <div className="flex-1 space-y-3">
                 <h3 className="text-xl font-bold text-white">Cognitive Overload</h3>
                 <p className="text-neutral-400 leading-relaxed">
@@ -826,30 +774,30 @@ const FlowTutorCaseStudy = () => {
               </div>
               </div>
             </motion.div>
-        </div>
+          </div>
       </section>
 
       {/* 3. PAPER TO PIXEL */}
       <section className="py-32 bg-[#0A0A0A] border-y border-white/5">
         <div className="container max-w-7xl mx-auto px-6">
           {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-16"
-        >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mb-16"
+          >
             <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 mb-6">
               PROTOTYPING AND TESTING
             </p>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">
               From paper to pixel.
             </h2>
-          <p className="text-lg text-neutral-400 max-w-3xl leading-relaxed">
+            <p className="text-lg text-neutral-400 max-w-3xl leading-relaxed">
               We conducted a heuristic evaluation with 5 evaluators who interacted with our paper prototype. They identified several usability issues, ranked by severity.
-          </p>
-        </motion.div>
+            </p>
+          </motion.div>
 
           {/* Comparison Cards Stack */}
           <div className="space-y-12 md:space-y-16">
@@ -899,8 +847,8 @@ const FlowTutorCaseStudy = () => {
                     <div className="w-full h-full flex items-center justify-center p-6">
                       <div className="px-5 py-3 bg-purple-600 rounded-lg text-white font-medium flex items-center gap-3 text-sm shadow-lg shadow-purple-500/30">
                         <div className="w-2.5 h-2.5 bg-white rounded-full animate-pulse" />
-                04:20 Jump to Concept
-              </div>
+                        04:20 Jump to Concept
+                      </div>
                     </div>
                   </div>
                   <p className="text-sm text-neutral-400 leading-relaxed">
@@ -942,11 +890,11 @@ const FlowTutorCaseStudy = () => {
                       alt="Paper prototype showing chat interface with overlapping panels" 
                       className="w-full h-full object-cover"
                     />
-              </div>
+                  </div>
                   <p className="text-sm text-neutral-400 leading-relaxed">
                     'Upload File' input confused users who primarily stream content.
                   </p>
-                </div>
+        </div>
         
                 {/* After Column */}
                 <div className="space-y-4">
@@ -957,11 +905,11 @@ const FlowTutorCaseStudy = () => {
                       alt="FlowTutor chat interface showing timestamped messages with pin functionality" 
                       className="w-full h-full object-cover"
                     />
-                </div>
+        </div>
                   <p className="text-sm text-neutral-400 leading-relaxed">
                     Simplified 'Paste URL' input to match user behavior.
                   </p>
-              </div>
+                </div>
               </div>
             </motion.div>
 
