@@ -614,6 +614,58 @@ const FlowTutorCaseStudy = () => {
         </div>
       </section>
 
+      {/* PROJECT SNAPSHOT */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-neutral-100">
+            {/* Left Column - Context */}
+            <div className="md:col-span-4 space-y-8">
+              <div className="space-y-2">
+                <p className="text-xs uppercase tracking-widest text-neutral-400 font-medium">Role</p>
+                <p className="text-base text-neutral-900 font-medium">Product Designer & Researcher</p>
+              </div>
+              <div className="space-y-2">
+                <p className="text-xs uppercase tracking-widest text-neutral-400 font-medium">Timeline</p>
+                <p className="text-base text-neutral-900 font-medium">14 Weeks (Iterative Design)</p>
+              </div>
+              <div className="space-y-2">
+                <p className="text-xs uppercase tracking-widest text-neutral-400 font-medium">Team</p>
+                <p className="text-base text-neutral-900 font-medium">Group 05 (UI Design & Implementation)</p>
+              </div>
+            </div>
+
+            {/* Middle Column - The Narrative Hook */}
+            <div className="md:col-span-5 space-y-10">
+              <div className="space-y-4">
+                <p className="text-xs uppercase tracking-widest text-neutral-400 font-medium">The Challenge</p>
+                <p className="text-lg text-neutral-900 leading-relaxed">
+                  Video learning is broken by context switching. Students lose focus when juggling YouTube, ChatGPT, and notes.
+                </p>
+              </div>
+              <div className="space-y-4">
+                <p className="text-xs uppercase tracking-widest text-neutral-400 font-medium">The Solution</p>
+                <p className="text-lg text-neutral-900 leading-relaxed">
+                  A unified 'Single Viewport' interface that integrates AI assistance directly into the video timeline, eliminating cognitive drift.
+                </p>
+              </div>
+            </div>
+
+            {/* Right Column - Impact Metrics */}
+            <div className="md:col-span-3 space-y-8">
+              <div className="space-y-2">
+                <p className="text-6xl font-bold text-emerald-600">+25%</p>
+                <p className="text-base text-neutral-900 font-medium">Increase in Retention</p>
+                <p className="text-sm text-neutral-500">Validated vs. YouTube Baseline (p&lt;0.05)</p>
+              </div>
+              <div className="space-y-2">
+                <p className="text-3xl font-semibold text-neutral-900">N=40</p>
+                <p className="text-base text-neutral-900 font-medium">User Study Participants</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 2. PHASE 01: UNCOVERING THE DISCONNECT */}
       <section className="py-24 md:py-32 container max-w-7xl mx-auto px-6">
         {/* Hero Section - Split Layout */}
