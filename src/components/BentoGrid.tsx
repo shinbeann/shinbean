@@ -109,7 +109,16 @@ const StatCard = ({ value, icon: Icon, label, gradientFrom, gradientTo, pillBg, 
         </motion.div>
         <motion.div
           whileHover={{ scale: 1.05 }}
-          className={`${pillBg} ${pillText} rounded-full px-2 py-1 flex items-center gap-1 text-xs font-medium`}
+          className="rounded-full px-2 py-1 flex items-center gap-1 text-xs font-medium"
+          style={
+            pillBg === "bg-purple-100"
+              ? { backgroundColor: "#f3e8ff", color: "#7c3aed" }
+              : pillBg === "bg-blue-100"
+              ? { backgroundColor: "#dbeafe", color: "#1e40af" }
+              : pillBg === "bg-orange-100"
+              ? { backgroundColor: "#ffedd5", color: "#9a3412" }
+              : {}
+          }
         >
           <Icon className="h-3 w-3" />
           <span>{label}</span>
@@ -125,7 +134,7 @@ const StatsRow = () => {
         value="25.0%"
         icon={Zap}
         label="Higher Retention"
-        gradientFrom="#8B5CF6"
+        gradientFrom="#c084fc"
         gradientTo="#3B82F6"
         pillBg="bg-purple-100"
         pillText="text-purple-700"
@@ -187,8 +196,18 @@ const HeroInputCard = () => {
   return (
     <BentoCard className="col-span-1 md:col-span-3 lg:col-span-4 px-7 pt-4 pb-4">
       <div className="space-y-3.5">
-        <div className="space-y-1.5">
-          <h2 className="text-2xl font-bold text-gray-900">FlowTutor</h2>
+        <div className="space-y-1.5 text-center">
+          <h2 
+            className="text-2xl font-bold"
+            style={{
+              background: 'linear-gradient(to right, #3b82f6, #2563eb)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
+            FlowTutor
+          </h2>
           <p className="text-sm text-gray-600">Learn smarter with AI-powered tutorial assistance.</p>
         </div>
 
@@ -199,7 +218,19 @@ const HeroInputCard = () => {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="Paste your YouTube tutorial link here"
-              className="w-full px-2.5 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 transition-all text-sm"
+              className="w-full px-2.5 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:outline-none focus:ring-2 transition-all text-sm"
+              style={{
+                '--tw-ring-color': '#c084fc33',
+                '--tw-border-color': '#c084fc'
+              } as React.CSSProperties & { '--tw-ring-color'?: string; '--tw-border-color'?: string }}
+              onFocus={(e) => {
+                e.currentTarget.style.borderColor = '#c084fc';
+                e.currentTarget.style.boxShadow = '0 0 0 2px rgba(192, 132, 252, 0.2)';
+              }}
+              onBlur={(e) => {
+                e.currentTarget.style.borderColor = '';
+                e.currentTarget.style.boxShadow = '';
+              }}
             />
           </div>
 
@@ -208,7 +239,10 @@ const HeroInputCard = () => {
             onMouseLeave={() => setIsHovering(false)}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold py-2 px-4 rounded-lg shadow-lg hover:shadow-xl transition-all relative overflow-hidden text-sm"
+            className="w-full text-white font-semibold py-2 px-4 rounded-lg shadow-lg hover:shadow-xl transition-all relative overflow-hidden text-sm"
+            style={{
+              background: 'linear-gradient(to right, #a855f7, #c084fc)'
+            }}
           >
             <AnimatePresence>
               {isHovering && (
@@ -256,9 +290,8 @@ const AITransparencyCard = () => {
         </div>
         <button
           onClick={onToggle}
-          className={`relative w-9 h-5 rounded-full p-1 transition-colors duration-300 ${
-            isOn ? 'bg-purple-600' : 'bg-gray-300'
-          }`}
+          className="relative w-9 h-5 rounded-full p-1 transition-colors duration-300 bg-gray-300"
+          style={isOn ? { backgroundColor: '#c084fc' } : {}}
         >
           <motion.div
             layout
@@ -345,11 +378,24 @@ const QuizCard = () => {
                 whileHover={{ scale: 1.02, x: 4 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setSelectedOption(index)}
-                className={`w-full text-left px-2.5 py-1.5 rounded-md border-2 transition-all ${
+                className="w-full text-left px-2.5 py-1.5 rounded-md border-2 transition-all border-gray-200 bg-gray-50"
+                style={
                   selectedOption === index
-                    ? "border-purple-500 bg-purple-50"
-                    : "border-gray-200 bg-gray-50 hover:border-purple-300 hover:bg-purple-50/50"
-                }`}
+                    ? { borderColor: '#c084fc', backgroundColor: '#f3e8ff' }
+                    : {}
+                }
+                onMouseEnter={(e) => {
+                  if (selectedOption !== index) {
+                    e.currentTarget.style.borderColor = '#d8b4fe';
+                    e.currentTarget.style.backgroundColor = 'rgba(243, 232, 255, 0.5)';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (selectedOption !== index) {
+                    e.currentTarget.style.borderColor = '';
+                    e.currentTarget.style.backgroundColor = '';
+                  }
+                }}
               >
                 <span className="text-xs text-gray-700 leading-tight">{option}</span>
               </motion.button>
@@ -393,7 +439,12 @@ const ActivityFeedCard = () => {
               onMouseLeave={() => setHoveredIndex(null)}
               className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors"
             >
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center text-white font-semibold text-sm">
+              <div 
+                className="w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold text-sm"
+                style={{
+                  background: 'linear-gradient(to bottom right, #d8b4fe, #c084fc)'
+                }}
+              >
                 {item.user[0]}
               </div>
               <div className="flex-1 min-w-0">
@@ -423,7 +474,12 @@ const SmartNotesCard = () => {
     <BentoCard delay={0.4} className="p-5 h-full flex flex-col cursor-pointer">
       <div className="flex-1 flex flex-col space-y-4">
         {/* Icon Container */}
-        <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+        <div 
+          className="w-12 h-12 rounded-lg flex items-center justify-center"
+          style={{
+            background: 'linear-gradient(to bottom right, #3b82f6, #c084fc)'
+          }}
+        >
           <FileText className="w-6 h-6 text-white" />
         </div>
         
