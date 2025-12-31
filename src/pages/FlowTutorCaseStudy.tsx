@@ -614,59 +614,68 @@ const FlowTutorCaseStudy = () => {
         </div>
       </section>
 
-      {/* 2. PHASE 01: UNCOVERING THE DISCONNECT */}
-      <section className="py-24 md:py-32 container max-w-7xl mx-auto px-6">
-        {/* Hero Section - Split Layout */}
-        <div className="mb-12 md:mb-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-            {/* Left: Headline */}
-            <div>
-                  <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-              >
-                <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 mb-6">
-                  THE CHALLENGE
-                </p>
-                <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-8">
-                  Video learning is broken by context switching.
-                </h2>
-                  </motion.div>
-            </div>
+      {/* 2. PROJECT OVERVIEW */}
+      <section className="py-16 md:py-24 container max-w-7xl mx-auto px-6">
+        <div className="space-y-16">
+          {/* Section 1: The Challenge */}
+          <motion.div
 
-            {/* Right: Body */}
-            <div>
-                      <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-              >
-                <p className="text-lg text-neutral-400 leading-relaxed">
-                  When learning from tutorials, students are forced into a manual cycle of pausing, scrubbing, and jumping timestamps to locate specific steps. This friction creates cognitive overload, causing users to lose their 'flow' and make errors.
-                </p>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-
-        {/* KEY INSIGHTS Label - Grouped with Cards */}
-        <div className="mb-6 md:mb-8">
-                      <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="max-w-4xl"
           >
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
-              KEY INSIGHTS
-            </h3>
-            <p className="text-lg text-neutral-400 leading-relaxed">
-              Observed 6 diverse users, from university freshmen to parents upskilling.
+            <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 mb-4">
+              OVERVIEW
             </p>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-4">
+              Context Switching Kills Flow
+            </h2>
+            <div className="space-y-4 text-neutral-400 leading-relaxed text-lg">
+              <p>
+                Video tutorials force students into a manual cycle of pausing, scrubbing, and switching tabs. This friction creates cognitive overload, causing users to lose focus and miss key concepts.
+              </p>
+              <p className="text-lg font-semibold text-white">
+                The solution?
+              </p>
+              <p>
+                A unified viewport which integrates the video player directly with a context-aware AI chatbot and a dedicated note-taking panel to eliminate the need to juggle external tabs. This seamless environment is supported by a flexible, draggable divider that allows learners to customize their screen real estate, while interactive features like clickable timestamps and instant quiz generation transform passive viewing into an active, uninterrupted learning flow.
+              </p>
+            </div>
           </motion.div>
+
+          {/* Section 2: The Impact */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 mb-4">
+              THE IMPACT
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* Stat 1 */}
+              <div>
+                <div className="flex items-baseline gap-2 mb-2">
+                  <span className="text-5xl font-bold text-emerald-400">25%</span>
+                  <span className="text-lg font-semibold text-white">Higher Retention</span>
+                </div>
+                <p className="text-sm text-neutral-400">vs. YouTube Baseline (p&lt;0.05)</p>
+              </div>
+
+              {/* Stat 2 */}
+              <div>
+                <div className="flex items-baseline gap-2 mb-2">
+                  <span className="text-5xl font-bold text-emerald-400">60%</span>
+                  <span className="text-lg font-semibold text-white">Less Context Switching</span>
+                </div>
+                <p className="text-sm text-neutral-400">Hypothesis Validated</p>
+              </div>
+            </div>
+          </motion.div>
+
         </div>
       </section>
 

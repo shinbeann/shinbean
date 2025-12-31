@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { KidneyQuestInteractiveDemo } from "@/components/KidneyQuestInteractiveDemo";
+import { BentoGrid } from "@/components/BentoGrid";
 
 const scrollReveal = {
   initial: { opacity: 0, y: 24 },
@@ -59,13 +60,9 @@ const Index = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="rounded-3xl overflow-hidden shadow-2xl border border-white/10"
+                className="rounded-3xl overflow-hidden"
               >
-                <img 
-                  src="/FThero.png" 
-                  alt="FlowTutor Dashboard on Laptop" 
-                  className="w-full h-auto object-cover"
-                />
+                <BentoGrid />
               </motion.div>
             </div>
           </motion.div>
