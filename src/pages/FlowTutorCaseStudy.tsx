@@ -2,39 +2,15 @@ import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { ArrowLeft, ArrowRight, Code, Brain, Layout, Sliders, ChevronRight, Search, Zap, Layers, AlertCircle, Eye, AlertTriangle, BookOpen, MessageSquare, FileText, CheckCircle, GripVertical, Sparkles, Maximize } from "lucide-react";
+import { ArrowLeft, ArrowRight, Code, Brain, Layout, Sliders, ChevronRight, Search, Zap, Layers, AlertCircle, Eye, AlertTriangle, BookOpen, MessageSquare, FileText, CheckCircle, GripVertical, Sparkles, Maximize, Puzzle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import onboardingBefore from "@/assets/flowtutor-onboarding-before.png";
 import onboardingAfter from "@/assets/flowtutor-onboarding-after.png";
+import pinBefore from "@/assets/flowtutor-pinbefore.png";
+import pinAfter from "@/assets/flowtutor-pinafter.png";
 
 // --- COMPONENTS ---
-
-// 1. Metadata Grid (Sticky Bottom Bar Style)
-const MetadataBar = () => (
-  <div className="w-full border-t border-white/10 bg-[#050505]/80 backdrop-blur-md sticky bottom-0 z-10">
-    <div className="container max-w-7xl mx-auto px-6 py-6">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-        <div className="space-y-1">
-          <h3 className="text-[10px] uppercase tracking-widest text-neutral-500 font-semibold">Role</h3>
-          <p className="text-sm font-medium text-white">Product Designer & Researcher</p>
-        </div>
-        <div className="space-y-1">
-          <h3 className="text-[10px] uppercase tracking-widest text-neutral-500 font-semibold">Timeline</h3>
-          <p className="text-sm font-medium text-white">3 Months (Iterative)</p>
-        </div>
-        <div className="space-y-1">
-          <h3 className="text-[10px] uppercase tracking-widest text-neutral-500 font-semibold">Tools</h3>
-          <p className="text-sm font-medium text-white">Figma, React, OpenAI API</p>
-        </div>
-        <div className="space-y-1">
-          <h3 className="text-[10px] uppercase tracking-widest text-neutral-500 font-semibold">Team</h3>
-          <p className="text-sm font-medium text-white">Solo Project</p>
-        </div>
-      </div>
-    </div>
-  </div>
-);
 
 // 2. Bento Card (Problem Section)
 const BentoCard = ({ title, body, evidence, delay, icon: Icon }: { title: string, body: string, evidence: string, delay: number, icon?: React.ElementType }) => {
@@ -146,8 +122,8 @@ const TransformationShowcase = ({
             Before
           </div>
           <div className="aspect-[4/3] flex items-center justify-center p-6">
-            {beforeVisual}
-          </div>
+          {beforeVisual}
+        </div>
         </div>
 
         {/* Arrow Connector - Ghost Button Style */}
@@ -170,9 +146,9 @@ const TransformationShowcase = ({
             After
           </div>
           <div className="aspect-[4/3] flex items-center justify-center p-6">
-            {afterVisual}
-          </div>
+          {afterVisual}
         </div>
+      </div>
       </div>
 
       {/* Caption */}
@@ -527,43 +503,43 @@ const ProductAnatomySection = () => {
 
         {/* Desktop: Image with built-in annotations */}
         <div className="hidden lg:block">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
             className="flex justify-center"
-          >
+            >
             <div className="relative rounded-xl shadow-2xl overflow-visible bg-transparent">
-              <img
+                <img
                 src="/flowtutor-lines.png"
-                alt="FlowTutor Unified Workspace"
-                className="w-full h-auto"
+                  alt="FlowTutor Unified Workspace"
+                  className="w-full h-auto"
                 style={{ transform: 'scale(1.2)', transformOrigin: 'center' }}
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                  const fallback = target.parentElement?.querySelector('.image-fallback');
-                  if (fallback) {
-                    (fallback as HTMLElement).style.display = 'flex';
-                  }
-                }}
-              />
-              
-              {/* Fallback Placeholder */}
-              <div className="image-fallback hidden w-full aspect-video bg-neutral-900/50 flex items-center justify-center border border-white/5">
-                <span className="text-neutral-600 font-mono text-sm">[FlowTutor Screenshot]</span>
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    const fallback = target.parentElement?.querySelector('.image-fallback');
+                    if (fallback) {
+                      (fallback as HTMLElement).style.display = 'flex';
+                    }
+                  }}
+                />
+                
+                {/* Fallback Placeholder */}
+                <div className="image-fallback hidden w-full aspect-video bg-neutral-900/50 flex items-center justify-center border border-white/5">
+                  <span className="text-neutral-600 font-mono text-sm">[FlowTutor Screenshot]</span>
               </div>
             </div>
           </motion.div>
-        </div>
+                </div>
 
         {/* Mobile: Image */}
         <div className="lg:hidden">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+                        viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="relative rounded-xl shadow-2xl overflow-hidden bg-[#0F0F0F]"
           >
@@ -582,75 +558,229 @@ const ProductAnatomySection = () => {
 // --- PAGE ---
 
 const FlowTutorCaseStudy = () => {
-  return (
+                    return (
     <div className="min-h-screen bg-[#050505] text-white selection:bg-purple-500/30 font-sans">
       <Navigation tone="dark" />
 
       {/* 1. HERO */}
-      <section className="relative h-screen flex flex-col justify-center pt-20">
+      <section className="relative min-h-screen flex flex-col pt-32 pb-20">
         <div className="container max-w-7xl mx-auto px-6">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-5xl"
+            transition={{ duration: 0.8 }}
+            className="mb-12"
           >
-            <h1 className="text-[clamp(4rem,12vw,10rem)] font-bold tracking-tighter leading-[0.9] mb-8">
-              FlowTutor<span className="text-purple-500">.</span>
+            {/* Top Navigation Row */}
+            <div className="flex justify-between items-center mb-16 text-sm tracking-widest text-neutral-500 font-mono uppercase">
+               <Link to="/" className="hover:text-white transition-colors">← Back</Link>
+               <span>FlowTutor • Concept 2025</span>
+            </div>
+
+            {/* Title */}
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-16 text-white max-w-4xl">
+              The future of AI-powered learning assistance.
             </h1>
-            <p className="text-xl md:text-3xl text-neutral-400 max-w-2xl font-light leading-relaxed">
-              Turning chaotic YouTube tutorials into interactive, queryable learning experiences.
+
+            {/* Hero Image */}
+            <div className="w-full aspect-[16/9] bg-[#111] rounded-lg overflow-hidden mb-16 border border-white/10">
+               <img 
+                 src="/FThero.png" 
+                 alt="FlowTutor Hero" 
+                 className="w-full h-full object-cover"
+               />
+            </div>
+
+            {/* Metadata Grid (Inline) */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/10 pt-8">
+              <div className="space-y-2">
+                <h3 className="text-xs uppercase tracking-widest text-neutral-500 font-semibold">Role</h3>
+                <p className="text-sm font-medium text-white">Product Designer</p>
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-xs uppercase tracking-widest text-neutral-500 font-semibold">Timeline</h3>
+                <p className="text-sm font-medium text-white">August - September 2025</p>
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-xs uppercase tracking-widest text-neutral-500 font-semibold">Platform</h3>
+                <p className="text-sm font-medium text-white">Web Application</p>
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-xs uppercase tracking-widest text-neutral-500 font-semibold">Tools</h3>
+                <p className="text-sm font-medium text-white">Miro, Lovable</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 2. PHASE 01: UNCOVERING THE DISCONNECT */}
+      <section className="py-24 md:py-32 container max-w-7xl mx-auto px-6">
+        {/* Hero Section - Split Layout */}
+        <div className="mb-12 md:mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+            {/* Left: Headline */}
+            <div>
+                  <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
+                <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 mb-6">
+                  THE CHALLENGE
+                </p>
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-8">
+                  Video learning is broken by context switching.
+                </h2>
+                  </motion.div>
+            </div>
+
+            {/* Right: Body */}
+            <div>
+                      <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                <p className="text-lg text-neutral-400 leading-relaxed">
+                  When learning from tutorials, students are forced into a manual cycle of pausing, scrubbing, and jumping timestamps to locate specific steps. This friction creates cognitive overload, causing users to lose their 'flow' and make errors.
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+
+        {/* KEY INSIGHTS Label - Grouped with Cards */}
+        <div className="mb-6 md:mb-8">
+                      <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+              KEY INSIGHTS
+            </h3>
+            <p className="text-lg text-neutral-400 leading-relaxed">
+              Observed 6 diverse users, from university freshmen to parents upskilling.
             </p>
           </motion.div>
         </div>
-        
-        <div className="absolute bottom-0 w-full">
-           <MetadataBar />
-        </div>
+
+        {/* Insights Grid - 2x2 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          {/* Card 1: Poor Navigation */}
+                      <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300"
+          >
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
+                <Search className="w-6 h-6 text-purple-400" />
+              </div>
+              <div className="flex-1 space-y-3">
+                <h3 className="text-xl font-bold text-white">Poor Navigation</h3>
+                <p className="text-neutral-400 leading-relaxed">
+                  Users struggle to locate specific information without text search.
+                </p>
+                <div className="pt-2 border-t border-white/5">
+                  <p className="text-sm text-neutral-500 italic">
+                    "I wish there was a 'Ctrl+F' for videos."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Card 2: Fragmented Workflow */}
+                      <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300"
+          >
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
+                <Layers className="w-6 h-6 text-purple-400" />
+              </div>
+              <div className="flex-1 space-y-3">
+                <h3 className="text-xl font-bold text-white">Fragmented Workflow</h3>
+                <p className="text-neutral-400 leading-relaxed">
+                  Juggling YouTube, ChatGPT, and notes breaks concentration.
+                </p>
+                <div className="pt-2 border-t border-white/5">
+                  <p className="text-sm text-neutral-500 italic">
+                    "Switching tabs constantly is annoying."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Card 3: Cognitive Overload */}
+                      <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300"
+          >
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
+                <Brain className="w-6 h-6 text-purple-400" />
+              </div>
+              <div className="flex-1 space-y-3">
+                <h3 className="text-xl font-bold text-white">Cognitive Overload</h3>
+                <p className="text-neutral-400 leading-relaxed">
+                  Distractions (ads, recommendations) divert attention from learning goals.
+                </p>
+                <div className="pt-2 border-t border-white/5">
+                  <p className="text-sm text-neutral-500 italic">
+                    "Sidetracked by the recommendation feed."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Card 4: Missing Context */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300"
+          >
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
+                <Puzzle className="w-6 h-6 text-purple-400" />
+              </div>
+              <div className="flex-1 space-y-3">
+                <h3 className="text-xl font-bold text-white">Missing Context</h3>
+                <p className="text-neutral-400 leading-relaxed">
+                  Videos often assume prerequisite knowledge, leaving gaps.
+                </p>
+                <div className="pt-2 border-t border-white/5">
+                  <p className="text-sm text-neutral-500 italic">
+                    "They don't explain the first principles."
+                  </p>
+                </div>
+              </div>
+              </div>
+            </motion.div>
+          </div>
       </section>
 
-      {/* 2. THE PROBLEM (4-Column Grid) */}
-      <section className="py-32 container max-w-7xl mx-auto px-6">
-        <div className="mb-16 border-b border-white/10 pb-8">
-          <span className="text-xs font-mono text-purple-400 mr-4">01</span>
-          <h2 className="text-4xl font-bold inline-block tracking-tight">The Problem</h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <BentoCard 
-            title="Poor Navigation"
-            icon={Search}
-            body="Users struggle to locate specific information in long videos."
-            evidence="Participant 4 wished for a 'Ctrl+F' function to search video content."
-            delay={0}
-          />
-          <BentoCard 
-            title="Fragmented Workflow"
-            icon={Layers}
-            body="Juggling YouTube, ChatGPT, and Notes breaks concentration."
-            evidence="Participant 5 found constant tab-switching 'annoying'."
-            delay={0.1}
-          />
-          <BentoCard 
-            title="Cognitive Overload"
-            icon={Zap}
-            body="The interface presents too many distractions (ads, feeds)."
-            evidence="Participant 2 was sidetracked by the recommendation feed."
-            delay={0.2}
-          />
-          <BentoCard 
-            title="Missing Context"
-            icon={AlertCircle}
-            body="Videos often assume prerequisite knowledge."
-            evidence="Participant 3 noted videos 'don't explain first principles'."
-            delay={0.3}
-          />
-        </div>
-      </section>
-
-      {/* 3. THE DISCOVERY (Heuristic Analysis) */}
+      {/* 3. PAPER TO PIXEL */}
       <section className="py-32 bg-[#0A0A0A] border-y border-white/5">
         <div className="container max-w-7xl mx-auto px-6">
+          {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -658,86 +788,190 @@ const FlowTutorCaseStudy = () => {
             transition={{ duration: 0.8 }}
             className="mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">Identifying the Friction.</h2>
+            <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 mb-6">
+              PROTOTYPING AND TESTING
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">
+              From paper to pixel.
+            </h2>
             <p className="text-lg text-neutral-400 max-w-3xl leading-relaxed">
-              Before building, we analyzed existing workflows against NN/g Usability Heuristics. We uncovered critical gaps in system status and user control.
+              We conducted a heuristic evaluation with 5 evaluators who interacted with our paper prototype. They identified several usability issues, ranked by severity.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <HeuristicCard
-              number="01"
-              severity="Severity 3"
-              heuristic="NN/g #10: Help and documentation"
-              issue="Overlapping Q&A Panels"
-              description="When AI responses were pinned, users lost the context of the original question, causing confusion."
-              delay={0}
-            />
-            <HeuristicCard
-              number="02"
-              severity="Severity 2"
-              heuristic="NN/g #6: Recognition rather than recall"
-              issue="Pin Feature Misinterpretation"
-              description="Users mistook the pin icon for a 'close' or 'save' button due to unclear iconography and placement."
-              delay={0.1}
-            />
-            <HeuristicCard
-              number="03"
-              severity="Severity 2"
-              heuristic="NN/g #4: Consistency and standards"
-              issue="Timestamp Interaction Not Obvious"
-              description="Users did not realize that timestamps in chatbot responses were clickable and linked to video playback."
-              delay={0.2}
-            />
+          {/* Comparison Cards Stack */}
+          <div className="space-y-12 md:space-y-16">
+            {/* Card 1: Navigation */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-[#0A0A0A] border border-white/5 rounded-2xl p-8 md:p-10 hover:border-purple-500/30 transition-all duration-300"
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
+                    <Search className="w-6 h-6 text-purple-400" />
+          </div>
+                  <h3 className="text-2xl font-bold text-white">Solving Poor Navigation</h3>
+        </div>
+                <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-mono text-neutral-400 uppercase tracking-wider">
+                  NN/g #4: Consistency
+                </span>
+      </div>
+
+              {/* Comparison Grid - 50/50 Split */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Before Column */}
+                <div className="space-y-4">
+                  <h4 className="text-sm font-medium text-orange-400">Before</h4>
+                  <div className="aspect-video bg-neutral-900/50 border border-orange-500/20 rounded-lg overflow-hidden">
+                    <div className="w-full h-full flex items-center justify-center p-6">
+                      <div className="text-center">
+                        <div className="text-neutral-500 font-mono text-2xl mb-2">[04:20]</div>
+                        <div className="text-xs text-neutral-600">Plain text timestamp</div>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-sm text-neutral-400 leading-relaxed">
+                    Timestamps looked like static text, breaking the mental model.
+                  </p>
+                </div>
+
+                {/* After Column */}
+                <div className="space-y-4">
+                  <h4 className="text-sm font-medium text-emerald-400">After</h4>
+                  <div className="aspect-video bg-neutral-900/50 border border-emerald-500/20 rounded-lg overflow-hidden">
+                    <div className="w-full h-full flex items-center justify-center p-6">
+                      <div className="px-5 py-3 bg-purple-600 rounded-lg text-white font-medium flex items-center gap-3 text-sm shadow-lg shadow-purple-500/30">
+                        <div className="w-2.5 h-2.5 bg-white rounded-full animate-pulse" />
+                        04:20 Jump to Concept
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-sm text-neutral-400 leading-relaxed">
+                    Interactive 'Pill Buttons' with clear hover states.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Card 2: Workflow */}
+          <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-[#0A0A0A] border border-white/5 rounded-2xl p-8 md:p-10 hover:border-purple-500/30 transition-all duration-300"
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
+                    <Layers className="w-6 h-6 text-purple-400" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Solving Fragmented Workflow</h3>
+                </div>
+                <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-mono text-neutral-400 uppercase tracking-wider">
+                  NN/g #2: Match System & Real World
+                </span>
+              </div>
+
+              {/* Comparison Grid - 50/50 Split */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Before Column */}
+                <div className="space-y-4">
+                  <h4 className="text-sm font-medium text-orange-400">Before</h4>
+                  <div className="aspect-video bg-neutral-900/50 border border-orange-500/20 rounded-lg overflow-hidden">
+                    <img 
+                      src={pinBefore} 
+                      alt="Paper prototype showing chat interface with overlapping panels" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <p className="text-sm text-neutral-400 leading-relaxed">
+                    'Upload File' input confused users who primarily stream content.
+                  </p>
+        </div>
+        
+                {/* After Column */}
+                <div className="space-y-4">
+                  <h4 className="text-sm font-medium text-emerald-400">After</h4>
+                  <div className="aspect-video bg-neutral-900/50 border border-emerald-500/20 rounded-lg overflow-hidden">
+                    <img 
+                      src={pinAfter} 
+                      alt="FlowTutor chat interface showing timestamped messages with pin functionality" 
+                      className="w-full h-full object-cover"
+                    />
+        </div>
+                  <p className="text-sm text-neutral-400 leading-relaxed">
+                    Simplified 'Paste URL' input to match user behavior.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Card 3: Clutter */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="bg-[#0A0A0A] border border-white/5 rounded-2xl p-8 md:p-10 hover:border-purple-500/30 transition-all duration-300"
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
+                    <Brain className="w-6 h-6 text-purple-400" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Solving Cognitive Overload</h3>
+                </div>
+                <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-mono text-neutral-400 uppercase tracking-wider">
+                  NN/g #10: Help & Documentation
+                </span>
+        </div>
+
+              {/* Comparison Grid - 50/50 Split */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Before Column */}
+                <div className="space-y-4">
+                  <h4 className="text-sm font-medium text-orange-400">Before </h4>
+                  <div className="aspect-video bg-neutral-900/50 border border-orange-500/20 rounded-lg overflow-hidden">
+                    <img 
+                      src={onboardingBefore} 
+                      alt="Paper prototype showing overlapping pop-up modal" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <p className="text-sm text-neutral-400 leading-relaxed">
+                    Overlapping panels hid context when chat was pinned.
+                  </p>
+                </div>
+
+                {/* After Column */}
+                <div className="space-y-4">
+                  <h4 className="text-sm font-medium text-emerald-400">After</h4>
+                  <div className="aspect-video bg-neutral-900/50 border border-emerald-500/20 rounded-lg overflow-hidden">
+                    <img 
+                      src={onboardingAfter} 
+                      alt="Unified viewport with clean layout" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <p className="text-sm text-neutral-400 leading-relaxed">
+                    Unified 3-column viewport; no overlapping elements.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* 4. THE REFINEMENT (Lab Study & Fixes) */}
-      <section className="py-32 container max-w-7xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">Refining through Observation.</h2>
-          <p className="text-lg text-neutral-400 max-w-3xl leading-relaxed">
-            Early lab tests revealed that clear signifiers were missing. We pivoted to align the UI with mental models.
-          </p>
-        </motion.div>
-
-        <div className="space-y-8">
-          <TransformationShowcase
-            title="Improving Upload Clarity"
-            beforeVisual={
-              <img src={onboardingBefore} alt="Before: Wireframe showing file upload and URL input" className="w-full h-full object-contain rounded-lg" />
-            }
-            afterVisual={
-              <img src={onboardingAfter} alt="After: Streamlined URL-first FlowTutor interface" className="w-full h-full object-contain rounded-lg" />
-            }
-            caption="Simplified the input method (YouTube URLs)."
-            delay={0}
-          />
-          <TransformationShowcase
-            title="Fixing Heuristic #6"
-            beforeVisual={
-              <div className="text-neutral-500 font-mono text-2xl">[04:20]</div>
-            }
-            afterVisual={
-              <div className="px-5 py-3 bg-purple-600 rounded-lg text-white font-medium flex items-center gap-3 text-base shadow-lg shadow-purple-500/30">
-                <div className="w-2.5 h-2.5 bg-white rounded-full animate-pulse" />
-                04:20 Jump to Concept
-              </div>
-            }
-            caption="Applied recognition over recall with clear interactive affordance."
-            delay={0.1}
-          />
-        </div>
-      </section>
-
-      {/* 5. THE LAB PIVOT (Validating & Refining) */}
+      {/* 4. THE LAB PIVOT (Validating & Refining) */}
       <section className="py-32 container max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
