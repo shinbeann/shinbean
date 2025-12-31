@@ -9,6 +9,8 @@ import onboardingBefore from "@/assets/flowtutor-onboarding-before.png";
 import onboardingAfter from "@/assets/flowtutor-onboarding-after.png";
 import pinBefore from "@/assets/flowtutor-pinbefore.png";
 import pinAfter from "@/assets/flowtutor-pinafter.png";
+import vpBefore from "@/assets/flowtutor-vpbefore.png";
+import vpAfter from "@/assets/flowtutor-vpafter.png";
 
 // --- COMPONENTS ---
 
@@ -630,7 +632,7 @@ const FlowTutorCaseStudy = () => {
               OVERVIEW
             </p>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-4">
-              Context Switching Kills Flow
+              Context Switching Kills Flow.
             </h2>
             <div className="space-y-4 text-neutral-400 leading-relaxed text-lg">
               <p>
@@ -839,7 +841,7 @@ const FlowTutorCaseStudy = () => {
 
           {/* Comparison Cards Stack */}
           <div className="space-y-12 md:space-y-16">
-            {/* Card 1: Navigation */}
+            {/* Card 1: Streamlining the Entry Point */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -850,13 +852,10 @@ const FlowTutorCaseStudy = () => {
               {/* Header */}
               <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
-                    <Search className="w-6 h-6 text-purple-400" />
-          </div>
-                  <h3 className="text-2xl font-bold text-white">Solving Poor Navigation</h3>
+                  <h3 className="text-2xl font-bold text-white">1. Streamlining the Entry Point</h3>
         </div>
                 <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-mono text-neutral-400 uppercase tracking-wider">
-                  NN/g #4: Consistency
+                  NN/g #6: Recognition rather than recall
                 </span>
       </div>
 
@@ -864,17 +863,16 @@ const FlowTutorCaseStudy = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Before Column */}
                 <div className="space-y-4">
-                  <h4 className="text-sm font-medium text-orange-400">Before</h4>
+                  <h4 className="text-sm font-medium text-orange-400">Before </h4>
                   <div className="aspect-video bg-neutral-900/50 border border-orange-500/20 rounded-lg overflow-hidden">
-                    <div className="w-full h-full flex items-center justify-center p-6">
-                      <div className="text-center">
-                        <div className="text-neutral-500 font-mono text-2xl mb-2">[04:20]</div>
-                        <div className="text-xs text-neutral-600">Plain text timestamp</div>
-                      </div>
-                    </div>
+                    <img 
+                      src={onboardingBefore} 
+                      alt="Paper prototype showing overlapping pop-up modal" 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <p className="text-sm text-neutral-400 leading-relaxed">
-                    Timestamps looked like static text, breaking the mental model.
+                    Asking users to 'Upload Files' contradicted their actual habit of streaming videos online.
                   </p>
                 </div>
 
@@ -882,21 +880,20 @@ const FlowTutorCaseStudy = () => {
                 <div className="space-y-4">
                   <h4 className="text-sm font-medium text-emerald-400">After</h4>
                   <div className="aspect-video bg-neutral-900/50 border border-emerald-500/20 rounded-lg overflow-hidden">
-                    <div className="w-full h-full flex items-center justify-center p-6">
-                      <div className="px-5 py-3 bg-purple-600 rounded-lg text-white font-medium flex items-center gap-3 text-sm shadow-lg shadow-purple-500/30">
-                        <div className="w-2.5 h-2.5 bg-white rounded-full animate-pulse" />
-                        04:20 Jump to Concept
-                      </div>
-                    </div>
+                    <img 
+                      src={onboardingAfter} 
+                      alt="Unified viewport with clean layout" 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <p className="text-sm text-neutral-400 leading-relaxed">
-                    Interactive 'Pill Buttons' with clear hover states.
+                    Switched to a single 'Paste URL' input. This matches the user's mental model of copying & sharing links.
                   </p>
                 </div>
               </div>
             </motion.div>
 
-            {/* Card 2: Workflow */}
+            {/* Card 2: Clarifying Interactivity */}
           <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -907,13 +904,10 @@ const FlowTutorCaseStudy = () => {
               {/* Header */}
               <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
-                    <Layers className="w-6 h-6 text-purple-400" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white">Solving Fragmented Workflow</h3>
+                  <h3 className="text-2xl font-bold text-white">2. Clarifying Interactivity</h3>
                 </div>
                 <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-mono text-neutral-400 uppercase tracking-wider">
-                  NN/g #2: Match System & Real World
+                  NN/g #4: Consistency & Standards
                 </span>
               </div>
 
@@ -930,7 +924,7 @@ const FlowTutorCaseStudy = () => {
                     />
                   </div>
                   <p className="text-sm text-neutral-400 leading-relaxed">
-                    'Upload File' input confused users who primarily stream content.
+                    Users ignored the timestamps because they looked like static text.
                   </p>
         </div>
         
@@ -945,13 +939,13 @@ const FlowTutorCaseStudy = () => {
                     />
         </div>
                   <p className="text-sm text-neutral-400 leading-relaxed">
-                    Simplified 'Paste URL' input to match user behavior.
+                    Redesigned timestamps as distinct 'Pill Buttons' with clear hover states.
                   </p>
                 </div>
               </div>
             </motion.div>
 
-            {/* Card 3: Clutter */}
+            {/* Card 3: Reducing Icon Ambiguity */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -962,13 +956,10 @@ const FlowTutorCaseStudy = () => {
               {/* Header */}
               <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
-                    <Brain className="w-6 h-6 text-purple-400" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white">Solving Cognitive Overload</h3>
+                  <h3 className="text-2xl font-bold text-white">3. Reducing Icon Ambiguity</h3>
                 </div>
                 <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-mono text-neutral-400 uppercase tracking-wider">
-                  NN/g #10: Help & Documentation
+                  NN/g #10: Help and documentation
                 </span>
         </div>
 
@@ -976,16 +967,16 @@ const FlowTutorCaseStudy = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Before Column */}
                 <div className="space-y-4">
-                  <h4 className="text-sm font-medium text-orange-400">Before </h4>
+                  <h4 className="text-sm font-medium text-orange-400">Before</h4>
                   <div className="aspect-video bg-neutral-900/50 border border-orange-500/20 rounded-lg overflow-hidden">
                     <img 
-                      src={onboardingBefore} 
-                      alt="Paper prototype showing overlapping pop-up modal" 
+                      src={vpBefore} 
+                      alt="Paper wireframe showing video player interface with main points, transcript, and suggested questions" 
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <p className="text-sm text-neutral-400 leading-relaxed">
-                    Overlapping panels hid context when chat was pinned.
+                    Lack of help icons made it difficult for users to understand various functions.
                   </p>
                 </div>
 
@@ -994,13 +985,13 @@ const FlowTutorCaseStudy = () => {
                   <h4 className="text-sm font-medium text-emerald-400">After</h4>
                   <div className="aspect-video bg-neutral-900/50 border border-emerald-500/20 rounded-lg overflow-hidden">
                     <img 
-                      src={onboardingAfter} 
-                      alt="Unified viewport with clean layout" 
+                      src={vpAfter} 
+                      alt="FlowTutor interface showing interactive pill buttons and improved navigation" 
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <p className="text-sm text-neutral-400 leading-relaxed">
-                    Unified 3-column viewport; no overlapping elements.
+                    Added descriptive hover tooltips to all utility icons.
                   </p>
                 </div>
               </div>
