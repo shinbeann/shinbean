@@ -41,9 +41,9 @@ const StackedCardCarousel: React.FC<StackedCardCarouselProps> = ({ cards }) => {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative w-full pb-20">
+    <div ref={containerRef} className="relative w-full">
       {/* Card Stack Container - centered horizontally */}
-      <div className="relative h-[600px] flex justify-center">
+      <div className="relative h-[500px] flex justify-center">
         {cards.map((card, index) => {
           // Calculate relative position from active card
           const relativePos = index - activeIndex;
@@ -56,9 +56,9 @@ const StackedCardCarousel: React.FC<StackedCardCarouselProps> = ({ cards }) => {
           // Stacking values per spec
           const getStackValues = () => {
             if (isActive) return { zIndex: 30, scale: 1, yOffset: 0 };
-            if (relativePos === 1) return { zIndex: 20, scale: 0.96, yOffset: 12 };
-            if (relativePos === 2) return { zIndex: 10, scale: 0.92, yOffset: 24 };
-            return { zIndex: 0, scale: 0.88, yOffset: 36 };
+            if (relativePos === 1) return { zIndex: 20, scale: 0.98, yOffset: 20 };
+            if (relativePos === 2) return { zIndex: 10, scale: 0.96, yOffset: 40 };
+            return { zIndex: 0, scale: 0.94, yOffset: 60 };
           };
           
           const { zIndex, scale, yOffset } = getStackValues();
@@ -87,7 +87,7 @@ const StackedCardCarousel: React.FC<StackedCardCarouselProps> = ({ cards }) => {
               {/* Fixed height card with flex layout */}
               <div
                 className={`
-                  h-[600px] flex flex-col
+                  h-[500px] flex flex-col
                   bg-[#0A0A0A] border rounded-2xl overflow-hidden
                   transition-all duration-500 ease-out
                   shadow-xl
@@ -112,45 +112,35 @@ const StackedCardCarousel: React.FC<StackedCardCarouselProps> = ({ cards }) => {
                   </div>
                 </div>
 
-                {/* Image Section - 75% of remaining space */}
-                <div className="flex-grow px-6 md:px-8">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
+                {/* Image Section with Captions */}
+                <div className="flex-grow px-6 md:px-8 pb-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {/* Before Column */}
-                    <div className="flex flex-col h-full">
+                    <div className="flex flex-col">
                       <h4 className="text-sm font-medium text-orange-400 mb-2 flex-shrink-0">Before</h4>
-                      <div className="flex-grow bg-neutral-900/50 border border-orange-500/20 rounded-lg overflow-hidden">
+                      <div className="aspect-video bg-neutral-900/50 border border-orange-500/20 rounded-lg overflow-hidden mb-2">
                         <img
                           src={card.beforeImage}
                           alt={card.beforeAlt}
                           className="w-full h-full object-cover"
                         />
                       </div>
+                      <p className="text-sm text-neutral-400 leading-relaxed flex-shrink-0">
+                        {card.beforeDescription}
+                      </p>
                     </div>
 
                     {/* After Column */}
-                    <div className="flex flex-col h-full">
+                    <div className="flex flex-col">
                       <h4 className="text-sm font-medium text-emerald-400 mb-2 flex-shrink-0">After</h4>
-                      <div className="flex-grow bg-neutral-900/50 border border-emerald-500/20 rounded-lg overflow-hidden">
+                      <div className="aspect-video bg-neutral-900/50 border border-emerald-500/20 rounded-lg overflow-hidden mb-2">
                         <img
                           src={card.afterImage}
                           alt={card.afterAlt}
                           className="w-full h-full object-cover"
                         />
                       </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Text Section - 25% fixed height */}
-                <div className="flex-shrink-0 h-[25%] px-6 md:px-8 py-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
-                    <div className="flex items-center">
-                      <p className="text-sm text-neutral-400 leading-relaxed line-clamp-3">
-                        {card.beforeDescription}
-                      </p>
-                    </div>
-                    <div className="flex items-center">
-                      <p className="text-sm text-neutral-400 leading-relaxed line-clamp-3">
+                      <p className="text-sm text-neutral-400 leading-relaxed flex-shrink-0">
                         {card.afterDescription}
                       </p>
                     </div>
@@ -163,7 +153,7 @@ const StackedCardCarousel: React.FC<StackedCardCarouselProps> = ({ cards }) => {
       </div>
 
       {/* Navigation Controls */}
-      <div className="flex items-center justify-center gap-6 mt-24 md:mt-32">
+      <div className="flex items-center justify-center gap-6 mt-16">
         {/* Previous Button */}
         <button
           onClick={handlePrev}

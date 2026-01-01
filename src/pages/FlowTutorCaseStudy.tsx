@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import StackedCardCarousel from "@/components/StackedCardCarousel";
-import { ArrowLeft, ArrowRight, Code, Brain, Layout, Sliders, ChevronRight, Search, Zap, Layers, AlertCircle, Eye, AlertTriangle, BookOpen, MessageSquare, FileText, CheckCircle, GripVertical, Sparkles, Maximize, Puzzle } from "lucide-react";
+import { ArrowLeft, ArrowRight, Code, Brain, Layout, Sliders, ChevronRight, ChevronDown, ArrowDown, Search, Zap, Layers, AlertCircle, Eye, AlertTriangle, BookOpen, MessageSquare, FileText, CheckCircle, GripVertical, Sparkles, Maximize, Puzzle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import onboardingBefore from "@/assets/flowtutor-onboarding-before.png";
@@ -192,18 +192,20 @@ const MethodologyBar = () => {
 
 // 6. Insight Card (Lab Pivot Section)
 const InsightCard = ({ 
-  insight, 
-  evolution, 
+  title,
+  problem, 
+  solution, 
   icon: Icon, 
   delay 
 }: { 
-  insight: string, 
-  evolution: string, 
+  title: string,
+  problem: string, 
+  solution: string, 
   icon: React.ElementType, 
   delay: number 
 }) => {
-  // Extract bold text from evolution (text between **)
-  const evolutionParts = evolution.split(/(\*\*.*?\*\*)/g);
+  // Extract bold text from solution (text between **)
+  const solutionParts = solution.split(/(\*\*.*?\*\*)/g);
   
   return (
     <motion.div
@@ -211,32 +213,40 @@ const InsightCard = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}
-      className="p-8 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors"
+      className="p-8 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors flex flex-col h-full"
     >
-      <div className="space-y-6">
-        {/* Icon */}
-        <div className="w-12 h-12 rounded-lg bg-purple-500/20 border border-purple-500/30 flex items-center justify-center">
-          <Icon className="w-6 h-6 text-purple-400" />
+      <div className="flex flex-col h-full">
+        {/* Header with Icon */}
+        <div className="flex items-center gap-4 mb-6">
+          <div className="w-12 h-12 rounded-lg bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
+            <Icon className="w-6 h-6 text-purple-400" />
+          </div>
+          <h3 className="text-xl font-bold text-white">{title}</h3>
         </div>
         
-        {/* Insight */}
-        <div className="space-y-2">
-          <p className="text-xs font-mono text-neutral-500 uppercase tracking-wider">Insight</p>
-          <p className="text-neutral-400 text-sm leading-relaxed">{insight}</p>
+        {/* Problem Section - Fixed height for alignment */}
+        <div className="min-h-[4.5rem] mb-2">
+          <p className="text-neutral-400 text-sm leading-relaxed">{problem}</p>
         </div>
         
-        {/* Arrow Separator */}
-        <div className="flex items-center gap-2 py-2">
-          <div className="flex-1 h-px bg-white/10" />
-          <ArrowRight className="w-4 h-4 text-purple-400" />
-          <div className="flex-1 h-px bg-white/10" />
+        {/* Bridge Component */}
+        <div className="flex items-center justify-between gap-4 py-6 my-4">
+          {/* Left Line */}
+          <div className="h-[1px] flex-1 bg-white/5"></div>
+          
+          {/* The Bridge Badge */}
+          <div className="flex items-center justify-center w-8 h-8 rounded-full border border-white/10 bg-[#0A0A0A] shadow-sm z-10">
+            <ArrowDown className="w-4 h-4 text-purple-400" />
+          </div>
+          
+          {/* Right Line */}
+          <div className="h-[1px] flex-1 bg-white/5"></div>
         </div>
         
-        {/* Evolution */}
-        <div className="space-y-2">
-          <p className="text-xs font-mono text-purple-400 uppercase tracking-wider">Evolution</p>
-          <p className="text-white text-sm leading-relaxed">
-            {evolutionParts.map((part, index) => {
+        {/* Solution Section */}
+        <div className="flex-grow">
+          <p className="text-white font-medium text-sm leading-relaxed">
+            {solutionParts.map((part, index) => {
               if (part.startsWith('**') && part.endsWith('**')) {
                 const boldText = part.slice(2, -2);
                 return <span key={index} className="font-bold text-purple-400">{boldText}</span>;
@@ -819,7 +829,7 @@ const FlowTutorCaseStudy = () => {
       </section>
 
       {/* 3. PAPER TO PIXEL */}
-      <section className="py-32 bg-[#0A0A0A] border-y border-white/5">
+      <section className="pt-32 pb-32 bg-[#0A0A0A] border-y border-white/5">
         <div className="container max-w-7xl mx-auto px-6">
           {/* Section Header */}
           <motion.div
@@ -902,22 +912,25 @@ const FlowTutorCaseStudy = () => {
         </div>
 
         {/* Insights Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           <InsightCard
-            insight="Users found fixed panels restrictive. They needed to focus on the video or notes at different times."
-            evolution="Implemented a **Draggable Divider**, allowing users to resize the viewport dynamically."
+            title="Layout Flexibility"
+            problem="Fixed panels felt restrictive. Users struggled to focus on video or notes when they couldn't control the viewport size."
+            solution="Implemented a **Draggable Divider**, allowing users to dynamically resize their workspace."
             icon={GripVertical}
             delay={0}
           />
           <InsightCard
-            insight="Preset AI prompts were helpful but too limiting. Users wanted to ask open-ended follow-up questions."
-            evolution="Replaced static responses with a **Live ChatGPT LLM API** integration for context-aware conversation."
+            title="Conversational Depth"
+            problem="Preset AI prompts were helpful but too rigid. Users wanted to ask complex, open-ended follow-up questions."
+            solution="Integrated a **Live LLM API**, enabling fully dynamic, context-aware conversation."
             icon={Sparkles}
             delay={0.1}
           />
           <InsightCard
-            insight="The sticky navigation bar consumed valuable screen real estate on smaller laptop screens."
-            evolution="Redesigned the chrome to be **Non-Sticky** and reduced padding by 20% for a cleaner viewing experience."
+            title="Screen Real Estate"
+            problem="The sticky navigation bar consumed 15% of the vertical view on smaller laptops, crowding the content."
+            solution="Redesigned the chrome to be **Non-Sticky** and reduced padding by 20% to maximize the learning view."
             icon={Maximize}
             delay={0.2}
           />
