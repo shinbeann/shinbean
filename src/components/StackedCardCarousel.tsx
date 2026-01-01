@@ -43,26 +43,22 @@ const StackedCardCarousel: React.FC<StackedCardCarouselProps> = ({ cards }) => {
   return (
     <div ref={containerRef} className="relative w-full pb-20">
       {/* Card Stack Container */}
-      <div className="relative h-auto min-h-[600px] md:min-h-[500px] pb-8">
+      <div className="relative min-h-[680px] md:min-h-[520px]">
         {cards.map((card, index) => {
           const isActive = index === activeIndex;
           const isPast = index < activeIndex;
           const isFuture = index > activeIndex;
           const offset = index - activeIndex;
 
-          // Calculate stacking position
+          // Calculate stacking position - cards behind peek out from bottom
           const stackOffset = isFuture ? offset : 0;
-          const yOffset = isFuture ? stackOffset * 16 : isPast ? -20 : 0;
-          const scale = isFuture ? 1 - stackOffset * 0.03 : 1;
-          const zIndex = cards.length - Math.abs(offset);
+          const yOffset = isFuture ? stackOffset * 20 : isPast ? -30 : 0;
+          const scale = 1; // All cards same size
+          const zIndex = cards.length - index; // Higher index = lower z-index (behind)
           const opacity = isPast ? 0 : 1;
 
-          // Card border colors for stacking peek effect
-          const borderColors = [
-            "border-purple-500/30", // Active card
-            "border-emerald-500/30", // Second card peek
-            "border-blue-500/30", // Third card peek
-          ];
+          // Subtle visual differentiation for stacked cards
+          const bgOpacity = isFuture ? 0.6 - stackOffset * 0.15 : 1;
 
           return (
             <motion.div
@@ -72,13 +68,15 @@ const StackedCardCarousel: React.FC<StackedCardCarouselProps> = ({ cards }) => {
                 y: yOffset,
                 scale: scale,
                 opacity: opacity,
-                x: isPast ? -50 : 0,
+                x: isPast ? -100 : 0,
               }}
               transition={{
-                duration: 0.5,
-                ease: [0.32, 0.72, 0, 1],
+                duration: 0.4,
+                ease: [0.25, 0.46, 0.45, 0.94],
               }}
-              style={{ zIndex }}
+              style={{ 
+                zIndex: isActive ? cards.length + 1 : zIndex,
+              }}
               className={`
                 absolute top-0 left-0 right-0 w-full
                 ${isActive ? "pointer-events-auto" : "pointer-events-none"}
@@ -86,9 +84,17 @@ const StackedCardCarousel: React.FC<StackedCardCarouselProps> = ({ cards }) => {
             >
               <div
                 className={`
-                  bg-[#0A0A0A] border rounded-2xl p-8 md:p-10 transition-all duration-300
-                  ${isActive ? "border-purple-500/30 shadow-xl shadow-purple-500/5" : borderColors[Math.min(offset, 2)] || "border-white/10"}
+                  bg-[#0A0A0A] border rounded-2xl p-8 md:p-10 transition-colors duration-300
+                  ${isActive 
+                    ? "border-purple-500/40 shadow-2xl shadow-purple-500/10" 
+                    : isFuture 
+                      ? "border-white/10" 
+                      : "border-white/5"
+                  }
                 `}
+                style={{
+                  opacity: isFuture ? bgOpacity : 1,
+                }}
               >
                 {/* Card Header */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
