@@ -42,115 +42,118 @@ const StackedCardCarousel: React.FC<StackedCardCarouselProps> = ({ cards }) => {
 
   return (
     <div ref={containerRef} className="relative w-full pb-20">
-      {/* Card Stack Container */}
-      <div className="relative min-h-[680px] md:min-h-[520px]">
+      {/* Card Stack Container - centered horizontally */}
+      <div className="relative h-[600px] flex justify-center">
         {cards.map((card, index) => {
-          const isActive = index === activeIndex;
-          const isPast = index < activeIndex;
-          const isFuture = index > activeIndex;
+          // Calculate relative position from active card
+          const relativePos = index - activeIndex;
           
-          // Calculate relative position from active card (handles wrapping)
-          const getRelativePosition = () => {
-            if (isActive) return 0;
-            if (isFuture) return index - activeIndex;
-            // For past cards, they should appear "gone"
-            return -1;
+          // Determine card state
+          const isActive = relativePos === 0;
+          const isStacked = relativePos > 0 && relativePos <= 2;
+          const isPast = relativePos < 0;
+          
+          // Stacking values per spec
+          const getStackValues = () => {
+            if (isActive) return { zIndex: 30, scale: 1, yOffset: 0 };
+            if (relativePos === 1) return { zIndex: 20, scale: 0.96, yOffset: 12 };
+            if (relativePos === 2) return { zIndex: 10, scale: 0.92, yOffset: 24 };
+            return { zIndex: 0, scale: 0.88, yOffset: 36 };
           };
           
-          const relativePos = getRelativePosition();
-          
-          // Show up to 2 cards stacked behind the active card
-          const isVisible = isActive || (isFuture && relativePos <= 2);
-          
-          // Calculate stacking - each card behind peeks out 16px lower
-          const yOffset = isActive ? 0 : isFuture ? relativePos * 16 : -50;
-          const scale = 1; // All cards same size
-          
-          // Z-index: active card on top, then descending for stacked cards
-          const zIndex = isActive ? 10 : isFuture ? 10 - relativePos : 0;
-          const opacity = isPast ? 0 : isVisible ? 1 : 0;
-
-          // Subtle visual differentiation for stacked cards behind
-          const bgOpacity = isFuture ? 0.85 - relativePos * 0.1 : 1;
+          const { zIndex, scale, yOffset } = getStackValues();
+          const opacity = isPast ? 0 : (isActive || isStacked) ? 1 : 0;
 
           return (
             <motion.div
               key={card.id}
-            initial={false}
-            animate={{
-              y: yOffset,
-              scale: scale,
-              opacity: opacity,
-              x: isPast ? -100 : 0,
-            }}
-            transition={{
-              duration: 0.4,
-              ease: [0.25, 0.46, 0.45, 0.94],
-            }}
-            style={{ 
-              zIndex: zIndex,
-              pointerEvents: isActive ? 'auto' : 'none',
-            }}
-            className="absolute top-0 left-0 right-0 w-full"
-          >
+              initial={false}
+              animate={{
+                y: yOffset,
+                scale: scale,
+                opacity: opacity,
+                x: isPast ? -50 : 0,
+              }}
+              transition={{
+                duration: 0.5,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
+              style={{ 
+                zIndex: zIndex,
+                pointerEvents: isActive ? 'auto' : 'none',
+              }}
+              className="absolute top-0 left-0 right-0 w-full max-w-5xl mx-auto"
+            >
+              {/* Fixed height card with flex layout */}
               <div
                 className={`
-                  bg-[#0A0A0A] border rounded-2xl p-8 md:p-10 transition-colors duration-300
+                  h-[600px] flex flex-col
+                  bg-[#0A0A0A] border rounded-2xl overflow-hidden
+                  transition-all duration-500 ease-out
+                  shadow-xl
                   ${isActive 
-                    ? "border-purple-500/40 shadow-2xl shadow-purple-500/10" 
-                    : isFuture 
-                      ? "border-white/10" 
-                      : "border-white/5"
+                    ? "border-purple-500/40 shadow-purple-500/20" 
+                    : "border-white/10 shadow-black/40"
                   }
                 `}
-                style={{
-                  opacity: isFuture ? bgOpacity : 1,
-                }}
               >
-                {/* Card Header */}
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
-                  <div className="flex items-center gap-4">
-                    {/* Step indicator */}
-                    <div className="w-10 h-10 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-400 font-bold text-lg">
-                      {card.id}
+                {/* Card Header - fixed height */}
+                <div className="flex-shrink-0 p-6 md:p-8 pb-4">
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-400 font-bold text-lg">
+                        {card.id}
+                      </div>
+                      <h3 className="text-xl md:text-2xl font-bold text-white">{card.title}</h3>
                     </div>
-                    <h3 className="text-xl md:text-2xl font-bold text-white">{card.title}</h3>
+                    <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs font-mono text-neutral-400 uppercase tracking-wider w-fit">
+                      {card.heuristic}
+                    </span>
                   </div>
-                  <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs font-mono text-neutral-400 uppercase tracking-wider w-fit">
-                    {card.heuristic}
-                  </span>
                 </div>
 
-                {/* Comparison Grid - 50/50 Split */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {/* Before Column */}
-                  <div className="space-y-4">
-                    <h4 className="text-sm font-medium text-orange-400">Before</h4>
-                    <div className="aspect-video bg-neutral-900/50 border border-orange-500/20 rounded-lg overflow-hidden">
-                      <img
-                        src={card.beforeImage}
-                        alt={card.beforeAlt}
-                        className="w-full h-full object-cover"
-                      />
+                {/* Image Section - 75% of remaining space */}
+                <div className="flex-grow px-6 md:px-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
+                    {/* Before Column */}
+                    <div className="flex flex-col h-full">
+                      <h4 className="text-sm font-medium text-orange-400 mb-2 flex-shrink-0">Before</h4>
+                      <div className="flex-grow bg-neutral-900/50 border border-orange-500/20 rounded-lg overflow-hidden">
+                        <img
+                          src={card.beforeImage}
+                          alt={card.beforeAlt}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
                     </div>
-                    <p className="text-sm text-neutral-400 leading-relaxed">
-                      {card.beforeDescription}
-                    </p>
-                  </div>
 
-                  {/* After Column */}
-                  <div className="space-y-4">
-                    <h4 className="text-sm font-medium text-emerald-400">After</h4>
-                    <div className="aspect-video bg-neutral-900/50 border border-emerald-500/20 rounded-lg overflow-hidden">
-                      <img
-                        src={card.afterImage}
-                        alt={card.afterAlt}
-                        className="w-full h-full object-cover"
-                      />
+                    {/* After Column */}
+                    <div className="flex flex-col h-full">
+                      <h4 className="text-sm font-medium text-emerald-400 mb-2 flex-shrink-0">After</h4>
+                      <div className="flex-grow bg-neutral-900/50 border border-emerald-500/20 rounded-lg overflow-hidden">
+                        <img
+                          src={card.afterImage}
+                          alt={card.afterAlt}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
                     </div>
-                    <p className="text-sm text-neutral-400 leading-relaxed">
-                      {card.afterDescription}
-                    </p>
+                  </div>
+                </div>
+
+                {/* Text Section - 25% fixed height */}
+                <div className="flex-shrink-0 h-[25%] px-6 md:px-8 py-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
+                    <div className="flex items-center">
+                      <p className="text-sm text-neutral-400 leading-relaxed line-clamp-3">
+                        {card.beforeDescription}
+                      </p>
+                    </div>
+                    <div className="flex items-center">
+                      <p className="text-sm text-neutral-400 leading-relaxed line-clamp-3">
+                        {card.afterDescription}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
