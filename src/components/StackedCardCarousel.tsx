@@ -48,40 +48,51 @@ const StackedCardCarousel: React.FC<StackedCardCarouselProps> = ({ cards }) => {
           const isActive = index === activeIndex;
           const isPast = index < activeIndex;
           const isFuture = index > activeIndex;
-          const offset = index - activeIndex;
-
-          // Calculate stacking position - cards behind peek out from bottom
-          const stackOffset = isFuture ? offset : 0;
-          const yOffset = isFuture ? stackOffset * 20 : isPast ? -30 : 0;
+          
+          // Calculate relative position from active card (handles wrapping)
+          const getRelativePosition = () => {
+            if (isActive) return 0;
+            if (isFuture) return index - activeIndex;
+            // For past cards, they should appear "gone"
+            return -1;
+          };
+          
+          const relativePos = getRelativePosition();
+          
+          // Show up to 2 cards stacked behind the active card
+          const isVisible = isActive || (isFuture && relativePos <= 2);
+          
+          // Calculate stacking - each card behind peeks out 16px lower
+          const yOffset = isActive ? 0 : isFuture ? relativePos * 16 : -50;
           const scale = 1; // All cards same size
-          const zIndex = cards.length - index; // Higher index = lower z-index (behind)
-          const opacity = isPast ? 0 : 1;
+          
+          // Z-index: active card on top, then descending for stacked cards
+          const zIndex = isActive ? 10 : isFuture ? 10 - relativePos : 0;
+          const opacity = isPast ? 0 : isVisible ? 1 : 0;
 
-          // Subtle visual differentiation for stacked cards
-          const bgOpacity = isFuture ? 0.6 - stackOffset * 0.15 : 1;
+          // Subtle visual differentiation for stacked cards behind
+          const bgOpacity = isFuture ? 0.85 - relativePos * 0.1 : 1;
 
           return (
             <motion.div
               key={card.id}
-              initial={false}
-              animate={{
-                y: yOffset,
-                scale: scale,
-                opacity: opacity,
-                x: isPast ? -100 : 0,
-              }}
-              transition={{
-                duration: 0.4,
-                ease: [0.25, 0.46, 0.45, 0.94],
-              }}
-              style={{ 
-                zIndex: isActive ? cards.length + 1 : zIndex,
-              }}
-              className={`
-                absolute top-0 left-0 right-0 w-full
-                ${isActive ? "pointer-events-auto" : "pointer-events-none"}
-              `}
-            >
+            initial={false}
+            animate={{
+              y: yOffset,
+              scale: scale,
+              opacity: opacity,
+              x: isPast ? -100 : 0,
+            }}
+            transition={{
+              duration: 0.4,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
+            style={{ 
+              zIndex: zIndex,
+              pointerEvents: isActive ? 'auto' : 'none',
+            }}
+            className="absolute top-0 left-0 right-0 w-full"
+          >
               <div
                 className={`
                   bg-[#0A0A0A] border rounded-2xl p-8 md:p-10 transition-colors duration-300
