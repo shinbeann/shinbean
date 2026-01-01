@@ -511,6 +511,9 @@ const ProductAnatomySection = () => {
           transition={{ duration: 0.8 }}
           className="mb-16"
         >
+          <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 mb-4">
+            THE SOLUTION
+          </p>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">The Unified Workspace.</h2>
         </motion.div>
 
@@ -523,12 +526,27 @@ const ProductAnatomySection = () => {
               transition={{ duration: 0.8 }}
             className="flex justify-center"
             >
-            <div className="relative rounded-xl shadow-2xl overflow-visible bg-transparent">
+            <div className="relative rounded-xl shadow-2xl overflow-visible bg-transparent space-y-6">
                 <img
                 src="/flowtutor-lines.png"
                   alt="FlowTutor Unified Workspace"
                   className="w-full h-auto"
-                style={{ transform: 'scale(1.2)', transformOrigin: 'center' }}
+                style={{ transform: 'scale(1.0)', transformOrigin: 'center' }}
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    const fallback = target.parentElement?.querySelector('.image-fallback');
+                    if (fallback) {
+                      (fallback as HTMLElement).style.display = 'flex';
+                    }
+                  }}
+                />
+                
+                <img
+                src="/flowtutor-lines2.png"
+                  alt="FlowTutor Unified Workspace Additional View"
+                  className="w-full h-auto"
+                style={{ transform: 'scale(1.0)', transformOrigin: 'center' }}
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.style.display = 'none';
@@ -900,10 +918,25 @@ const FlowTutorCaseStudy = () => {
           transition={{ duration: 0.8 }}
           className="mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">The Lab Pivot: From Hypothesis to Polish.</h2>
-          <p className="text-lg text-neutral-400 max-w-3xl leading-relaxed">
-            We moved from identifying usability issues to measuring impact. While our quantitative data supported our efficiency hypotheses (H1-H3), the qualitative feedback forced three critical architectural changes.
-          </p>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">The Lab Pivot.</h2>
+          <div className="space-y-4 text-neutral-400 leading-relaxed text-lg max-w-3xl">
+            <p>
+              With a functioning prototype, we moved from identifying usability issues to measuring impact.
+            </p>
+            <div className="border-l-2 border-purple-500/30 pl-6">
+              <p className="text-lg font-semibold text-white mb-4">
+                Three Core Hypotheses:
+              </p>
+              <ul className="space-y-1 list-none">
+                <li className="text-neutral-400">H1 (Efficiency): Users will locate information at least 50% faster with FlowTutor.</li>
+                <li className="text-neutral-400">H2 (Cognitive Load): Context switching will be reduced by at least 60%.</li>
+                <li className="text-neutral-400">H3 (Retention): Users will score at least 20% higher on a recall quiz.</li>
+              </ul>
+            </div>
+            <p>
+              While our quantitative data supported our hypotheses (H1-H3), the qualitative feedback forced <strong className="font-bold text-white">three architectural changes</strong>.
+            </p>
+          </div>
         </motion.div>
 
         {/* Methodology Bar */}
