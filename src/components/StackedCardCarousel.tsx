@@ -27,7 +27,7 @@ const StackedCardCarousel: React.FC<StackedCardCarouselProps> = ({ cards }) => {
   };
 
   const handleNext = () => {
-    setActiveIndex((prev) => Math.min(cards.length - 1, prev + 1));
+    setActiveIndex((prev) => (prev >= cards.length - 1 ? 0 : prev + 1));
   };
 
   // Keyboard navigation
@@ -187,14 +187,7 @@ const StackedCardCarousel: React.FC<StackedCardCarouselProps> = ({ cards }) => {
         {/* Next Button */}
         <button
           onClick={handleNext}
-          disabled={activeIndex === cards.length - 1}
-          className={`
-            w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-200
-            ${activeIndex === cards.length - 1
-              ? "border-white/10 text-neutral-600 cursor-not-allowed"
-              : "border-zinc-700 text-zinc-200 hover:border-purple-500/50 hover:text-purple-400"
-            }
-          `}
+          className="w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-200 border-zinc-700 text-zinc-200 hover:border-purple-500/50 hover:text-purple-400"
           aria-label="Next card"
         >
           <ChevronRight className="w-5 h-5" />
