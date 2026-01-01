@@ -41,9 +41,9 @@ const StackedCardCarousel: React.FC<StackedCardCarouselProps> = ({ cards }) => {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative w-full">
+    <div ref={containerRef} className="relative w-full pb-20">
       {/* Card Stack Container */}
-      <div className="relative h-auto min-h-[600px] md:min-h-[500px]">
+      <div className="relative h-auto min-h-[600px] md:min-h-[500px] pb-8">
         {cards.map((card, index) => {
           const isActive = index === activeIndex;
           const isPast = index < activeIndex;
@@ -51,11 +51,11 @@ const StackedCardCarousel: React.FC<StackedCardCarouselProps> = ({ cards }) => {
           const offset = index - activeIndex;
 
           // Calculate stacking position
-          const stackOffset = isFuture ? Math.min(offset, 3) : 0;
-          const yOffset = isFuture ? stackOffset * 12 : isPast ? -20 : 0;
-          const scale = isFuture ? 1 - stackOffset * 0.02 : 1;
+          const stackOffset = isFuture ? offset : 0;
+          const yOffset = isFuture ? stackOffset * 16 : isPast ? -20 : 0;
+          const scale = isFuture ? 1 - stackOffset * 0.03 : 1;
           const zIndex = cards.length - Math.abs(offset);
-          const opacity = isPast ? 0 : isFuture && offset > 3 ? 0 : 1;
+          const opacity = isPast ? 0 : 1;
 
           // Card border colors for stacking peek effect
           const borderColors = [
@@ -143,7 +143,7 @@ const StackedCardCarousel: React.FC<StackedCardCarouselProps> = ({ cards }) => {
       </div>
 
       {/* Navigation Controls */}
-      <div className="flex items-center justify-center gap-6 mt-8">
+      <div className="flex items-center justify-center gap-6 mt-24 md:mt-32">
         {/* Previous Button */}
         <button
           onClick={handlePrev}
