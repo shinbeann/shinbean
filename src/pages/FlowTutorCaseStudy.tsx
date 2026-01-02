@@ -260,7 +260,210 @@ const InsightCard = ({
   );
 };
 
-// 7. Validation Methodology Bar
+// 7. Narrative Bridge Component
+const NarrativeBridge = () => {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="flex flex-col items-center justify-center py-12 relative"
+    >
+      {/* Top Line - Gradient */}
+      <motion.div
+        initial={{ height: 0 }}
+        whileInView={{ height: 48 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="w-[1px] bg-gradient-to-b from-transparent via-white/20 to-white/20 mb-4"
+      />
+
+      {/* Bridge Text */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+        className="text-neutral-400 text-sm font-mono uppercase tracking-wider text-center max-w-md bg-[#050505] px-4 z-10"
+      >
+        To prove efficacy, we compared the post-task quiz scores of both groups (n=40).
+      </motion.div>
+
+      {/* Bottom Line with Arrow */}
+      <div className="flex flex-col items-center mt-4">
+        <motion.div
+          initial={{ height: 0 }}
+          whileInView={{ height: 48 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+          className="w-[1px] bg-white/20 mb-2"
+        />
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+          className="text-white/40"
+        >
+          <ChevronDown className="w-5 h-5" />
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+};
+
+// 8. Results Visualization Card
+const ResultsVisualizationCard = () => {
+  const chartRef = useRef<HTMLDivElement>(null);
+  const chartInView = useInView(chartRef, { once: true, amount: 0.6 });
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="bg-[#0A0A0A] border border-white/5 rounded-3xl p-8 md:p-12"
+    >
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end">
+        {/* Left Side - The Narrative (4 cols) */}
+        <div className="md:col-span-4 space-y-6">
+          <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
+            EXPERIMENT OUTCOME
+          </p>
+          <div className="space-y-2">
+            <div className="text-7xl font-bold text-white tracking-tighter leading-none">
+              25%
+            </div>
+            <p className="text-lg text-neutral-400">
+              Increase in Conceptual Retention
+            </p>
+          </div>
+          <div className="text-purple-400 font-semibold uppercase tracking-wider text-xs">
+            Statistically Significant (p &lt; 0.05)
+          </div>
+        </div>
+
+        {/* Right Side - The Visualization (8 cols) */}
+        <div className="md:col-span-8">
+          {/* Chart Title */}
+          <h3 className="text-lg font-semibold text-white mb-6 text-center">
+            Conceptual Retention Quiz Scores
+          </h3>
+
+          {/* Chart + Axis */}
+          <div className="relative pl-12">
+            {/* Y-axis Labels (does not affect layout) */}
+            <div className="absolute left-0 top-0 h-80 flex flex-col justify-between text-xs text-neutral-500 font-mono">
+              <span>100%</span>
+              <span>80%</span>
+              <span>60%</span>
+              <span>40%</span>
+              <span>20%</span>
+              <span>0%</span>
+            </div>
+
+            {/* Y-axis Title */}
+            <div className="absolute -left-8 top-40 -translate-y-1/2 -rotate-90 text-xs text-neutral-400 font-medium whitespace-nowrap">
+              Average Quiz Score (%)
+            </div>
+
+            {/* Anchor Container (0–100%) */}
+            <div className="relative">
+              <div
+                ref={chartRef}
+                className="relative h-80 flex items-end justify-center gap-12 border-b border-white/10"
+              >
+                {/* Grid Lines (absolute overlay, behind bars) */}
+                <div className="absolute inset-0 z-0 flex flex-col justify-between pointer-events-none">
+                  <div className="h-px bg-white/5" />
+                  <div className="h-px bg-white/5" />
+                  <div className="h-px bg-white/5" />
+                  <div className="h-px bg-white/5" />
+                  <div className="h-px bg-white/5" />
+                  <div className="h-px bg-white/5" />
+                </div>
+
+                {/* Bars (anchored to baseline) */}
+                <div className="relative z-10 h-full flex flex-col justify-end items-center">
+                  <div
+                    className={[
+                      "w-24 md:w-32 bg-neutral-800 rounded-t-xl relative",
+                      "transition-all duration-1000 ease-out",
+                      chartInView ? "h-[68%]" : "h-0",
+                    ].join(" ")}
+                  >
+                    <div
+                      className={[
+                        "absolute -top-8 left-1/2 -translate-x-1/2",
+                        "text-white font-bold text-base md:text-lg whitespace-nowrap",
+                        "transition-all duration-500 ease-out",
+                        chartInView ? "opacity-100 translate-y-0 delay-700" : "opacity-0 translate-y-1",
+                      ].join(" ")}
+                    >
+                      68%
+                    </div>
+                  </div>
+                  <div
+                    className={[
+                      "sr-only",
+                    ].join(" ")}
+                  >
+                    68%
+                  </div>
+                </div>
+
+                <div className="relative z-10 h-full flex flex-col justify-end items-center">
+                  <div
+                    className={[
+                      "w-24 md:w-32 bg-purple-500 rounded-t-xl relative",
+                      "shadow-[0_0_40px_rgba(168,85,247,0.3)]",
+                      "transition-all duration-1000 ease-out delay-200",
+                      chartInView ? "h-[85%]" : "h-0",
+                    ].join(" ")}
+                  >
+                    <div
+                      className={[
+                        "absolute -top-8 left-1/2 -translate-x-1/2",
+                        "text-white font-bold text-base md:text-lg whitespace-nowrap",
+                        "transition-all duration-500 ease-out delay-200",
+                        chartInView ? "opacity-100 translate-y-0 delay-700" : "opacity-0 translate-y-1",
+                      ].join(" ")}
+                    >
+                      85%
+                    </div>
+                  </div>
+                  <div
+                    className={[
+                      "sr-only",
+                    ].join(" ")}
+                  >
+                    85%
+                  </div>
+                </div>
+
+                {/* (+25% Lift annotation removed) */}
+              </div>
+
+              {/* X-axis Labels (below baseline; do not affect bar heights) */}
+              <div className="mt-4 flex justify-center gap-12">
+                <p className="w-24 md:w-32 text-neutral-500 text-sm text-center font-medium">
+                  YouTube Baseline
+                </p>
+                <p className="w-24 md:w-32 text-purple-300 text-sm text-center font-bold">
+                  FlowTutor
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+// 8. Validation Methodology Bar
 const ValidationMethodologyBar = () => {
   return (
     <motion.div
@@ -296,12 +499,14 @@ const ABConditionCard = ({
   title, 
   description, 
   isExperimental = false,
-  delay 
+  delay,
+  image
 }: { 
   title: string, 
   description: string, 
   isExperimental?: boolean,
-  delay: number 
+  delay: number,
+  image?: string
 }) => {
   return (
     <motion.div
@@ -325,12 +530,22 @@ const ABConditionCard = ({
           )}
         </div>
         <p className="text-neutral-400 text-sm leading-relaxed">{description}</p>
-        {/* Visual Placeholder */}
-        <div className="mt-6 aspect-video bg-neutral-900/50 rounded-lg border border-white/5 flex items-center justify-center">
-          <span className="text-neutral-600 font-mono text-sm">
-            {isExperimental ? "[FlowTutor UI]" : "[YouTube Screenshot]"}
-          </span>
-        </div>
+        {/* Visual */}
+        {image ? (
+          <div className="mt-6 aspect-video bg-neutral-900/50 rounded-lg border border-white/5 overflow-hidden">
+            <img
+              src={image}
+              alt={title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ) : (
+          <div className="mt-6 aspect-video bg-neutral-900/50 rounded-lg border border-white/5 flex items-center justify-center">
+            <span className="text-neutral-600 font-mono text-sm">
+              {isExperimental ? "[FlowTutor UI]" : "[YouTube Screenshot]"}
+            </span>
+          </div>
+        )}
       </div>
     </motion.div>
   );
@@ -982,7 +1197,7 @@ const FlowTutorCaseStudy = () => {
           transition={{ duration: 0.8 }}
           className="mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">Iteration 3: Measuring Efficacy.</h2>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">Measuring Efficacy.</h2>
           <p className="text-lg text-neutral-400 max-w-3xl leading-relaxed">
             Moving beyond usability, we rigorously tested our central claim: does an integrated interface lead to better learning outcomes?
           </p>
@@ -1001,18 +1216,28 @@ const FlowTutorCaseStudy = () => {
               description="YouTube + External Notepad (Alt-Tab required)."
               isExperimental={false}
               delay={0}
+              image="/flowtutor-baseline.png"
             />
             <ABConditionCard
               title="FlowTutor: Integrated Workflow"
               description="Unified Viewport (Video + Chat + Notes)."
               isExperimental={true}
               delay={0.1}
+              image="/flowtutor-experiment.png"
             />
           </div>
         </div>
+
+        {/* Narrative Bridge */}
+        <NarrativeBridge />
+
+        {/* Results Visualization */}
+        <div className="mb-16">
+          <ResultsVisualizationCard />
+        </div>
       </section>
 
-      {/* 8. THE PROOF (Web Study & Impact) */}
+      {/* 8. REFLECTION */}
       <section className="py-32 bg-[#0A0A0A] border-y border-white/5">
         <div className="container max-w-7xl mx-auto px-6">
           <motion.div
@@ -1020,34 +1245,16 @@ const FlowTutorCaseStudy = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="mb-16"
+            className="max-w-4xl"
           >
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">Validated Impact.</h2>
-            <p className="text-lg text-neutral-400 max-w-3xl leading-relaxed">
-              To prove efficacy, we conducted a between-subjects study (n=40) comparing FlowTutor against a YouTube control group.
+            <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 mb-4">
+              REFLECTION
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">Fail Fast.</h2>
+            <p className="text-lg text-neutral-400 leading-relaxed">
+              In early iterations, it is easy to come up with a lot of ideas to refine a single 'perfect' prototype. But this often creates dangerous blind spots. Instead of over-analysing, it is better to release rough concepts early to let empirical user data drive decisions.
             </p>
           </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <AnimatedStatItem
-              value="25%"
-              label="Lift in Retention"
-              sublabel="Higher retention vs YouTube Baseline"
-              color="text-white"
-            />
-            <AnimatedStatItem
-              value="p<0.05"
-              label="Statistically Significant"
-              sublabel="Confirmed via t-test"
-              color="text-green-400"
-            />
-            <AnimatedStatItem
-              value="85% vs 68%"
-              label="Mastery Score Gap"
-              sublabel="FlowTutor vs Control"
-              color="text-blue-400"
-            />
-          </div>
         </div>
       </section>
 
