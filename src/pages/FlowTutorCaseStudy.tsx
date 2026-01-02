@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import StackedCardCarousel from "@/components/StackedCardCarousel";
+import CaseStudyLayout from "@/components/CaseStudyLayout";
 import { ArrowLeft, ArrowRight, Code, Brain, Layout, Sliders, ChevronRight, ChevronDown, ArrowDown, Search, Zap, Layers, AlertCircle, Eye, AlertTriangle, BookOpen, MessageSquare, FileText, CheckCircle, GripVertical, Sparkles, Maximize, Puzzle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -801,16 +801,24 @@ const ProductAnatomySection = () => {
   );
 };
 
-// --- PAGE ---
+// Table of Contents for the layout
+const flowTutorToc = [
+  { id: "hero", label: "Hero" },
+  { id: "overview", label: "Overview" },
+  { id: "research", label: "Research" },
+  { id: "prototyping", label: "Prototyping" },
+  { id: "lab-pivot", label: "Lab Pivot" },
+  { id: "solution", label: "Solution" },
+  { id: "validation", label: "Validation" },
+  { id: "reflection", label: "Reflection" },
+];
 
 const FlowTutorCaseStudy = () => {
-                    return (
-    <div className="min-h-screen bg-[#050505] text-white selection:bg-purple-500/30 font-sans">
-      <Navigation tone="dark" />
-
-      {/* 1. HERO */}
-      <section className="relative min-h-screen flex flex-col pt-32 pb-20">
-        <div className="container max-w-7xl mx-auto px-6">
+  return (
+    <CaseStudyLayout tableOfContents={flowTutorToc} theme="dark">
+      <div className="text-white selection:bg-purple-500/30 font-sans">
+        {/* 1. HERO */}
+        <section id="hero" className="relative flex flex-col pb-20 scroll-mt-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -818,8 +826,7 @@ const FlowTutorCaseStudy = () => {
             className="mb-12"
           >
             {/* Top Navigation Row */}
-            <div className="flex justify-between items-center mb-16 text-sm tracking-widest text-neutral-500 font-mono uppercase">
-               <Link to="/" className="hover:text-white transition-colors">← Back</Link>
+            <div className="flex justify-end items-center mb-16 text-sm tracking-widest text-neutral-500 font-mono uppercase">
                <span>FlowTutor • Concept 2025</span>
             </div>
 
@@ -857,11 +864,10 @@ const FlowTutorCaseStudy = () => {
               </div>
             </div>
           </motion.div>
-        </div>
-      </section>
+        </section>
 
-      {/* 2. PROJECT OVERVIEW */}
-      <section className="py-16 md:py-24 container max-w-7xl mx-auto px-6">
+        {/* 2. PROJECT OVERVIEW */}
+        <section id="overview" className="py-16 md:py-24 scroll-mt-24">
         <div className="space-y-16">
           {/* Section 1: The Challenge */}
           <motion.div
@@ -925,8 +931,8 @@ const FlowTutorCaseStudy = () => {
         </div>
       </section>
 
-      {/* 3. THE RESEARCH */}
-      <section className="py-24 md:py-32 container max-w-7xl mx-auto px-6 border-t border-white/10">
+        {/* 3. THE RESEARCH */}
+        <section id="research" className="py-24 md:py-32 border-t border-white/10 scroll-mt-24">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -1061,9 +1067,9 @@ const FlowTutorCaseStudy = () => {
           </div>
       </section>
 
-      {/* 3. PAPER TO PIXEL */}
-      <section className="pt-32 pb-32 bg-[#0A0A0A] border-y border-white/5">
-        <div className="container max-w-7xl mx-auto px-6">
+        {/* 3. PAPER TO PIXEL */}
+        <section id="prototyping" className="pt-32 pb-32 bg-[#0A0A0A] border-y border-white/5 scroll-mt-24 -mx-6 px-6">
+          <div className="max-w-4xl mx-auto">
           {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1124,8 +1130,8 @@ const FlowTutorCaseStudy = () => {
         </div>
       </section>
 
-      {/* 4. THE LAB PIVOT (Validating & Refining) */}
-      <section className="py-32 container max-w-7xl mx-auto px-6">
+        {/* 4. THE LAB PIVOT (Validating & Refining) */}
+        <section id="lab-pivot" className="py-32 scroll-mt-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -1185,11 +1191,13 @@ const FlowTutorCaseStudy = () => {
         </div>
       </section>
 
-      {/* 6. THE SOLUTION (Product Anatomy Diagram) */}
-      <ProductAnatomySection />
+        {/* 6. THE SOLUTION (Product Anatomy Diagram) */}
+        <div id="solution" className="scroll-mt-24">
+          <ProductAnatomySection />
+        </div>
 
-      {/* 7. THE VALIDATION (Iteration 3: Web Experiment) */}
-      <section className="py-32 container max-w-7xl mx-auto px-6">
+        {/* 7. THE VALIDATION (Iteration 3: Web Experiment) */}
+        <section id="validation" className="py-32 scroll-mt-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -1237,9 +1245,9 @@ const FlowTutorCaseStudy = () => {
         </div>
       </section>
 
-      {/* 8. REFLECTION */}
-      <section className="py-32 bg-[#0A0A0A] border-y border-white/5">
-        <div className="container max-w-7xl mx-auto px-6">
+        {/* 8. REFLECTION */}
+        <section id="reflection" className="py-32 bg-[#0A0A0A] border-y border-white/5 scroll-mt-24 -mx-6 px-6">
+          <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1258,8 +1266,9 @@ const FlowTutorCaseStudy = () => {
         </div>
       </section>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </CaseStudyLayout>
   );
 };
 
