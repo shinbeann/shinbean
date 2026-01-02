@@ -120,7 +120,7 @@ const Footer = () => {
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
               Contact
             </p>
-            <h2 className="font-semibold leading-none tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
+            <h2 className="font-semibold leading-none tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-8xl">
               Let&apos;s Build Something.
             </h2>
             <p className="max-w-md text-sm md:text-base text-foreground/80 leading-relaxed">

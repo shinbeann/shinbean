@@ -330,7 +330,7 @@ const ResultsVisualizationCard = () => {
         {/* Left Side - The Narrative (4 cols) */}
         <div className="md:col-span-4 space-y-6">
           <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
-            EXPERIMENT OUTCOME
+            Impact
           </p>
           <div className="space-y-2">
             <div className="text-7xl font-bold text-white tracking-tighter leading-none">
@@ -341,7 +341,7 @@ const ResultsVisualizationCard = () => {
             </p>
           </div>
           <div className="text-purple-400 font-semibold uppercase tracking-wider text-xs">
-            Statistically Significant (p &lt; 0.05)
+            Statistically Significant(p &lt; 0.05)
           </div>
         </div>
 
@@ -727,7 +727,7 @@ const ProductAnatomySection = () => {
           className="mb-16"
         >
           <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 mb-4">
-            THE SOLUTION
+            SOLUTION
           </p>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">The Unified Workspace.</h2>
         </motion.div>
@@ -803,13 +803,11 @@ const ProductAnatomySection = () => {
 
 // Table of Contents for the layout
 const flowTutorToc = [
-  { id: "hero", label: "Hero" },
   { id: "overview", label: "Overview" },
   { id: "research", label: "Research" },
   { id: "prototyping", label: "Prototyping" },
-  { id: "lab-pivot", label: "Lab Pivot" },
   { id: "solution", label: "Solution" },
-  { id: "validation", label: "Validation" },
+  { id: "validation", label: "Impact" },
   { id: "reflection", label: "Reflection" },
 ];
 
@@ -942,7 +940,7 @@ const FlowTutorCaseStudy = () => {
           className="mb-12 md:mb-16"
         >
           <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 mb-4">
-            THE RESEARCH
+            RESEARCH
           </p>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-4">
             Uncovering the friction through observation.
