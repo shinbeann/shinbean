@@ -112,77 +112,80 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative w-full border-t border-white/10 py-12 mt-20">
+    <footer id="contact" className="relative w-full border-t border-white/10 py-12 mt-20">
       <div className="max-w-[1600px] mx-auto px-6">
-        {/* Contact label spanning all 3 columns */}
-        <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-12">
+        {/* Contact label - centered */}
+        <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-12 text-center">
           Contact
         </p>
         
-        {/* 3-column grid for footer content */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-          {/* Column 1: Let's Chat header and CTA text */}
-          <div className="space-y-6 md:space-y-8">
+        {/* Centered single column layout */}
+        <div className="max-w-2xl mx-auto space-y-12">
+          {/* Heading and CTA text */}
+          <div className="space-y-6 md:space-y-8 text-center">
             <h2 className="font-semibold leading-none tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-8xl">
               Let&apos;s Build Something.
             </h2>
-            <p className="max-w-md text-sm md:text-base text-foreground/80 leading-relaxed">
+            <p className="text-sm md:text-base text-foreground/80 leading-relaxed mx-auto">
               Currently looking for internship or full-time roles where I can contribute to user-centric products. If you are looking for a designer who speaks the language of engineers and advocates for the needs of users, I'd love to chat.
             </p>
           </div>
 
-          {/* Column 2: Email addresses */}
-          <div className="relative">
+          {/* Email addresses and social links */}
+          <div className="space-y-8">
+            {/* Email Section */}
             <div className="relative">
-              {showConfetti && <ConfettiBurst />}
+              <div className="relative">
+                {showConfetti && <ConfettiBurst />}
 
-              <button
-                type="button"
-                onClick={handleCopyEmail}
-                className="group relative w-full overflow-hidden rounded-3xl border border-border/70 bg-background/90 px-6 py-5 text-left shadow-xl backdrop-blur-md transition-colors hover:border-primary/70 hover:bg-background"
-              >
-                <div className="space-y-2">
-                  <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
-                    Primary email
-                  </p>
-                  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-2">
-                    <span className="font-mono text-2xl md:text-3xl tracking-tight">
-                      gayshinlee@gmail.com
-                    </span>
-                    <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary backdrop-blur-sm border border-primary/20">
-                      {copied ? "Copied!" : "Click to copy"}
-                    </span>
+                <button
+                  type="button"
+                  onClick={handleCopyEmail}
+                  className="group relative w-full overflow-hidden rounded-3xl border border-border/70 bg-background/90 px-6 py-5 text-center shadow-xl backdrop-blur-md transition-colors hover:border-primary/70 hover:bg-background"
+                >
+                  <div className="space-y-2">
+                    <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
+                      Primary email
+                    </p>
+                    <div className="flex flex-wrap items-baseline justify-center gap-x-3 gap-y-2">
+                      <span className="text-2xl md:text-3xl font-medium tracking-normal text-foreground">
+                        gayshinlee@gmail.com
+                      </span>
+                      <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary backdrop-blur-sm border border-primary/20">
+                        {copied ? "Copied!" : "Click to copy"}
+                      </span>
+                    </div>
                   </div>
-                </div>
-              </button>
+                </button>
+              </div>
             </div>
-          </div>
 
-          {/* Column 3: Social media links */}
-          <div className="space-y-3">
-            <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Elsewhere</p>
-            <div className="flex flex-wrap gap-4">
-              <MagneticLink
-                href="https://www.linkedin.com/in/shin-lee-gay/"
-                label="LinkedIn"
-                ariaLabel="Open LinkedIn profile"
-              >
-                <Linkedin className="h-4 w-4" />
-              </MagneticLink>
-              <MagneticLink
-                href="https://github.com/"
-                label="GitHub"
-                ariaLabel="Open GitHub profile"
-              >
-                <Github className="h-4 w-4" />
-              </MagneticLink>
-              <MagneticLink
-                href="https://read.cv/"
-                label="Resume"
-                ariaLabel="Open Read.cv profile"
-              >
-                <BookOpen className="h-4 w-4" />
-              </MagneticLink>
+            {/* Social Links Section */}
+            <div className="space-y-3 text-center">
+              <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Elsewhere</p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <MagneticLink
+                  href="https://www.linkedin.com/in/shin-lee-gay/"
+                  label="LinkedIn"
+                  ariaLabel="Open LinkedIn profile"
+                >
+                  <Linkedin className="h-4 w-4" />
+                </MagneticLink>
+                <MagneticLink
+                  href="https://github.com/"
+                  label="GitHub"
+                  ariaLabel="Open GitHub profile"
+                >
+                  <Github className="h-4 w-4" />
+                </MagneticLink>
+                <MagneticLink
+                  href="https://read.cv/"
+                  label="Resume"
+                  ariaLabel="Open Read.cv profile"
+                >
+                  <BookOpen className="h-4 w-4" />
+                </MagneticLink>
+              </div>
             </div>
           </div>
         </div>

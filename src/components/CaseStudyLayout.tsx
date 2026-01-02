@@ -115,8 +115,8 @@ const CaseStudyLayout = ({
         </nav>
 
         {/* Center Column - Main Case Study Content */}
-        <main className="pt-24 pb-48 min-w-0">
-          <div className="max-w-4xl mx-auto">{children}</div>
+        <main className="pt-20 md:pt-24 pb-48 min-w-0">
+          <div className="max-w-4xl mx-auto px-4 md:px-0">{children}</div>
         </main>
 
         {/* Right Column - Global Site Navigation */}
@@ -153,6 +153,22 @@ const CaseStudyLayout = ({
             >
               About
             </Link>
+            <button
+              onClick={() => {
+                const footer = document.getElementById('contact');
+                if (footer) {
+                  footer.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className={cn(
+                "block text-sm font-semibold uppercase tracking-widest transition-colors w-full text-right",
+                isDark 
+                  ? "text-neutral-500 hover:text-white" 
+                  : "text-neutral-500 hover:text-foreground"
+              )}
+            >
+              Contact
+            </button>
           </div>
         </nav>
       </div>
@@ -161,7 +177,7 @@ const CaseStudyLayout = ({
 
       {/* Mobile: Simplified Header Row */}
       <div className={cn(
-        "md:hidden fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b",
+        "md:hidden fixed top-0 left-0 right-0 z-40 backdrop-blur-xl border-b",
         isDark 
           ? "bg-[#050505]/95 border-white/10" 
           : "bg-background/95 border-border"
@@ -204,6 +220,22 @@ const CaseStudyLayout = ({
             >
               About
             </Link>
+            <button
+              onClick={() => {
+                const footer = document.getElementById('contact');
+                if (footer) {
+                  footer.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className={cn(
+                "text-xs font-semibold uppercase tracking-widest transition-colors",
+                isDark 
+                  ? "text-neutral-500 hover:text-white" 
+                  : "text-neutral-500 hover:text-foreground"
+              )}
+            >
+              Contact
+            </button>
           </div>
         </div>
       </div>

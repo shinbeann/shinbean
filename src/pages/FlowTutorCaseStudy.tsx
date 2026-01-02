@@ -816,7 +816,7 @@ const FlowTutorCaseStudy = () => {
     <CaseStudyLayout tableOfContents={flowTutorToc} theme="dark">
       <div className="text-white selection:bg-purple-500/30 font-sans">
         {/* 1. HERO */}
-        <section id="hero" className="relative flex flex-col pb-20 scroll-mt-24">
+        <section id="hero" className="relative flex flex-col pt-4 md:pt-0 pb-20 scroll-mt-20 md:scroll-mt-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -865,7 +865,7 @@ const FlowTutorCaseStudy = () => {
         </section>
 
         {/* 2. PROJECT OVERVIEW */}
-        <section id="overview" className="py-16 md:py-24 scroll-mt-24">
+        <section id="overview" className="py-16 md:py-24 scroll-mt-20 md:scroll-mt-24">
         <div className="space-y-16">
           {/* Section 1: The Challenge */}
           <motion.div
@@ -930,7 +930,7 @@ const FlowTutorCaseStudy = () => {
       </section>
 
         {/* 3. THE RESEARCH */}
-        <section id="research" className="py-24 md:py-32 border-t border-white/10 scroll-mt-24">
+        <section id="research" className="py-24 md:py-32 border-t border-white/10 scroll-mt-20 md:scroll-mt-24">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -1066,7 +1066,7 @@ const FlowTutorCaseStudy = () => {
       </section>
 
         {/* 3. PAPER TO PIXEL */}
-        <section id="prototyping" className="pt-32 pb-32 bg-[#0A0A0A] border-y border-white/5 scroll-mt-24 -mx-6 px-6">
+        <section id="prototyping" className="pt-32 pb-32 bg-[#0A0A0A] border-y border-white/5 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
           {/* Section Header */}
           <motion.div
@@ -1129,7 +1129,7 @@ const FlowTutorCaseStudy = () => {
       </section>
 
         {/* 4. THE LAB PIVOT (Validating & Refining) */}
-        <section id="lab-pivot" className="py-32 scroll-mt-24">
+        <section id="lab-pivot" className="py-32 scroll-mt-20 md:scroll-mt-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -1190,12 +1190,12 @@ const FlowTutorCaseStudy = () => {
       </section>
 
         {/* 6. THE SOLUTION (Product Anatomy Diagram) */}
-        <div id="solution" className="scroll-mt-24">
+        <div id="solution" className="scroll-mt-20 md:scroll-mt-24">
           <ProductAnatomySection />
         </div>
 
         {/* 7. THE VALIDATION (Iteration 3: Web Experiment) */}
-        <section id="validation" className="py-32 scroll-mt-24">
+        <section id="validation" className="py-32 scroll-mt-20 md:scroll-mt-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -1244,7 +1244,7 @@ const FlowTutorCaseStudy = () => {
       </section>
 
         {/* 8. REFLECTION */}
-        <section id="reflection" className="py-32 bg-[#0A0A0A] border-y border-white/5 scroll-mt-24 -mx-6 px-6">
+        <section id="reflection" className="py-32 bg-[#0A0A0A] border-y border-white/5 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
