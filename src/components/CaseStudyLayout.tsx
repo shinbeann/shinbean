@@ -14,6 +14,8 @@ interface CaseStudyLayoutProps {
   theme?: "light" | "dark";
 }
 
+import Footer from "@/components/Footer";
+
 const CaseStudyLayout = ({
   children,
   tableOfContents,
@@ -154,6 +156,8 @@ const CaseStudyLayout = ({
           </div>
         </nav>
       </div>
+
+      <Footer />
 
       {/* Mobile: Simplified Header Row */}
       <div className={cn(

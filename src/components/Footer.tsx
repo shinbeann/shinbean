@@ -112,24 +112,27 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative px-4 pt-20 pb-12 md:pb-16 min-h-[75vh] md:min-h-[80vh] flex items-center">
-      <div className="container mx-auto max-w-6xl">
-        <div className="grid gap-12 md:grid-cols-[minmax(0,2fr)_minmax(0,1.4fr)] items-center">
-          {/* Big statement */}
+    <footer className="relative w-full border-t border-white/10 py-12 mt-20">
+      <div className="max-w-[1600px] mx-auto px-6">
+        {/* Contact label spanning all 3 columns */}
+        <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-12">
+          Contact
+        </p>
+        
+        {/* 3-column grid for footer content */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          {/* Column 1: Let's Chat header and CTA text */}
           <div className="space-y-6 md:space-y-8">
-            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-              Contact
-            </p>
             <h2 className="font-semibold leading-none tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-8xl">
               Let&apos;s Build Something.
             </h2>
             <p className="max-w-md text-sm md:text-base text-foreground/80 leading-relaxed">
-              Currently looking for internship or full-time roles where I can contribute to user-centric products. If you are looking for a designer who speaks the language of engineers and advocates for the needs of users, I’d love to chat.
+              Currently looking for internship or full-time roles where I can contribute to user-centric products. If you are looking for a designer who speaks the language of engineers and advocates for the needs of users, I'd love to chat.
             </p>
           </div>
 
-          {/* Email + socials */}
-          <div className="relative space-y-8">
+          {/* Column 2: Email addresses */}
+          <div className="relative">
             <div className="relative">
               {showConfetti && <ConfettiBurst />}
 
@@ -153,32 +156,33 @@ const Footer = () => {
                 </div>
               </button>
             </div>
+          </div>
 
-            <div className="space-y-3">
-              <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Elsewhere</p>
-              <div className="flex flex-wrap gap-4">
-                <MagneticLink
-                  href="https://www.linkedin.com/in/shin-lee-gay/"
-                  label="LinkedIn"
-                  ariaLabel="Open LinkedIn profile"
-                >
-                  <Linkedin className="h-4 w-4" />
-                </MagneticLink>
-                <MagneticLink
-                  href="https://github.com/"
-                  label="GitHub"
-                  ariaLabel="Open GitHub profile"
-                >
-                  <Github className="h-4 w-4" />
-                </MagneticLink>
-                <MagneticLink
-                  href="https://read.cv/"
-                  label="Resume"
-                  ariaLabel="Open Read.cv profile"
-                >
-                  <BookOpen className="h-4 w-4" />
-                </MagneticLink>
-              </div>
+          {/* Column 3: Social media links */}
+          <div className="space-y-3">
+            <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Elsewhere</p>
+            <div className="flex flex-wrap gap-4">
+              <MagneticLink
+                href="https://www.linkedin.com/in/shin-lee-gay/"
+                label="LinkedIn"
+                ariaLabel="Open LinkedIn profile"
+              >
+                <Linkedin className="h-4 w-4" />
+              </MagneticLink>
+              <MagneticLink
+                href="https://github.com/"
+                label="GitHub"
+                ariaLabel="Open GitHub profile"
+              >
+                <Github className="h-4 w-4" />
+              </MagneticLink>
+              <MagneticLink
+                href="https://read.cv/"
+                label="Resume"
+                ariaLabel="Open Read.cv profile"
+              >
+                <BookOpen className="h-4 w-4" />
+              </MagneticLink>
             </div>
           </div>
         </div>

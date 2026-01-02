@@ -1263,8 +1263,6 @@ const FlowTutorCaseStudy = () => {
           </motion.div>
         </div>
       </section>
-
-        <Footer />
       </div>
     </CaseStudyLayout>
   );
