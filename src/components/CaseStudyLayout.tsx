@@ -11,15 +11,19 @@ interface CaseStudyLayoutProps {
   children: React.ReactNode;
   tableOfContents: TableOfContentsItem[];
   backLink?: { to: string; label: string };
+  theme?: "light" | "dark";
 }
 
 const CaseStudyLayout = ({
   children,
   tableOfContents,
   backLink = { to: "/", label: "Back to Work" },
+  theme = "light",
 }: CaseStudyLayoutProps) => {
   const location = useLocation();
   const [activeSection, setActiveSection] = useState<string>("");
+
+  const isDark = theme === "dark";
 
   // Track active section on scroll
   useEffect(() => {
@@ -55,7 +59,7 @@ const CaseStudyLayout = ({
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className={cn("min-h-screen", isDark ? "bg-[#050505]" : "bg-background")}>
       {/* 3-Column Holy Grail Grid */}
       <div className="md:grid md:grid-cols-[240px_1fr_180px] gap-8 max-w-[1600px] mx-auto px-6">
         {/* Left Column - In-Page Navigation (Table of Contents) */}
@@ -68,14 +72,22 @@ const CaseStudyLayout = ({
             <Link
               to={backLink.to}
               onClick={() => window.scrollTo(0, 0)}
-              className="inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-foreground transition-colors font-medium"
+              className={cn(
+                "inline-flex items-center gap-2 text-sm transition-colors font-medium",
+                isDark 
+                  ? "text-neutral-500 hover:text-white" 
+                  : "text-neutral-500 hover:text-foreground"
+              )}
             >
               ← {backLink.label}
             </Link>
 
             {/* ToC Links */}
             <div className="space-y-1">
-              <p className="text-xs uppercase tracking-widest text-neutral-600 font-semibold mb-3">
+              <p className={cn(
+                "text-xs uppercase tracking-widest font-semibold mb-3",
+                isDark ? "text-neutral-600" : "text-neutral-600"
+              )}>
                 On this page
               </p>
               {tableOfContents.map((item) => (
@@ -85,8 +97,12 @@ const CaseStudyLayout = ({
                   className={cn(
                     "block w-full text-left text-sm transition-colors py-1.5 pl-3 border-l-2",
                     activeSection === item.id
-                      ? "text-foreground border-foreground font-medium"
-                      : "text-neutral-500 border-transparent hover:text-foreground hover:border-neutral-600"
+                      ? isDark 
+                        ? "text-white border-white font-medium"
+                        : "text-foreground border-foreground font-medium"
+                      : isDark
+                        ? "text-neutral-500 border-transparent hover:text-white hover:border-neutral-600"
+                        : "text-neutral-500 border-transparent hover:text-foreground hover:border-neutral-600"
                   )}
                 >
                   {item.label}
@@ -98,7 +114,7 @@ const CaseStudyLayout = ({
 
         {/* Center Column - Main Case Study Content */}
         <main className="pt-24 pb-48 min-w-0">
-          <div className="max-w-3xl mx-auto">{children}</div>
+          <div className="max-w-4xl mx-auto">{children}</div>
         </main>
 
         {/* Right Column - Global Site Navigation */}
@@ -113,8 +129,10 @@ const CaseStudyLayout = ({
               className={cn(
                 "block text-sm font-semibold uppercase tracking-widest transition-colors",
                 location.pathname === "/"
-                  ? "text-foreground"
-                  : "text-neutral-500 hover:text-foreground"
+                  ? isDark ? "text-white" : "text-foreground"
+                  : isDark 
+                    ? "text-neutral-500 hover:text-white" 
+                    : "text-neutral-500 hover:text-foreground"
               )}
             >
               Work
@@ -125,8 +143,10 @@ const CaseStudyLayout = ({
               className={cn(
                 "block text-sm font-semibold uppercase tracking-widest transition-colors",
                 location.pathname === "/about"
-                  ? "text-foreground"
-                  : "text-neutral-500 hover:text-foreground"
+                  ? isDark ? "text-white" : "text-foreground"
+                  : isDark 
+                    ? "text-neutral-500 hover:text-white" 
+                    : "text-neutral-500 hover:text-foreground"
               )}
             >
               About
@@ -136,12 +156,22 @@ const CaseStudyLayout = ({
       </div>
 
       {/* Mobile: Simplified Header Row */}
-      <div className="md:hidden fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border">
+      <div className={cn(
+        "md:hidden fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b",
+        isDark 
+          ? "bg-[#050505]/95 border-white/10" 
+          : "bg-background/95 border-border"
+      )}>
         <div className="flex items-center justify-between px-4 py-3">
           <Link
             to={backLink.to}
             onClick={() => window.scrollTo(0, 0)}
-            className="text-sm text-neutral-500 hover:text-foreground transition-colors"
+            className={cn(
+              "text-sm transition-colors",
+              isDark 
+                ? "text-neutral-500 hover:text-white" 
+                : "text-neutral-500 hover:text-foreground"
+            )}
           >
             ← {backLink.label}
           </Link>
@@ -149,14 +179,24 @@ const CaseStudyLayout = ({
             <Link
               to="/"
               onClick={() => window.scrollTo(0, 0)}
-              className="text-xs font-semibold uppercase tracking-widest text-neutral-500 hover:text-foreground transition-colors"
+              className={cn(
+                "text-xs font-semibold uppercase tracking-widest transition-colors",
+                isDark 
+                  ? "text-neutral-500 hover:text-white" 
+                  : "text-neutral-500 hover:text-foreground"
+              )}
             >
               Work
             </Link>
             <Link
               to="/about"
               onClick={() => window.scrollTo(0, 0)}
-              className="text-xs font-semibold uppercase tracking-widest text-neutral-500 hover:text-foreground transition-colors"
+              className={cn(
+                "text-xs font-semibold uppercase tracking-widest transition-colors",
+                isDark 
+                  ? "text-neutral-500 hover:text-white" 
+                  : "text-neutral-500 hover:text-foreground"
+              )}
             >
               About
             </Link>
