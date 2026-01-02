@@ -717,7 +717,12 @@ const AnimatedStatItem = ({
 // 7. Product Anatomy Section Component
 const ProductAnatomySection = () => {
   return (
-    <section className="py-32 bg-[#080808]">
+    <section className="relative py-32 overflow-hidden">
+      {/* Subtle gradient overlay */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: 'linear-gradient(to bottom, #050505 0%, #050505 10%, #0A0A0A 30%, #0A0A0A 70%, #050505 90%, #050505 100%)'
+      }} />
+      <div className="relative z-10">
       <div className="container max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -796,6 +801,7 @@ const ProductAnatomySection = () => {
             />
           </motion.div>
         </div>
+      </div>
       </div>
     </section>
   );
@@ -1066,7 +1072,12 @@ const FlowTutorCaseStudy = () => {
       </section>
 
         {/* 3. PAPER TO PIXEL */}
-        <section id="prototyping" className="pt-32 pb-32 bg-[#0A0A0A] border-y border-white/5 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6">
+        <section id="prototyping" className="relative pt-32 pb-32 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
+          {/* Subtle gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#050505] via-[#0A0A0A] via-[#0A0A0A] to-[#050505] pointer-events-none" style={{
+            background: 'linear-gradient(to bottom, #050505 0%, #050505 10%, #0A0A0A 30%, #0A0A0A 70%, #050505 90%, #050505 100%)'
+          }} />
+          <div className="relative z-10">
           <div className="max-w-4xl mx-auto">
           {/* Section Header */}
           <motion.div
@@ -1125,6 +1136,7 @@ const FlowTutorCaseStudy = () => {
               },
             ]}
           />
+          </div>
         </div>
       </section>
 
@@ -1244,7 +1256,12 @@ const FlowTutorCaseStudy = () => {
       </section>
 
         {/* 8. REFLECTION */}
-        <section id="reflection" className="py-32 bg-[#0A0A0A] border-y border-white/5 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6">
+        <section id="reflection" className="relative py-32 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
+          {/* Subtle gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#050505] via-[#0A0A0A] via-[#0A0A0A] to-[#050505] pointer-events-none" style={{
+            background: 'linear-gradient(to bottom, #050505 0%, #050505 10%, #0A0A0A 30%, #0A0A0A 70%, #050505 90%, #050505 100%)'
+          }} />
+          <div className="relative z-10">
           <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1261,6 +1278,7 @@ const FlowTutorCaseStudy = () => {
               In early iterations, it is easy to come up with a lot of ideas to refine a single 'perfect' prototype. But this often creates dangerous blind spots. Instead of over-analysing, it is better to release rough concepts early to let empirical user data drive decisions.
             </p>
           </motion.div>
+          </div>
         </div>
       </section>
       </div>
