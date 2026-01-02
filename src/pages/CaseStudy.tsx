@@ -1,12 +1,11 @@
 import { useParams } from "react-router-dom";
-import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import caseStudies from "@/case-studies";
+import CaseStudyLayout from "@/components/CaseStudyLayout";
 
 const CaseStudy = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -38,6 +37,16 @@ const CaseStudy = () => {
     );
   };
 
+  // Table of Contents items
+  const tableOfContents = [
+    { id: "overview", label: "Overview" },
+    { id: "problem", label: "Problem" },
+    { id: "process", label: "Process" },
+    ...(caseStudy?.results ? [{ id: "results", label: "Results & Impact" }] : []),
+    ...(caseStudy?.personalVoice ? [{ id: "reflection", label: "Final Thoughts" }] : []),
+    { id: "next-steps", label: "Next Steps" },
+  ];
+
   if (!caseStudy) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -54,21 +63,10 @@ const CaseStudy = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <ScrollProgressBar />
-      <Navigation />
       
-      <main className="flex-grow pt-24 pb-20">
-        {/* Back Button */}
-        <div className="container max-w-5xl mx-auto px-6 mb-8">
-          <Button variant="ghost" asChild className="text-foreground hover:text-foreground">
-            <Link to="/" onClick={() => window.scrollTo(0, 0)}>
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Work
-            </Link>
-          </Button>
-        </div>
-
+      <CaseStudyLayout tableOfContents={tableOfContents}>
         {/* Hero */}
-        <header className="container max-w-5xl mx-auto px-6 mb-16">
+        <header id="hero" className="mb-16">
           <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6 text-foreground font-sans">
             {caseStudy.title}
           </h1>
@@ -86,9 +84,9 @@ const CaseStudy = () => {
           />
         </header>
 
-        <article className="container max-w-4xl mx-auto px-6 space-y-16 prose prose-slate max-w-none prose-invert">
+        <article className="space-y-16 prose prose-slate max-w-none prose-invert">
           {/* Overview */}
-          <section className="not-prose bg-card p-8 rounded-lg border border-border">
+          <section id="overview" className="not-prose bg-card p-8 rounded-lg border border-border scroll-mt-24">
             <h2 className="text-3xl font-semibold mb-8 font-sans text-foreground" style={{letterSpacing: '-0.02em'}}>Overview</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 p-6 bg-accent/50 rounded-lg border border-border">
               <div>
@@ -127,7 +125,7 @@ const CaseStudy = () => {
           </section>
 
           {/* Problem */}
-          <section className="not-prose">
+          <section id="problem" className="not-prose scroll-mt-24">
             <h2 className="text-3xl font-semibold mb-8 font-sans text-foreground border-b border-border pb-4" style={{letterSpacing: '-0.02em'}}>Problem</h2>
             <p className="text-lg leading-relaxed font-serif text-foreground">{highlightTerms(caseStudy.problem.description, boldTerms)}</p>
             
@@ -148,7 +146,7 @@ const CaseStudy = () => {
           </section>
 
           {/* Process */}
-          <section className="not-prose">
+          <section id="process" className="not-prose scroll-mt-24">
             <h2 className="text-3xl font-semibold mb-12 font-sans text-foreground border-b border-border pb-4" style={{letterSpacing: '-0.02em'}}>Process</h2>
             <div className="space-y-20">
               {caseStudy.process.map((phase: any, index: number) => {
@@ -245,12 +243,9 @@ const CaseStudy = () => {
             </div>
           </section>
 
-          {/* Solution Highlights */}
-          {/* kept commented out by request */}
-
           {/* Results & Impact */}
           {caseStudy.results && (
-            <section className="not-prose">
+            <section id="results" className="not-prose scroll-mt-24">
               <h2 className="text-3xl font-semibold mb-8 font-sans text-foreground border-b border-border pb-4" style={{letterSpacing: '-0.02em'}}>Results & Impact</h2>
               
               {caseStudy.results.quantitative && caseStudy.results.quantitative.length > 0 && (
@@ -289,7 +284,7 @@ const CaseStudy = () => {
 
           {/* Final Thoughts */}
           {caseStudy.personalVoice && (
-            <section className="not-prose py-8">
+            <section id="reflection" className="not-prose py-8 scroll-mt-24">
               <h2 className="text-3xl font-semibold mb-6 font-sans text-foreground" style={{letterSpacing: '-0.02em'}}>Final Thoughts</h2>
               <blockquote className="border-l-4 border-primary pl-6 py-2">
                 <p className="text-lg leading-relaxed font-serif text-foreground italic whitespace-pre-line">
@@ -309,7 +304,7 @@ const CaseStudy = () => {
           )}
 
           {/* Next Steps */}
-          <section className="not-prose bg-card p-8 rounded-lg border border-border">
+          <section id="next-steps" className="not-prose bg-card p-8 rounded-lg border border-border scroll-mt-24">
             <h2 className="text-3xl font-semibold mb-6 font-sans text-foreground" style={{letterSpacing: '-0.02em'}}>Next Steps</h2>
             <ul className="space-y-4">
               {caseStudy.nextSteps.shipped.map((step: string, index: number) => (
@@ -323,7 +318,7 @@ const CaseStudy = () => {
         </article>
 
         {/* Project Navigation */}
-        <div className="container max-w-4xl mx-auto px-6 mt-20">
+        <div className="mt-20">
           <div className="flex items-center justify-between gap-4 pb-12">
             {(() => {
               const allSlugs = Object.keys(caseStudies);
@@ -371,13 +366,13 @@ const CaseStudy = () => {
         </div>
 
         {/* CTA */}
-        <div className="container max-w-4xl mx-auto px-6 mt-12 pt-12 border-t border-border text-center">
+        <div className="mt-12 pt-12 border-t border-border text-center">
           <h3 className="text-2xl font-semibold mb-6 text-foreground">Interested in working together?</h3>
           <Button size="lg" asChild className="rounded-full font-sans">
             <a href="mailto:hello@shinbean.studio">Email hello@shinbean.studio</a>
           </Button>
         </div>
-      </main>
+      </CaseStudyLayout>
 
       <Footer />
     </div>

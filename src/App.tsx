@@ -21,8 +21,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/case-study/flowtutor" element={<FlowTutorCaseStudy />} />
-          {/* Temporarily disabled */}
-          {/* <Route path="/case-study/:slug" element={<CaseStudy />} /> */}
+          <Route path="/case-study/:slug" element={<CaseStudy />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
