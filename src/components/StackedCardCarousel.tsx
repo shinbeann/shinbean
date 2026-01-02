@@ -82,7 +82,7 @@ const StackedCardCarousel: React.FC<StackedCardCarouselProps> = ({ cards }) => {
                 zIndex: zIndex,
                 pointerEvents: isActive ? 'auto' : 'none',
               }}
-              className="absolute top-0 left-0 right-0 w-full max-w-5xl mx-auto"
+              className="absolute top-0 left-0 right-0 w-full max-w-full md:max-w-5xl mx-auto px-4 md:px-0"
             >
               {/* Fixed height card with flex layout */}
               <div
@@ -125,7 +125,7 @@ const StackedCardCarousel: React.FC<StackedCardCarouselProps> = ({ cards }) => {
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <p className="text-sm text-neutral-400 leading-relaxed flex-shrink-0">
+                      <p className="text-sm text-neutral-400 leading-relaxed flex-shrink-0 break-words">
                         {card.beforeDescription}
                       </p>
                     </div>
@@ -140,7 +140,7 @@ const StackedCardCarousel: React.FC<StackedCardCarouselProps> = ({ cards }) => {
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <p className="text-sm text-neutral-400 leading-relaxed flex-shrink-0">
+                      <p className="text-sm text-neutral-400 leading-relaxed flex-shrink-0 break-words">
                         {card.afterDescription}
                       </p>
                     </div>

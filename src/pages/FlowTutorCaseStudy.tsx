@@ -27,10 +27,10 @@ const BentoCard = ({ title, body, evidence, delay, icon: Icon }: { title: string
     >
       <div className="space-y-4">
         <div className="flex items-start justify-between min-h-[3.5rem]">
-          <h3 className="text-xl font-bold text-white tracking-tight leading-tight max-w-[80%]">{title}</h3>
+          <h3 className="text-lg md:text-xl font-bold text-white tracking-tight leading-tight max-w-[85%] md:max-w-[80%] break-words">{title}</h3>
           {Icon && <Icon className="w-5 h-5 text-neutral-600 group-hover:text-purple-400 transition-colors mt-1" />}
         </div>
-        <p className="text-neutral-400 text-sm leading-relaxed">{body}</p>
+        <p className="text-neutral-400 text-sm leading-relaxed break-words">{body}</p>
       </div>
       <div className="mt-6 pt-6 border-t border-white/5">
         <p className="text-xs text-neutral-500 font-mono">"{evidence}"</p>
@@ -68,7 +68,7 @@ const HeuristicCard = ({
       className="relative p-8 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors overflow-hidden"
     >
       {/* Background Number */}
-      <div className="absolute top-0 right-0 text-[120px] font-bold text-white/5 leading-none select-none pointer-events-none">
+      <div className="absolute top-0 right-0 text-6xl md:text-[120px] font-bold text-white/5 leading-none select-none pointer-events-none">
         {number}
       </div>
       
@@ -87,7 +87,7 @@ const HeuristicCard = ({
         <h3 className="text-xl font-bold text-white tracking-tight">{issue}</h3>
         
         {/* Description */}
-        <p className="text-neutral-400 text-sm leading-relaxed">{description}</p>
+        <p className="text-neutral-400 text-sm leading-relaxed break-words">{description}</p>
       </div>
     </motion.div>
   );
@@ -226,7 +226,7 @@ const InsightCard = ({
         
         {/* Problem Section - Fixed height for alignment */}
         <div className="min-h-[4.5rem] mb-2">
-          <p className="text-neutral-400 text-sm leading-relaxed">{problem}</p>
+          <p className="text-neutral-400 text-sm leading-relaxed break-words">{problem}</p>
         </div>
         
         {/* Bridge Component */}
@@ -333,7 +333,7 @@ const ResultsVisualizationCard = () => {
             Impact
           </p>
           <div className="space-y-2">
-            <div className="text-7xl font-bold text-white tracking-tighter leading-none">
+            <div className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tighter leading-none">
               25%
             </div>
             <p className="text-lg text-neutral-400">
@@ -353,9 +353,9 @@ const ResultsVisualizationCard = () => {
           </h3>
 
           {/* Chart + Axis */}
-          <div className="relative pl-12">
+          <div className="relative pl-0 md:pl-12">
             {/* Y-axis Labels (does not affect layout) */}
-            <div className="absolute left-0 top-0 h-80 flex flex-col justify-between text-xs text-neutral-500 font-mono">
+            <div className="hidden md:flex absolute left-0 top-0 h-80 flex-col justify-between text-xs text-neutral-500 font-mono">
               <span>100%</span>
               <span>80%</span>
               <span>60%</span>
@@ -365,7 +365,7 @@ const ResultsVisualizationCard = () => {
             </div>
 
             {/* Y-axis Title */}
-            <div className="absolute -left-8 top-40 -translate-y-1/2 -rotate-90 text-xs text-neutral-400 font-medium whitespace-nowrap">
+            <div className="hidden md:block absolute -left-8 top-40 -translate-y-1/2 -rotate-90 text-xs text-neutral-400 font-medium whitespace-nowrap">
               Average Quiz Score (%)
             </div>
 
@@ -529,7 +529,7 @@ const ABConditionCard = ({
             </span>
           )}
         </div>
-        <p className="text-neutral-400 text-sm leading-relaxed">{description}</p>
+        <p className="text-neutral-400 text-sm leading-relaxed break-words">{description}</p>
         {/* Visual */}
         {image ? (
           <div className="mt-6 aspect-video bg-neutral-900/50 rounded-lg border border-white/5 overflow-hidden">
@@ -612,7 +612,7 @@ const ComparisonSlider = ({ beforeLabel, afterLabel, beforeImage, afterImage, ca
           className="absolute inset-0 bg-[#0A0A0A] border-r border-white/20 pointer-events-none"
           style={{ width: `${sliderValue}%` }}
         >
-          <div className="absolute inset-0 w-[100vw] max-w-none flex items-center justify-center">
+          <div className="absolute inset-0 w-full max-w-full flex items-center justify-center overflow-hidden">
              {/* Centering hack */}
              <div className="w-full h-full flex items-center justify-center transform translate-x-0">
                 {beforeImage}
@@ -709,7 +709,7 @@ const AnimatedStatItem = ({
         )}
       </div>
       <div className="text-purple-400 font-semibold uppercase tracking-wider text-xs">{label}</div>
-      <p className="text-neutral-500 text-sm max-w-[250px] leading-relaxed">{sublabel}</p>
+      <p className="text-neutral-500 text-sm max-w-full md:max-w-[250px] leading-relaxed break-words">{sublabel}</p>
     </div>
   );
 };
@@ -750,7 +750,7 @@ const ProductAnatomySection = () => {
                 <img
                 src="/flowtutor-lines.png"
                   alt="FlowTutor Unified Workspace"
-                  className="w-full h-auto"
+                  className="w-full h-auto max-w-full"
                 style={{ transform: 'scale(1.0)', transformOrigin: 'center' }}
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
@@ -765,7 +765,7 @@ const ProductAnatomySection = () => {
                 <img
                 src="/flowtutor-lines2.png"
                   alt="FlowTutor Unified Workspace Additional View"
-                  className="w-full h-auto"
+                  className="w-full h-auto max-w-full"
                 style={{ transform: 'scale(1.0)', transformOrigin: 'center' }}
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
@@ -797,7 +797,7 @@ const ProductAnatomySection = () => {
             <img
               src="/flowtutor-lines.png"
               alt="FlowTutor Unified Workspace"
-              className="w-full h-auto"
+              className="w-full h-auto max-w-full"
             />
           </motion.div>
         </div>
@@ -915,7 +915,7 @@ const FlowTutorCaseStudy = () => {
               {/* Stat 1 */}
               <div>
                 <div className="flex items-baseline gap-2 mb-2">
-                  <span className="text-5xl font-bold text-emerald-400">25%</span>
+                  <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-emerald-400">25%</span>
                   <span className="text-lg font-semibold text-white">Higher Retention</span>
                 </div>
                 <p className="text-sm text-neutral-400">vs. YouTube Baseline (p&lt;0.05)</p>
@@ -924,7 +924,7 @@ const FlowTutorCaseStudy = () => {
               {/* Stat 2 */}
               <div>
                 <div className="flex items-baseline gap-2 mb-2">
-                  <span className="text-5xl font-bold text-emerald-400">60%</span>
+                  <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-emerald-400">60%</span>
                   <span className="text-lg font-semibold text-white">Less Context Switching</span>
                 </div>
                 <p className="text-sm text-neutral-400">Hypothesis Validated</p>
