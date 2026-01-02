@@ -729,7 +729,7 @@ const ProductAnatomySection = () => {
           <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 mb-4">
             SOLUTION
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">The Unified Workspace.</h2>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">The Unified Workspace.</h2>
         </motion.div>
 
         {/* Desktop: Image with built-in annotations */}
@@ -829,7 +829,7 @@ const FlowTutorCaseStudy = () => {
             </div>
 
             {/* Title */}
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-16 text-white max-w-4xl">
+            <h1 className="text-4xl md:text-7xl font-bold tracking-tight mb-16 text-white max-w-4xl">
               The future of AI-powered learning assistance.
             </h1>
 
@@ -843,7 +843,7 @@ const FlowTutorCaseStudy = () => {
             </div>
 
             {/* Metadata Grid (Inline) */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/10 pt-8">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 border-t border-white/10 pt-8">
               <div className="space-y-2">
                 <h3 className="text-xs uppercase tracking-widest text-neutral-500 font-semibold">Role</h3>
                 <p className="text-sm font-medium text-white">Product Designer</p>
@@ -879,7 +879,7 @@ const FlowTutorCaseStudy = () => {
             <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 mb-4">
               OVERVIEW
             </p>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-4">
               Context Switching Kills Flow.
             </h2>
             <div className="space-y-4 text-neutral-400 leading-relaxed text-lg">
@@ -1079,7 +1079,7 @@ const FlowTutorCaseStudy = () => {
             <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 mb-6">
               PROTOTYPING AND TESTING
             </p>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">
               From paper to pixel.
             </h2>
             <p className="text-lg text-neutral-400 max-w-3xl leading-relaxed">
@@ -1137,7 +1137,7 @@ const FlowTutorCaseStudy = () => {
           transition={{ duration: 0.8 }}
           className="mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">The Lab Pivot.</h2>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">The Lab Pivot.</h2>
           <div className="space-y-4 text-neutral-400 leading-relaxed text-lg max-w-3xl">
             <p>
               With a functioning prototype, we moved from identifying usability issues to measuring impact.
@@ -1203,7 +1203,7 @@ const FlowTutorCaseStudy = () => {
           transition={{ duration: 0.8 }}
           className="mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">Measuring Efficacy.</h2>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">Measuring Efficacy.</h2>
           <p className="text-lg text-neutral-400 max-w-3xl leading-relaxed">
             Moving beyond usability, we rigorously tested our central claim: does an integrated interface lead to better learning outcomes?
           </p>
@@ -1256,7 +1256,7 @@ const FlowTutorCaseStudy = () => {
             <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 mb-4">
               REFLECTION
             </p>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">Fail Fast.</h2>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">Fail Fast.</h2>
             <p className="text-lg text-neutral-400 leading-relaxed">
               In early iterations, it is easy to come up with a lot of ideas to refine a single 'perfect' prototype. But this often creates dangerous blind spots. Instead of over-analysing, it is better to release rough concepts early to let empirical user data drive decisions.
             </p>

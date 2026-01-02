@@ -43,7 +43,7 @@ const StackedCardCarousel: React.FC<StackedCardCarouselProps> = ({ cards }) => {
   return (
     <div ref={containerRef} className="relative w-full">
       {/* Card Stack Container - centered horizontally */}
-      <div className="relative h-[500px] flex justify-center">
+      <div className="relative h-[600px] md:h-[500px] flex justify-center">
         {cards.map((card, index) => {
           // Calculate relative position from active card
           const relativePos = index - activeIndex;
@@ -87,7 +87,7 @@ const StackedCardCarousel: React.FC<StackedCardCarouselProps> = ({ cards }) => {
               {/* Fixed height card with flex layout */}
               <div
                 className={`
-                  h-[500px] flex flex-col
+                  h-[600px] md:h-[500px] flex flex-col
                   bg-[#0A0A0A] border rounded-2xl overflow-hidden
                   transition-all duration-500 ease-out
                   shadow-xl
