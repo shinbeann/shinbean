@@ -24,26 +24,26 @@ const Index = () => {
           <div className="northern-lights-glow" />
         </div>
         
-        <div className="container max-w-6xl mx-auto px-4 pt-24 pb-32 relative z-10">
+        <div className="container max-w-6xl mx-auto px-4 pt-24 pb-16 md:pb-32 relative z-10">
           <motion.div
-            className="min-h-[80vh] flex flex-col md:flex-row gap-10 md:gap-16 items-start"
+            className="min-h-[60vh] md:min-h-[80vh] flex flex-col gap-8 md:gap-16 md:flex-row items-start"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
-            {/* Sticky Heading */}
-            <div className="md:w-1/3 sticky top-28 self-start space-y-4">
+            {/* Heading - Not sticky on mobile */}
+            <div className="w-full md:w-1/3 md:sticky md:top-28 self-start space-y-4">
               <p className="text-xs uppercase tracking-[0.25em] text-blue-300/80">
                 <span className="font-bold">FlowTutor</span> — Web · AI / Edtech
               </p>
-              <h2 className="text-3xl md:text-4xl font-mono text-white">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono text-white">
                 Streamlined learning.
               </h2>
               <p className="text-sm md:text-base text-blue-100/70">
                 A concept for turning chaotic YouTube tutorials into interactive lessons, allowing learners to ask questions, generate quizzes, and instantly jump to relevant timestamps for more efficient self-directed learning
                 zone.
               </p>
-              <div className="mt-6">
+              <div className="mt-4 md:mt-6">
                 <Link 
                   to="/case-study/flowtutor" 
                   className="text-sm text-blue-300/80 hover:text-blue-200 transition-colors underline inline-flex items-center gap-1"
@@ -55,12 +55,12 @@ const Index = () => {
             </div>
 
             {/* Story & Media */}
-            <div className="md:w-2/3 space-y-10">
+            <div className="w-full md:w-2/3 space-y-10">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="rounded-3xl overflow-hidden"
+                className="rounded-2xl md:rounded-3xl overflow-hidden"
               >
                 <BentoGrid />
               </motion.div>
@@ -74,18 +74,18 @@ const Index = () => {
         {/* Yellow Spotlight Effect */}
         <div className="absolute inset-0 kidneyquest-spotlight pointer-events-none" />
         
-        <div className="container max-w-6xl mx-auto px-4 py-32 relative z-10">
+        <div className="container max-w-6xl mx-auto px-4 py-16 md:py-32 relative z-10">
           <motion.div
-            className="min-h-[80vh] flex flex-col md:flex-row gap-10 md:gap-16 items-start"
+            className="min-h-[60vh] md:min-h-[80vh] flex flex-col gap-8 md:gap-16 md:flex-row items-start"
             {...scrollReveal}
             transition={{ duration: 0.6 }}
           >
-            {/* Sticky Heading */}
-            <div className="md:w-1/3 sticky top-28 self-start space-y-4">
+            {/* Heading - Not sticky on mobile */}
+            <div className="w-full md:w-1/3 md:sticky md:top-28 self-start space-y-4">
               <p className="text-xs uppercase tracking-[0.25em] kidneyquest-text-muted">
                 <span className="font-bold">KidneyQuest</span> — AR / Healthcare
               </p>
-              <h2 className="text-3xl md:text-4xl font-mono kidneyquest-text-primary">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono kidneyquest-text-primary">
                 Gamifying health education.
               </h2>
               <p className="text-sm md:text-base kidneyquest-text-secondary">
@@ -95,11 +95,11 @@ const Index = () => {
             </div>
 
             {/* Story & Media */}
-            <div className="md:w-2/3 space-y-10">
+            <div className="w-full md:w-2/3 space-y-8 md:space-y-10">
               <motion.div
                 {...scrollReveal}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="rounded-3xl border border-yellow-500/30 bg-black/40 backdrop-blur-sm flex items-center justify-center px-4 py-8 md:px-8"
+                className="rounded-2xl md:rounded-3xl border border-yellow-500/30 bg-black/40 backdrop-blur-sm flex items-center justify-center px-3 py-6 sm:px-4 sm:py-8 md:px-8"
               >
                 <KidneyQuestInteractiveDemo />
               </motion.div>
@@ -107,7 +107,7 @@ const Index = () => {
               <motion.div
                 {...scrollReveal}
                 transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-                className="grid gap-6 md:grid-cols-3"
+                className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-3"
               >
                 <div className="space-y-2">
                   <h3 className="text-xs font-semibold uppercase tracking-[0.25em] kidneyquest-text-muted">
@@ -144,18 +144,18 @@ const Index = () => {
 
       {/* SECTION 3: HYBRIDRAG - Monochrome/Tech */}
       <section className="hybridrag-section relative">
-        <div className="container max-w-6xl mx-auto px-4 py-32 relative z-10">
+        <div className="container max-w-6xl mx-auto px-4 py-16 md:py-32 relative z-10">
           <motion.div
-            className="min-h-[80vh] flex flex-col md:flex-row gap-10 md:gap-16 items-start"
+            className="min-h-[60vh] md:min-h-[80vh] flex flex-col gap-8 md:gap-16 md:flex-row items-start"
             {...scrollReveal}
             transition={{ duration: 0.6 }}
           >
-            {/* Sticky Heading */}
-            <div className="md:w-1/3 sticky top-28 self-start space-y-4">
+            {/* Heading - Not sticky on mobile */}
+            <div className="w-full md:w-1/3 md:sticky md:top-28 self-start space-y-4">
               <p className="text-xs uppercase tracking-[0.25em] text-neutral-500">
                 <span className="font-bold">HybridRAG</span> — AI / Mobile
               </p>
-              <h2 className="text-3xl md:text-4xl font-mono text-neutral-200">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono text-neutral-200">
                 Intelligence in the dark.
               </h2>
               <p className="text-sm md:text-base text-neutral-400">
@@ -166,11 +166,11 @@ const Index = () => {
             </div>
 
             {/* Story & Media */}
-            <div className="md:w-2/3 space-y-10">
+            <div className="w-full md:w-2/3 space-y-8 md:space-y-10">
               <motion.div
                 {...scrollReveal}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="rounded-3xl border border-neutral-800 overflow-hidden"
+                className="rounded-2xl md:rounded-3xl border border-neutral-800 overflow-hidden"
               >
                 <img
                   src="/hybridrag-hero.png"
@@ -184,7 +184,7 @@ const Index = () => {
                 transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
                 className="space-y-6"
               >
-                <div className="grid gap-6 md:grid-cols-3">
+                <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-3">
                   <div className="space-y-2">
                     <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-600">
                       Conflict

@@ -94,10 +94,10 @@ const StatCard = ({ value, icon: Icon, label, gradientFrom, gradientTo, pillBg, 
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}
         whileHover={{ y: -5 }}
-        className="bg-white rounded-xl border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center p-2.5 h-full"
+        className="bg-white rounded-xl border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center p-2 sm:p-2.5 h-full min-h-[80px]"
       >
         <motion.div
-          className="text-2xl md:text-2xl font-bold mb-1.5"
+          className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-1.5"
           style={{
             background: `linear-gradient(to right, ${gradientFrom}, ${gradientTo})`,
             WebkitBackgroundClip: 'text',
@@ -109,7 +109,7 @@ const StatCard = ({ value, icon: Icon, label, gradientFrom, gradientTo, pillBg, 
         </motion.div>
         <motion.div
           whileHover={{ scale: 1.05 }}
-          className="rounded-full px-2 py-1 flex items-center gap-1 text-xs font-medium"
+          className="rounded-full px-1.5 sm:px-2 py-0.5 sm:py-1 flex items-center gap-0.5 sm:gap-1 text-[10px] sm:text-xs font-medium"
           style={
             pillBg === "bg-purple-100"
               ? { backgroundColor: "#f3e8ff", color: "#7c3aed" }
@@ -120,8 +120,8 @@ const StatCard = ({ value, icon: Icon, label, gradientFrom, gradientTo, pillBg, 
               : {}
           }
         >
-          <Icon className="h-3 w-3" />
-          <span>{label}</span>
+          <Icon className="h-2.5 w-2.5 sm:h-3 sm:w-3 flex-shrink-0" />
+          <span className="truncate">{label}</span>
         </motion.div>
       </motion.div>
   );
@@ -129,11 +129,11 @@ const StatCard = ({ value, icon: Icon, label, gradientFrom, gradientTo, pillBg, 
 
 const StatsRow = () => {
   return (
-    <div className="grid grid-cols-3 gap-2 h-full">
+    <div className="grid grid-cols-3 gap-1.5 sm:gap-2 h-full">
       <StatCard
         value="25.0%"
         icon={Zap}
-        label="Higher Retention"
+        label="Retention"
         gradientFrom="#c084fc"
         gradientTo="#3B82F6"
         pillBg="bg-purple-100"
@@ -153,7 +153,7 @@ const StatsRow = () => {
       <StatCard
         value="4.2"
         icon={Star}
-        label="User Rating"
+        label="Rating"
         gradientFrom="#F97316"
         gradientTo="#EF4444"
         pillBg="bg-orange-100"
@@ -471,24 +471,24 @@ const ActivityFeedCard = () => {
 // Card 5: Smart Notes (Square Card)
 const SmartNotesCard = () => {
   return (
-    <BentoCard delay={0.4} className="p-5 h-full flex flex-col cursor-pointer">
-      <div className="flex-1 flex flex-col space-y-4">
+    <BentoCard delay={0.4} className="p-3 sm:p-4 md:p-5 h-full flex flex-col cursor-pointer min-h-[140px]">
+      <div className="flex-1 flex flex-col space-y-2 sm:space-y-3 md:space-y-4">
         {/* Icon Container */}
         <div 
-          className="w-12 h-12 rounded-lg flex items-center justify-center"
+          className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center flex-shrink-0"
           style={{
             background: 'linear-gradient(to bottom right, #3b82f6, #c084fc)'
           }}
         >
-          <FileText className="w-6 h-6 text-white" />
+          <FileText className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
         </div>
         
         {/* Title */}
-        <h3 className="text-lg font-bold text-gray-900">Smart Notes</h3>
+        <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-900">Smart Notes</h3>
         
         {/* Body Text */}
-        <p className="text-sm text-gray-600 leading-relaxed">
-          Take organized notes with AI-suggested key points and timestamps.
+        <p className="text-xs sm:text-sm text-gray-600 leading-relaxed line-clamp-3">
+          Take organized notes with AI-suggested key points.
         </p>
       </div>
     </BentoCard>
@@ -498,19 +498,19 @@ const SmartNotesCard = () => {
 // Card 6: Quick Quiz (Square Card)
 const QuickQuizCard = () => {
   return (
-    <BentoCard delay={0.5} className="p-5 h-full flex flex-col cursor-pointer">
-      <div className="flex-1 flex flex-col space-y-4">
+    <BentoCard delay={0.5} className="p-3 sm:p-4 md:p-5 h-full flex flex-col cursor-pointer min-h-[140px]">
+      <div className="flex-1 flex flex-col space-y-2 sm:space-y-3 md:space-y-4">
         {/* Icon Container */}
-        <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-orange-500 to-pink-600 flex items-center justify-center">
-          <Lightbulb className="w-6 h-6 text-white" />
+        <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg bg-gradient-to-br from-orange-500 to-pink-600 flex items-center justify-center flex-shrink-0">
+          <Lightbulb className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
         </div>
         
         {/* Title */}
-        <h3 className="text-lg font-bold text-gray-900">Quick Quiz</h3>
+        <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-900">Quick Quiz</h3>
         
         {/* Body Text */}
-        <p className="text-sm text-gray-600 leading-relaxed">
-          Test your knowledge instantly with auto-generated questions from the video.
+        <p className="text-xs sm:text-sm text-gray-600 leading-relaxed line-clamp-3">
+          Test your knowledge with auto-generated questions.
         </p>
       </div>
     </BentoCard>
@@ -519,28 +519,24 @@ const QuickQuizCard = () => {
 
 export const BentoGrid = () => {
   return (
-    <div className="w-full bg-white p-5 md:p-7 rounded-2xl border-2 border-gray-200 shadow-2xl min-h-[490px]">
-      <div 
-        className="grid gap-3.5" 
-        style={{ 
-          gridAutoRows: 'minmax(120px, auto)',
-          gridTemplateColumns: 'repeat(1, minmax(0, 1fr))',
-        }}
-      >
-        <div style={{ gridColumn: '1 / -1' }}>
-          <HeroInputCard />
-        </div>
-        <div className="grid gap-5" style={{ gridColumn: '1 / -1', gridTemplateColumns: '2.6fr 1.4fr', gridTemplateRows: 'auto auto' }}>
-          <div style={{ gridColumn: '1', gridRow: '1' }}>
+    <div className="w-full bg-white p-4 sm:p-5 md:p-7 rounded-2xl border-2 border-gray-200 shadow-2xl">
+      <div className="flex flex-col gap-3.5">
+        {/* Hero Input - Always full width */}
+        <HeroInputCard />
+        
+        {/* Main content grid - stacks on mobile, side-by-side on larger screens */}
+        <div className="flex flex-col lg:grid lg:grid-cols-[2.6fr_1.4fr] gap-4 lg:gap-5">
+          {/* Left column: Stats + Feature cards */}
+          <div className="flex flex-col gap-4">
             <StatsRow />
-          </div>
-          <div style={{ gridColumn: '1', gridRow: '2' }}>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <SmartNotesCard />
               <QuickQuizCard />
             </div>
           </div>
-          <div style={{ gridColumn: '2', gridRow: '1 / 3' }}>
+          
+          {/* Right column: AI Transparency */}
+          <div className="min-h-[280px] lg:min-h-0">
             <AITransparencyCard />
           </div>
         </div>
