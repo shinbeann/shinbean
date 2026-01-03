@@ -92,14 +92,14 @@ const Navigation = ({ tone = "dark", enableSmartHide = true }: NavigationProps) 
             </NavLink>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - WCAG AA contrast compliant */}
           <button
             onClick={() => setIsMenuOpen((open) => !open)}
-            className="ml-auto inline-flex rounded-full p-2 transition-colors hover:bg-muted md:hidden"
-            aria-label="Toggle menu"
+            className="ml-auto inline-flex rounded-full bg-white/20 p-2 text-white transition-colors hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white/50 md:hidden"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
           >
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {isMenuOpen ? <X className="h-5 w-5" strokeWidth={2.5} /> : <Menu className="h-5 w-5" strokeWidth={2.5} />}
           </button>
         </div>
 
