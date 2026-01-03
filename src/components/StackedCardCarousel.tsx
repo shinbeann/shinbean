@@ -43,7 +43,7 @@ const StackedCardCarousel: React.FC<StackedCardCarouselProps> = ({ cards }) => {
   return (
     <div ref={containerRef} className="relative w-full">
       {/* Card Stack Container - centered horizontally */}
-      <div className="relative h-[600px] md:h-[500px] flex justify-center">
+      <div className="relative min-h-[520px] sm:min-h-[580px] md:min-h-[500px] flex justify-center">
         {cards.map((card, index) => {
           // Calculate relative position from active card
           const relativePos = index - activeIndex;
@@ -82,13 +82,13 @@ const StackedCardCarousel: React.FC<StackedCardCarouselProps> = ({ cards }) => {
                 zIndex: zIndex,
                 pointerEvents: isActive ? 'auto' : 'none',
               }}
-              className="absolute top-0 left-0 right-0 w-full max-w-full md:max-w-5xl mx-auto px-4 md:px-0"
+              className="absolute top-0 left-0 right-0 w-full max-w-full md:max-w-5xl mx-auto px-2 sm:px-4 md:px-0"
             >
-              {/* Fixed height card with flex layout */}
+              {/* Responsive height card with flex layout */}
               <div
                 className={`
-                  h-[600px] md:h-[500px] flex flex-col
-                  bg-[#0A0A0A] border rounded-2xl overflow-hidden
+                  min-h-[500px] sm:min-h-[560px] md:min-h-[480px] flex flex-col
+                  bg-[#0A0A0A] border rounded-xl sm:rounded-2xl overflow-hidden
                   transition-all duration-500 ease-out
                   shadow-xl
                   ${isActive 
@@ -98,49 +98,49 @@ const StackedCardCarousel: React.FC<StackedCardCarouselProps> = ({ cards }) => {
                 `}
               >
                 {/* Card Header - fixed height */}
-                <div className="flex-shrink-0 p-6 md:p-8 pb-4">
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-400 font-bold text-lg">
+                <div className="flex-shrink-0 p-4 sm:p-6 md:p-8 pb-3 sm:pb-4">
+                  <div className="flex flex-col gap-3 sm:gap-4 md:flex-row md:items-center md:justify-between">
+                    <div className="flex items-center gap-3 sm:gap-4">
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-400 font-bold text-base sm:text-lg flex-shrink-0">
                         {card.id}
                       </div>
-                      <h3 className="text-xl md:text-2xl font-bold text-white">{card.title}</h3>
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white">{card.title}</h3>
                     </div>
-                    <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs font-mono text-neutral-400 uppercase tracking-wider w-fit">
+                    <span className="px-2 sm:px-3 py-1 sm:py-1.5 bg-white/5 border border-white/10 rounded-full text-[10px] sm:text-xs font-mono text-neutral-400 uppercase tracking-wider w-fit">
                       {card.heuristic}
                     </span>
                   </div>
                 </div>
 
                 {/* Image Section with Captions */}
-                <div className="flex-grow px-6 md:px-8 pb-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex-grow px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 overflow-hidden">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 h-full">
                     {/* Before Column */}
-                    <div className="flex flex-col">
-                      <h4 className="text-sm font-medium text-orange-400 mb-2 flex-shrink-0">Before</h4>
-                      <div className="aspect-video bg-neutral-900/50 border border-orange-500/20 rounded-lg overflow-hidden mb-2">
+                    <div className="flex flex-col min-h-0">
+                      <h4 className="text-xs sm:text-sm font-medium text-orange-400 mb-2 flex-shrink-0">Before</h4>
+                      <div className="aspect-video bg-neutral-900/50 border border-orange-500/20 rounded-lg overflow-hidden mb-2 flex-shrink-0">
                         <img
                           src={card.beforeImage}
                           alt={card.beforeAlt}
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <p className="text-sm text-neutral-400 leading-relaxed flex-shrink-0 break-words">
+                      <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed line-clamp-3 sm:line-clamp-none">
                         {card.beforeDescription}
                       </p>
                     </div>
 
                     {/* After Column */}
-                    <div className="flex flex-col">
-                      <h4 className="text-sm font-medium text-emerald-400 mb-2 flex-shrink-0">After</h4>
-                      <div className="aspect-video bg-neutral-900/50 border border-emerald-500/20 rounded-lg overflow-hidden mb-2">
+                    <div className="flex flex-col min-h-0">
+                      <h4 className="text-xs sm:text-sm font-medium text-emerald-400 mb-2 flex-shrink-0">After</h4>
+                      <div className="aspect-video bg-neutral-900/50 border border-emerald-500/20 rounded-lg overflow-hidden mb-2 flex-shrink-0">
                         <img
                           src={card.afterImage}
                           alt={card.afterAlt}
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <p className="text-sm text-neutral-400 leading-relaxed flex-shrink-0 break-words">
+                      <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed line-clamp-3 sm:line-clamp-none">
                         {card.afterDescription}
                       </p>
                     </div>
@@ -153,13 +153,13 @@ const StackedCardCarousel: React.FC<StackedCardCarouselProps> = ({ cards }) => {
       </div>
 
       {/* Navigation Controls */}
-      <div className="flex items-center justify-center gap-6 mt-16">
+      <div className="flex items-center justify-center gap-4 sm:gap-6 mt-12 sm:mt-16">
         {/* Previous Button */}
         <button
           onClick={handlePrev}
           disabled={activeIndex === 0}
           className={`
-            w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-200
+            w-10 h-10 sm:w-12 sm:h-12 rounded-full border flex items-center justify-center transition-all duration-200
             ${activeIndex === 0
               ? "border-white/10 text-neutral-600 cursor-not-allowed"
               : "border-zinc-700 text-zinc-200 hover:border-purple-500/50 hover:text-purple-400"
@@ -167,20 +167,20 @@ const StackedCardCarousel: React.FC<StackedCardCarouselProps> = ({ cards }) => {
           `}
           aria-label="Previous card"
         >
-          <ChevronLeft className="w-5 h-5" />
+          <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
 
         {/* Pagination Dots */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2">
           {cards.map((_, index) => (
             <button
               key={index}
               onClick={() => setActiveIndex(index)}
               className={`
-                w-2.5 h-2.5 rounded-full transition-all duration-300
+                h-2 sm:h-2.5 rounded-full transition-all duration-300
                 ${index === activeIndex
-                  ? "bg-purple-500 w-8"
-                  : "bg-white/20 hover:bg-white/40"
+                  ? "bg-purple-500 w-6 sm:w-8"
+                  : "bg-white/20 hover:bg-white/40 w-2 sm:w-2.5"
                 }
               `}
               aria-label={`Go to card ${index + 1}`}
@@ -191,15 +191,15 @@ const StackedCardCarousel: React.FC<StackedCardCarouselProps> = ({ cards }) => {
         {/* Next Button */}
         <button
           onClick={handleNext}
-          className="w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-200 border-zinc-700 text-zinc-200 hover:border-purple-500/50 hover:text-purple-400"
+          className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border flex items-center justify-center transition-all duration-200 border-zinc-700 text-zinc-200 hover:border-purple-500/50 hover:text-purple-400"
           aria-label="Next card"
         >
-          <ChevronRight className="w-5 h-5" />
+          <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
       </div>
 
       {/* Card Counter */}
-      <p className="text-center text-sm text-neutral-500 mt-4 font-mono">
+      <p className="text-center text-xs sm:text-sm text-neutral-500 mt-3 sm:mt-4 font-mono">
         {activeIndex + 1} / {cards.length}
       </p>
     </div>
