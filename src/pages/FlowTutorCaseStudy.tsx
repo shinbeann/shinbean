@@ -810,7 +810,7 @@ const ProductAnatomySection = () => {
 // Table of Contents for the layout
 const flowTutorToc = [
   { id: "overview", label: "Overview" },
-  { id: "research", label: "Research" },
+  { id: "discovery", label: "Discovery" },
   { id: "prototyping", label: "Prototyping" },
   { id: "solution", label: "Solution" },
   { id: "validation", label: "Impact" },
@@ -935,8 +935,8 @@ const FlowTutorCaseStudy = () => {
         </div>
       </section>
 
-        {/* 3. THE RESEARCH */}
-        <section id="research" className="py-24 md:py-32 border-t border-white/10 scroll-mt-20 md:scroll-mt-24">
+        {/* 3. DISCOVERY */}
+        <section id="discovery" className="py-24 md:py-32 border-t border-white/10 scroll-mt-20 md:scroll-mt-24">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -946,13 +946,16 @@ const FlowTutorCaseStudy = () => {
           className="mb-12 md:mb-16"
         >
           <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 mb-4">
-            RESEARCH
+          DISCOVERY
           </p>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-4">
-            Uncovering the friction through observation.
+            Uncovering the friction.
           </h2>
           <p className="text-lg text-neutral-400 leading-relaxed max-w-3xl">
-            Observed 6 diverse users, from university freshmen to parents upskilling.
+            We conducted a mixed-methods study with 6 diverse users, from university freshmen to parents upskilling.
+          </p>
+          <p className="text-lg text-neutral-400 leading-relaxed max-w-3xl mt-4">
+            Goal: To find out how subjects engage with online video tutorials and identify usability pain points and behavioral patterns that disrupt their learning flow.
           </p>
         </motion.div>
 
