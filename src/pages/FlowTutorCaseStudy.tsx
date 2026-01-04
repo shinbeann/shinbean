@@ -213,24 +213,24 @@ const InsightCard = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}
-      className="p-8 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors flex flex-col h-full"
+      className="p-5 md:p-8 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors flex flex-col h-auto md:h-full"
     >
-      <div className="flex flex-col h-full">
+      <div className="flex flex-col h-auto md:h-full">
         {/* Header with Icon */}
-        <div className="flex items-center gap-4 mb-6">
-          <div className="w-12 h-12 rounded-lg bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
-            <Icon className="w-6 h-6 text-purple-400" />
+        <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
+          <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
+            <Icon className="w-5 h-5 md:w-6 md:h-6 text-purple-400" />
           </div>
-          <h3 className="text-xl font-bold text-white">{title}</h3>
+          <h3 className="text-lg md:text-xl font-bold text-white">{title}</h3>
         </div>
         
-        {/* Problem Section - Fixed height for alignment */}
-        <div className="min-h-[4.5rem] mb-2">
+        {/* Problem Section - Auto height on mobile, fixed on desktop */}
+        <div className="mb-2 md:min-h-[4.5rem]">
           <p className="text-neutral-400 text-sm leading-relaxed break-words">{problem}</p>
         </div>
         
         {/* Bridge Component */}
-        <div className="flex items-center justify-between gap-4 py-6 my-4">
+        <div className="flex items-center justify-between gap-4 py-4 md:py-6 my-2 md:my-4">
           {/* Left Line */}
           <div className="h-[1px] flex-1 bg-white/5"></div>
           
@@ -1179,7 +1179,7 @@ const FlowTutorCaseStudy = () => {
         </div>
 
         {/* Insights Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
           <InsightCard
             title="Layout Flexibility"
             problem="Fixed panels felt restrictive. Users struggled to focus on video or notes when they couldn't control the viewport size."
