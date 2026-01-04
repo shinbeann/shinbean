@@ -967,27 +967,27 @@ const FlowTutorCaseStudy = () => {
         </div>
 
         {/* Insights Grid - 2x2 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
           {/* Card 1: Poor Navigation */}
-                      <motion.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300"
+            className="bg-white/5 border border-white/10 rounded-2xl p-4 md:p-6 hover:bg-white/10 transition-all duration-300"
           >
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
-                <Search className="w-6 h-6 text-purple-400" />
+            <div className="flex items-start gap-3 md:gap-4">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
+                <Search className="w-5 h-5 md:w-6 md:h-6 text-purple-400" />
               </div>
-              <div className="flex-1 space-y-3">
-                <h3 className="text-xl font-bold text-white">Poor Navigation</h3>
-                <p className="text-neutral-400 leading-relaxed">
+              <div className="flex-1 min-w-0 space-y-2 md:space-y-3">
+                <h3 className="text-lg md:text-xl font-bold text-white">Poor Navigation</h3>
+                <p className="text-sm md:text-base text-neutral-400 leading-relaxed">
                   Users struggle to locate specific information without text search.
                 </p>
                 <div className="pt-2 border-t border-white/5">
-                  <p className="text-sm text-neutral-500 italic">
-                    "I wish there was a 'Ctrl+F' for videos."
+                  <p className="text-xs md:text-sm text-neutral-500 italic">
+                    "I wish there was a Ctrl+F for videos."
                   </p>
                 </div>
               </div>
@@ -995,24 +995,24 @@ const FlowTutorCaseStudy = () => {
           </motion.div>
 
           {/* Card 2: Fragmented Workflow */}
-                      <motion.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300"
+            className="bg-white/5 border border-white/10 rounded-2xl p-4 md:p-6 hover:bg-white/10 transition-all duration-300"
           >
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
-                <Layers className="w-6 h-6 text-purple-400" />
+            <div className="flex items-start gap-3 md:gap-4">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
+                <Layers className="w-5 h-5 md:w-6 md:h-6 text-purple-400" />
               </div>
-              <div className="flex-1 space-y-3">
-                <h3 className="text-xl font-bold text-white">Fragmented Workflow</h3>
-                <p className="text-neutral-400 leading-relaxed">
+              <div className="flex-1 min-w-0 space-y-2 md:space-y-3">
+                <h3 className="text-lg md:text-xl font-bold text-white">Fragmented Workflow</h3>
+                <p className="text-sm md:text-base text-neutral-400 leading-relaxed">
                   Juggling YouTube, ChatGPT, and notes breaks concentration.
                 </p>
                 <div className="pt-2 border-t border-white/5">
-                  <p className="text-sm text-neutral-500 italic">
+                  <p className="text-xs md:text-sm text-neutral-500 italic">
                     "Switching tabs constantly is annoying."
                   </p>
                 </div>
@@ -1021,24 +1021,24 @@ const FlowTutorCaseStudy = () => {
           </motion.div>
 
           {/* Card 3: Cognitive Overload */}
-                      <motion.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300"
+            className="bg-white/5 border border-white/10 rounded-2xl p-4 md:p-6 hover:bg-white/10 transition-all duration-300"
           >
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
-                <Brain className="w-6 h-6 text-purple-400" />
+            <div className="flex items-start gap-3 md:gap-4">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
+                <Brain className="w-5 h-5 md:w-6 md:h-6 text-purple-400" />
               </div>
-              <div className="flex-1 space-y-3">
-                <h3 className="text-xl font-bold text-white">Cognitive Overload</h3>
-                <p className="text-neutral-400 leading-relaxed">
+              <div className="flex-1 min-w-0 space-y-2 md:space-y-3">
+                <h3 className="text-lg md:text-xl font-bold text-white">Cognitive Overload</h3>
+                <p className="text-sm md:text-base text-neutral-400 leading-relaxed">
                   Distractions (ads, recommendations) divert attention from learning goals.
                 </p>
                 <div className="pt-2 border-t border-white/5">
-                  <p className="text-sm text-neutral-500 italic">
+                  <p className="text-xs md:text-sm text-neutral-500 italic">
                     "Sidetracked by the recommendation feed."
                   </p>
                 </div>
@@ -1052,26 +1052,26 @@ const FlowTutorCaseStudy = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300"
+            className="bg-white/5 border border-white/10 rounded-2xl p-4 md:p-6 hover:bg-white/10 transition-all duration-300"
           >
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
-                <Puzzle className="w-6 h-6 text-purple-400" />
+            <div className="flex items-start gap-3 md:gap-4">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
+                <Puzzle className="w-5 h-5 md:w-6 md:h-6 text-purple-400" />
               </div>
-              <div className="flex-1 space-y-3">
-                <h3 className="text-xl font-bold text-white">Missing Context</h3>
-                <p className="text-neutral-400 leading-relaxed">
+              <div className="flex-1 min-w-0 space-y-2 md:space-y-3">
+                <h3 className="text-lg md:text-xl font-bold text-white">Missing Context</h3>
+                <p className="text-sm md:text-base text-neutral-400 leading-relaxed">
                   Videos often assume prerequisite knowledge, leaving gaps.
                 </p>
                 <div className="pt-2 border-t border-white/5">
-                  <p className="text-sm text-neutral-500 italic">
+                  <p className="text-xs md:text-sm text-neutral-500 italic">
                     "They don't explain the first principles."
                   </p>
                 </div>
               </div>
-              </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
         {/* 3. PAPER TO PIXEL */}
