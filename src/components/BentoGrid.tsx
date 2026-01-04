@@ -109,7 +109,7 @@ const StatCard = ({ value, icon: Icon, label, gradientFrom, gradientTo, pillBg, 
         </motion.div>
         <motion.div
           whileHover={{ scale: 1.05 }}
-          className="rounded-full px-1.5 sm:px-2 py-0.5 sm:py-1 flex items-center gap-0.5 sm:gap-1 text-[10px] sm:text-xs font-medium max-w-full"
+          className="rounded-full px-1.5 sm:px-2 py-0.5 sm:py-1 flex items-center justify-center gap-0.5 sm:gap-1 text-[10px] sm:text-xs font-medium max-w-full w-full"
           style={
             pillBg === "bg-purple-100"
               ? { backgroundColor: "#f3e8ff", color: "#7c3aed" }
@@ -121,7 +121,7 @@ const StatCard = ({ value, icon: Icon, label, gradientFrom, gradientTo, pillBg, 
           }
         >
           <Icon className="h-2.5 w-2.5 sm:h-3 sm:w-3 flex-shrink-0" />
-          <span className="truncate max-w-[80px] sm:max-w-none">{label}</span>
+          <span className="text-center leading-tight">{label}</span>
         </motion.div>
       </motion.div>
   );
@@ -141,9 +141,9 @@ const StatsRow = () => {
         delay={0}
       />
       <StatCard
-        value="60%"
+        value="↓ 60%"
         icon={CheckCircle}
-        label="Less Switching"
+        label="Context Switching"
         gradientFrom="#3B82F6"
         gradientTo="#06B6D4"
         pillBg="bg-blue-100"
