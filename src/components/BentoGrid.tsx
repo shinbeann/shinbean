@@ -151,7 +151,7 @@ const StatsRow = () => {
         delay={0.1}
       />
       <StatCard
-        value="4.2"
+        value="4.2 / 5"
         icon={Star}
         label="Rating"
         gradientFrom="#F97316"
