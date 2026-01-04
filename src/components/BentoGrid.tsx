@@ -141,9 +141,9 @@ const StatsRow = () => {
         delay={0}
       />
       <StatCard
-        value="p<0.05"
+        value="60%"
         icon={CheckCircle}
-        label="Significance"
+        label="Less Context Switching"
         gradientFrom="#3B82F6"
         gradientTo="#06B6D4"
         pillBg="bg-blue-100"
