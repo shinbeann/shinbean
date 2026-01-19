@@ -888,11 +888,11 @@ const FlowTutorCaseStudy = () => {
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-4">
               Context Switching Kills Flow.
             </h2>
-            <div className="space-y-4 text-neutral-400 leading-relaxed text-lg">
+            <div className="space-y-4 text-neutral-400 text-lg md:text-xl max-w-prose" style={{ lineHeight: '1.7' }}>
               <p>
                 Video tutorials force students into a manual cycle of pausing, scrubbing, and switching tabs. This friction creates cognitive overload, causing users to lose focus and miss key concepts.
               </p>
-              <p className="text-lg font-semibold text-white">
+              <p className="text-lg md:text-xl font-semibold text-white">
                 The solution?
               </p>
               <p>
@@ -951,10 +951,10 @@ const FlowTutorCaseStudy = () => {
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-4">
             Uncovering the friction.
           </h2>
-          <p className="text-lg text-neutral-400 leading-relaxed max-w-3xl">
+          <p className="text-lg md:text-xl text-neutral-400 max-w-prose mt-4" style={{ lineHeight: '1.7' }}>
             We conducted a mixed-methods study with 6 diverse users, from university freshmen to parents upskilling.
           </p>
-          <p className="text-lg text-neutral-400 leading-relaxed max-w-3xl mt-4">
+          <p className="text-lg md:text-xl text-neutral-400 max-w-prose mt-4" style={{ lineHeight: '1.7' }}>
             Goal: To find out how subjects engage with online video tutorials and identify usability pain points and behavioral patterns that disrupt their learning flow.
           </p>
         </motion.div>
@@ -1096,7 +1096,7 @@ const FlowTutorCaseStudy = () => {
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">
               From paper to pixel.
             </h2>
-            <p className="text-lg text-neutral-400 max-w-3xl leading-relaxed">
+            <p className="text-lg md:text-xl text-neutral-400 max-w-prose" style={{ lineHeight: '1.7' }}>
               We conducted a heuristic evaluation with 5 evaluators who interacted with our paper prototype. They identified several usability issues, ranked by severity.
             </p>
           </motion.div>
@@ -1153,12 +1153,12 @@ const FlowTutorCaseStudy = () => {
           className="mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">The Lab Pivot.</h2>
-          <div className="space-y-4 text-neutral-400 leading-relaxed text-lg max-w-3xl">
+          <div className="space-y-4 text-neutral-400 text-lg md:text-xl max-w-prose" style={{ lineHeight: '1.7' }}>
             <p>
               With a functioning prototype, we moved from identifying usability issues to measuring impact.
             </p>
             <div className="border-l-2 border-purple-500/30 pl-6">
-              <p className="text-lg font-semibold text-white mb-4">
+              <p className="text-lg md:text-xl font-semibold text-white mb-4">
                 Three Core Hypotheses:
               </p>
               <ul className="space-y-1 list-none">
@@ -1219,7 +1219,7 @@ const FlowTutorCaseStudy = () => {
           className="mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">Measuring Efficacy.</h2>
-          <p className="text-lg text-neutral-400 max-w-3xl leading-relaxed">
+          <p className="text-lg md:text-xl text-neutral-400 max-w-prose" style={{ lineHeight: '1.7' }}>
             Moving beyond usability, we rigorously tested our central claim: does an integrated interface lead to better learning outcomes?
           </p>
         </motion.div>
@@ -1277,7 +1277,7 @@ const FlowTutorCaseStudy = () => {
               REFLECTION
             </p>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">Fail Fast.</h2>
-            <p className="text-lg text-neutral-400 leading-relaxed">
+            <p className="text-lg md:text-xl text-neutral-400 max-w-prose" style={{ lineHeight: '1.7' }}>
               In early iterations, it is easy to come up with a lot of ideas to refine a single 'perfect' prototype. But this often creates dangerous blind spots. Instead of over-analysing, it is better to release rough concepts early to let empirical user data drive decisions.
             </p>
           </motion.div>
