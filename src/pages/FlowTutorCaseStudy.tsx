@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import Footer from "@/components/Footer";
 import StackedCardCarousel from "@/components/StackedCardCarousel";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
-import { ArrowLeft, ArrowRight, Code, Brain, Layout, Sliders, ChevronRight, ChevronDown, ArrowDown, Search, Zap, Layers, AlertCircle, Eye, AlertTriangle, BookOpen, MessageSquare, FileText, CheckCircle, GripVertical, Sparkles, Maximize, Puzzle } from "lucide-react";
+import { ArrowLeft, ArrowRight, Code, Brain, Layout, Sliders, ChevronRight, ChevronDown, ArrowDown, Search, Zap, Layers, AlertCircle, Eye, AlertTriangle, BookOpen, MessageSquare, FileText, CheckCircle, GripVertical, Sparkles, Maximize, Puzzle, XCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import onboardingBefore from "@/assets/flowtutor-onboarding-before.png";
@@ -807,6 +807,86 @@ const ProductAnatomySection = () => {
   );
 };
 
+// Competitor Analysis Component
+const CompetitorAnalysis = () => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="space-y-6 max-w-4xl mx-auto"
+    >
+      {/* Image & Caption Block */}
+      <div className="w-full flex flex-col items-center">
+        <div className="w-full aspect-[2/1] overflow-hidden rounded-lg">
+          <img
+            src="/placeholder.svg"
+            alt="Pearson+ AI Tutor Screenshot"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <p className="text-sm text-gray-500 text-center mt-3 mb-6">
+          Pearson+ AI Tutor
+        </p>
+      </div>
+
+      {/* Pros & Cons Grid */}
+      <div className="w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Pros Column */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-white mb-4">Pros</h3>
+            <ul className="space-y-4 list-none">
+              <li className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-purple-600 mt-2 flex-shrink-0" />
+                <div>
+                  <p className="text-sm font-medium text-white">
+                    Solves the "Split-Attention Effect"
+                  </p>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-purple-600 mt-2 flex-shrink-0" />
+                <div>
+                  <p className="text-sm text-neutral-400 leading-relaxed">
+                    <span className="font-medium text-white">Zero Hallucination Risk:</span> The AI is strictly grounded in "trusted Pearson-authored content" and won't give a wrong math formula because it's reading the actual textbook, not the open internet.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          {/* Cons Column */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-white mb-4">Cons</h3>
+            <ul className="space-y-4 list-none">
+              <li className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-purple-600 mt-2 flex-shrink-0" />
+                <p className="text-sm text-neutral-400 leading-relaxed">
+                  does not cater to other mediums
+                </p>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-purple-600 mt-2 flex-shrink-0" />
+                <p className="text-sm text-neutral-400 leading-relaxed">
+                  text heavy
+                </p>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-purple-600 mt-2 flex-shrink-0" />
+                <p className="text-sm text-neutral-400 leading-relaxed">
+                  high subscription cost
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 // Table of Contents for the layout
 const flowTutorToc = [
   { id: "overview", label: "Overview" },
@@ -886,11 +966,11 @@ const FlowTutorCaseStudy = () => {
               OVERVIEW
             </p>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-4">
-              Context Switching Kills Flow.
+              The Split-Attention Effect.
             </h2>
             <div className="space-y-4 text-neutral-400 text-lg md:text-xl max-w-prose" style={{ lineHeight: '1.7' }}>
               <p>
-                Video tutorials force students into a manual cycle of pausing, scrubbing, and switching tabs. This friction creates cognitive overload, causing users to lose focus and miss key concepts.
+                Video tutorials force students into a manual cycle of pausing, scrubbing, and switching tabs.This fragmentation triggers the Split-Attention Effect, causing users to lose focus and miss key concepts.
               </p>
               <p className="text-lg md:text-xl font-semibold text-white">
                 The solution?
@@ -1071,6 +1151,30 @@ const FlowTutorCaseStudy = () => {
               </div>
             </div>
           </motion.div>
+        </div>
+
+        {/* Market Opportunity Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mt-16 md:mt-20"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-4">
+            The Market Opportunity.
+          </h2>
+          <p className="text-lg md:text-xl text-neutral-400 max-w-prose mt-4" style={{ lineHeight: '1.7' }}>
+            The global e-learning market is forecast to reach almost USD 400 billion in 2026, up from USD 198 billion in 2019.
+          </p>
+          <p className="text-lg md:text-xl text-neutral-400 max-w-prose mt-4" style={{ lineHeight: '1.7' }}>
+            Despite this massive growth, there is still space for e-learning platforms to mature.
+          </p>
+        </motion.div>
+
+        {/* Competitor Analysis */}
+        <div className="mt-16 md:mt-20">
+          <CompetitorAnalysis />
         </div>
       </section>
 
