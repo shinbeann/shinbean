@@ -858,19 +858,13 @@ const CompetitorAnalysis = () => {
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-purple-600 mt-2 flex-shrink-0" />
                 <p className="text-sm text-neutral-400 leading-relaxed">
-                  does not cater to other mediums
+                  Does not cater to other mediums.
                 </p>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-purple-600 mt-2 flex-shrink-0" />
                 <p className="text-sm text-neutral-400 leading-relaxed">
-                  text heavy
-                </p>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-purple-600 mt-2 flex-shrink-0" />
-                <p className="text-sm text-neutral-400 leading-relaxed">
-                  high subscription cost
+                  Text heavy.
                 </p>
               </li>
             </ul>
@@ -883,10 +877,16 @@ const CompetitorAnalysis = () => {
 
 // Table of Contents for the layout
 const flowTutorToc = [
-  { id: "overview", label: "Overview" },
+  { 
+    id: "overview", 
+    label: "Overview",
+    children: [
+      { id: "solution", label: "Solution" },
+      { id: "contributions", label: "My Contributions" }
+    ]
+  },
   { id: "discovery", label: "Discovery" },
   { id: "prototyping", label: "Prototyping" },
-  { id: "solution", label: "Solution" },
   { id: "validation", label: "Impact" },
   { id: "reflection", label: "Reflection" },
 ];
@@ -964,13 +964,47 @@ const FlowTutorCaseStudy = () => {
             </h2>
             <div className="space-y-4 text-neutral-400 text-lg md:text-xl max-w-prose" style={{ lineHeight: '1.7' }}>
               <p>
-                Video tutorials force students into a manual cycle of pausing, scrubbing, and switching tabs.This fragmentation triggers the Split-Attention Effect, causing users to lose focus and miss key concepts.
+                Video tutorials force students into a manual cycle of pausing, scrubbing, and switching tabs. This fragmentation triggers the Split-Attention Effect, causing users to lose focus and miss key concepts.
               </p>
-              <p className="text-lg md:text-xl font-semibold text-white">
-                The solution?
+            </div>
+          </motion.div>
+
+          {/* Solution Subsection */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="max-w-4xl mt-12 md:mt-16"
+            id="solution"
+          >
+            <div className="space-y-4 text-neutral-400 text-lg md:text-xl max-w-prose" style={{ lineHeight: '1.7' }}>
+              <p>
+                The solution? A unified viewport which integrates the video player directly with a context-aware AI chatbot and a dedicated note-taking panel to eliminate the need to juggle external tabs. This seamless environment is supported by a flexible, draggable divider that allows learners to customize their screen real estate, while interactive features like clickable timestamps and instant quiz generation transform passive viewing into an active, uninterrupted learning flow.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* My Contributions Subsection */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="max-w-4xl mt-12 md:mt-16"
+            id="contributions"
+          >
+            <div className="mb-4">
+              <p className="text-lg font-semibold text-white">
+                My Contributions
+              </p>
+            </div>
+            <div className="space-y-4 text-neutral-400 text-lg md:text-xl max-w-prose" style={{ lineHeight: '1.7' }}>
+              <p>
+                I advocated for conducting user interviews, synthesis sessions and brainstorming sessions before arriving at solutions.
               </p>
               <p>
-                A unified viewport which integrates the video player directly with a context-aware AI chatbot and a dedicated note-taking panel to eliminate the need to juggle external tabs. This seamless environment is supported by a flexible, draggable divider that allows learners to customize their screen real estate, while interactive features like clickable timestamps and instant quiz generation transform passive viewing into an active, uninterrupted learning flow.
+                I refined the interview scripts and pushed to implement a Quizlet-style flashcard integration, to ensure FlowTutor supported active recall rather than just passive consumption.
               </p>
             </div>
           </motion.div>
@@ -981,9 +1015,10 @@ const FlowTutorCaseStudy = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-12 md:mt-16"
           >
             <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 mb-4">
-              THE IMPACT
+              IMPACT
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               {/* Stat 1 */}
@@ -1003,29 +1038,6 @@ const FlowTutorCaseStudy = () => {
                 </div>
                 <p className="text-sm text-neutral-400">Hypothesis Validated</p>
               </div>
-            </div>
-          </motion.div>
-
-          {/* My Contributions */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-12 md:mt-16"
-          >
-            <div className="mb-4">
-              <p className="text-lg font-semibold text-white">
-                My Contributions
-              </p>
-            </div>
-            <div className="space-y-4 text-neutral-400 text-lg md:text-xl max-w-prose" style={{ lineHeight: '1.7' }}>
-              <p>
-                I advocated for conducting user interviews, synthesis sessions and brainstorming sessions before arriving at solutions.
-              </p>
-              <p>
-                I refined the interview scripts and pushed to implement a Quizlet-style flashcard integration, to ensure FlowTutor supported active recall rather than just passive consumption.
-              </p>
             </div>
           </motion.div>
 
@@ -1049,7 +1061,7 @@ const FlowTutorCaseStudy = () => {
             Uncovering the friction.
           </h2>
           <p className="text-lg md:text-xl text-neutral-400 max-w-prose mt-4" style={{ lineHeight: '1.7' }}>
-            We conducted a mixed-methods study with 6 diverse users, from university freshmen to parents upskilling.
+            To understand why self-paced learning often fails, we conducted a mixed-methods study with 6 diverse users, ranging from university freshmen to parents upskilling.
           </p>
           <p className="text-lg md:text-xl text-neutral-400 max-w-prose mt-4" style={{ lineHeight: '1.7' }}>
             Goal: To find out how subjects engage with online video tutorials and identify usability pain points and behavioral patterns that disrupt their learning flow.

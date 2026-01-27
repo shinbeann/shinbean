@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 interface TableOfContentsItem {
   id: string;
   label: string;
+  children?: TableOfContentsItem[];
 }
 
 interface CaseStudyLayoutProps {
@@ -30,13 +31,19 @@ const CaseStudyLayout = ({
   // Track active section on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = tableOfContents.map((item) => ({
-        id: item.id,
-        element: document.getElementById(item.id),
-      }));
+      // Flatten all sections including children
+      const allSections: { id: string; element: HTMLElement | null }[] = [];
+      tableOfContents.forEach((item) => {
+        allSections.push({ id: item.id, element: document.getElementById(item.id) });
+        if (item.children) {
+          item.children.forEach((child) => {
+            allSections.push({ id: child.id, element: document.getElementById(child.id) });
+          });
+        }
+      });
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
+      for (let i = allSections.length - 1; i >= 0; i--) {
+        const section = allSections[i];
         if (section.element) {
           const rect = section.element.getBoundingClientRect();
           if (rect.top <= 150) {
@@ -93,22 +100,41 @@ const CaseStudyLayout = ({
                 On this page
               </p>
               {tableOfContents.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => handleScrollTo(item.id)}
-                  className={cn(
-                    "block w-full text-left text-sm transition-colors py-1.5 pl-3 border-l-2",
-                    activeSection === item.id
-                      ? isDark 
-                        ? "text-white border-white font-medium"
-                        : "text-foreground border-foreground font-medium"
-                      : isDark
-                        ? "text-neutral-500 border-transparent hover:text-white hover:border-neutral-600"
-                        : "text-neutral-500 border-transparent hover:text-foreground hover:border-neutral-600"
-                  )}
-                >
-                  {item.label}
-                </button>
+                <div key={item.id}>
+                  <button
+                    onClick={() => handleScrollTo(item.id)}
+                    className={cn(
+                      "block w-full text-left text-sm transition-colors py-1.5 pl-3 border-l-2",
+                      activeSection === item.id
+                        ? isDark 
+                          ? "text-white border-white font-medium"
+                          : "text-foreground border-foreground font-medium"
+                        : isDark
+                          ? "text-neutral-500 border-transparent hover:text-white hover:border-neutral-600"
+                          : "text-neutral-500 border-transparent hover:text-foreground hover:border-neutral-600"
+                    )}
+                  >
+                    {item.label}
+                  </button>
+                  {item.children && item.children.map((child) => (
+                    <button
+                      key={child.id}
+                      onClick={() => handleScrollTo(child.id)}
+                      className={cn(
+                        "block w-full text-left text-sm transition-colors py-1.5 pl-6 border-l-2",
+                        activeSection === child.id
+                          ? isDark 
+                            ? "text-white border-white font-medium"
+                            : "text-foreground border-foreground font-medium"
+                          : isDark
+                            ? "text-neutral-500 border-transparent hover:text-white hover:border-neutral-600"
+                            : "text-neutral-500 border-transparent hover:text-foreground hover:border-neutral-600"
+                      )}
+                    >
+                      {child.label}
+                    </button>
+                  ))}
+                </div>
               ))}
             </div>
           </div>
