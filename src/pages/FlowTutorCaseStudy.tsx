@@ -1017,15 +1017,6 @@ const FlowTutorCaseStudy = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-16 md:mt-24"
           >
-            <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 mb-4">
-              DESIGN STRATEGY
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white leading-tight mb-12">
-              Breaking the Vertical Scan
-            </h2>
-            <p className="text-neutral-400 text-lg max-w-prose mb-16" style={{ lineHeight: '1.7' }}>
-              Users naturally scan vertically, often skipping crucial details. To combat this, I utilized a Zig-Zag Layout to create visual anchors that guide the eye across the screen.
-            </p>
 
             {/* Row 1: The Problem - Text Left, Image Right */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16">
