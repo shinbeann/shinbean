@@ -16,6 +16,27 @@ import ftProblem from "@/assets/ft_problem.png";
 
 // --- COMPONENTS ---
 
+// 1. Section Container (Standardized Spacing)
+interface SectionContainerProps {
+  id?: string;
+  children: React.ReactNode;
+  className?: string;
+  hasBorder?: boolean;
+}
+
+const SectionContainer = ({ id, children, className = "", hasBorder = false }: SectionContainerProps) => {
+  return (
+    <section 
+      id={id} 
+      className={`py-16 md:py-24 scroll-mt-20 md:scroll-mt-24 ${hasBorder ? 'border-t border-white/10' : ''} ${className}`}
+    >
+      <div className="flex flex-col gap-8">
+        {children}
+      </div>
+    </section>
+  );
+};
+
 // 2. Bento Card (Problem Section)
 const BentoCard = ({ title, body, evidence, delay, icon: Icon }: { title: string, body: string, evidence: string, delay: number, icon?: React.ElementType }) => {
   return (
@@ -970,12 +991,12 @@ const FlowTutorCaseStudy = () => {
               <div className="w-full rounded-xl overflow-hidden border border-white/10">
                 <img
                   src={ftProblem}
-                  alt="A typical study session: 15 tabs open, disjointed notes, and zero focus"
+                  alt="A typical study session: 15 tabs open, disjointed notes, and fragmented attention"
                   className="w-full h-auto object-cover"
                 />
               </div>
-              <p className="text-sm text-neutral-500 italic">
-                A typical study session: 15 tabs open, disjointed notes, and zero focus.
+              <p className="text-sm text-neutral-500 italic text-center">
+                A typical study session: 15 tabs open, disjointed notes, and fragmented attention.
               </p>
               
               {/* Body Text Below Image */}
@@ -1082,18 +1103,19 @@ const FlowTutorCaseStudy = () => {
         </section>
 
         {/* How Might We Transition Section */}
-        <section className="relative py-12 md:py-16">
-          <div className="relative z-10 flex flex-col items-center justify-center min-h-[200px] md:min-h-[280px] px-6">
+        <section className="relative pt-12 md:pt-16 pb-12 md:pb-16">
+          <div className="relative z-10 flex flex-col items-center justify-center px-6">
             {/* Background Layer - Giant Question Mark */}
             <div 
               className="absolute inset-0 flex items-center justify-center pointer-events-none"
               style={{ zIndex: 0 }}
             >
               <span 
-                className="text-[300px] md:text-[400px] font-serif select-none"
+                className="text-[240px] md:text-[320px] font-serif font-bold select-none"
                 style={{ 
                   color: 'rgba(139, 92, 246, 0.15)',
-                  lineHeight: 1
+                  lineHeight: 1,
+                  textShadow: '0 0 2px rgba(139, 92, 246, 0.2)'
                 }}
               >
                 ?
@@ -1113,9 +1135,7 @@ const FlowTutorCaseStudy = () => {
         </section>
 
         {/* 2. PROJECT OVERVIEW */}
-        <section id="overview" className="py-16 md:py-24 scroll-mt-20 md:scroll-mt-24">
-        <div className="space-y-16">
-
+        <SectionContainer id="overview">
           {/* Solution Subsection */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1125,16 +1145,18 @@ const FlowTutorCaseStudy = () => {
             className="max-w-4xl"
             id="solution"
           >
-            <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 mb-4">
-              THE SOLUTION
-            </p>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-6">
-              A Unified Viewport.
-            </h2>
-            <div className="space-y-4 text-neutral-400 text-lg md:text-xl max-w-prose" style={{ lineHeight: '1.7' }}>
-              <p>
-                A unified viewport which integrates the video player directly with a context-aware AI chatbot and a dedicated note-taking panel to eliminate the need to juggle external tabs. This seamless environment is supported by a flexible, draggable divider that allows learners to customize their screen real estate, while interactive features like clickable timestamps and instant quiz generation transform passive viewing into an active, uninterrupted learning flow.
+            <div className="flex flex-col gap-4">
+              <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
+                SOLUTION
               </p>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white leading-tight">
+                A Unified Viewport.
+              </h2>
+              <div className="text-neutral-400 text-lg md:text-xl max-w-prose" style={{ lineHeight: '1.7' }}>
+                <p>
+                  We designed FlowTutor, a web app which integrates the video player directly with a context-aware AI chatbot and a dedicated note-taking panel to eliminate the need to juggle external tabs. This layout respects the user's focus, bringing all necessary tools into one central view. The result is a seamless, linear workflow that feels intuitive rather than overwhelming.
+                </p>
+              </div>
             </div>
           </motion.div>
 
@@ -1144,163 +1166,113 @@ const FlowTutorCaseStudy = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="max-w-4xl mt-12 md:mt-16"
+            className="max-w-4xl"
             id="contributions"
           >
-            <div className="mb-4">
+            <div className="flex flex-col gap-4">
               <p className="text-lg font-semibold text-white">
                 My Contributions
               </p>
-            </div>
-            <div className="space-y-4 text-neutral-400 text-lg md:text-xl max-w-prose" style={{ lineHeight: '1.7' }}>
-              <p>
-                I advocated for conducting user interviews, synthesis sessions and brainstorming sessions before arriving at solutions.
-              </p>
-              <p>
-                I refined the interview scripts and pushed to implement a Quizlet-style flashcard integration, to ensure FlowTutor supported active recall rather than just passive consumption.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Design Strategy Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-16 md:mt-24"
-          >
-
-            {/* Row 1: The Problem - Text Left, Image Right */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16">
-              <div className="space-y-4">
-                <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
-                  The Problem
+              <div className="space-y-4 text-neutral-400 text-lg md:text-xl max-w-prose" style={{ lineHeight: '1.7' }}>
+                <p>
+                  I advocated for conducting user interviews, synthesis sessions and brainstorming sessions before arriving at solutions.
                 </p>
-                <h3 className="text-2xl md:text-3xl font-bold text-white">
-                  The Split-Attention Effect
-                </h3>
-                <p className="text-neutral-400 text-base md:text-lg leading-relaxed">
-                  When users are forced to toggle between multiple windows to complete a single task, cognitive load spikes. It creates a disjointed experience where the user loses context every time they look away. This "tab fatigue" results in higher error rates and lower user satisfaction.
-                </p>
-              </div>
-              <div className="bg-white/5 border border-white/10 rounded-xl overflow-hidden aspect-[4/3]">
-                <img
-                  src={ftProblem}
-                  alt="Chaotic multi-window environment"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-
-            {/* Row 2: The Solution - Image Left, Text Right */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              <div className="order-2 lg:order-1 bg-white/5 border border-purple-500/30 rounded-xl overflow-hidden aspect-[4/3] shadow-lg shadow-purple-500/10">
-                <div className="w-full h-full flex items-center justify-center text-center px-6">
-                  <p className="text-neutral-400 text-base md:text-lg leading-relaxed">
-                    FlowTutor consolidates video, AI chat, and note-taking into a single, unified viewport so learners never have to juggle multiple windows again.
-                  </p>
-                </div>
-              </div>
-              <div className="order-1 lg:order-2 space-y-4">
-                <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
-                  The Solution
-                </p>
-                <h3 className="text-2xl md:text-3xl font-bold text-white">
-                  A Unified Viewport.
-                </h3>
-                <p className="text-neutral-400 text-base md:text-lg leading-relaxed">
-                  By consolidating the workflow into a single, cohesive interface, we eliminate the need for context switching. This layout respects the user's focus, bringing all necessary tools into one central view. The result is a seamless, linear workflow that feels intuitive rather than overwhelming.
+                <p>
+                  I refined the interview scripts and pushed to implement a Quizlet-style flashcard integration, to ensure FlowTutor supported active recall rather than just passive consumption.
                 </p>
               </div>
             </div>
           </motion.div>
+
           {/* Section 2: The Impact */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-12 md:mt-16"
           >
-            <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 mb-4">
-              IMPACT
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              {/* Stat 1 */}
-              <div>
-                <div className="flex items-baseline gap-2 mb-2">
-                  <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-emerald-400">25%</span>
-                  <span className="text-lg font-semibold text-white">Higher Retention</span>
+            <div className="flex flex-col gap-4">
+              <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
+                IMPACT
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                {/* Stat 1 */}
+                <div>
+                  <div className="flex items-baseline gap-2 mb-2">
+                    <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-emerald-400">25%</span>
+                    <span className="text-lg font-semibold text-white">Higher Retention</span>
+                  </div>
+                  <p className="text-sm text-neutral-400">vs. YouTube Baseline (p&lt;0.05)</p>
                 </div>
-                <p className="text-sm text-neutral-400">vs. YouTube Baseline (p&lt;0.05)</p>
-              </div>
 
-              {/* Stat 2 */}
-              <div>
-                <div className="flex items-baseline gap-2 mb-2">
-                  <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-emerald-400">60%</span>
-                  <span className="text-lg font-semibold text-white">Less Context Switching</span>
+                {/* Stat 2 */}
+                <div>
+                  <div className="flex items-baseline gap-2 mb-2">
+                    <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-emerald-400">60%</span>
+                    <span className="text-lg font-semibold text-white">Less Context Switching</span>
+                  </div>
+                  <p className="text-sm text-neutral-400">Hypothesis Validated</p>
                 </div>
-                <p className="text-sm text-neutral-400">Hypothesis Validated</p>
+              </div>
+            </div>
+          </motion.div>
+        </SectionContainer>
+
+        {/* 3. DISCOVERY */}
+        <SectionContainer id="discovery" hasBorder={true}>
+          {/* Market Opportunity Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="flex flex-col gap-4">
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
+                The Market Opportunity.
+              </h2>
+              <div className="text-neutral-400 text-lg md:text-xl max-w-prose" style={{ lineHeight: '1.7' }}>
+                <p>
+                  The global e-learning market is forecast to reach almost USD 400 billion in 2026, up from USD 198 billion in 2019.
+                </p>
+                <p className="mt-4">
+                  Despite this massive growth, there is still space for e-learning platforms to mature.
+                </p>
               </div>
             </div>
           </motion.div>
 
-        </div>
-      </section>
-
-        {/* 3. DISCOVERY */}
-        <section id="discovery" className="py-24 md:py-32 border-t border-white/10 scroll-mt-20 md:scroll-mt-24">
-        {/* Market Opportunity Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-4">
-            The Market Opportunity.
-          </h2>
-          <p className="text-lg md:text-xl text-neutral-400 max-w-prose mt-4" style={{ lineHeight: '1.7' }}>
-            The global e-learning market is forecast to reach almost USD 400 billion in 2026, up from USD 198 billion in 2019.
-          </p>
-          <p className="text-lg md:text-xl text-neutral-400 max-w-prose mt-4" style={{ lineHeight: '1.7' }}>
-            Despite this massive growth, there is still space for e-learning platforms to mature.
-          </p>
-        </motion.div>
-
-        {/* Competitor Analysis */}
-        <div className="mt-16 md:mt-20">
+          {/* Competitor Analysis */}
           <CompetitorAnalysis />
-        </div>
-      </section>
+        </SectionContainer>
 
         {/* 3. PAPER TO PIXEL */}
-        <section id="prototyping" className="relative pt-32 pb-32 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
+        <section id="prototyping" className="relative py-16 md:py-24 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
           {/* Subtle gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#050505] via-[#0A0A0A] via-[#0A0A0A] to-[#050505] pointer-events-none" style={{
             background: 'linear-gradient(to bottom, #050505 0%, #050505 10%, #111111 30%, #111111 70%, #050505 90%, #050505 100%)'
           }} />
           <div className="relative z-10">
           <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col gap-8">
           {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="mb-16"
           >
-            <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 mb-6">
-              PROTOTYPING AND TESTING
-            </p>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">
-              From paper to pixel.
-            </h2>
-            <p className="text-lg md:text-xl text-neutral-400 max-w-prose" style={{ lineHeight: '1.7' }}>
-              We conducted a heuristic evaluation with 5 evaluators who interacted with our paper prototype. They identified several usability issues, ranked by severity.
-            </p>
+            <div className="flex flex-col gap-4">
+              <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
+                PROTOTYPING AND TESTING
+              </p>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">
+                From paper to pixel.
+              </h2>
+              <p className="text-lg md:text-xl text-neutral-400 max-w-prose" style={{ lineHeight: '1.7' }}>
+                We conducted a heuristic evaluation with 5 evaluators who interacted with our paper prototype. They identified several usability issues, ranked by severity.
+              </p>
+            </div>
           </motion.div>
 
           {/* Stacked Card Carousel */}
@@ -1342,46 +1314,46 @@ const FlowTutorCaseStudy = () => {
             ]}
           />
           </div>
+          </div>
         </div>
       </section>
 
         {/* 4. THE LAB PIVOT (Validating & Refining) */}
-        <section id="lab-pivot" className="py-32 scroll-mt-20 md:scroll-mt-24">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-16"
-        >
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">The Lab Pivot.</h2>
-          <div className="space-y-4 text-neutral-400 text-lg md:text-xl max-w-prose" style={{ lineHeight: '1.7' }}>
-            <p>
-              With a functioning prototype, we moved from identifying usability issues to measuring impact.
-            </p>
-            <div className="border-l-2 border-purple-500/30 pl-6">
-              <p className="text-lg md:text-xl font-semibold text-white mb-4">
-                Three Core Hypotheses:
-              </p>
-              <ul className="space-y-1 list-none">
-                <li className="text-neutral-400">H1 (Efficiency): Users will locate information at least 50% faster with FlowTutor.</li>
-                <li className="text-neutral-400">H2 (Cognitive Load): Context switching will be reduced by at least 60%.</li>
-                <li className="text-neutral-400">H3 (Retention): Users will score at least 20% higher on a recall quiz.</li>
-              </ul>
+        <SectionContainer id="lab-pivot">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="flex flex-col gap-4">
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">The Lab Pivot.</h2>
+              <div className="text-neutral-400 text-lg md:text-xl max-w-prose" style={{ lineHeight: '1.7' }}>
+                <p>
+                  With a functioning prototype, we moved from identifying usability issues to measuring impact.
+                </p>
+                <div className="border-l-2 border-purple-500/30 pl-6 mt-4">
+                  <p className="text-lg md:text-xl font-semibold text-white mb-4">
+                    Three Core Hypotheses:
+                  </p>
+                  <ul className="space-y-1 list-none">
+                    <li className="text-neutral-400">H1 (Efficiency): Users will locate information at least 50% faster with FlowTutor.</li>
+                    <li className="text-neutral-400">H2 (Cognitive Load): Context switching will be reduced by at least 60%.</li>
+                    <li className="text-neutral-400">H3 (Retention): Users will score at least 20% higher on a recall quiz.</li>
+                  </ul>
+                </div>
+                <p className="mt-4">
+                  While our quantitative data supported our hypotheses (H1-H3), the qualitative feedback forced <strong className="font-bold text-white">three architectural changes</strong>.
+                </p>
+              </div>
             </div>
-            <p>
-              While our quantitative data supported our hypotheses (H1-H3), the qualitative feedback forced <strong className="font-bold text-white">three architectural changes</strong>.
-            </p>
-          </div>
-        </motion.div>
+          </motion.div>
 
-        {/* Methodology Bar */}
-        <div className="mb-16">
+          {/* Methodology Bar */}
           <MethodologyBar />
-        </div>
 
-        {/* Insights Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
+          {/* Insights Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
           <InsightCard
             title="Layout Flexibility"
             problem="Fixed panels felt restrictive. Users struggled to focus on video or notes when they couldn't control the viewport size."
@@ -1404,7 +1376,7 @@ const FlowTutorCaseStudy = () => {
             delay={0.2}
           />
         </div>
-      </section>
+        </SectionContainer>
 
         {/* 6. THE SOLUTION (Product Anatomy Diagram) */}
         <div id="solution" className="scroll-mt-20 md:scroll-mt-24">
@@ -1412,27 +1384,25 @@ const FlowTutorCaseStudy = () => {
         </div>
 
         {/* 7. THE VALIDATION (Iteration 3: Web Experiment) */}
-        <section id="validation" className="py-32 scroll-mt-20 md:scroll-mt-24">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-16"
-        >
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">Measuring Efficacy.</h2>
-          <p className="text-lg md:text-xl text-neutral-400 max-w-prose" style={{ lineHeight: '1.7' }}>
-            Moving beyond usability, we rigorously tested our central claim: does an integrated interface lead to better learning outcomes?
-          </p>
-        </motion.div>
+        <SectionContainer id="validation">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="flex flex-col gap-4">
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">Measuring Efficacy.</h2>
+              <p className="text-lg md:text-xl text-neutral-400 max-w-prose" style={{ lineHeight: '1.7' }}>
+                Moving beyond usability, we rigorously tested our central claim: does an integrated interface lead to better learning outcomes?
+              </p>
+            </div>
+          </motion.div>
 
-        {/* Methodology Bar */}
-        <div className="mb-16">
+          {/* Methodology Bar */}
           <ValidationMethodologyBar />
-        </div>
 
-        {/* A/B Conditions */}
-        <div className="mb-16">
+          {/* A/B Conditions */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <ABConditionCard
               title="Baseline: Fragmented Workflow"
@@ -1449,40 +1419,40 @@ const FlowTutorCaseStudy = () => {
               image="/flowtutor-experiment.png"
             />
           </div>
-        </div>
 
-        {/* Narrative Bridge */}
-        <NarrativeBridge />
+          {/* Narrative Bridge */}
+          <NarrativeBridge />
 
-        {/* Results Visualization */}
-        <div className="mb-16">
+          {/* Results Visualization */}
           <ResultsVisualizationCard />
-        </div>
-      </section>
+        </SectionContainer>
 
         {/* 8. REFLECTION */}
-        <section id="reflection" className="relative py-32 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
+        <section id="reflection" className="relative py-16 md:py-24 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
           {/* Subtle gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#050505] via-[#0A0A0A] via-[#0A0A0A] to-[#050505] pointer-events-none" style={{
             background: 'linear-gradient(to bottom, #050505 0%, #050505 10%, #111111 30%, #111111 70%, #050505 90%, #050505 100%)'
           }} />
           <div className="relative z-10">
           <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col gap-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl"
           >
-            <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 mb-4">
-              REFLECTION
-            </p>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">Fail Fast.</h2>
-            <p className="text-lg md:text-xl text-neutral-400 max-w-prose" style={{ lineHeight: '1.7' }}>
-              In early iterations, it is easy to come up with a lot of ideas to refine a single 'perfect' prototype. But this often creates dangerous blind spots. Instead of over-analysing, it is better to release rough concepts early to let empirical user data drive decisions.
-            </p>
+            <div className="flex flex-col gap-4">
+              <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
+                REFLECTION
+              </p>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">Fail Fast.</h2>
+              <p className="text-lg md:text-xl text-neutral-400 max-w-prose" style={{ lineHeight: '1.7' }}>
+                In early iterations, it is easy to come up with a lot of ideas to refine a single 'perfect' prototype. But this often creates dangerous blind spots. Instead of over-analysing, it is better to release rough concepts early to let empirical user data drive decisions.
+              </p>
+            </div>
           </motion.div>
+          </div>
           </div>
         </div>
       </section>
