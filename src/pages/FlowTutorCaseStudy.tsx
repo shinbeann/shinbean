@@ -12,6 +12,7 @@ import pinBefore from "@/assets/flowtutor-pinbefore.png";
 import pinAfter from "@/assets/flowtutor-pinafter.png";
 import vpBefore from "@/assets/flowtutor-vpbefore.png";
 import vpAfter from "@/assets/flowtutor-vpafter.png";
+import ftProblem from "@/assets/ft_problem.png";
 
 // --- COMPONENTS ---
 
@@ -836,7 +837,7 @@ const CompetitorAnalysis = () => {
                 <span className="w-1.5 h-1.5 rounded-full bg-purple-600 mt-2 flex-shrink-0" />
                 <div>
                   <p className="text-sm font-medium text-white">
-                    Solves the "Split-Attention Effect"
+                    Solves the "Split-Attention Effect."
                   </p>
                 </div>
               </li>
@@ -1021,7 +1022,7 @@ const FlowTutorCaseStudy = () => {
             {/* Row 1: The Problem - Text Left, Image Right */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16">
               <div className="space-y-4">
-                <p className="text-xs uppercase tracking-widest font-medium text-purple-400">
+                <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
                   The Problem
                 </p>
                 <h3 className="text-2xl md:text-3xl font-bold text-white">
@@ -1031,11 +1032,12 @@ const FlowTutorCaseStudy = () => {
                   When users are forced to toggle between multiple windows to complete a single task, cognitive load spikes. It creates a disjointed experience where the user loses context every time they look away. This "tab fatigue" results in higher error rates and lower user satisfaction.
                 </p>
               </div>
-              <div className="bg-white/5 border border-white/10 rounded-xl overflow-hidden aspect-[4/3] flex items-center justify-center">
-                <div className="p-8 text-center">
-                  <div className="text-6xl mb-4">🪟</div>
-                  <p className="text-neutral-500 text-sm">Chaotic multi-window environment</p>
-                </div>
+              <div className="bg-white/5 border border-white/10 rounded-xl overflow-hidden aspect-[4/3]">
+                <img
+                  src={ftProblem}
+                  alt="Chaotic multi-window environment"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
@@ -1049,11 +1051,11 @@ const FlowTutorCaseStudy = () => {
                 />
               </div>
               <div className="order-1 lg:order-2 space-y-4">
-                <p className="text-xs uppercase tracking-widest font-medium text-emerald-400">
+                <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
                   The Solution
                 </p>
                 <h3 className="text-2xl md:text-3xl font-bold text-white">
-                  A Unified Viewport
+                  A Unified Viewport.
                 </h3>
                 <p className="text-neutral-400 text-base md:text-lg leading-relaxed">
                   By consolidating the workflow into a single, cohesive interface, we eliminate the need for context switching. This layout respects the user's focus, bringing all necessary tools into one central view. The result is a seamless, linear workflow that feels intuitive rather than overwhelming.
