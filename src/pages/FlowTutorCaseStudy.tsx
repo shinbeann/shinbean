@@ -943,32 +943,53 @@ const FlowTutorCaseStudy = () => {
               </div>
             </div>
           </motion.div>
+
+          {/* Centralized Overview Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col items-center text-center py-24 md:py-32"
+          >
+            {/* Constrained Text Container */}
+            <div className="max-w-[650px] px-6 space-y-6">
+              <p className="text-xs uppercase tracking-widest font-medium text-neutral-500">
+                THE PROBLEM
+              </p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
+                The Split-Attention Effect.
+              </h2>
+              <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+                When users are forced to toggle between multiple windows to complete a single task, cognitive load spikes. It creates a disjointed experience where the user loses context every time they look away. This "tab fatigue" results in higher error rates and lower user satisfaction.
+              </p>
+            </div>
+
+            {/* Large vertical gap */}
+            <div className="h-24 md:h-32" />
+
+            {/* Image Section */}
+            <div className="w-full max-w-4xl px-6 space-y-4">
+              <p className="text-sm uppercase tracking-widest font-medium text-neutral-500">
+                IS THIS WHAT YOUR SCREEN LOOKS LIKE?
+              </p>
+              <div className="w-full rounded-xl overflow-hidden border border-white/10">
+                <img
+                  src={ftProblem}
+                  alt="A typical study session: 15 tabs open, disjointed notes, and zero focus"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+              <p className="text-sm text-neutral-500 italic">
+                A typical study session: 15 tabs open, disjointed notes, and zero focus.
+              </p>
+            </div>
+          </motion.div>
         </section>
 
         {/* 2. PROJECT OVERVIEW */}
         <section id="overview" className="py-16 md:py-24 scroll-mt-20 md:scroll-mt-24">
         <div className="space-y-16">
-          {/* Section 1: The Challenge */}
-          <motion.div
-
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl"
-          >
-            <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 mb-4">
-              OVERVIEW
-            </p>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-4">
-              The Split-Attention Effect.
-            </h2>
-            <div className="space-y-4 text-neutral-400 text-lg md:text-xl max-w-prose" style={{ lineHeight: '1.7' }}>
-              <p>
-                Video tutorials force students into a manual cycle of pausing, scrubbing, and switching tabs. This fragmentation triggers the Split-Attention Effect, causing users to lose focus and miss key concepts.
-              </p>
-            </div>
-          </motion.div>
 
           {/* Solution Subsection */}
           <motion.div
@@ -976,12 +997,18 @@ const FlowTutorCaseStudy = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="max-w-4xl mt-12 md:mt-16"
+            className="max-w-4xl"
             id="solution"
           >
+            <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 mb-4">
+              THE SOLUTION
+            </p>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-6">
+              A Unified Viewport.
+            </h2>
             <div className="space-y-4 text-neutral-400 text-lg md:text-xl max-w-prose" style={{ lineHeight: '1.7' }}>
               <p>
-                The solution? A unified viewport which integrates the video player directly with a context-aware AI chatbot and a dedicated note-taking panel to eliminate the need to juggle external tabs. This seamless environment is supported by a flexible, draggable divider that allows learners to customize their screen real estate, while interactive features like clickable timestamps and instant quiz generation transform passive viewing into an active, uninterrupted learning flow.
+                A unified viewport which integrates the video player directly with a context-aware AI chatbot and a dedicated note-taking panel to eliminate the need to juggle external tabs. This seamless environment is supported by a flexible, draggable divider that allows learners to customize their screen real estate, while interactive features like clickable timestamps and instant quiz generation transform passive viewing into an active, uninterrupted learning flow.
               </p>
             </div>
           </motion.div>
@@ -1007,60 +1034,6 @@ const FlowTutorCaseStudy = () => {
               <p>
                 I refined the interview scripts and pushed to implement a Quizlet-style flashcard integration, to ensure FlowTutor supported active recall rather than just passive consumption.
               </p>
-            </div>
-          </motion.div>
-
-          {/* Design Strategy Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-16 md:mt-24"
-          >
-
-            {/* Row 1: The Problem - Text Left, Image Right */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16">
-              <div className="space-y-4">
-                <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
-                  The Problem
-                </p>
-                <h3 className="text-2xl md:text-3xl font-bold text-white">
-                  The Split-Attention Effect
-                </h3>
-                <p className="text-neutral-400 text-base md:text-lg leading-relaxed">
-                  When users are forced to toggle between multiple windows to complete a single task, cognitive load spikes. It creates a disjointed experience where the user loses context every time they look away. This "tab fatigue" results in higher error rates and lower user satisfaction.
-                </p>
-              </div>
-              <div className="bg-white/5 border border-white/10 rounded-xl overflow-hidden aspect-[4/3]">
-                <img
-                  src={ftProblem}
-                  alt="Chaotic multi-window environment"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-
-            {/* Row 2: The Solution - Image Left, Text Right */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              <div className="order-2 lg:order-1 bg-white/5 border border-purple-500/30 rounded-xl overflow-hidden aspect-[4/3] shadow-lg shadow-purple-500/10">
-                <img 
-                  src="/FThero.png" 
-                  alt="FlowTutor unified viewport interface" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="order-1 lg:order-2 space-y-4">
-                <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
-                  The Solution
-                </p>
-                <h3 className="text-2xl md:text-3xl font-bold text-white">
-                  A Unified Viewport.
-                </h3>
-                <p className="text-neutral-400 text-base md:text-lg leading-relaxed">
-                  By consolidating the workflow into a single, cohesive interface, we eliminate the need for context switching. This layout respects the user's focus, bringing all necessary tools into one central view. The result is a seamless, linear workflow that feels intuitive rather than overwhelming.
-                </p>
-              </div>
             </div>
           </motion.div>
 
