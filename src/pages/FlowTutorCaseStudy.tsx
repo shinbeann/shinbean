@@ -1009,6 +1009,68 @@ const FlowTutorCaseStudy = () => {
             </div>
           </motion.div>
 
+          {/* Design Strategy Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-16 md:mt-24"
+          >
+            <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 mb-4">
+              DESIGN STRATEGY
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white leading-tight mb-12">
+              Breaking the Vertical Scan
+            </h2>
+            <p className="text-neutral-400 text-lg max-w-prose mb-16" style={{ lineHeight: '1.7' }}>
+              Users naturally scan vertically, often skipping crucial details. To combat this, I utilized a Zig-Zag Layout to create visual anchors that guide the eye across the screen.
+            </p>
+
+            {/* Row 1: The Problem - Text Left, Image Right */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16">
+              <div className="space-y-4">
+                <p className="text-xs uppercase tracking-widest font-medium text-purple-400">
+                  The Problem
+                </p>
+                <h3 className="text-2xl md:text-3xl font-bold text-white">
+                  The Split-Attention Effect
+                </h3>
+                <p className="text-neutral-400 text-base md:text-lg leading-relaxed">
+                  When users are forced to toggle between multiple windows to complete a single task, cognitive load spikes. It creates a disjointed experience where the user loses context every time they look away. This "tab fatigue" results in higher error rates and lower user satisfaction.
+                </p>
+              </div>
+              <div className="bg-white/5 border border-white/10 rounded-xl overflow-hidden aspect-[4/3] flex items-center justify-center">
+                <div className="p-8 text-center">
+                  <div className="text-6xl mb-4">🪟</div>
+                  <p className="text-neutral-500 text-sm">Chaotic multi-window environment</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Row 2: The Solution - Image Left, Text Right */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="order-2 lg:order-1 bg-white/5 border border-purple-500/30 rounded-xl overflow-hidden aspect-[4/3] shadow-lg shadow-purple-500/10">
+                <img 
+                  src="/FThero.png" 
+                  alt="FlowTutor unified viewport interface" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="order-1 lg:order-2 space-y-4">
+                <p className="text-xs uppercase tracking-widest font-medium text-emerald-400">
+                  The Solution
+                </p>
+                <h3 className="text-2xl md:text-3xl font-bold text-white">
+                  A Unified Viewport
+                </h3>
+                <p className="text-neutral-400 text-base md:text-lg leading-relaxed">
+                  By consolidating the workflow into a single, cohesive interface, we eliminate the need for context switching. This layout respects the user's focus, bringing all necessary tools into one central view. The result is a seamless, linear workflow that feels intuitive rather than overwhelming.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
           {/* Section 2: The Impact */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
