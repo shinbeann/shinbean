@@ -1083,7 +1083,7 @@ const FlowTutorCaseStudy = () => {
 
         {/* How Might We Transition Section */}
         <section className="relative pt-12 md:pt-16 pb-24 md:pb-32">
-          <div className="relative z-10 flex flex-col items-center justify-center min-h-[400px] px-6">
+          <div className="relative z-10 flex flex-col items-center justify-center min-h-[300px] md:min-h-[400px] px-6">
             {/* Background Layer - Giant Question Mark */}
             <div 
               className="absolute inset-0 flex items-center justify-center pointer-events-none"
