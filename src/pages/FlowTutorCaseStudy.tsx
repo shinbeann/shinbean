@@ -914,14 +914,7 @@ const FlowTutorCaseStudy = () => {
               The future of AI-powered learning assistance.
             </h1>
 
-            {/* Hero Image */}
-            <div className="w-full aspect-[16/9] bg-[#111] rounded-lg overflow-hidden mb-16 border border-white/10">
-               <img 
-                 src="/FThero.png" 
-                 alt="FlowTutor Hero" 
-                 className="w-full h-full object-cover"
-               />
-            </div>
+            {/* Hero Image removed (previously used /FThero.png) */}
 
             {/* Metadata Grid (Inline) */}
             <div className="flex flex-col md:flex-row justify-between gap-8 border-t border-white/10 pt-8">
@@ -1037,6 +1030,59 @@ const FlowTutorCaseStudy = () => {
             </div>
           </motion.div>
 
+          {/* Design Strategy Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-16 md:mt-24"
+          >
+
+            {/* Row 1: The Problem - Text Left, Image Right */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16">
+              <div className="space-y-4">
+                <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
+                  The Problem
+                </p>
+                <h3 className="text-2xl md:text-3xl font-bold text-white">
+                  The Split-Attention Effect
+                </h3>
+                <p className="text-neutral-400 text-base md:text-lg leading-relaxed">
+                  When users are forced to toggle between multiple windows to complete a single task, cognitive load spikes. It creates a disjointed experience where the user loses context every time they look away. This "tab fatigue" results in higher error rates and lower user satisfaction.
+                </p>
+              </div>
+              <div className="bg-white/5 border border-white/10 rounded-xl overflow-hidden aspect-[4/3]">
+                <img
+                  src={ftProblem}
+                  alt="Chaotic multi-window environment"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Row 2: The Solution - Image Left, Text Right */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="order-2 lg:order-1 bg-white/5 border border-purple-500/30 rounded-xl overflow-hidden aspect-[4/3] shadow-lg shadow-purple-500/10">
+                <div className="w-full h-full flex items-center justify-center text-center px-6">
+                  <p className="text-neutral-400 text-base md:text-lg leading-relaxed">
+                    FlowTutor consolidates video, AI chat, and note-taking into a single, unified viewport so learners never have to juggle multiple windows again.
+                  </p>
+                </div>
+              </div>
+              <div className="order-1 lg:order-2 space-y-4">
+                <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
+                  The Solution
+                </p>
+                <h3 className="text-2xl md:text-3xl font-bold text-white">
+                  A Unified Viewport.
+                </h3>
+                <p className="text-neutral-400 text-base md:text-lg leading-relaxed">
+                  By consolidating the workflow into a single, cohesive interface, we eliminate the need for context switching. This layout respects the user's focus, bringing all necessary tools into one central view. The result is a seamless, linear workflow that feels intuitive rather than overwhelming.
+                </p>
+              </div>
+            </div>
+          </motion.div>
           {/* Section 2: The Impact */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
