@@ -1015,8 +1015,8 @@ const ScrollytellingFeatures = () => {
 
         {/* Right Column: Sticky Image with Overlays */}
         <div className="relative">
-          <div className="sticky top-1/2 -translate-y-1/2 space-y-6">
-            <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+          <div className="sticky top-1/3 -translate-y-1/4 space-y-6">
+            <div className="relative w-full min-h-[500px] xl:min-h-[580px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
               {/* Base Image */}
               <div className={`
                 absolute inset-0 transition-opacity duration-500
