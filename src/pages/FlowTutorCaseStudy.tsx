@@ -13,6 +13,7 @@ import pinAfter from "@/assets/flowtutor-pinafter.png";
 import vpBefore from "@/assets/flowtutor-vpbefore.png";
 import vpAfter from "@/assets/flowtutor-vpafter.png";
 import ftProblem from "@/assets/ft_problem.png";
+import ftLanding from "@/assets/ft_landing.jpg";
 
 // --- COMPONENTS ---
 
@@ -915,56 +916,47 @@ const flowTutorToc = [
 
 const FlowTutorCaseStudy = () => {
   return (
-    <CaseStudyLayout tableOfContents={flowTutorToc} theme="dark">
+    <CaseStudyLayout tableOfContents={flowTutorToc} theme="dark" showSidebarsAfter="problem-section">
       <div className="text-white selection:bg-purple-500/30 font-sans">
-        {/* 1. HERO */}
-        <section id="hero" className="relative flex flex-col pt-4 md:pt-0 pb-20 scroll-mt-20 md:scroll-mt-24">
+        {/* FULLSCREEN LANDING HERO */}
+        <section className="relative -mx-4 md:-mx-[calc((100vw-896px)/2+1.5rem)] min-h-screen flex items-center justify-center overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src={ftLanding}
+              alt="FlowTutor - Learn smarter with AI-powered tutorial assistance"
+              className="w-full h-full object-cover object-center"
+            />
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent" />
+          </div>
+
+          {/* Scroll Indicator */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mb-12"
+            transition={{ duration: 0.8, delay: 1.5 }}
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
           >
-            {/* Top Navigation Row */}
-            <div className="flex justify-end items-center mb-16 text-sm tracking-widest text-neutral-500 font-mono uppercase">
-               <span>FlowTutor • Concept 2025</span>
-            </div>
-
-            {/* Title */}
-            <h1 className="text-4xl md:text-7xl font-bold tracking-tight mb-16 text-white max-w-4xl">
-              The future of AI-powered learning assistance.
-            </h1>
-
-            {/* Hero Image removed (previously used /FThero.png) */}
-
-            {/* Metadata Grid (Inline) */}
-            <div className="flex flex-col md:flex-row justify-between gap-8 border-t border-white/10 pt-8">
-              <div className="space-y-2">
-                <h3 className="text-xs uppercase tracking-widest text-neutral-500 font-semibold">Role</h3>
-                <p className="text-sm font-medium text-white">Product Designer</p>
-              </div>
-              <div className="space-y-2">
-                <h3 className="text-xs uppercase tracking-widest text-neutral-500 font-semibold">Timeline</h3>
-                <p className="text-sm font-medium text-white">August - September 2025</p>
-              </div>
-              <div className="space-y-2">
-                <h3 className="text-xs uppercase tracking-widest text-neutral-500 font-semibold">Team</h3>
-                <p className="text-sm font-medium text-white">6 Members</p>
-              </div>
-              <div className="space-y-2">
-                <h3 className="text-xs uppercase tracking-widest text-neutral-500 font-semibold">Tools</h3>
-                <p className="text-sm font-medium text-white">Miro, Lovable</p>
-              </div>
-            </div>
+            <span className="text-xs uppercase tracking-widest text-white/60 font-medium">Scroll</span>
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <ChevronDown className="w-5 h-5 text-white/60" />
+            </motion.div>
           </motion.div>
+        </section>
 
+        {/* 1. THE PROBLEM - This is the section that triggers sidebars */}
+        <section id="problem-section" className="relative flex flex-col pt-24 md:pt-32 pb-20 scroll-mt-20 md:scroll-mt-24">
           {/* Centralized Overview Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col items-center py-24 md:py-32"
+            className="flex flex-col items-center"
           >
             {/* Constrained Text Container */}
             <div className="w-full max-w-4xl px-6 space-y-6 text-left">

@@ -13,6 +13,7 @@ interface CaseStudyLayoutProps {
   tableOfContents: TableOfContentsItem[];
   backLink?: { to: string; label: string };
   theme?: "light" | "dark";
+  showSidebarsAfter?: string; // Section ID after which sidebars should appear
 }
 
 import Footer from "@/components/Footer";
@@ -22,15 +23,27 @@ const CaseStudyLayout = ({
   tableOfContents,
   backLink = { to: "/", label: "Back to Work" },
   theme = "light",
+  showSidebarsAfter,
 }: CaseStudyLayoutProps) => {
   const location = useLocation();
   const [activeSection, setActiveSection] = useState<string>("");
+  const [showSidebars, setShowSidebars] = useState(!showSidebarsAfter);
 
   const isDark = theme === "dark";
 
-  // Track active section on scroll
+  // Track active section on scroll + sidebar visibility
   useEffect(() => {
     const handleScroll = () => {
+      // Check if we should show sidebars
+      if (showSidebarsAfter) {
+        const triggerElement = document.getElementById(showSidebarsAfter);
+        if (triggerElement) {
+          const rect = triggerElement.getBoundingClientRect();
+          // Show sidebars when the trigger section reaches near top of viewport
+          setShowSidebars(rect.top <= 200);
+        }
+      }
+
       // Flatten all sections including children
       const allSections: { id: string; element: HTMLElement | null }[] = [];
       tableOfContents.forEach((item) => {
@@ -58,7 +71,7 @@ const CaseStudyLayout = ({
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll(); // Initial check
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [tableOfContents]);
+  }, [tableOfContents, showSidebarsAfter]);
 
   const handleScrollTo = (id: string) => {
     const element = document.getElementById(id);
@@ -74,7 +87,10 @@ const CaseStudyLayout = ({
         {/* Left Column - In-Page Navigation (Table of Contents) */}
         <nav
           aria-label="Table of Contents"
-          className="hidden md:block sticky top-12 h-fit pt-24 pb-12"
+          className={cn(
+            "hidden md:block sticky top-12 h-fit pt-24 pb-12 transition-all duration-500",
+            showSidebars ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8 pointer-events-none"
+          )}
         >
           <div className="space-y-6">
             {/* Back Link */}
@@ -141,14 +157,18 @@ const CaseStudyLayout = ({
         </nav>
 
         {/* Center Column - Main Case Study Content */}
-        <main className="pt-20 md:pt-24 pb-48 min-w-0">
+        <main className="pb-48 min-w-0">
           <div className="max-w-4xl mx-auto px-4 md:px-0">{children}</div>
         </main>
+
 
         {/* Right Column - Global Site Navigation */}
         <nav
           aria-label="Main Site Navigation"
-          className="hidden md:block sticky top-12 h-fit pt-24 pb-12"
+          className={cn(
+            "hidden md:block sticky top-12 h-fit pt-24 pb-12 transition-all duration-500",
+            showSidebars ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8 pointer-events-none"
+          )}
         >
           <div className="space-y-4 text-right">
             <Link
