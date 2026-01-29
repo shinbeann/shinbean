@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import Footer from "@/components/Footer";
 import StackedCardCarousel from "@/components/StackedCardCarousel";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
-import { ArrowLeft, ArrowRight, Code, Brain, Layout, Sliders, ChevronRight, ChevronDown, ArrowDown, Search, Zap, Layers, AlertCircle, Eye, AlertTriangle, BookOpen, MessageSquare, FileText, CheckCircle, GripVertical, Sparkles, Maximize, Puzzle, XCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, Code, Brain, Layout, Sliders, ChevronRight, ChevronDown, ArrowDown, Search, Zap, Layers, AlertCircle, Eye, AlertTriangle, BookOpen, MessageSquare, FileText, CheckCircle, GripVertical, Sparkles, Maximize, Puzzle, XCircle, Lightbulb } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import onboardingBefore from "@/assets/flowtutor-onboarding-before.png";
@@ -14,6 +14,8 @@ import vpBefore from "@/assets/flowtutor-vpbefore.png";
 import vpAfter from "@/assets/flowtutor-vpafter.png";
 import ftProblem from "@/assets/ft_problem.png";
 import ftLanding from "@/assets/ft_landing.jpg";
+import ftPearson from "@/assets/ft_pearson.png";
+import ftMain from "@/assets/ft_main.png";
 
 // --- COMPONENTS ---
 
@@ -838,13 +840,13 @@ const CompetitorAnalysis = () => {
       <div className="w-full flex flex-col items-center">
         <div className="w-full aspect-[2/1] overflow-hidden rounded-lg">
           <img
-            src="/placeholder.svg"
-            alt="Pearson+ AI Tutor Screenshot"
+            src={ftPearson}
+            alt="Pearson + AI Tutor Screenshot"
             className="w-full h-full object-cover"
           />
         </div>
         <p className="text-sm text-gray-500 text-center mt-3 mb-6">
-          Pearson+ AI Tutor
+          Pearson + AI Tutor
         </p>
       </div>
 
@@ -895,6 +897,292 @@ const CompetitorAnalysis = () => {
         </div>
       </div>
     </motion.div>
+  );
+};
+
+// Scrollytelling Features Component
+interface FeatureState {
+  id: number;
+  title: string;
+  description: string;
+}
+
+const featureStates: FeatureState[] = [
+  {
+    id: 1,
+    title: "A Single Pane of Glass",
+    description: "No more tab switching. Everything you need—video, notes, and AI assistance—lives in one unified interface. Your focus stays intact."
+  },
+  {
+    id: 2,
+    title: "Context-Aware Assistance",
+    description: "The AI detects confusion by analyzing your pauses and rewinds. When you're stuck at 10:45, it doesn't just answer—it references that exact moment in the transcript."
+  },
+  {
+    id: 3,
+    title: "Ergonomic Control",
+    description: "Draggable divider for custom focus. Need more space for notes? Drag the divider. Want to zoom into the video? Adjust it. The interface adapts to your workflow, not the other way around."
+  },
+  {
+    id: 4,
+    title: "Active Recall",
+    description: "Click the lightbulb to test your knowledge. Instant quizzes pulled from the transcript ensure you're not just watching—you're learning. Active recall beats passive consumption."
+  }
+];
+
+const ScrollytellingFeatures = () => {
+  const [activeState, setActiveState] = useState(1);
+  const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observers = featureRefs.current.map((ref, index) => {
+      if (!ref) return null;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveState(index + 1);
+            }
+          });
+        },
+        {
+          root: null,
+          rootMargin: "-50% 0px -50% 0px",
+          threshold: 0
+        }
+      );
+
+      observer.observe(ref);
+      return observer;
+    });
+
+    return () => {
+      observers.forEach((observer) => observer?.disconnect());
+    };
+  }, []);
+
+  return (
+    <div className="relative w-full py-20 md:py-32">
+      {/* Desktop: 2-Column Layout */}
+      <div className="hidden lg:grid lg:grid-cols-2 lg:gap-16 max-w-7xl mx-auto px-6">
+        {/* Left Column: Scrollable Text */}
+        <div className="space-y-32">
+          {featureStates.map((feature, index) => (
+            <motion.div
+              key={feature.id}
+              ref={(el) => (featureRefs.current[index] = el)}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className={`
+                p-8 rounded-2xl border-2 transition-all duration-500
+                ${activeState === feature.id 
+                  ? 'border-purple-500 shadow-xl shadow-purple-500/20 bg-white/5' 
+                  : 'border-gray-200/10 bg-transparent'
+                }
+              `}
+            >
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <span className={`
+                    text-sm font-mono font-bold px-3 py-1 rounded-full transition-colors duration-500
+                    ${activeState === feature.id 
+                      ? 'bg-purple-500 text-white' 
+                      : 'bg-gray-700 text-gray-400'
+                    }
+                  `}>
+                    {feature.id.toString().padStart(2, '0')}
+                  </span>
+                </div>
+                <h3 className={`
+                  text-2xl md:text-3xl font-bold transition-colors duration-500
+                  ${activeState === feature.id ? 'text-white' : 'text-gray-400'}
+                `}>
+                  {feature.title}
+                </h3>
+                <p className={`
+                  text-lg leading-relaxed transition-colors duration-500
+                  ${activeState === feature.id ? 'text-gray-300' : 'text-gray-500'}
+                `}>
+                  {feature.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Right Column: Sticky Image with Overlays */}
+        <div className="relative">
+          <div className="sticky top-1/2 -translate-y-1/2 space-y-6">
+            <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+              {/* Base Image */}
+              <div className={`
+                absolute inset-0 transition-opacity duration-500
+                ${activeState === 1 ? 'opacity-100' : 'opacity-50'}
+              `}>
+                <img
+                  src={ftMain}
+                  alt="FlowTutor Unified Viewport"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* State 2: Chatbot Focus */}
+              {activeState === 2 && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                  className="absolute inset-0"
+                >
+                  {/* Dim the left side */}
+                  <div className="absolute inset-0 bg-black/50" />
+                  {/* Highlight chatbot area (right side) */}
+                  <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-transparent border-2 border-purple-400 rounded-r-2xl" />
+                  {/* Floating tooltip */}
+                  <motion.div
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ delay: 0.3, duration: 0.4 }}
+                    className="absolute right-[35%] top-1/2 -translate-y-1/2 bg-purple-600 text-white px-4 py-2 rounded-lg shadow-xl text-sm font-medium"
+                  >
+                    <div className="flex items-center gap-2">
+                      <MessageSquare className="w-4 h-4" />
+                      <span>Analyzing 10:45...</span>
+                    </div>
+                    {/* Arrow pointing right */}
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full w-0 h-0 border-t-8 border-t-transparent border-b-8 border-b-transparent border-l-8 border-l-purple-600" />
+                  </motion.div>
+                </motion.div>
+              )}
+
+              {/* State 3: Divider Interaction */}
+              {activeState === 3 && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                  className="absolute inset-0"
+                >
+                  {/* Vertical divider line */}
+                  <motion.div
+                    initial={{ left: '50%' }}
+                    animate={{ left: '40%' }}
+                    transition={{ duration: 1, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" }}
+                    className="absolute top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500 via-purple-400 to-purple-500 shadow-lg shadow-purple-500/50"
+                  >
+                    {/* Drag handle */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-12 bg-purple-500 rounded-full flex items-center justify-center shadow-xl">
+                      <GripVertical className="w-4 h-4 text-white" />
+                    </div>
+                  </motion.div>
+                  {/* Arrow overlay indicating movement */}
+                  <motion.div
+                    initial={{ x: -20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="absolute left-1/4 top-1/2 -translate-y-1/2"
+                  >
+                    <div className="flex items-center gap-2 text-white">
+                      <ArrowLeft className="w-6 h-6" />
+                      <ArrowRight className="w-6 h-6" />
+                    </div>
+                  </motion.div>
+                </motion.div>
+              )}
+
+              {/* State 4: Quiz Modal */}
+              {activeState === 4 && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                  className="absolute inset-0"
+                >
+                  {/* Pulsing ring around lightbulb icon (top toolbar) */}
+                  <motion.div
+                    animate={{ scale: [1, 1.3, 1], opacity: [0.8, 0.4, 0.8] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="absolute top-4 right-20 w-10 h-10 rounded-full border-4 border-purple-500"
+                  />
+                  <div className="absolute top-4 right-20 w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center">
+                    <Lightbulb className="w-5 h-5 text-purple-400" />
+                  </div>
+
+                  {/* Quiz Modal Card */}
+                  <motion.div
+                    initial={{ scale: 0.9, opacity: 0, y: 20 }}
+                    animate={{ scale: 1, opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.5 }}
+                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] max-w-md bg-white rounded-xl shadow-2xl p-6"
+                  >
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-2 text-purple-600">
+                        <Sparkles className="w-5 h-5" />
+                        <h4 className="font-bold text-lg">Quick Quiz</h4>
+                      </div>
+                      <p className="text-gray-700 text-sm">
+                        What's the main difference between Transformers and RNNs?
+                      </p>
+                      <div className="space-y-2">
+                        {['Parallel processing', 'Sequential only', 'No attention', 'Fixed context'].map((option, i) => (
+                          <div
+                            key={i}
+                            className="px-4 py-2 rounded-lg border border-gray-200 text-sm text-gray-600 hover:border-purple-400 hover:bg-purple-50 transition-all cursor-pointer"
+                          >
+                            {option}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                </motion.div>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile: Stacked Layout */}
+      <div className="lg:hidden max-w-4xl mx-auto px-6 space-y-16">
+        {featureStates.map((feature, index) => (
+          <motion.div
+            key={feature.id}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6"
+          >
+            {/* Text */}
+            <div className="p-6 rounded-2xl border border-purple-500/30 bg-white/5">
+              <div className="space-y-3">
+                <span className="text-xs font-mono font-bold px-2 py-1 rounded-full bg-purple-500 text-white">
+                  {feature.id.toString().padStart(2, '0')}
+                </span>
+                <h3 className="text-xl md:text-2xl font-bold text-white">
+                  {feature.title}
+                </h3>
+                <p className="text-base text-gray-300 leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            </div>
+
+            {/* Image */}
+            <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-white/10 shadow-xl">
+              <img
+                src={ftMain}
+                alt={feature.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
   );
 };
 
@@ -961,7 +1249,7 @@ const FlowTutorCaseStudy = () => {
             {/* Constrained Text Container */}
             <div className="w-full max-w-4xl px-6 space-y-6 text-left">
               <p className="text-xs uppercase tracking-widest font-medium text-neutral-500">
-                THE PROBLEM
+                PROBLEM
               </p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
                 The Split-Attention Effect.
@@ -1151,6 +1439,9 @@ const FlowTutorCaseStudy = () => {
               </div>
             </div>
           </motion.div>
+
+          {/* Scrollytelling Features Section */}
+          <ScrollytellingFeatures />
 
           {/* My Contributions Subsection */}
           <motion.div
