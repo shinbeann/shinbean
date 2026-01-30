@@ -830,77 +830,126 @@ const ProductAnatomySection = () => {
   );
 };
 
-// Competitor Analysis Component
+// Competitor Analysis Component - 3 Column Layout
 const CompetitorAnalysis = () => {
+  const competitors = [
+    {
+      name: "Coursera",
+      image: "/placeholder.svg",
+      pros: [
+        "Structured course format with clear learning paths.",
+        "Certificates from accredited universities.",
+        "High-quality production value."
+      ],
+      cons: [
+        "Limited AI assistance during learning.",
+        "Fixed pacing doesn't adapt to individual speed.",
+        "No real-time Q&A support."
+      ]
+    },
+    {
+      name: "Khan Academy",
+      image: "/placeholder.svg",
+      pros: [
+        "Free access to quality educational content.",
+        "Practice exercises with instant feedback.",
+        "Gamified learning with achievement system."
+      ],
+      cons: [
+        "Lacks personalized AI tutor support.",
+        "Limited to specific subject domains.",
+        "No collaborative note-taking features."
+      ]
+    },
+    {
+      name: "Udemy",
+      image: "/placeholder.svg",
+      pros: [
+        "Wide variety of topics and instructors.",
+        "Affordable pricing with frequent sales.",
+        "Lifetime access to purchased courses."
+      ],
+      cons: [
+        "Quality varies significantly by instructor.",
+        "No integrated AI assistance.",
+        "Passive video consumption model."
+      ]
+    }
+  ];
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
-      className="space-y-6 max-w-4xl mx-auto"
-    >
-      {/* Image & Caption Block */}
-      <div className="w-full flex flex-col items-center">
-        <div className="w-full aspect-[2/1] overflow-hidden rounded-lg">
-          <img
-            src={ftPearson}
-            alt="Pearson + AI Tutor Screenshot"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <p className="text-sm text-gray-500 text-center mt-3 mb-6">
-          Pearson + AI Tutor
-        </p>
-      </div>
+    <div className="w-full">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        {competitors.map((competitor, index) => (
+          <motion.div
+            key={competitor.name}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
+            className="bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:bg-white/[0.07] transition-all duration-300"
+          >
+            {/* Placeholder Image */}
+            <div className="aspect-[4/3] bg-neutral-900/50 border-b border-white/10 flex items-center justify-center">
+              <img
+                src={competitor.image}
+                alt={competitor.name}
+                className="w-full h-full object-cover opacity-50"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                }}
+              />
+              <span className="absolute text-neutral-600 font-mono text-sm">
+                [{competitor.name} Screenshot]
+              </span>
+            </div>
 
-      {/* Pros & Cons Grid */}
-      <div className="w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Pros Column */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white mb-4">Pros</h3>
-            <ul className="space-y-4 list-none">
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-purple-600 mt-2 flex-shrink-0" />
-                <div>
-                  <p className="text-sm font-medium text-white">
-                    Solves the "Split-Attention Effect."
-                  </p>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-purple-600 mt-2 flex-shrink-0" />
-                <div>
-                  <p className="text-sm text-neutral-400 leading-relaxed">
-                    <span className="font-medium text-white">Zero Hallucination Risk:</span> The AI is strictly grounded in "trusted Pearson-authored content" and won't give a wrong math formula because it's reading the actual textbook, not the open internet.
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </div>
+            {/* Content */}
+            <div className="p-6 space-y-6">
+              {/* Header */}
+              <h3 className="text-lg md:text-xl font-bold text-white">
+                {competitor.name}
+              </h3>
 
-          {/* Cons Column */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white mb-4">Cons</h3>
-            <ul className="space-y-4 list-none">
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-purple-600 mt-2 flex-shrink-0" />
-                <p className="text-sm text-neutral-400 leading-relaxed">
-                  Does not cater to other mediums.
-                </p>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-purple-600 mt-2 flex-shrink-0" />
-                <p className="text-sm text-neutral-400 leading-relaxed">
-                  Text heavy.
-                </p>
-              </li>
-            </ul>
-          </div>
-        </div>
+              {/* Pros */}
+              <div className="space-y-3">
+                <h4 className="text-sm font-bold text-emerald-400 uppercase tracking-wider">
+                  Pros:
+                </h4>
+                <ul className="space-y-2 list-none">
+                  {competitor.pros.map((pro, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="w-1 h-1 rounded-full bg-emerald-400 mt-2 flex-shrink-0" />
+                      <p className="text-xs text-neutral-400 leading-relaxed">
+                        {pro}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Cons */}
+              <div className="space-y-3">
+                <h4 className="text-sm font-bold text-red-400 uppercase tracking-wider">
+                  Cons:
+                </h4>
+                <ul className="space-y-2 list-none">
+                  {competitor.cons.map((con, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="w-1 h-1 rounded-full bg-red-400 mt-2 flex-shrink-0" />
+                      <p className="text-xs text-neutral-400 leading-relaxed">
+                        {con}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </motion.div>
+        ))}
       </div>
-    </motion.div>
+    </div>
   );
 };
 
