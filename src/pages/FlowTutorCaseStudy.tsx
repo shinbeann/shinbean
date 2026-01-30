@@ -16,6 +16,10 @@ import ftProblem from "@/assets/ft_problem.png";
 import ftLanding from "@/assets/ft_landing.jpg";
 import ftPearson from "@/assets/ft_pearson.png";
 import ftMain from "@/assets/ft_main.png";
+import ftDemoVideo from "@/assets/Screen Recording 2026-01-29 143535.mp4";
+import ftFeature2 from "@/assets/ft_f2.png";
+import ftFeature3 from "@/assets/ft_notes.png";
+import ftQuizVideo from "@/assets/ft_quiz.mp4";
 
 // --- COMPONENTS ---
 
@@ -915,7 +919,7 @@ const featureStates: FeatureState[] = [
   },
   {
     id: 2,
-    title: "Context-Aware Assistance",
+    title: "Context-Aware AI Chatbot",
     description: "The AI detects confusion by analyzing your pauses and rewinds. When you're stuck at 10:45, it doesn't just answer—it references that exact moment in the transcript."
   },
   {
@@ -964,10 +968,10 @@ const ScrollytellingFeatures = () => {
 
   return (
     <div className="relative w-full py-20 md:py-32">
-      {/* Desktop: 2-Column Layout */}
-      <div className="hidden lg:grid lg:grid-cols-2 lg:gap-16 max-w-7xl mx-auto px-6">
-        {/* Left Column: Scrollable Text */}
-        <div className="space-y-32">
+      {/* Desktop: 35/65 Split Layout */}
+      <div className="hidden lg:grid lg:gap-12 max-w-7xl mx-auto px-6" style={{ gridTemplateColumns: '35% 65%' }}>
+        {/* Left Column: Scrollable Text (35%) */}
+        <div className="space-y-32 min-w-[320px] pt-[50vh] pb-[50vh]">
           {featureStates.map((feature, index) => (
             <motion.div
               key={feature.id}
@@ -977,17 +981,17 @@ const ScrollytellingFeatures = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className={`
-                p-8 rounded-2xl border-2 transition-all duration-500
+                p-6 rounded-2xl border-2 transition-all duration-500 flex items-center
                 ${activeState === feature.id 
                   ? 'border-purple-500 shadow-xl shadow-purple-500/20 bg-white/5' 
                   : 'border-gray-200/10 bg-transparent'
                 }
               `}
             >
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
+              <div className="space-y-3">
+                <div className="flex items-center gap-2">
                   <span className={`
-                    text-sm font-mono font-bold px-3 py-1 rounded-full transition-colors duration-500
+                    text-xs font-mono font-bold px-2 py-0.5 rounded-full transition-colors duration-500
                     ${activeState === feature.id 
                       ? 'bg-purple-500 text-white' 
                       : 'bg-gray-700 text-gray-400'
@@ -997,13 +1001,13 @@ const ScrollytellingFeatures = () => {
                   </span>
                 </div>
                 <h3 className={`
-                  text-2xl md:text-3xl font-bold transition-colors duration-500
+                  text-xl md:text-2xl font-bold transition-colors duration-500
                   ${activeState === feature.id ? 'text-white' : 'text-gray-400'}
                 `}>
                   {feature.title}
                 </h3>
                 <p className={`
-                  text-lg leading-relaxed transition-colors duration-500
+                  text-base leading-relaxed transition-colors duration-500
                   ${activeState === feature.id ? 'text-gray-300' : 'text-gray-500'}
                 `}>
                   {feature.description}
@@ -1013,23 +1017,34 @@ const ScrollytellingFeatures = () => {
           ))}
         </div>
 
-        {/* Right Column: Sticky Image with Overlays */}
+        {/* Right Column: Sticky Image with Overlays (65%) */}
         <div className="relative">
-          <div className="sticky top-1/3 -translate-y-1/4 space-y-6">
-            <div className="relative w-full min-h-[500px] xl:min-h-[580px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-              {/* Base Image */}
-              <div className={`
-                absolute inset-0 transition-opacity duration-500
-                ${activeState === 1 ? 'opacity-100' : 'opacity-50'}
-              `}>
-                <img
-                  src={ftMain}
-                  alt="FlowTutor Unified Viewport"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+          <div className="sticky top-1/2 -translate-y-1/2 flex items-center justify-center">
+            <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black">
+              {/* State 1: Video Demo - Full UI in action */}
+              {activeState === 1 ? (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <video
+                    src={ftDemoVideo}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              ) : (
+                /* Background Image for other states */
+                <div className="absolute inset-0 transition-opacity duration-500 flex items-center justify-center opacity-50">
+                  <img
+                    src={ftMain}
+                    alt="FlowTutor Unified Viewport"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              )}
 
-              {/* State 2: Chatbot Focus */}
+              {/* State 2: Chat Panel Focus */}
               {activeState === 2 && (
                 <motion.div
                   initial={{ opacity: 0 }}
@@ -1037,28 +1052,16 @@ const ScrollytellingFeatures = () => {
                   transition={{ duration: 0.5 }}
                   className="absolute inset-0"
                 >
-                  {/* Dim the left side */}
-                  <div className="absolute inset-0 bg-black/50" />
-                  {/* Highlight chatbot area (right side) */}
-                  <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-transparent border-2 border-purple-400 rounded-r-2xl" />
-                  {/* Floating tooltip */}
-                  <motion.div
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ delay: 0.3, duration: 0.4 }}
-                    className="absolute right-[35%] top-1/2 -translate-y-1/2 bg-purple-600 text-white px-4 py-2 rounded-lg shadow-xl text-sm font-medium"
-                  >
-                    <div className="flex items-center gap-2">
-                      <MessageSquare className="w-4 h-4" />
-                      <span>Analyzing 10:45...</span>
-                    </div>
-                    {/* Arrow pointing right */}
-                    <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full w-0 h-0 border-t-8 border-t-transparent border-b-8 border-b-transparent border-l-8 border-l-purple-600" />
-                  </motion.div>
+                  {/* Dim everything except chat panel */}
+                  <div className="absolute inset-0 bg-black/70" />
+                  {/* Highlight chat panel (right side) */}
+                  <div className="absolute right-0 top-0 bottom-0 w-[50%] bg-transparent">
+                    <div className="absolute inset-0 border-4 border-purple-400 rounded-r-2xl shadow-[0_0_30px_rgba(168,85,247,0.6)]" />
+                  </div>
                 </motion.div>
               )}
 
-              {/* State 3: Divider Interaction */}
+              {/* State 3: Notes Panel Focus */}
               {activeState === 3 && (
                 <motion.div
                   initial={{ opacity: 0 }}
@@ -1066,79 +1069,33 @@ const ScrollytellingFeatures = () => {
                   transition={{ duration: 0.5 }}
                   className="absolute inset-0"
                 >
-                  {/* Vertical divider line */}
-                  <motion.div
-                    initial={{ left: '50%' }}
-                    animate={{ left: '40%' }}
-                    transition={{ duration: 1, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" }}
-                    className="absolute top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500 via-purple-400 to-purple-500 shadow-lg shadow-purple-500/50"
-                  >
-                    {/* Drag handle */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-12 bg-purple-500 rounded-full flex items-center justify-center shadow-xl">
-                      <GripVertical className="w-4 h-4 text-white" />
-                    </div>
-                  </motion.div>
-                  {/* Arrow overlay indicating movement */}
-                  <motion.div
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
-                    className="absolute left-1/4 top-1/2 -translate-y-1/2"
-                  >
-                    <div className="flex items-center gap-2 text-white">
-                      <ArrowLeft className="w-6 h-6" />
-                      <ArrowRight className="w-6 h-6" />
-                    </div>
-                  </motion.div>
+                  {/* Dim everything except notes panel */}
+                  <div className="absolute inset-0 bg-black/70" />
+                  {/* Highlight notes panel (bottom-left area) */}
+                  <div className="absolute left-0 bottom-7 w-[49.8%] h-[32%] bg-transparent">
+                    <div className="absolute inset-0 border-4 border-purple-400 shadow-[0_0_30px_rgba(168,85,247,0.6)]" />
+                    {/* Notes image overlay */}
+                    <img
+                      src={ftFeature3}
+                      alt="FlowTutor Notes Panel"
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  </div>
                 </motion.div>
               )}
 
-              {/* State 4: Quiz Modal */}
+              {/* State 4: Quiz Video */}
               {activeState === 4 && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                  className="absolute inset-0"
-                >
-                  {/* Pulsing ring around lightbulb icon (top toolbar) */}
-                  <motion.div
-                    animate={{ scale: [1, 1.3, 1], opacity: [0.8, 0.4, 0.8] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="absolute top-4 right-20 w-10 h-10 rounded-full border-4 border-purple-500"
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <video
+                    src={ftQuizVideo}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-contain"
                   />
-                  <div className="absolute top-4 right-20 w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center">
-                    <Lightbulb className="w-5 h-5 text-purple-400" />
-                  </div>
-
-                  {/* Quiz Modal Card */}
-                  <motion.div
-                    initial={{ scale: 0.9, opacity: 0, y: 20 }}
-                    animate={{ scale: 1, opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3, duration: 0.5 }}
-                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] max-w-md bg-white rounded-xl shadow-2xl p-6"
-                  >
-                    <div className="space-y-4">
-                      <div className="flex items-center gap-2 text-purple-600">
-                        <Sparkles className="w-5 h-5" />
-                        <h4 className="font-bold text-lg">Quick Quiz</h4>
-                      </div>
-                      <p className="text-gray-700 text-sm">
-                        What's the main difference between Transformers and RNNs?
-                      </p>
-                      <div className="space-y-2">
-                        {['Parallel processing', 'Sequential only', 'No attention', 'Fixed context'].map((option, i) => (
-                          <div
-                            key={i}
-                            className="px-4 py-2 rounded-lg border border-gray-200 text-sm text-gray-600 hover:border-purple-400 hover:bg-purple-50 transition-all cursor-pointer"
-                          >
-                            {option}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </motion.div>
-                </motion.div>
+                </div>
               )}
             </div>
           </div>
@@ -1172,11 +1129,11 @@ const ScrollytellingFeatures = () => {
             </div>
 
             {/* Image */}
-            <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-white/10 shadow-xl">
+            <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-white/10 shadow-xl bg-black">
               <img
                 src={ftMain}
                 alt={feature.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
             </div>
           </motion.div>
