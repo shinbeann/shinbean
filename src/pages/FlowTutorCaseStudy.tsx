@@ -976,13 +976,10 @@ const ScrollytellingFeatures = () => {
             <motion.div
               key={feature.id}
               ref={(el) => (featureRefs.current[index] = el)}
-              initial={{ opacity: 0.4, y: 0 }}
-              animate={{ 
-                opacity: activeState === feature.id ? 1 : 0.4,
-                scale: activeState === feature.id ? 1 : 0.98,
-                x: activeState === feature.id ? 0 : -8
-              }}
-              transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
               className={`
                 relative p-6 rounded-2xl border-2 transition-all duration-500
                 ${activeState === feature.id 
@@ -991,6 +988,24 @@ const ScrollytellingFeatures = () => {
                 }
               `}
             >
+              {/* Connecting Line to Right Image */}
+              <div className={`
+                absolute right-0 top-1/2 w-8 h-[2px] transition-all duration-500
+                ${activeState === feature.id 
+                  ? 'bg-purple-500 opacity-100' 
+                  : 'bg-gray-600 opacity-30'
+                }
+              `} style={{ transform: 'translateX(100%)' }} />
+              
+              {/* Connection Dot */}
+              <div className={`
+                absolute right-0 top-1/2 w-3 h-3 rounded-full border-2 transition-all duration-500
+                ${activeState === feature.id 
+                  ? 'bg-purple-500 border-purple-400 scale-100' 
+                  : 'bg-gray-700 border-gray-600 scale-75'
+                }
+              `} style={{ transform: 'translate(calc(100% + 32px), -50%)' }} />
+              
               <div className="space-y-3">
                 <div className="flex items-center gap-2">
                   <span className={`
@@ -1022,24 +1037,24 @@ const ScrollytellingFeatures = () => {
 
         {/* Right Column: Sticky Image/Video */}
         <div className="relative">
-          <div className="sticky top-1/2 -translate-y-1/2 flex items-center justify-center">
-            <motion.div 
-              key={activeState}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-              className="relative w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black" 
-              style={{ aspectRatio: '16/10' }}
-            >
+          <div className="sticky top-1/2 -translate-y-1/2 flex items-center justify-center pl-8">
+            {/* Feature Number Indicator on Image */}
+            <div className="absolute -left-4 top-4 z-20">
+              <motion.div 
+                key={activeState}
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                className="w-12 h-12 rounded-full bg-purple-500 flex items-center justify-center shadow-lg shadow-purple-500/30"
+              >
+                <span className="text-white font-bold text-lg">{activeState.toString().padStart(2, '0')}</span>
+              </motion.div>
+            </div>
+            
+            <div className="relative w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black" style={{ aspectRatio: '16/10' }}>
               {/* State 1: Video Demo - Full UI in action */}
-              {activeState === 1 && (
-                <motion.div 
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.4 }}
-                  className="absolute inset-0 flex items-center justify-center"
-                >
+              {activeState === 1 ? (
+                <div className="absolute inset-0 flex items-center justify-center">
                   <video
                     src={ftDemoVideo}
                     autoPlay
@@ -1048,49 +1063,67 @@ const ScrollytellingFeatures = () => {
                     playsInline
                     className="w-full h-full object-contain"
                   />
-                </motion.div>
+                </div>
+              ) : (
+                /* Background Image for other states */
+                <div className="absolute inset-0 transition-opacity duration-500 flex items-center justify-center opacity-50">
+                  <img
+                    src={ftMain}
+                    alt="FlowTutor Unified Viewport"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
               )}
 
-              {/* State 2: Chat Panel Image */}
+              {/* State 2: Chat Panel Focus */}
               {activeState === 2 && (
                 <motion.div
-                  initial={{ opacity: 0, scale: 1.02 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4 }}
-                  className="absolute inset-0 flex items-center justify-center"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                  className="absolute inset-0"
                 >
-                  <img
-                    src={ftFeature2}
-                    alt="FlowTutor Chat Panel"
-                    className="w-full h-full object-cover"
-                  />
+                  {/* Dim everything except chat panel */}
+                  <div className="absolute inset-0 bg-black/70" />
+                  {/* Highlight chat panel (right side) */}
+                  <div className="absolute right-0 top-7 bottom-3 w-[50%] h-[82%] bg-transparent">
+                    <div className="absolute inset-0 border-4 border-purple-400 shadow-[0_0_30px_rgba(168,85,247,0.6)]" />
+                    {/* Chat image overlay */}
+                    <img
+                      src={ftFeature2}
+                      alt="FlowTutor Chat Panel"
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  </div>
                 </motion.div>
               )}
 
-              {/* State 3: Notes Panel Image */}
+              {/* State 3: Notes Panel Focus */}
               {activeState === 3 && (
                 <motion.div
-                  initial={{ opacity: 0, scale: 1.02 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4 }}
-                  className="absolute inset-0 flex items-center justify-center"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                  className="absolute inset-0"
                 >
-                  <img
-                    src={ftFeature3}
-                    alt="FlowTutor Notes Panel"
-                    className="w-full h-full object-cover"
-                  />
+                  {/* Dim everything except notes panel */}
+                  <div className="absolute inset-0 bg-black/70" />
+                  {/* Highlight notes panel (bottom-left area) */}
+                  <div className="absolute left-0 bottom-7 w-[49.8%] h-[32%] bg-transparent">
+                    <div className="absolute inset-0 border-4 border-purple-400 shadow-[0_0_30px_rgba(168,85,247,0.6)]" />
+                    {/* Notes image overlay */}
+                    <img
+                      src={ftFeature3}
+                      alt="FlowTutor Notes Panel"
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  </div>
                 </motion.div>
               )}
 
               {/* State 4: Quiz Video */}
               {activeState === 4 && (
-                <motion.div 
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.4 }}
-                  className="absolute inset-0 flex items-center justify-center"
-                >
+                <div className="absolute inset-0 flex items-center justify-center">
                   <video
                     src={ftQuizVideo}
                     autoPlay
@@ -1099,9 +1132,9 @@ const ScrollytellingFeatures = () => {
                     playsInline
                     className="w-full h-full object-contain"
                   />
-                </motion.div>
+                </div>
               )}
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
