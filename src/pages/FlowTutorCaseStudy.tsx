@@ -967,21 +967,24 @@ const ScrollytellingFeatures = () => {
   }, []);
 
   return (
-    <div className="relative w-full py-20 md:py-32">
-      {/* Desktop: Two-Column Layout with better alignment */}
-      <div className="hidden lg:grid lg:gap-8 max-w-7xl mx-auto px-6" style={{ gridTemplateColumns: '40% 60%' }}>
-        {/* Left Column: Scrollable Text Cards */}
-        <div className="relative space-y-24 min-w-[320px] pt-[40vh] pb-[40vh]">
+    <div className="relative w-full max-w-4xl mx-auto px-6 pb-8 md:pb-12">
+      {/* Desktop: 35/65 Split Layout — same width as Insights Grid (Poor Navigation, etc.) */}
+      <div className="hidden lg:grid lg:gap-6 w-full" style={{ gridTemplateColumns: '35% 65%' }}>
+        {/* Left Column: Scrollable Text (35%) */}
+        <div className="space-y-24 min-w-0 pt-16 pb-[20vh]">
           {featureStates.map((feature, index) => (
             <motion.div
               key={feature.id}
               ref={(el) => (featureRefs.current[index] = el)}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
+              animate={{
+                y: activeState === feature.id ? -8 : 0,
+              }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
               className={`
-                relative p-6 rounded-2xl border-2 transition-all duration-500
+                relative p-5 rounded-xl border-2 transition-all duration-500
                 ${activeState === feature.id 
                   ? 'border-purple-500 shadow-xl shadow-purple-500/20 bg-white/5' 
                   : 'border-gray-200/10 bg-transparent'
@@ -1035,22 +1038,9 @@ const ScrollytellingFeatures = () => {
           ))}
         </div>
 
-        {/* Right Column: Sticky Image/Video */}
-        <div className="relative">
-          <div className="sticky top-1/2 -translate-y-1/2 flex items-center justify-center pl-8">
-            {/* Feature Number Indicator on Image */}
-            <div className="absolute -left-4 top-4 z-20">
-              <motion.div 
-                key={activeState}
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.3 }}
-                className="w-12 h-12 rounded-full bg-purple-500 flex items-center justify-center shadow-lg shadow-purple-500/30"
-              >
-                <span className="text-white font-bold text-lg">{activeState.toString().padStart(2, '0')}</span>
-              </motion.div>
-            </div>
-            
+        {/* Right Column: Sticky Image/Video (65%) — vertically aligned with first feature card */}
+        <div className="relative h-full flex items-start pt-16">
+          <div className="sticky top-24 w-full flex items-start justify-center pl-4">
             <div className="relative w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black" style={{ aspectRatio: '16/10' }}>
               {/* State 1: Video Demo - Full UI in action */}
               {activeState === 1 ? (
@@ -1086,7 +1076,7 @@ const ScrollytellingFeatures = () => {
                   {/* Dim everything except chat panel */}
                   <div className="absolute inset-0 bg-black/70" />
                   {/* Highlight chat panel (right side) */}
-                  <div className="absolute right-0 top-7 bottom-3 w-[50%] h-[82%] bg-transparent">
+                  <div className="absolute right-0 top-7 bottom-3 w-[50%] h-[78.5%] bg-transparent">
                     <div className="absolute inset-0 border-4 border-purple-400 shadow-[0_0_30px_rgba(168,85,247,0.6)]" />
                     {/* Chat image overlay */}
                     <img
@@ -1109,7 +1099,7 @@ const ScrollytellingFeatures = () => {
                   {/* Dim everything except notes panel */}
                   <div className="absolute inset-0 bg-black/70" />
                   {/* Highlight notes panel (bottom-left area) */}
-                  <div className="absolute left-0 bottom-7 w-[49.8%] h-[32%] bg-transparent">
+                  <div className="absolute left-0 bottom-11 w-[49.8%] h-[29%] bg-transparent">
                     <div className="absolute inset-0 border-4 border-purple-400 shadow-[0_0_30px_rgba(168,85,247,0.6)]" />
                     {/* Notes image overlay */}
                     <img
