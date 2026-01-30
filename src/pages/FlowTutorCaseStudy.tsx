@@ -967,11 +967,11 @@ const ScrollytellingFeatures = () => {
   }, []);
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto px-6 pb-8 md:pb-12">
-      {/* Desktop: 35/65 Split Layout — same width as Insights Grid (Poor Navigation, etc.) */}
-      <div className="hidden lg:grid lg:gap-6 w-full" style={{ gridTemplateColumns: '35% 65%' }}>
-        {/* Left Column: Scrollable Text (35%) */}
-        <div className="space-y-24 min-w-0 pt-16 pb-[20vh]">
+    <div className="relative w-full max-w-4xl mx-auto pb-8 md:pb-12">
+      {/* Desktop: 38/62 Split Layout — constrained to middle column width */}
+      <div className="hidden lg:grid lg:gap-4 w-full" style={{ gridTemplateColumns: '38% 62%' }}>
+        {/* Left Column: Scrollable Text (38%) */}
+        <div className="space-y-20 min-w-0 pt-12 pb-[15vh]">
           {featureStates.map((feature, index) => (
             <motion.div
               key={feature.id}
@@ -984,16 +984,16 @@ const ScrollytellingFeatures = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
               className={`
-                relative p-5 rounded-xl border-2 transition-all duration-500
+                relative p-4 rounded-xl border-2 transition-all duration-500
                 ${activeState === feature.id 
-                  ? 'border-purple-500 shadow-xl shadow-purple-500/20 bg-white/5' 
+                  ? 'border-purple-500 shadow-lg shadow-purple-500/20 bg-white/5' 
                   : 'border-gray-200/10 bg-transparent'
                 }
               `}
             >
               {/* Connecting Line to Right Image */}
               <div className={`
-                absolute right-0 top-1/2 w-8 h-[2px] transition-all duration-500
+                absolute right-0 top-1/2 w-6 h-[2px] transition-all duration-500
                 ${activeState === feature.id 
                   ? 'bg-purple-500 opacity-100' 
                   : 'bg-gray-600 opacity-30'
@@ -1002,17 +1002,17 @@ const ScrollytellingFeatures = () => {
               
               {/* Connection Dot */}
               <div className={`
-                absolute right-0 top-1/2 w-3 h-3 rounded-full border-2 transition-all duration-500
+                absolute right-0 top-1/2 w-2.5 h-2.5 rounded-full border-2 transition-all duration-500
                 ${activeState === feature.id 
                   ? 'bg-purple-500 border-purple-400 scale-100' 
                   : 'bg-gray-700 border-gray-600 scale-75'
                 }
-              `} style={{ transform: 'translate(calc(100% + 32px), -50%)' }} />
+              `} style={{ transform: 'translate(calc(100% + 24px), -50%)' }} />
               
-              <div className="space-y-3">
+              <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <span className={`
-                    text-sm font-mono font-bold px-3 py-1 rounded-full transition-colors duration-500
+                    text-xs font-mono font-bold px-2 py-0.5 rounded-full transition-colors duration-500
                     ${activeState === feature.id 
                       ? 'bg-purple-500 text-white' 
                       : 'bg-gray-700 text-gray-400'
@@ -1022,13 +1022,13 @@ const ScrollytellingFeatures = () => {
                   </span>
                 </div>
                 <h3 className={`
-                  text-xl md:text-2xl font-bold transition-colors duration-500
+                  text-lg md:text-xl font-bold transition-colors duration-500
                   ${activeState === feature.id ? 'text-white' : 'text-gray-400'}
                 `}>
                   {feature.title}
                 </h3>
                 <p className={`
-                  text-base leading-relaxed transition-colors duration-500
+                  text-sm leading-relaxed transition-colors duration-500
                   ${activeState === feature.id ? 'text-gray-300' : 'text-gray-500'}
                 `}>
                   {feature.description}
@@ -1038,9 +1038,9 @@ const ScrollytellingFeatures = () => {
           ))}
         </div>
 
-        {/* Right Column: Sticky Image/Video (65%) — vertically aligned with first feature card */}
-        <div className="relative h-full flex items-start pt-16">
-          <div className="sticky top-24 w-full flex items-start justify-center pl-4">
+        {/* Right Column: Sticky Image/Video (62%) — vertically aligned with first feature card */}
+        <div className="relative h-full flex items-start pt-12">
+          <div className="sticky top-20 w-full flex items-start justify-center">
             <div className="relative w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black" style={{ aspectRatio: '16/10' }}>
               {/* State 1: Video Demo - Full UI in action */}
               {activeState === 1 ? (
