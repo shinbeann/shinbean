@@ -1055,8 +1055,14 @@ const ScrollytellingFeatures = () => {
                   {/* Dim everything except chat panel */}
                   <div className="absolute inset-0 bg-black/70" />
                   {/* Highlight chat panel (right side) */}
-                  <div className="absolute right-0 top-0 bottom-0 w-[50%] bg-transparent">
-                    <div className="absolute inset-0 border-4 border-purple-400 rounded-r-2xl shadow-[0_0_30px_rgba(168,85,247,0.6)]" />
+                  <div className="absolute right-0 top-7 bottom-3 w-[50%] h-[82%] bg-transparent">
+                    <div className="absolute inset-0 border-4 border-purple-400 shadow-[0_0_30px_rgba(168,85,247,0.6)]" />
+                    {/* Chat image overlay */}
+                    <img
+                      src={ftFeature2}
+                      alt="FlowTutor Chat Panel"
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
                   </div>
                 </motion.div>
               )}
