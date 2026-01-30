@@ -13,7 +13,7 @@ import pinAfter from "@/assets/flowtutor-pinafter.png";
 import vpBefore from "@/assets/flowtutor-vpbefore.png";
 import vpAfter from "@/assets/flowtutor-vpafter.png";
 import ftProblem from "@/assets/ft_problem.png";
-import ftLanding from "@/assets/ft_landing.jpg";
+import ftLanding from "@/assets/ft_landing.png";
 import ftPearson from "@/assets/ft_pearson.png";
 import ftMain from "@/assets/ft_main.png";
 import ftDemoVideo from "@/assets/Screen Recording 2026-01-29 143535.mp4";

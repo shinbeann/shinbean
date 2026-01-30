@@ -88,25 +88,43 @@ All colors MUST be HSL.
     line-height: 1.625; /* ~26px on 16px base for comfortable reading */
   }
   
-  /* Typography styles - tighter tracking for headings */
+  /* Typography hierarchy - enforce heavier weights for clarity */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold;
-    letter-spacing: -0.02em; /* -20 tracking */
+    @apply font-bold;
+    letter-spacing: -0.02em; /* Tighter tracking for headings */
   }
   
   h1 { 
     font-size: var(--text-3xl);
     line-height: 1.167; /* 56px on 48px */
+    font-weight: 700;
   }
   
   h2 { 
     font-size: var(--text-2xl);
     line-height: 1.222; /* 44px on 36px */
+    font-weight: 700;
   }
   
   h3 { 
     font-size: var(--text-xl);
     line-height: 1.333; /* 32px on 24px */
+    font-weight: 600;
+  }
+  
+  h4, h5, h6 {
+    font-weight: 600;
+  }
+  
+  /* Body text - enforce minimum 400 weight */
+  p, li, span, a {
+    font-weight: 400;
+    min-font-weight: 400; /* Never go below 400 for legibility */
+  }
+  
+  /* Strong emphasis */
+  strong, b {
+    font-weight: 600;
   }
   
   /* Long-read body text uses serif */
@@ -139,6 +157,28 @@ All colors MUST be HSL.
 }
 
 @layer components {
+  /* Utility classes for systematic spacing (8px grid) */
+  .section-spacing-y {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+  
+  .content-spacing-y {
+    @apply space-y-8;
+  }
+  
+  .card-padding {
+    @apply p-8;
+  }
+  
+  /* Enhanced shadow utilities for elevation */
+  .shadow-lift {
+    box-shadow: 0 8px 30px rgb(0 0 0 / 0.12), 0 4px 8px rgb(0 0 0 / 0.08);
+  }
+  
+  .shadow-lift-lg {
+    box-shadow: 0 20px 60px -12px rgb(0 0 0 / 0.25), 0 8px 16px -4px rgb(0 0 0 / 0.1);
+  }
+
   /* SECTION 1: FlowTutor - Deep Midnight Blue */
   .flowtutor-section {
     background: linear-gradient(
