@@ -968,10 +968,10 @@ const ScrollytellingFeatures = () => {
 
   return (
     <div className="relative w-full py-20 md:py-32">
-      {/* Desktop: 35/65 Split Layout */}
-      <div className="hidden lg:grid lg:gap-12 max-w-7xl mx-auto px-6" style={{ gridTemplateColumns: '35% 65%' }}>
-        {/* Left Column: Scrollable Text (35%) */}
-        <div className="space-y-32 min-w-[320px] pt-[50vh] pb-[50vh]">
+      {/* Desktop: Two-Column Layout with better alignment */}
+      <div className="hidden lg:grid lg:gap-8 max-w-7xl mx-auto px-6" style={{ gridTemplateColumns: '40% 60%' }}>
+        {/* Left Column: Scrollable Text Cards */}
+        <div className="relative space-y-24 min-w-[320px] pt-[40vh] pb-[40vh]">
           {featureStates.map((feature, index) => (
             <motion.div
               key={feature.id}
@@ -981,17 +981,35 @@ const ScrollytellingFeatures = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className={`
-                p-6 rounded-2xl border-2 transition-all duration-500 flex items-center
+                relative p-6 rounded-2xl border-2 transition-all duration-500
                 ${activeState === feature.id 
                   ? 'border-purple-500 shadow-xl shadow-purple-500/20 bg-white/5' 
                   : 'border-gray-200/10 bg-transparent'
                 }
               `}
             >
+              {/* Connecting Line to Right Image */}
+              <div className={`
+                absolute right-0 top-1/2 w-8 h-[2px] transition-all duration-500
+                ${activeState === feature.id 
+                  ? 'bg-purple-500 opacity-100' 
+                  : 'bg-gray-600 opacity-30'
+                }
+              `} style={{ transform: 'translateX(100%)' }} />
+              
+              {/* Connection Dot */}
+              <div className={`
+                absolute right-0 top-1/2 w-3 h-3 rounded-full border-2 transition-all duration-500
+                ${activeState === feature.id 
+                  ? 'bg-purple-500 border-purple-400 scale-100' 
+                  : 'bg-gray-700 border-gray-600 scale-75'
+                }
+              `} style={{ transform: 'translate(calc(100% + 32px), -50%)' }} />
+              
               <div className="space-y-3">
                 <div className="flex items-center gap-2">
                   <span className={`
-                    text-xs font-mono font-bold px-2 py-0.5 rounded-full transition-colors duration-500
+                    text-sm font-mono font-bold px-3 py-1 rounded-full transition-colors duration-500
                     ${activeState === feature.id 
                       ? 'bg-purple-500 text-white' 
                       : 'bg-gray-700 text-gray-400'
@@ -1017,10 +1035,23 @@ const ScrollytellingFeatures = () => {
           ))}
         </div>
 
-        {/* Right Column: Sticky Image with Overlays (65%) */}
+        {/* Right Column: Sticky Image/Video */}
         <div className="relative">
-          <div className="sticky top-1/2 -translate-y-1/2 flex items-center justify-center">
-            <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black">
+          <div className="sticky top-1/2 -translate-y-1/2 flex items-center justify-center pl-8">
+            {/* Feature Number Indicator on Image */}
+            <div className="absolute -left-4 top-4 z-20">
+              <motion.div 
+                key={activeState}
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                className="w-12 h-12 rounded-full bg-purple-500 flex items-center justify-center shadow-lg shadow-purple-500/30"
+              >
+                <span className="text-white font-bold text-lg">{activeState.toString().padStart(2, '0')}</span>
+              </motion.div>
+            </div>
+            
+            <div className="relative w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black" style={{ aspectRatio: '16/10' }}>
               {/* State 1: Video Demo - Full UI in action */}
               {activeState === 1 ? (
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -1122,7 +1153,7 @@ const ScrollytellingFeatures = () => {
             {/* Text */}
             <div className="p-6 rounded-2xl border border-purple-500/30 bg-white/5">
               <div className="space-y-3">
-                <span className="text-xs font-mono font-bold px-2 py-1 rounded-full bg-purple-500 text-white">
+                <span className="text-sm font-mono font-bold px-3 py-1 rounded-full bg-purple-500 text-white">
                   {feature.id.toString().padStart(2, '0')}
                 </span>
                 <h3 className="text-xl md:text-2xl font-bold text-white">
@@ -1136,11 +1167,40 @@ const ScrollytellingFeatures = () => {
 
             {/* Image */}
             <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-white/10 shadow-xl bg-black">
-              <img
-                src={ftMain}
-                alt={feature.title}
-                className="w-full h-full object-contain"
-              />
+              {feature.id === 1 && (
+                <video
+                  src={ftDemoVideo}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-contain"
+                />
+              )}
+              {feature.id === 2 && (
+                <img
+                  src={ftFeature2}
+                  alt={feature.title}
+                  className="w-full h-full object-cover"
+                />
+              )}
+              {feature.id === 3 && (
+                <img
+                  src={ftFeature3}
+                  alt={feature.title}
+                  className="w-full h-full object-cover"
+                />
+              )}
+              {feature.id === 4 && (
+                <video
+                  src={ftQuizVideo}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-contain"
+                />
+              )}
             </div>
           </motion.div>
         ))}
