@@ -199,22 +199,6 @@ const CaseStudyLayout = ({
             >
               About
             </Link>
-            <button
-              onClick={() => {
-                const footer = document.getElementById('contact');
-                if (footer) {
-                  footer.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className={cn(
-                "block text-sm font-semibold uppercase tracking-widest transition-colors w-full text-right",
-                isDark 
-                  ? "text-neutral-500 hover:text-white" 
-                  : "text-neutral-500 hover:text-foreground"
-              )}
-            >
-              Contact
-            </button>
           </div>
         </nav>
       </div>
@@ -266,22 +250,6 @@ const CaseStudyLayout = ({
             >
               About
             </Link>
-            <button
-              onClick={() => {
-                const footer = document.getElementById('contact');
-                if (footer) {
-                  footer.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className={cn(
-                "text-xs font-semibold uppercase tracking-widest transition-colors",
-                isDark 
-                  ? "text-neutral-500 hover:text-white" 
-                  : "text-neutral-500 hover:text-foreground"
-              )}
-            >
-              Contact
-            </button>
           </div>
         </div>
       </div>
