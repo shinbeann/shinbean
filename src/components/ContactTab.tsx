@@ -9,8 +9,8 @@ const ContactTab = () => {
     name: "Gay Shin Lee",
     role: "UX Designer & Researcher",
     email: "gayshinlee@gmail.com",
-    linkedin: "https://www.linkedin.com/in/gayshinlee/",
-    github: "https://github.com/gayshinlee",
+    linkedin: "https://www.linkedin.com/in/shin-lee-gay/",
+    github: "https://github.com/shinbeann",
     resume: "/GAYSHINLEE_resume.pdf",
   };
 
@@ -152,7 +152,7 @@ const ContactTab = () => {
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                   <span className="text-xs text-zinc-600 dark:text-zinc-400">
-                    Open to opportunities
+                    Open to work
                   </span>
                 </div>
               </div>
