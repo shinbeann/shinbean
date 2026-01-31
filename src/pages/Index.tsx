@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import ContactTab from "@/components/ContactTab";
 import { KidneyQuestInteractiveDemo } from "@/components/KidneyQuestInteractiveDemo";
 import ftHeroVid from "@/assets/ft_herovid.mp4";
 
@@ -252,9 +251,6 @@ const Index = () => {
       </section>
 
       <Footer />
-      
-      {/* LinkedIn-style Contact Tab */}
-      <ContactTab />
     </div>
   );
 };

@@ -1087,9 +1087,9 @@ const ScrollytellingFeatures = () => {
           ))}
         </div>
 
-        {/* Right Column: Sticky Image/Video (62%) — vertically centered in viewport */}
-        <div className="relative h-full flex items-start">
-          <div className="sticky top-1/2 -translate-y-1/2 w-full flex items-center justify-center">
+        {/* Right Column: Sticky Image/Video (62%) — vertically aligned with first feature card */}
+        <div className="relative h-full flex items-start pt-12">
+          <div className="sticky top-20 w-full flex items-start justify-center">
             <div className="relative w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black" style={{ aspectRatio: '16/10' }}>
               {/* State 1: Video Demo - Full UI in action */}
               {activeState === 1 ? (
@@ -1268,19 +1268,17 @@ const FlowTutorCaseStudy = () => {
   return (
     <CaseStudyLayout tableOfContents={flowTutorToc} theme="dark" showSidebarsAfter="problem-section">
       <div className="text-white selection:bg-purple-500/30 font-sans">
-        {/* FULLSCREEN LANDING HERO - Full viewport width/height (full-bleed) */}
-        <section
-          className="relative w-screen min-h-screen flex items-center justify-center overflow-hidden bg-[#050505] ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)]"
-        >
-          {/* Background Image - fills screen, centered composition */}
-          <div className="absolute inset-0 z-0 w-full h-full overflow-hidden">
+        {/* FULLSCREEN LANDING HERO */}
+        <section className="relative -mx-4 md:-mx-[calc((100vw-896px)/2+1.5rem)] min-h-screen flex items-center justify-center overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
             <img
               src={ftLanding}
               alt="FlowTutor - Learn smarter with AI-powered tutorial assistance"
               className="w-full h-full object-cover object-center"
             />
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent" />
           </div>
 
           {/* Scroll Indicator */}
