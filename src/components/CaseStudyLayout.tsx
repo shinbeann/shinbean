@@ -82,7 +82,7 @@ const CaseStudyLayout = ({
   };
 
   return (
-    <div className={cn("min-h-screen", isDark ? "bg-[#050505]" : "bg-background")}>
+    <div className={cn("min-h-screen overflow-x-hidden", isDark ? "bg-[#050505]" : "bg-background")}>
       {/* Top Navigation - Pill Style (matches home page) */}
       <Navigation tone={isDark ? "dark" : "light"} enableSmartHide={false} />
 

@@ -1268,17 +1268,19 @@ const FlowTutorCaseStudy = () => {
   return (
     <CaseStudyLayout tableOfContents={flowTutorToc} theme="dark" showSidebarsAfter="problem-section">
       <div className="text-white selection:bg-purple-500/30 font-sans">
-        {/* FULLSCREEN LANDING HERO */}
-        <section className="relative -mx-4 md:-mx-[calc((100vw-896px)/2+1.5rem)] min-h-screen flex items-center justify-center overflow-hidden">
-          {/* Background Image */}
-          <div className="absolute inset-0 z-0">
+        {/* FULLSCREEN LANDING HERO - Full viewport width/height (full-bleed) */}
+        <section
+          className="relative w-screen min-h-screen flex items-center justify-center overflow-hidden bg-[#050505] ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)]"
+        >
+          {/* Background Image - fills screen, centered composition */}
+          <div className="absolute inset-0 z-0 w-full h-full overflow-hidden">
             <img
               src={ftLanding}
               alt="FlowTutor - Learn smarter with AI-powered tutorial assistance"
               className="w-full h-full object-cover object-center"
             />
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent pointer-events-none" />
           </div>
 
           {/* Scroll Indicator */}
