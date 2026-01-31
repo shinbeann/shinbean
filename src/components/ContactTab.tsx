@@ -83,8 +83,8 @@ const ContactTab = () => {
                   href={`mailto:${contactInfo.email}`}
                   className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors group"
                 >
-                  <div className="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
-                    <Mail className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                  <div className="w-8 h-8 rounded-full bg-zinc-200 dark:bg-zinc-700 flex items-center justify-center">
+                    <Mail className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-zinc-900 dark:text-white">Email</p>
@@ -102,8 +102,8 @@ const ContactTab = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors group"
                 >
-                  <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
-                    <Linkedin className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                  <div className="w-8 h-8 rounded-full bg-zinc-200 dark:bg-zinc-700 flex items-center justify-center">
+                    <Linkedin className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />
                   </div>
                   <div className="flex-1">
                     <p className="text-sm font-medium text-zinc-900 dark:text-white">LinkedIn</p>
@@ -136,8 +136,8 @@ const ContactTab = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors group"
                 >
-                  <div className="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
-                    <FileText className="w-4 h-4 text-green-600 dark:text-green-400" />
+                  <div className="w-8 h-8 rounded-full bg-zinc-200 dark:bg-zinc-700 flex items-center justify-center">
+                    <FileText className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />
                   </div>
                   <div className="flex-1">
                     <p className="text-sm font-medium text-zinc-900 dark:text-white">Resume</p>
