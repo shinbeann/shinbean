@@ -38,9 +38,12 @@ const CaseStudyLayout = ({
       // Check if we should show sidebars
       if (showSidebarsAfter) {
         const triggerElement = document.getElementById(showSidebarsAfter);
-        if (triggerElement) {
+        if (!triggerElement) {
+          // If the trigger ID is missing for any reason, fail open (show sidebars)
+          setShowSidebars(true);
+        } else {
           const rect = triggerElement.getBoundingClientRect();
-          // Show sidebars when the trigger section enters the viewport (more generous threshold)
+          // Show sidebars when the trigger section enters the viewport
           setShowSidebars(rect.top <= window.innerHeight * 0.7);
         }
       }
@@ -69,9 +72,26 @@ const CaseStudyLayout = ({
       setActiveSection("");
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Initial check
-    return () => window.removeEventListener("scroll", handleScroll);
+    // Some layouts scroll on a container (e.g., #root) rather than window.
+    // Attach to both to ensure the sidebar visibility + scroll-spy work reliably.
+    const rootEl = document.getElementById("root");
+    const scrollTargets: Array<EventTarget> = [window];
+    if (rootEl) scrollTargets.push(rootEl);
+
+    scrollTargets.forEach((t) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (t as any).addEventListener?.("scroll", handleScroll, { passive: true });
+    });
+
+    handleScroll();
+    requestAnimationFrame(handleScroll);
+
+    return () => {
+      scrollTargets.forEach((t) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (t as any).removeEventListener?.("scroll", handleScroll);
+      });
+    };
   }, [tableOfContents, showSidebarsAfter]);
 
   const handleScrollTo = (id: string) => {
@@ -92,7 +112,7 @@ const CaseStudyLayout = ({
         <nav
           aria-label="Table of Contents"
           className={cn(
-            "hidden md:block sticky top-24 h-fit pt-24 pb-12 transition-all duration-500",
+            "hidden md:block sticky top-24 z-20 h-fit pt-24 pb-12 transition-all duration-500",
             showSidebars ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8 pointer-events-none"
           )}
         >
