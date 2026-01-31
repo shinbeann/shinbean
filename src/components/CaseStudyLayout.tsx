@@ -43,8 +43,8 @@ const CaseStudyLayout = ({
           setShowSidebars(true);
         } else {
           const rect = triggerElement.getBoundingClientRect();
-          // Show sidebars when the trigger section enters the viewport
-          setShowSidebars(rect.top <= window.innerHeight * 0.7);
+          // Show sidebars only when the trigger section reaches near the top of viewport
+          setShowSidebars(rect.top <= 150);
         }
       }
 
