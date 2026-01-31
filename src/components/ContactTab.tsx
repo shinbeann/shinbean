@@ -28,8 +28,8 @@ const ContactTab = () => {
       >
         <div className="flex items-center gap-3">
           {/* Avatar/Icon */}
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-white text-sm font-semibold">
-            GL
+          <div className="w-8 h-8 rounded-full overflow-hidden bg-zinc-100 dark:bg-zinc-800">
+            <img src="/favicon.ico" alt="Gay Shin Lee" className="w-full h-full object-cover" />
           </div>
           <span className="font-medium text-zinc-900 dark:text-white text-sm">
             Contact
