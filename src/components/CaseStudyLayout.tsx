@@ -1,6 +1,8 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 interface TableOfContentsItem {
   id: string;
@@ -16,8 +18,6 @@ interface CaseStudyLayoutProps {
   showSidebarsAfter?: string; // Section ID after which sidebars should appear
 }
 
-import Footer from "@/components/Footer";
-
 const CaseStudyLayout = ({
   children,
   tableOfContents,
@@ -25,7 +25,6 @@ const CaseStudyLayout = ({
   theme = "light",
   showSidebarsAfter,
 }: CaseStudyLayoutProps) => {
-  const location = useLocation();
   const [activeSection, setActiveSection] = useState<string>("");
   const [showSidebars, setShowSidebars] = useState(!showSidebarsAfter);
 
@@ -82,8 +81,11 @@ const CaseStudyLayout = ({
 
   return (
     <div className={cn("min-h-screen", isDark ? "bg-[#050505]" : "bg-background")}>
-      {/* 3-Column Holy Grail Grid */}
-      <div className="md:grid md:grid-cols-[240px_1fr_180px] gap-8 max-w-[1600px] mx-auto px-6">
+      {/* Top Navigation */}
+      <Navigation tone={isDark ? "dark" : "light"} enableSmartHide={false} />
+      
+      {/* 2-Column Grid (Left: TOC, Center: Content) */}
+      <div className="md:grid md:grid-cols-[240px_1fr] gap-8 max-w-[1600px] mx-auto px-6">
         {/* Left Column - In-Page Navigation (Table of Contents) */}
         <nav
           aria-label="Table of Contents"
@@ -160,99 +162,9 @@ const CaseStudyLayout = ({
         <main className="pb-48 min-w-0">
           <div className="max-w-4xl mx-auto px-4 md:px-0">{children}</div>
         </main>
-
-
-        {/* Right Column - Global Site Navigation */}
-        <nav
-          aria-label="Main Site Navigation"
-          className={cn(
-            "hidden md:block sticky top-12 h-fit pt-24 pb-12 transition-all duration-500",
-            showSidebars ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8 pointer-events-none"
-          )}
-        >
-          <div className="space-y-4 text-right">
-            <Link
-              to="/"
-              onClick={() => window.scrollTo(0, 0)}
-              className={cn(
-                "block text-sm font-semibold uppercase tracking-widest transition-colors",
-                location.pathname === "/"
-                  ? isDark ? "text-white" : "text-foreground"
-                  : isDark 
-                    ? "text-neutral-500 hover:text-white" 
-                    : "text-neutral-500 hover:text-foreground"
-              )}
-            >
-              Work
-            </Link>
-            <Link
-              to="/about"
-              onClick={() => window.scrollTo(0, 0)}
-              className={cn(
-                "block text-sm font-semibold uppercase tracking-widest transition-colors",
-                location.pathname === "/about"
-                  ? isDark ? "text-white" : "text-foreground"
-                  : isDark 
-                    ? "text-neutral-500 hover:text-white" 
-                    : "text-neutral-500 hover:text-foreground"
-              )}
-            >
-              About
-            </Link>
-          </div>
-        </nav>
       </div>
 
       <Footer />
-
-      {/* Mobile: Simplified Header Row */}
-      <div className={cn(
-        "md:hidden fixed top-0 left-0 right-0 z-40 backdrop-blur-xl border-b",
-        isDark 
-          ? "bg-[#050505]/95 border-white/10" 
-          : "bg-background/95 border-border"
-      )}>
-        <div className="flex items-center justify-between px-4 py-3">
-          <Link
-            to={backLink.to}
-            onClick={() => window.scrollTo(0, 0)}
-            className={cn(
-              "text-sm transition-colors",
-              isDark 
-                ? "text-neutral-500 hover:text-white" 
-                : "text-neutral-500 hover:text-foreground"
-            )}
-          >
-            ← {backLink.label}
-          </Link>
-          <div className="flex items-center gap-4">
-            <Link
-              to="/"
-              onClick={() => window.scrollTo(0, 0)}
-              className={cn(
-                "text-xs font-semibold uppercase tracking-widest transition-colors",
-                isDark 
-                  ? "text-neutral-500 hover:text-white" 
-                  : "text-neutral-500 hover:text-foreground"
-              )}
-            >
-              Work
-            </Link>
-            <Link
-              to="/about"
-              onClick={() => window.scrollTo(0, 0)}
-              className={cn(
-                "text-xs font-semibold uppercase tracking-widest transition-colors",
-                isDark 
-                  ? "text-neutral-500 hover:text-white" 
-                  : "text-neutral-500 hover:text-foreground"
-              )}
-            >
-              About
-            </Link>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };
