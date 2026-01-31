@@ -28,7 +28,8 @@ const CaseStudyLayout = ({
 }: CaseStudyLayoutProps) => {
   const location = useLocation();
   const [activeSection, setActiveSection] = useState<string>("");
-  const [showSidebars, setShowSidebars] = useState(!showSidebarsAfter);
+  // Start with sidebars hidden if we have a trigger section
+  const [showSidebars, setShowSidebars] = useState(false);
 
   const isDark = theme === "dark";
 
@@ -46,6 +47,9 @@ const CaseStudyLayout = ({
           // Show sidebars only when the trigger section reaches near the top of viewport
           setShowSidebars(rect.top <= 150);
         }
+      } else {
+        // No trigger section specified, always show sidebars
+        setShowSidebars(true);
       }
 
       // Flatten all sections including children
