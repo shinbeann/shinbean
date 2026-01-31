@@ -116,7 +116,7 @@ const CaseStudyLayout = ({
         <nav
           aria-label="Table of Contents"
           className={cn(
-            "hidden md:block sticky top-32 z-20 h-fit pb-12 transition-all duration-500",
+            "hidden md:block sticky top-48 z-20 h-fit pb-12 transition-all duration-500",
             showSidebars ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8 pointer-events-none"
           )}
         >
