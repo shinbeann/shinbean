@@ -1269,7 +1269,7 @@ const FlowTutorCaseStudy = () => {
     <CaseStudyLayout tableOfContents={flowTutorToc} theme="dark" showSidebarsAfter="problem-section">
       <div className="text-white selection:bg-purple-500/30 font-sans">
         {/* FULLSCREEN LANDING HERO */}
-        <section className="relative -mx-4 md:-mx-[calc((100vw-896px)/2+1.5rem)] min-h-screen flex items-center justify-center overflow-hidden">
+        <section className="relative -mx-4 md:-mx-[calc((100vw-896px)/2+1.5rem)] max-w-[100vw] min-h-screen flex items-center justify-center overflow-hidden">
           {/* Background Image */}
           <div className="absolute inset-0 z-0">
             <img
