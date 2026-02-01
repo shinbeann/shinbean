@@ -73,20 +73,25 @@ const QuizModalVisual = () => (
 
 // Feature Row Component
 interface FeatureRowProps {
-  label: string;
+  number: string;
   headline: string;
   body: string;
   visual: React.ReactNode;
   isReversed?: boolean;
 }
 
-const FeatureRow = ({ label, headline, body, visual, isReversed = false }: FeatureRowProps) => (
+const FeatureRow = ({ number, headline, body, visual, isReversed = false }: FeatureRowProps) => (
   <div className={`grid grid-cols-1 gap-6 lg:gap-10 items-center ${isReversed ? 'lg:grid-cols-[3fr_2fr]' : 'lg:grid-cols-[2fr_3fr]'}`}>
     {/* Text Column */}
-    <div className={`space-y-3 ${isReversed ? 'lg:order-2' : 'lg:order-1'}`}>
-      <p className="font-mono text-xs tracking-widest text-purple-400 uppercase">{label}</p>
-      <h3 className="text-xl md:text-2xl lg:text-3xl font-bold tracking-tight text-white">{headline}</h3>
-      <p className="text-sm md:text-base text-neutral-400 leading-relaxed">{body}</p>
+    <div className={`relative ${isReversed ? 'lg:order-2' : 'lg:order-1'}`}>
+      {/* Large decorative number */}
+      <span className="absolute -left-2 -top-8 text-[80px] md:text-[100px] font-bold leading-none text-white/10 select-none pointer-events-none">
+        {number}
+      </span>
+      <div className="relative z-10 space-y-3 pt-6">
+        <h3 className="text-xl md:text-2xl lg:text-3xl font-bold tracking-tight text-white">{headline}</h3>
+        <p className="text-sm md:text-base text-neutral-400 leading-relaxed">{body}</p>
+      </div>
     </div>
     
     {/* Visual Column */}
@@ -102,7 +107,7 @@ const ZigZagFeatures = () => {
     <div className="w-full max-w-4xl flex flex-col gap-12 md:gap-16">
       {/* Row 1: Customizable Split View */}
       <FeatureRow
-        label="01 — THE WORKSPACE"
+        number="01"
         headline="Customizable Split View."
         body="Resize the video and workspace effortlessly with a draggable divider that preserves video proportions. FlowTutor adapts to how you learn, letting you focus on the content that matters most at any moment."
         visual={<WorkspaceVisual />}
@@ -111,7 +116,7 @@ const ZigZagFeatures = () => {
       
       {/* Row 2: Context-Aware AI Tutor */}
       <FeatureRow
-        label="02 — ASSISTANCE"
+        number="02"
         headline="Context-Aware AI Tutor."
         body="Ask questions naturally while you learn. Powered by AI that understands the video itself, FlowTutor delivers accurate, relevant explanations exactly when you need them—no searching, no guesswork."
         visual={<ChatBubbleVisual />}
@@ -120,7 +125,7 @@ const ZigZagFeatures = () => {
       
       {/* Row 3: Smart Notes */}
       <FeatureRow
-        label="03 — NOTES"
+        number="03"
         headline="Smart Notes."
         body="Capture ideas as you watch with flexible, formatted notes designed for real learning. Organize key concepts your way and turn passive watching into active understanding."
         visual={<DividerVisual />}
@@ -129,7 +134,7 @@ const ZigZagFeatures = () => {
       
       {/* Row 4: Instant Knowledge Checks */}
       <FeatureRow
-        label="04 — MASTERY"
+        number="04"
         headline="Instant Knowledge Checks."
         body="Reinforce learning with quick, built-in quizzes generated from the tutorial content. Instantly see what you've mastered and what needs another look, so learning actually sticks."
         visual={<QuizModalVisual />}
