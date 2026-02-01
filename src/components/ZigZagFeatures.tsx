@@ -4,7 +4,7 @@ import ftDemoVideo from "@/assets/Screen Recording 2026-01-29 143535.mp4";
 
 // Dark Theme Container Component
 const FeatureVisualContainer = ({ children }: { children: React.ReactNode }) => (
-  <div className="border border-white/10 bg-white/5 rounded-xl overflow-hidden shadow-2xl">
+  <div className="border border-white/10 bg-white/5 overflow-hidden shadow-2xl">
     {children}
   </div>
 );
@@ -173,7 +173,7 @@ const ZigZagFeatures = () => {
       <FeatureRow
         label="01 — THE WORKSPACE"
         headline="A Single Pane of Glass."
-        body="No more tab switching. Everything you need—video, notes, and AI assistance—lives in one unified interface. Your focus stays intact."
+        body="Video, notes, and AI assistance in one unified interface."
         visual={<WorkspaceVisual />}
         isReversed={false}
       />
@@ -182,7 +182,7 @@ const ZigZagFeatures = () => {
       <FeatureRow
         label="02 — ASSISTANCE"
         headline="Context-Aware AI Chatbot."
-        body="The AI detects confusion by analyzing your pauses and rewinds. When you're stuck at 10:45, it doesn't just answer—it references that exact moment in the transcript."
+        body="Ask questions and get answers that reference the exact timestamp."
         visual={<ChatBubbleVisual />}
         isReversed={true}
       />
@@ -191,7 +191,7 @@ const ZigZagFeatures = () => {
       <FeatureRow
         label="03 — ERGONOMICS"
         headline="Ergonomic Control."
-        body="Draggable divider for custom focus. Need more space for notes? Drag the divider. Want to zoom into the video? Adjust it. The interface adapts to your workflow."
+        body="Draggable dividers let you customize your workspace on the fly."
         visual={<DividerVisual />}
         isReversed={false}
       />
@@ -200,7 +200,7 @@ const ZigZagFeatures = () => {
       <FeatureRow
         label="04 — MASTERY"
         headline="Active Recall."
-        body="Click the lightbulb to test your knowledge. Instant quizzes pulled from the transcript ensure you're not just watching—you're learning."
+        body="Instant quizzes from the transcript reinforce what you learn."
         visual={<QuizModalVisual />}
         isReversed={true}
       />
