@@ -1087,9 +1087,9 @@ const ScrollytellingFeatures = () => {
           ))}
         </div>
 
-        {/* Right Column: Sticky Image/Video (62%) — centered vertically with active feature card */}
-        <div className="relative h-full flex items-center px-4 pt-12">
-          <div className="sticky top-[30%] -translate-y-1/2 w-full flex items-center justify-center">
+        {/* Right Column: Sticky Image/Video (62%) — vertically aligned with first feature card */}
+        <div className="relative h-full flex items-start pt-12 px-4">
+          <div className="sticky top-20 w-full flex items-start justify-center">
             <div className="relative w-full max-w-[calc(100%-2rem)] mx-auto rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black" style={{ aspectRatio: '16/10' }}>
               {/* State 1: Video Demo - Full UI in action */}
               {activeState === 1 ? (
