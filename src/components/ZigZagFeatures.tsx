@@ -1,7 +1,7 @@
 import React from "react";
 import { Hand, ArrowLeftRight, Lightbulb, MessageSquare, Layers } from "lucide-react";
 import ftDemoVideo from "@/assets/Screen Recording 2026-01-29 143535.mp4";
-import ftChatFeature from "@/assets/flowtutor-chat-feature.png";
+import ftChatFeature from "@/assets/ft_main.png";
 import ftQuizVideo from "@/assets/ft_quiz.mp4";
 
 // Dark Theme Container Component
