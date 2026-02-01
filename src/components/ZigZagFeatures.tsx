@@ -2,6 +2,7 @@ import React from "react";
 import { Hand, ArrowLeftRight, Lightbulb, MessageSquare, Layers } from "lucide-react";
 import ftDemoVideo from "@/assets/Screen Recording 2026-01-29 143535.mp4";
 import ftChatFeature from "@/assets/flowtutor-chat-feature.png";
+import ftQuizVideo from "@/assets/ft_quiz.mp4";
 
 // Dark Theme Container Component
 const FeatureVisualContainer = ({ children }: { children: React.ReactNode }) => (
@@ -80,46 +81,18 @@ const DividerVisual = () => (
   </FeatureVisualContainer>
 );
 
-// Row 4 Visual: Quiz Modal
+// Row 4 Visual: Quiz Video
 const QuizModalVisual = () => (
   <FeatureVisualContainer>
-    <div className="aspect-[16/9] bg-neutral-900/50 relative overflow-hidden">
-      {/* Background (faded) */}
-      <div className="absolute inset-0 opacity-30 p-4">
-        <div className="w-full h-full border border-white/5 bg-neutral-800/30 rounded-lg" />
-      </div>
-      
-      {/* Modal */}
-      <div className="absolute inset-0 flex items-center justify-center p-4">
-        <div className="w-4/5 max-w-sm bg-neutral-900 border border-white/10 rounded-xl shadow-2xl shadow-purple-500/10 overflow-hidden">
-          {/* Modal Header */}
-          <div className="border-b border-white/10 px-4 py-3 bg-neutral-800 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Lightbulb className="w-4 h-4 text-purple-400" />
-              <span className="font-mono text-xs uppercase tracking-widest text-white font-medium">Pop Quiz</span>
-            </div>
-            <span className="font-mono text-xs text-neutral-500">1 of 3</span>
-          </div>
-          
-          {/* Modal Content */}
-          <div className="p-4 space-y-4">
-            <p className="text-sm text-neutral-300">What is the time complexity of binary search?</p>
-            
-            {/* Options */}
-            <div className="space-y-2">
-              <div className="border border-white/10 rounded-lg px-3 py-2 hover:bg-white/5 cursor-pointer transition-colors">
-                <span className="text-sm text-neutral-400">A) O(n)</span>
-              </div>
-              <div className="border border-purple-500 bg-purple-500/20 rounded-lg px-3 py-2">
-                <span className="text-sm text-purple-300 font-medium">B) O(log n)</span>
-              </div>
-              <div className="border border-white/10 rounded-lg px-3 py-2 hover:bg-white/5 cursor-pointer transition-colors">
-                <span className="text-sm text-neutral-400">C) O(n²)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div className="aspect-[16/9] bg-neutral-900/50">
+      <video
+        src={ftQuizVideo}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="w-full h-full object-cover"
+      />
     </div>
   </FeatureVisualContainer>
 );
