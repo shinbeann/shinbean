@@ -188,19 +188,17 @@ interface FeatureRowProps {
 }
 
 const FeatureRow = ({ label, headline, body, visual, isReversed = false }: FeatureRowProps) => (
-  <div className="py-12 md:py-20">
-    <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center`}>
-      {/* Text Column */}
-      <div className={`space-y-4 ${isReversed ? 'lg:order-2' : 'lg:order-1'}`}>
-        <p className="font-mono text-xs tracking-widest text-purple-400 uppercase">{label}</p>
-        <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-white">{headline}</h3>
-        <p className="text-base md:text-lg text-neutral-400 leading-relaxed">{body}</p>
-      </div>
-      
-      {/* Visual Column */}
-      <div className={isReversed ? 'lg:order-1' : 'lg:order-2'}>
-        {visual}
-      </div>
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
+    {/* Text Column */}
+    <div className={`space-y-3 ${isReversed ? 'lg:order-2' : 'lg:order-1'}`}>
+      <p className="font-mono text-xs tracking-widest text-purple-400 uppercase">{label}</p>
+      <h3 className="text-xl md:text-2xl lg:text-3xl font-bold tracking-tight text-white">{headline}</h3>
+      <p className="text-sm md:text-base text-neutral-400 leading-relaxed">{body}</p>
+    </div>
+    
+    {/* Visual Column */}
+    <div className={isReversed ? 'lg:order-1' : 'lg:order-2'}>
+      {visual}
     </div>
   </div>
 );
@@ -208,7 +206,7 @@ const FeatureRow = ({ label, headline, body, visual, isReversed = false }: Featu
 // Main Component
 const ZigZagFeatures = () => {
   return (
-    <div className="w-full max-w-4xl">
+    <div className="flex flex-col gap-12 md:gap-16">
       {/* Row 1: The Foundation */}
       <FeatureRow
         label="01 — THE WORKSPACE"
