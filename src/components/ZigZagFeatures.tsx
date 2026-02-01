@@ -12,7 +12,7 @@ const FeatureVisualContainer = ({ children }: { children: React.ReactNode }) => 
 // Row 1 Visual: Video Demo
 const WorkspaceVisual = () => (
   <FeatureVisualContainer>
-    <div className="aspect-[16/10] bg-neutral-900/50">
+    <div className="aspect-[16/9] bg-neutral-900/50">
       <video
         src={ftDemoVideo}
         autoPlay
@@ -28,7 +28,7 @@ const WorkspaceVisual = () => (
 // Row 2 Visual: AI Chat Bubble
 const ChatBubbleVisual = () => (
   <FeatureVisualContainer>
-    <div className="aspect-[16/10] bg-neutral-900/50 p-4 md:p-6 flex items-center justify-center">
+    <div className="aspect-[16/9] bg-neutral-900/50 p-4 md:p-6 flex items-center justify-center">
       <div className="w-full max-w-md space-y-4">
         {/* User Message */}
         <div className="flex justify-end">
@@ -58,7 +58,7 @@ const ChatBubbleVisual = () => (
 // Row 3 Visual: Draggable Divider
 const DividerVisual = () => (
   <FeatureVisualContainer>
-    <div className="aspect-[16/10] bg-neutral-900/50 p-4 flex items-center justify-center">
+    <div className="aspect-[16/9] bg-neutral-900/50 p-4 flex items-center justify-center">
       <div className="w-full h-full flex">
         {/* Left Panel */}
         <div className="flex-1 border border-white/10 bg-neutral-800/50 rounded-l-lg flex flex-col overflow-hidden">
@@ -99,7 +99,7 @@ const DividerVisual = () => (
 // Row 4 Visual: Quiz Modal
 const QuizModalVisual = () => (
   <FeatureVisualContainer>
-    <div className="aspect-[16/10] bg-neutral-900/50 relative overflow-hidden">
+    <div className="aspect-[16/9] bg-neutral-900/50 relative overflow-hidden">
       {/* Background (faded) */}
       <div className="absolute inset-0 opacity-30 p-4">
         <div className="w-full h-full border border-white/5 bg-neutral-800/30 rounded-lg" />
