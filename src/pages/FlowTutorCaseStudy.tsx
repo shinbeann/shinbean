@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import Footer from "@/components/Footer";
 import StackedCardCarousel from "@/components/StackedCardCarousel";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
+import InstitutionalFeaturesShowcase from "@/components/InstitutionalFeaturesShowcase";
 import { ArrowLeft, ArrowRight, Code, Brain, Layout, Sliders, ChevronRight, ChevronDown, ArrowDown, Search, Zap, Layers, AlertCircle, Eye, AlertTriangle, BookOpen, MessageSquare, FileText, CheckCircle, GripVertical, Sparkles, Maximize, Puzzle, XCircle, Lightbulb } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -1502,8 +1503,8 @@ const FlowTutorCaseStudy = () => {
             </div>
           </motion.div>
 
-          {/* Scrollytelling Features Section */}
-          <ScrollytellingFeatures />
+          {/* Institutional Chic Features Showcase */}
+          <InstitutionalFeaturesShowcase />
 
           {/* My Contributions Subsection */}
           <motion.div
