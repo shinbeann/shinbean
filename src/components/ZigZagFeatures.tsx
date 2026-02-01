@@ -40,43 +40,15 @@ const ChatBubbleVisual = () => (
   </FeatureVisualContainer>
 );
 
-// Row 3 Visual: Draggable Divider
+// Row 3 Visual: Ergonomics Screenshot
 const DividerVisual = () => (
   <FeatureVisualContainer>
-    <div className="aspect-[16/9] bg-neutral-900/50 p-4 flex items-center justify-center">
-      <div className="w-full h-full flex">
-        {/* Left Panel */}
-        <div className="flex-1 border border-white/10 bg-neutral-800/50 rounded-l-lg flex flex-col overflow-hidden">
-          <div className="border-b border-white/10 px-3 py-2 bg-neutral-800">
-            <span className="font-mono text-[10px] text-neutral-500 uppercase tracking-widest">Video</span>
-          </div>
-          <div className="flex-1 bg-neutral-900/50" />
-        </div>
-        
-        {/* Divider */}
-        <div className="relative w-1 bg-purple-500 flex items-center justify-center cursor-col-resize">
-          {/* Cursor Hand Icon */}
-          <div className="absolute z-10 bg-neutral-800 border border-purple-500/50 rounded-lg p-1.5 shadow-lg shadow-purple-500/20">
-            <Hand className="w-4 h-4 text-purple-400" />
-          </div>
-          {/* Arrows */}
-          <div className="absolute -top-8 left-1/2 -translate-x-1/2">
-            <ArrowLeftRight className="w-4 h-4 text-purple-400" />
-          </div>
-        </div>
-        
-        {/* Right Panel */}
-        <div className="flex-1 border border-white/10 border-l-0 bg-neutral-800/50 rounded-r-lg flex flex-col overflow-hidden">
-          <div className="border-b border-white/10 px-3 py-2 bg-neutral-800">
-            <span className="font-mono text-[10px] text-neutral-500 uppercase tracking-widest">Notes</span>
-          </div>
-          <div className="flex-1 p-3 space-y-2">
-            <div className="w-full h-1.5 bg-white/5 rounded" />
-            <div className="w-full h-1.5 bg-white/5 rounded" />
-            <div className="w-2/3 h-1.5 bg-white/5 rounded" />
-          </div>
-        </div>
-      </div>
+    <div className="aspect-[16/9] bg-neutral-900/50">
+      <img
+        src={ftChatFeature}
+        alt="FlowTutor ergonomic split-screen layout"
+        className="w-full h-full object-cover"
+      />
     </div>
   </FeatureVisualContainer>
 );
