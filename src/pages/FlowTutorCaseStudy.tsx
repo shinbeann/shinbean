@@ -1006,16 +1006,16 @@ const FlowTutorCaseStudy = () => {
 
         {/* 1. THE PROBLEM - This is the section that triggers sidebars */}
         <section id="problem-section" className="relative flex flex-col pt-24 md:pt-32 pb-20 scroll-mt-20 md:scroll-mt-24">
-          {/* Centralized Overview Section */}
+          {/* Problem Section Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col items-center"
+            className="flex flex-col"
           >
             {/* Constrained Text Container */}
-            <div className="w-full max-w-4xl px-6 space-y-6 text-left">
+            <div className="w-full max-w-4xl space-y-6 text-left">
               <p className="text-xs uppercase tracking-widest font-medium text-neutral-500">
                 PROBLEM
               </p>
@@ -1028,14 +1028,14 @@ const FlowTutorCaseStudy = () => {
             </div>
 
             {/* Question centered in spacer between text and image */}
-            <div className="w-full max-w-4xl px-6 h-24 md:h-32 flex items-center justify-center">
+            <div className="w-full max-w-4xl h-24 md:h-32 flex items-center justify-center">
               <p className="text-sm md:text-base uppercase tracking-widest font-bold text-purple-400 text-center">
                 IS THIS WHAT YOUR SCREEN LOOKS LIKE?
               </p>
             </div>
 
             {/* Image Section */}
-            <div className="w-full max-w-4xl px-6 space-y-4">
+            <div className="w-full max-w-4xl space-y-4">
               <div className="w-full rounded-xl overflow-hidden border border-white/10">
                 <img
                   src={ftProblem}
