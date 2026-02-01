@@ -2,6 +2,8 @@ import React from "react";
 import { Hand, ArrowLeftRight, Lightbulb, MessageSquare, Layers } from "lucide-react";
 import ftDemoVideo from "@/assets/Screen Recording 2026-01-29 143535.mp4";
 import ftChatFeature from "@/assets/ft_main.png";
+import ftF2 from "@/assets/ft_f2.png";
+import ftNotes from "@/assets/ft_notes.png";
 import ftQuizVideo from "@/assets/ft_quiz.mp4";
 
 // Dark Theme Container Component
@@ -27,7 +29,7 @@ const WorkspaceVisual = () => (
   </FeatureVisualContainer>
 );
 
-// Row 2 Visual: Chat Feature Screenshot
+// Row 2 Visual: Chat Feature Screenshot with Purple Highlight
 const ChatBubbleVisual = () => (
   <FeatureVisualContainer>
     <div className="w-[561px] h-[263px] max-w-full bg-neutral-900/50 relative">
@@ -36,12 +38,22 @@ const ChatBubbleVisual = () => (
         alt="FlowTutor context-aware AI chatbot"
         className="w-full h-full object-cover"
       />
-      <div className="absolute inset-0 bg-neutral-800/60" />
+      {/* Dim overlay for non-highlighted area */}
+      <div className="absolute inset-0 bg-black/70" />
+      
+      {/* Purple rectangle border on the right side with ft_f2.png inside */}
+      <div className="absolute right-0 top-[0%] bottom-[0%] w-[50%] border-4 border-purple-500 shadow-[0_0_30px_rgba(168,85,247,0.6)] overflow-hidden">
+        <img
+          src={ftF2}
+          alt="FlowTutor chat panel detail"
+          className="w-full h-full object-cover"
+        />
+      </div>
     </div>
   </FeatureVisualContainer>
 );
 
-// Row 3 Visual: Ergonomics Screenshot
+// Row 3 Visual: Notes Panel with Purple Highlight
 const DividerVisual = () => (
   <FeatureVisualContainer>
     <div className="w-[561px] h-[263px] max-w-full bg-neutral-900/50 relative">
@@ -50,7 +62,17 @@ const DividerVisual = () => (
         alt="FlowTutor ergonomic split-screen layout"
         className="w-full h-full object-cover"
       />
-      <div className="absolute inset-0 bg-neutral-800/60" />
+      {/* Dim overlay for non-highlighted area */}
+      <div className="absolute inset-0 bg-black/70" />
+      
+      {/* Purple rectangle border on the left side with ft_notes.png inside - highlighting notes panel */}
+      <div className="absolute left-0 bottom-[0%] w-[49.8%] h-[39%] border-4 border-purple-500 shadow-[0_0_30px_rgba(168,85,247,0.6)] overflow-hidden">
+        <img
+          src={ftNotes}
+          alt="FlowTutor notes panel detail"
+          className="w-full h-full object-cover"
+        />
+      </div>
     </div>
   </FeatureVisualContainer>
 );
