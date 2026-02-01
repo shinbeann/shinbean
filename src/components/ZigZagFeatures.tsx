@@ -150,7 +150,7 @@ interface FeatureRowProps {
 }
 
 const FeatureRow = ({ label, headline, body, visual, isReversed = false }: FeatureRowProps) => (
-  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
+  <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-6 lg:gap-10 items-center">
     {/* Text Column */}
     <div className={`space-y-3 ${isReversed ? 'lg:order-2' : 'lg:order-1'}`}>
       <p className="font-mono text-xs tracking-widest text-purple-400 uppercase">{label}</p>
