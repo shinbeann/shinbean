@@ -206,7 +206,7 @@ const FeatureRow = ({ label, headline, body, visual, isReversed = false }: Featu
 // Main Component
 const ZigZagFeatures = () => {
   return (
-    <div className="flex flex-col gap-12 md:gap-16">
+    <div className="w-full max-w-4xl flex flex-col gap-12 md:gap-16">
       {/* Row 1: The Foundation */}
       <FeatureRow
         label="01 — THE WORKSPACE"
