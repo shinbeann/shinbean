@@ -30,12 +30,13 @@ const WorkspaceVisual = () => (
 // Row 2 Visual: Chat Feature Screenshot
 const ChatBubbleVisual = () => (
   <FeatureVisualContainer>
-    <div className="aspect-[16/9] bg-neutral-900/50">
+    <div className="aspect-[16/9] bg-neutral-900/50 relative">
       <img
         src={ftChatFeature}
         alt="FlowTutor context-aware AI chatbot"
         className="w-full h-full object-cover"
       />
+      <div className="absolute inset-0 bg-neutral-800/60" />
     </div>
   </FeatureVisualContainer>
 );
@@ -43,12 +44,13 @@ const ChatBubbleVisual = () => (
 // Row 3 Visual: Ergonomics Screenshot
 const DividerVisual = () => (
   <FeatureVisualContainer>
-    <div className="aspect-[16/9] bg-neutral-900/50">
+    <div className="aspect-[16/9] bg-neutral-900/50 relative">
       <img
         src={ftChatFeature}
         alt="FlowTutor ergonomic split-screen layout"
         className="w-full h-full object-cover"
       />
+      <div className="absolute inset-0 bg-neutral-800/60" />
     </div>
   </FeatureVisualContainer>
 );
