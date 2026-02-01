@@ -1,6 +1,7 @@
 import React from "react";
 import { Hand, ArrowLeftRight, Lightbulb, MessageSquare, Layers } from "lucide-react";
 import ftDemoVideo from "@/assets/Screen Recording 2026-01-29 143535.mp4";
+import ftChatFeature from "@/assets/flowtutor-chat-feature.png";
 
 // Dark Theme Container Component
 const FeatureVisualContainer = ({ children }: { children: React.ReactNode }) => (
@@ -25,32 +26,15 @@ const WorkspaceVisual = () => (
   </FeatureVisualContainer>
 );
 
-// Row 2 Visual: AI Chat Bubble
+// Row 2 Visual: Chat Feature Screenshot
 const ChatBubbleVisual = () => (
   <FeatureVisualContainer>
-    <div className="aspect-[16/9] bg-neutral-900/50 p-4 md:p-6 flex items-center justify-center">
-      <div className="w-full max-w-md space-y-4">
-        {/* User Message */}
-        <div className="flex justify-end">
-          <div className="bg-white/10 border border-white/10 rounded-lg px-4 py-3 max-w-[80%]">
-            <p className="text-sm text-neutral-300">What did they say at 10:45?</p>
-          </div>
-        </div>
-        
-        {/* AI Response */}
-        <div className="flex justify-start">
-          <div className="bg-white/5 border border-white/10 border-l-4 border-l-purple-500 rounded-lg px-4 py-3 max-w-[90%] space-y-2">
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-[10px] text-purple-400 bg-purple-500/20 px-2 py-0.5 rounded border border-purple-500/30 uppercase tracking-widest">Timestamp: 10:45</span>
-            </div>
-            <p className="text-sm text-neutral-300">
-              At this point, the instructor explains the recursive base case...
-            </p>
-            <div className="w-full h-1.5 bg-white/5 rounded" />
-            <div className="w-3/4 h-1.5 bg-white/5 rounded" />
-          </div>
-        </div>
-      </div>
+    <div className="aspect-[16/9] bg-neutral-900/50">
+      <img
+        src={ftChatFeature}
+        alt="FlowTutor context-aware AI chatbot"
+        className="w-full h-full object-cover"
+      />
     </div>
   </FeatureVisualContainer>
 );
