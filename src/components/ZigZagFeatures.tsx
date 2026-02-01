@@ -100,38 +100,38 @@ const FeatureRow = ({ label, headline, body, visual, isReversed = false }: Featu
 const ZigZagFeatures = () => {
   return (
     <div className="w-full max-w-4xl flex flex-col gap-12 md:gap-16">
-      {/* Row 1: The Foundation */}
+      {/* Row 1: Customizable Split View */}
       <FeatureRow
         label="01 — THE WORKSPACE"
-        headline="A Single Pane of Glass."
-        body="Video, notes, and AI assistance in one unified interface."
+        headline="Customizable Split View."
+        body="Resize the video and workspace effortlessly with a draggable divider that preserves video proportions. FlowTutor adapts to how you learn, letting you focus on the content that matters most at any moment."
         visual={<WorkspaceVisual />}
         isReversed={false}
       />
       
-      {/* Row 2: The Intelligence */}
+      {/* Row 2: Context-Aware AI Tutor */}
       <FeatureRow
         label="02 — ASSISTANCE"
-        headline="Context-Aware AI Chatbot."
-        body="Ask questions and get answers that reference the exact timestamp."
+        headline="Context-Aware AI Tutor."
+        body="Ask questions naturally while you learn. Powered by AI that understands the video itself, FlowTutor delivers accurate, relevant explanations exactly when you need them—no searching, no guesswork."
         visual={<ChatBubbleVisual />}
         isReversed={true}
       />
       
-      {/* Row 3: The Control */}
+      {/* Row 3: Smart Notes */}
       <FeatureRow
-        label="03 — ERGONOMICS"
-        headline="Ergonomic Control."
-        body="Draggable dividers let you customize your workspace on the fly."
+        label="03 — NOTES"
+        headline="Smart Notes."
+        body="Capture ideas as you watch with flexible, formatted notes designed for real learning. Organize key concepts your way and turn passive watching into active understanding."
         visual={<DividerVisual />}
         isReversed={false}
       />
       
-      {/* Row 4: The Retention */}
+      {/* Row 4: Instant Knowledge Checks */}
       <FeatureRow
         label="04 — MASTERY"
-        headline="Active Recall."
-        body="Instant quizzes from the transcript reinforce what you learn."
+        headline="Instant Knowledge Checks."
+        body="Reinforce learning with quick, built-in quizzes generated from the tutorial content. Instantly see what you've mastered and what needs another look, so learning actually sticks."
         visual={<QuizModalVisual />}
         isReversed={true}
       />
