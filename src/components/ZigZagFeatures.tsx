@@ -14,7 +14,7 @@ const FeatureVisualContainer = ({ children }: { children: React.ReactNode }) => 
 // Row 1 Visual: Video Demo
 const WorkspaceVisual = () => (
   <FeatureVisualContainer>
-    <div className="w-[623px] h-[292px] max-w-full bg-neutral-900/50">
+    <div className="w-[561px] h-[263px] max-w-full bg-neutral-900/50">
       <video
         src={ftDemoVideo}
         autoPlay
@@ -30,7 +30,7 @@ const WorkspaceVisual = () => (
 // Row 2 Visual: Chat Feature Screenshot
 const ChatBubbleVisual = () => (
   <FeatureVisualContainer>
-    <div className="w-[623px] h-[292px] max-w-full bg-neutral-900/50 relative">
+    <div className="w-[561px] h-[263px] max-w-full bg-neutral-900/50 relative">
       <img
         src={ftChatFeature}
         alt="FlowTutor context-aware AI chatbot"
@@ -44,7 +44,7 @@ const ChatBubbleVisual = () => (
 // Row 3 Visual: Ergonomics Screenshot
 const DividerVisual = () => (
   <FeatureVisualContainer>
-    <div className="w-[623px] h-[292px] max-w-full bg-neutral-900/50 relative">
+    <div className="w-[561px] h-[263px] max-w-full bg-neutral-900/50 relative">
       <img
         src={ftChatFeature}
         alt="FlowTutor ergonomic split-screen layout"
@@ -58,7 +58,7 @@ const DividerVisual = () => (
 // Row 4 Visual: Quiz Video
 const QuizModalVisual = () => (
   <FeatureVisualContainer>
-    <div className="w-[623px] h-[292px] max-w-full bg-neutral-900/50">
+    <div className="w-[561px] h-[263px] max-w-full bg-neutral-900/50">
       <video
         src={ftQuizVideo}
         autoPlay
