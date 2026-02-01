@@ -1,5 +1,6 @@
 import React from "react";
 import { Hand, ArrowLeftRight, Lightbulb, MessageSquare, Layers } from "lucide-react";
+import ftDemoVideo from "@/assets/Screen Recording 2026-01-29 143535.mp4";
 
 // Dark Theme Container Component
 const FeatureVisualContainer = ({ children }: { children: React.ReactNode }) => (
@@ -8,57 +9,18 @@ const FeatureVisualContainer = ({ children }: { children: React.ReactNode }) => 
   </div>
 );
 
-// Row 1 Visual: Workspace Layout Mock
+// Row 1 Visual: Video Demo
 const WorkspaceVisual = () => (
   <FeatureVisualContainer>
-    <div className="aspect-[16/10] bg-neutral-900/50 p-4">
-      {/* Main Grid Layout */}
-      <div className="w-full h-full grid gap-2" style={{ gridTemplateColumns: '60% 40%' }}>
-        {/* Left: Video Window */}
-        <div className="border border-white/10 bg-neutral-800/50 rounded-lg flex flex-col overflow-hidden">
-          <div className="border-b border-white/10 px-3 py-2 bg-neutral-800">
-            <span className="font-mono text-[10px] text-neutral-500 uppercase tracking-widest">Video Player</span>
-          </div>
-          <div className="flex-1 bg-neutral-900 flex items-center justify-center">
-            <div className="w-12 h-12 md:w-16 md:h-16 border border-white/20 rounded-full flex items-center justify-center bg-white/5">
-              <div className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[12px] border-l-purple-400 border-b-[8px] border-b-transparent ml-1" />
-            </div>
-          </div>
-          {/* Progress bar */}
-          <div className="h-1.5 bg-neutral-800 border-t border-white/5">
-            <div className="h-full w-1/3 bg-purple-500" />
-          </div>
-        </div>
-        
-        {/* Right: Stacked Panels */}
-        <div className="flex flex-col gap-2">
-          {/* Chat Panel */}
-          <div className="flex-1 border border-white/10 bg-neutral-800/50 rounded-lg flex flex-col overflow-hidden">
-            <div className="border-b border-white/10 px-3 py-2 bg-neutral-800 flex items-center gap-2">
-              <MessageSquare className="w-3 h-3 text-purple-400" />
-              <span className="font-mono text-[10px] text-neutral-500 uppercase tracking-widest">Chat</span>
-            </div>
-            <div className="flex-1 p-3 space-y-2">
-              <div className="w-3/4 h-2 bg-white/10 rounded" />
-              <div className="w-1/2 h-2 bg-purple-500/30 rounded ml-auto" />
-              <div className="w-2/3 h-2 bg-white/10 rounded" />
-            </div>
-          </div>
-          
-          {/* Notes Panel */}
-          <div className="flex-1 border border-white/10 bg-neutral-800/50 rounded-lg flex flex-col overflow-hidden">
-            <div className="border-b border-white/10 px-3 py-2 bg-neutral-800 flex items-center gap-2">
-              <Layers className="w-3 h-3 text-purple-400" />
-              <span className="font-mono text-[10px] text-neutral-500 uppercase tracking-widest">Notes</span>
-            </div>
-            <div className="flex-1 p-3 space-y-2">
-              <div className="w-full h-1.5 bg-white/5 rounded" />
-              <div className="w-full h-1.5 bg-white/5 rounded" />
-              <div className="w-3/4 h-1.5 bg-white/5 rounded" />
-            </div>
-          </div>
-        </div>
-      </div>
+    <div className="aspect-[16/10] bg-neutral-900/50">
+      <video
+        src={ftDemoVideo}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="w-full h-full object-cover"
+      />
     </div>
   </FeatureVisualContainer>
 );
