@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import FloatingScrollToTop from "@/components/FloatingScrollToTop";
 
 interface TableOfContentsItem {
   id: string;
@@ -27,6 +28,7 @@ const CaseStudyLayout = ({
 }: CaseStudyLayoutProps) => {
   const [activeSection, setActiveSection] = useState<string>("");
   const [showSidebars, setShowSidebars] = useState(!showSidebarsAfter);
+  const [expandedHeader, setExpandedHeader] = useState<string | null>(null);
 
   const isDark = theme === "dark";
 
@@ -120,7 +122,15 @@ const CaseStudyLayout = ({
               {tableOfContents.map((item) => (
                 <div key={item.id}>
                   <button
-                    onClick={() => handleScrollTo(item.id)}
+                    onClick={() => {
+                      handleScrollTo(item.id);
+                      // Toggle expansion: if clicking the same header, close it; otherwise, expand this and close others
+                      if (expandedHeader === item.id) {
+                        setExpandedHeader(null);
+                      } else {
+                        setExpandedHeader(item.id);
+                      }
+                    }}
                     className={cn(
                       "block w-full text-left text-sm transition-colors py-1.5 pl-3 border-l-2",
                       activeSection === item.id
@@ -134,7 +144,7 @@ const CaseStudyLayout = ({
                   >
                     {item.label}
                   </button>
-                  {item.children && item.children.map((child) => (
+                  {item.children && expandedHeader === item.id && item.children.map((child) => (
                     <button
                       key={child.id}
                       onClick={() => handleScrollTo(child.id)}
@@ -165,6 +175,7 @@ const CaseStudyLayout = ({
       </div>
 
       <Footer />
+      <FloatingScrollToTop />
     </div>
   );
 };

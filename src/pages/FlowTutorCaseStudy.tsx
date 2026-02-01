@@ -744,91 +744,7 @@ const AnimatedStatItem = ({
 
 // 7. Product Anatomy Section Component
 const ProductAnatomySection = () => {
-  return (
-    <section className="relative py-32 overflow-hidden">
-      <div className="relative z-10">
-      <div className="container max-w-7xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-16"
-        >
-          <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 mb-4">
-            SOLUTION
-          </p>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">The Unified Workspace.</h2>
-        </motion.div>
-
-        {/* Desktop: Image with built-in annotations */}
-        <div className="hidden lg:block">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            className="flex justify-center"
-            >
-            <div className="relative rounded-xl shadow-2xl overflow-visible bg-transparent space-y-6">
-                <img
-                src="/flowtutor-lines.png"
-                  alt="FlowTutor Unified Workspace"
-                  className="w-full h-auto max-w-full"
-                style={{ transform: 'scale(1.0)', transformOrigin: 'center' }}
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    const fallback = target.parentElement?.querySelector('.image-fallback');
-                    if (fallback) {
-                      (fallback as HTMLElement).style.display = 'flex';
-                    }
-                  }}
-                />
-                
-                <img
-                src="/flowtutor-lines2.png"
-                  alt="FlowTutor Unified Workspace Additional View"
-                  className="w-full h-auto max-w-full"
-                style={{ transform: 'scale(1.0)', transformOrigin: 'center' }}
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    const fallback = target.parentElement?.querySelector('.image-fallback');
-                    if (fallback) {
-                      (fallback as HTMLElement).style.display = 'flex';
-                    }
-                  }}
-                />
-                
-                {/* Fallback Placeholder */}
-                <div className="image-fallback hidden w-full aspect-video bg-neutral-900/50 flex items-center justify-center border border-white/5">
-                  <span className="text-neutral-600 font-mono text-sm">[FlowTutor Screenshot]</span>
-              </div>
-            </div>
-          </motion.div>
-                </div>
-
-        {/* Mobile: Image */}
-        <div className="lg:hidden">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative rounded-xl shadow-2xl overflow-hidden bg-[#0F0F0F]"
-          >
-            <img
-              src="/flowtutor-lines.png"
-              alt="FlowTutor Unified Workspace"
-              className="w-full h-auto max-w-full"
-            />
-          </motion.div>
-        </div>
-      </div>
-      </div>
-    </section>
-  );
+  return null;
 };
 
 // Competitor Analysis Component - 3 Column Layout
@@ -864,7 +780,7 @@ const CompetitorAnalysis = () => {
     },
     {
       name: "Udemy",
-      image: "/placeholder.svg",
+      image: "/youtube-logo.png",
       pros: [
         "Wide variety of topics and instructors.",
         "Affordable pricing with frequent sales.",
@@ -960,6 +876,7 @@ const flowTutorToc = [
     id: "overview", 
     label: "Overview",
     children: [
+      { id: "problem", label: "Problem" },
       { id: "solution", label: "Solution" },
       { id: "contributions", label: "My Contributions" }
     ]
@@ -972,7 +889,7 @@ const flowTutorToc = [
 
 const FlowTutorCaseStudy = () => {
   return (
-    <CaseStudyLayout tableOfContents={flowTutorToc} theme="dark" showSidebarsAfter="problem-section">
+    <CaseStudyLayout tableOfContents={flowTutorToc} theme="dark" showSidebarsAfter="problem">
       <div className="text-white selection:bg-purple-500/30 font-sans">
         {/* FULLSCREEN LANDING HERO */}
         <section className="relative -mx-4 md:-mx-[calc((90vw-896px)/2+1.5rem)] max-w-[80vw] min-h-screen flex items-center justify-center overflow-hidden">
@@ -1005,7 +922,7 @@ const FlowTutorCaseStudy = () => {
         </section>
 
         {/* 1. THE PROBLEM - This is the section that triggers sidebars */}
-        <section id="problem-section" className="relative flex flex-col pt-24 md:pt-32 pb-20 scroll-mt-20 md:scroll-mt-24">
+        <section id="problem" className="relative flex flex-col pt-24 md:pt-32 pb-20 scroll-mt-20 md:scroll-mt-24">
           {/* Problem Section Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1279,6 +1196,9 @@ const FlowTutorCaseStudy = () => {
             transition={{ duration: 0.8 }}
           >
             <div className="flex flex-col gap-4">
+              <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
+                DISCOVERY
+              </p>
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
                 The Market Opportunity.
               </h2>
@@ -1299,10 +1219,6 @@ const FlowTutorCaseStudy = () => {
 
         {/* 3. PAPER TO PIXEL */}
         <section id="prototyping" className="relative py-16 md:py-24 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
-          {/* Subtle gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#050505] via-[#0A0A0A] via-[#0A0A0A] to-[#050505] pointer-events-none" style={{
-            background: 'linear-gradient(to bottom, #050505 0%, #050505 10%, #111111 30%, #111111 70%, #050505 90%, #050505 100%)'
-          }} />
           <div className="relative z-10">
           <div className="max-w-4xl mx-auto">
           <div className="flex flex-col gap-8">
@@ -1480,10 +1396,6 @@ const FlowTutorCaseStudy = () => {
 
         {/* 8. REFLECTION */}
         <section id="reflection" className="relative py-16 md:py-24 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
-          {/* Subtle gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#050505] via-[#0A0A0A] via-[#0A0A0A] to-[#050505] pointer-events-none" style={{
-            background: 'linear-gradient(to bottom, #050505 0%, #050505 10%, #111111 30%, #111111 70%, #050505 90%, #050505 100%)'
-          }} />
           <div className="relative z-10">
           <div className="max-w-4xl mx-auto">
           <div className="flex flex-col gap-8">
