@@ -1256,7 +1256,7 @@ const FlowTutorCaseStudy = () => {
               {/* Layout 2 Row */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div className="relative">
-                  <span className="absolute -top-2 -left-2 text-3xl md:text-4xl font-bold text-neutral-500 z-10" style={{ fontFamily: 'serif', fontStyle: 'italic' }}>1</span>
+                  <span className="absolute -top-4 -left-4 text-[40px] md:text-[50px] font-bold leading-none text-purple-500/80 select-none pointer-events-none z-10">1</span>
                   <img 
                     src="/layout2.png" 
                     alt="Layout 2 - Video on top, Transcript and AI Chatbot below" 
@@ -1284,7 +1284,7 @@ const FlowTutorCaseStudy = () => {
               {/* Layout 3 Row */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div className="relative">
-                  <span className="absolute -top-2 -left-2 text-3xl md:text-4xl font-bold text-neutral-500 z-10" style={{ fontFamily: 'serif', fontStyle: 'italic' }}>2</span>
+                  <span className="absolute -top-4 -left-4 text-[40px] md:text-[50px] font-bold leading-none text-purple-500/80 select-none pointer-events-none z-10">2</span>
                   <img 
                     src="/layout3.png" 
                     alt="Layout 3 - Video left, AI Chatbot and Transcript stacked right" 
@@ -1315,7 +1315,7 @@ const FlowTutorCaseStudy = () => {
               {/* Layout 1 Row - Chosen */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div className="relative">
-                  <span className="absolute -top-2 -left-2 text-3xl md:text-4xl font-bold text-neutral-500 z-10" style={{ fontFamily: 'serif', fontStyle: 'italic' }}>3</span>
+                  <span className="absolute -top-4 -left-4 text-[40px] md:text-[50px] font-bold leading-none text-purple-500/80 select-none pointer-events-none z-10">3</span>
                   <img 
                     src="/layout1.png" 
                     alt="Layout 1 - Video and Transcript stacked left, AI Chatbot right" 
