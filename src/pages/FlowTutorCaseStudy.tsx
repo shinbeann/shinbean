@@ -1228,7 +1228,7 @@ const FlowTutorCaseStudy = () => {
         </SectionContainer>
 
         {/* 3. PAPER TO PIXEL */}
-        <section id="prototyping" className="relative py-16 md:py-24 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
+        <section id="prototyping" className="relative py-16 md:py-24 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden border-t border-white/10">
           <div className="relative z-10">
           <div className="max-w-4xl mx-auto">
           <div className="flex flex-col gap-8">
