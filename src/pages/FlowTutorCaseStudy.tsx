@@ -827,7 +827,7 @@ const CompetitorAnalysis = () => {
               <ul className="space-y-2 list-none">
                 {competitor.pros.map((pro, i) => (
                   <li key={i} className="flex items-start gap-2">
-                    <span className="w-1 h-1 rounded-full bg-emerald-400 mt-2 flex-shrink-0" />
+                    <span className="w-1 h-1 rounded-full bg-neutral-400 mt-2 flex-shrink-0" />
                     <p className="text-xs text-neutral-400 leading-relaxed">
                       {pro}
                     </p>
@@ -844,7 +844,7 @@ const CompetitorAnalysis = () => {
               <ul className="space-y-2 list-none">
                 {competitor.cons.map((con, i) => (
                   <li key={i} className="flex items-start gap-2">
-                    <span className="w-1 h-1 rounded-full bg-red-400 mt-2 flex-shrink-0" />
+                    <span className="w-1 h-1 rounded-full bg-neutral-400 mt-2 flex-shrink-0" />
                     <p className="text-xs text-neutral-400 leading-relaxed">
                       {con}
                     </p>
