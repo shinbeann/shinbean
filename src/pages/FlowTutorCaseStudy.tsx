@@ -1357,44 +1357,67 @@ const FlowTutorCaseStudy = () => {
             </div>
           </motion.div>
 
-          {/* Stacked Card Carousel */}
-          <StackedCardCarousel
-            cards={[
-              {
-                id: 1,
-                title: "Streamlining the Entry Point",
-                heuristic: "NN/g #6: Recognition rather than recall",
-                beforeImage: onboardingBefore,
-                afterImage: onboardingAfter,
-                beforeAlt: "Paper prototype showing overlapping pop-up modal",
-                afterAlt: "Unified viewport with clean layout",
-                beforeDescription: "Asking users to 'Upload Files' contradicted their actual habit of streaming videos online.",
-                afterDescription: "Switched to a single 'Paste URL' input. This matches the user's mental model of copying & sharing links.",
-              },
-              {
-                id: 2,
-                title: "Clarifying Interactivity",
-                heuristic: "NN/g #4: Consistency & Standards",
-                beforeImage: pinBefore,
-                afterImage: pinAfter,
-                beforeAlt: "Paper prototype showing chat interface with overlapping panels",
-                afterAlt: "FlowTutor chat interface showing timestamped messages with pin functionality",
-                beforeDescription: "Users ignored the timestamps because they looked like static text.",
-                afterDescription: "Redesigned timestamps as distinct 'Pill Buttons' with clear hover states.",
-              },
-              {
-                id: 3,
-                title: "Reducing Icon Ambiguity",
-                heuristic: "NN/g #10: Help and documentation",
-                beforeImage: vpBefore,
-                afterImage: vpAfter,
-                beforeAlt: "Paper wireframe showing video player interface with main points, transcript, and suggested questions",
-                afterAlt: "FlowTutor interface showing interactive pill buttons and improved navigation",
-                beforeDescription: "Lack of help icons made it difficult for users to understand various functions.",
-                afterDescription: "Added descriptive hover tooltips to all utility icons.",
-              },
-            ]}
-          />
+          {/* Insight Card: The Upload Misunderstanding */}
+          <div className="mt-12 space-y-8">
+            {/* Row 1: The Insight Header */}
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <h3 className="text-2xl md:text-3xl font-bold text-white">
+                01. The 'Upload' Misunderstanding
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1.5 rounded-full bg-red-500/10 text-red-400 text-sm font-medium border border-red-500/20">
+                  Severity: High
+                </span>
+                <span className="px-3 py-1.5 rounded-full bg-neutral-800 text-neutral-300 text-sm font-medium border border-neutral-700">
+                  Heuristic: Match System & World
+                </span>
+              </div>
+            </div>
+
+            {/* Row 2: The Visual Evidence */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              {/* Column A: The Paper Prototype */}
+              <div className="relative">
+                <div className="relative rounded-lg overflow-hidden">
+                  <img
+                    src={onboardingBefore}
+                    alt="Paper prototype showing Upload File interaction"
+                    className="w-full h-auto"
+                  />
+                  {/* Red tint overlay */}
+                  <div className="absolute inset-0 bg-red-500/10 pointer-events-none" />
+                </div>
+                {/* Floating Label */}
+                <div className="absolute -bottom-3 left-4 flex items-center gap-2">
+                  <span className="px-3 py-1.5 rounded-full bg-red-500/20 text-red-400 text-xs font-medium border border-red-500/30 shadow-lg backdrop-blur-sm">
+                    User Action: Upload File (Friction)
+                  </span>
+                </div>
+              </div>
+
+              {/* Column B: The Mid-Fi Solution */}
+              <div className="relative">
+                <div className="relative rounded-lg overflow-hidden border-2 border-green-500/40">
+                  <img
+                    src={onboardingAfter}
+                    alt="FlowTutor interface with Paste URL input"
+                    className="w-full h-auto"
+                  />
+                </div>
+                {/* Floating Label */}
+                <div className="absolute -bottom-3 left-4 flex items-center gap-2">
+                  <span className="px-3 py-1.5 rounded-full bg-green-500/20 text-green-400 text-xs font-medium border border-green-500/30 shadow-lg backdrop-blur-sm">
+                    User Action: Paste Link (Flow)
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Row 3: The "Why" (The Heuristic Rationale) */}
+            <p className="text-neutral-400 text-base md:text-lg leading-relaxed text-center max-w-3xl mx-auto pt-4">
+              By removing the file upload requirement, we eliminated an unnecessary decision step. The interface now matches the user's goal ('Watch this video') rather than the system's requirement ('Input a file').
+            </p>
+          </div>
           </div>
           </div>
         </div>
