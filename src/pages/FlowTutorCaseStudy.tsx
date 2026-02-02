@@ -1362,8 +1362,8 @@ const FlowTutorCaseStudy = () => {
             {/* Visual Evidence Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               {/* Column A: Before */}
-              <div className="flex flex-col gap-4">
-                <h3 className="text-xl md:text-2xl font-bold text-neutral-500 uppercase tracking-wider">
+              <div className="flex flex-col gap-4 items-center">
+                <h3 className="text-xl md:text-2xl font-bold text-neutral-500 uppercase tracking-wider text-center">
                   Before
                 </h3>
                 <div className="overflow-hidden">
@@ -1376,10 +1376,10 @@ const FlowTutorCaseStudy = () => {
               </div>
 
               {/* Column B: After with subtle purple underlay covering header + image */}
-              <div className="relative flex flex-col gap-4">
+              <div className="relative flex flex-col gap-4 items-center">
                 {/* Subtle purple underlay - covers header and image */}
-                <div className="absolute -top-4 -left-4 -right-4 -bottom-4 bg-purple-500/10 rounded-lg" />
-                <h3 className="text-xl md:text-2xl font-bold text-purple-500 uppercase tracking-wider relative z-10">
+                <div className="absolute -top-4 -left-4 -right-4 -bottom-4 bg-purple-500/10" />
+                <h3 className="text-xl md:text-2xl font-bold text-purple-500 uppercase tracking-wider relative z-10 text-center">
                   After
                 </h3>
                 <img
@@ -1398,8 +1398,8 @@ const FlowTutorCaseStudy = () => {
             {/* Second Before/After: Pin Feature */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               {/* Column A: Before */}
-              <div className="flex flex-col gap-4">
-                <h3 className="text-xl md:text-2xl font-bold text-neutral-300 uppercase tracking-wider">
+              <div className="flex flex-col gap-4 items-center">
+                <h3 className="text-xl md:text-2xl font-bold text-neutral-500 uppercase tracking-wider text-center">
                   Before
                 </h3>
                 <div className="overflow-hidden">
@@ -1412,10 +1412,10 @@ const FlowTutorCaseStudy = () => {
               </div>
 
               {/* Column B: After with subtle purple underlay covering header + image */}
-              <div className="relative flex flex-col gap-4">
+              <div className="relative flex flex-col gap-4 items-center">
                 {/* Subtle purple underlay - covers header and image */}
-                <div className="absolute -top-4 -left-4 -right-4 -bottom-4 bg-purple-500/10 rounded-lg" />
-                <h3 className="text-xl md:text-2xl font-bold text-purple-500 uppercase tracking-wider relative z-10">
+                <div className="absolute -top-4 -left-4 -right-4 -bottom-4 bg-purple-500/10" />
+                <h3 className="text-xl md:text-2xl font-bold text-purple-500 uppercase tracking-wider relative z-10 text-center">
                   After
                 </h3>
                 <img
@@ -1434,8 +1434,8 @@ const FlowTutorCaseStudy = () => {
             {/* Third Before/After: Video Player Feature */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               {/* Column A: Before */}
-              <div className="flex flex-col gap-4">
-                <h3 className="text-xl md:text-2xl font-bold text-neutral-300 uppercase tracking-wider">
+              <div className="flex flex-col gap-4 items-center">
+                <h3 className="text-xl md:text-2xl font-bold text-neutral-500 uppercase tracking-wider text-center">
                   Before
                 </h3>
                 <div className="overflow-hidden">
@@ -1448,10 +1448,10 @@ const FlowTutorCaseStudy = () => {
               </div>
 
               {/* Column B: After with subtle purple underlay covering header + image */}
-              <div className="relative flex flex-col gap-4">
+              <div className="relative flex flex-col gap-4 items-center">
                 {/* Subtle purple underlay - covers header and image */}
-                <div className="absolute -top-4 -left-4 -right-4 -bottom-4 bg-purple-500/10 rounded-lg" />
-                <h3 className="text-xl md:text-2xl font-bold text-purple-500 uppercase tracking-wider relative z-10">
+                <div className="absolute -top-4 -left-4 -right-4 -bottom-4 bg-purple-500/10" />
+                <h3 className="text-xl md:text-2xl font-bold text-purple-500 uppercase tracking-wider relative z-10 text-center">
                   After
                 </h3>
                 <img
