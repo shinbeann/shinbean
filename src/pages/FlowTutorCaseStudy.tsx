@@ -1357,35 +1357,44 @@ const FlowTutorCaseStudy = () => {
             </div>
           </motion.div>
 
-          {/* Insight Card: The Upload Misunderstanding */}
+          {/* Before/After Comparison */}
           <div className="mt-12 space-y-8">
-            {/* Row 1: The Insight Header */}
-            <h3 className="text-2xl md:text-3xl font-bold text-white">
-              01. The 'Upload' Misunderstanding
-            </h3>
-
-            {/* Row 2: The Visual Evidence */}
+            {/* Visual Evidence Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              {/* Column A: The Paper Prototype */}
-              <div className="overflow-hidden">
-                <img
-                  src={onboardingBefore}
-                  alt="Paper prototype showing Upload File interaction"
-                  className="w-full h-auto"
-                />
+              {/* Column A: Before */}
+              <div className="flex flex-col gap-4">
+                <h3 className="text-xl md:text-2xl font-bold text-neutral-500 uppercase tracking-wider">
+                  Before
+                </h3>
+                <div className="overflow-hidden">
+                  <img
+                    src={onboardingBefore}
+                    alt="Paper prototype showing Upload File interaction"
+                    className="w-full h-auto"
+                  />
+                </div>
               </div>
 
-              {/* Column B: The Mid-Fi Solution */}
-              <div className="overflow-hidden">
-                <img
-                  src={onboardingAfter}
-                  alt="FlowTutor interface with Paste URL input"
-                  className="w-full h-auto"
-                />
+              {/* Column B: After with purple card background */}
+              <div className="flex flex-col gap-4">
+                <h3 className="text-xl md:text-2xl font-bold text-purple-500 uppercase tracking-wider">
+                  After
+                </h3>
+                <div className="relative">
+                  {/* Purple background card - offset to bottom-right */}
+                  <div className="absolute top-4 left-4 right-0 bottom-0 bg-purple-500/20 rounded-lg -z-10" />
+                  <div className="overflow-hidden relative z-10">
+                    <img
+                      src={onboardingAfter}
+                      alt="FlowTutor interface with Paste URL input"
+                      className="w-full h-auto"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Row 3: The "Why" (The Heuristic Rationale) */}
+            {/* The "Why" (The Heuristic Rationale) */}
             <p className="text-neutral-400 text-base md:text-lg leading-relaxed max-w-3xl pt-4">
               By removing the file upload requirement, we eliminated an unnecessary decision step. The interface now matches the user's goal ('Watch this video') rather than the system's requirement ('Input a file').
             </p>
