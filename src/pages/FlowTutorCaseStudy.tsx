@@ -1380,16 +1380,14 @@ const FlowTutorCaseStudy = () => {
                 <h3 className="text-xl md:text-2xl font-bold text-purple-500 uppercase tracking-wider">
                   After
                 </h3>
-                <div className="relative">
-                  {/* Purple background card - offset to bottom-right */}
-                  <div className="absolute top-4 left-4 right-0 bottom-0 bg-purple-500/20 rounded-lg -z-10" />
-                  <div className="overflow-hidden relative z-10">
-                    <img
-                      src={onboardingAfter}
-                      alt="FlowTutor interface with Paste URL input"
-                      className="w-full h-auto"
-                    />
-                  </div>
+                <div className="relative pb-4 pr-4">
+                  {/* Purple square underlay - solid offset */}
+                  <div className="absolute top-4 left-4 right-0 bottom-0 bg-purple-500" />
+                  <img
+                    src={onboardingAfter}
+                    alt="FlowTutor interface with Paste URL input"
+                    className="w-full h-auto relative z-10"
+                  />
                 </div>
               </div>
             </div>
@@ -1420,16 +1418,14 @@ const FlowTutorCaseStudy = () => {
                 <h3 className="text-xl md:text-2xl font-bold text-purple-500 uppercase tracking-wider">
                   After
                 </h3>
-                <div className="relative">
-                  {/* Purple background card - offset to bottom-right */}
-                  <div className="absolute top-4 left-4 right-0 bottom-0 bg-purple-500/20 rounded-lg -z-10" />
-                  <div className="overflow-hidden relative z-10">
-                    <img
-                      src={pinAfter}
-                      alt="Chat interface with pin feature"
-                      className="w-full h-auto"
-                    />
-                  </div>
+                <div className="relative pb-4 pr-4">
+                  {/* Purple square underlay - solid offset */}
+                  <div className="absolute top-4 left-4 right-0 bottom-0 bg-purple-500" />
+                  <img
+                    src={pinAfter}
+                    alt="Chat interface with pin feature"
+                    className="w-full h-auto relative z-10"
+                  />
                 </div>
               </div>
             </div>
@@ -1460,16 +1456,14 @@ const FlowTutorCaseStudy = () => {
                 <h3 className="text-xl md:text-2xl font-bold text-purple-500 uppercase tracking-wider">
                   After
                 </h3>
-                <div className="relative">
-                  {/* Purple background card - offset to bottom-right */}
-                  <div className="absolute top-4 left-4 right-0 bottom-0 bg-purple-500/20 rounded-lg -z-10" />
-                  <div className="overflow-hidden relative z-10">
-                    <img
-                      src={vpAfter}
-                      alt="Interface with AI transparency modal"
-                      className="w-full h-auto"
-                    />
-                  </div>
+                <div className="relative pb-4 pr-4">
+                  {/* Purple square underlay - solid offset */}
+                  <div className="absolute top-4 left-4 right-0 bottom-0 bg-purple-500" />
+                  <img
+                    src={vpAfter}
+                    alt="Interface with AI transparency modal"
+                    className="w-full h-auto relative z-10"
+                  />
                 </div>
               </div>
             </div>
