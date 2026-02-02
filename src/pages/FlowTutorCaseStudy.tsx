@@ -1340,6 +1340,11 @@ const FlowTutorCaseStudy = () => {
                   </div>
                 </div>
               </div>
+              
+              {/* Explanation text */}
+              <p className="text-neutral-400 text-base md:text-lg leading-relaxed mt-8 max-w-prose">
+                While Layout 1 offered better immersion and Layout 2 centralised the tools, Layout 3 was the only architecture that respected the relationship between content types.
+              </p>
             </div>
             
             <div className="flex flex-col gap-4 mt-16">
