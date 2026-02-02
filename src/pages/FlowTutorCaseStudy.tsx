@@ -1132,7 +1132,7 @@ const FlowTutorCaseStudy = () => {
               </p>
               
               {/* Role Details Grid */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+              <div className="flex flex-wrap gap-x-12 gap-y-4">
                 <div>
                   <p className="text-xs uppercase tracking-widest font-medium text-neutral-500 mb-1">Role</p>
                   <p className="text-sm text-white font-medium">Product Designer</p>
