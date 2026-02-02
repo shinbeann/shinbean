@@ -751,8 +751,8 @@ const ProductAnatomySection = () => {
 const CompetitorAnalysis = () => {
   const competitors = [
     {
-      name: "Coursera",
-      image: "/placeholder.svg",
+      name: "Pearson",
+      image: "/pearson-logo.png",
       pros: [
         "Structured course format with clear learning paths.",
         "Certificates from accredited universities.",
@@ -765,8 +765,8 @@ const CompetitorAnalysis = () => {
       ]
     },
     {
-      name: "Khan Academy",
-      image: "/placeholder.svg",
+      name: "Udemy / Khan Academy",
+      image: "/udemy-khan-logo.png",
       pros: [
         "Free access to quality educational content.",
         "Practice exercises with instant feedback.",
@@ -779,7 +779,7 @@ const CompetitorAnalysis = () => {
       ]
     },
     {
-      name: "Udemy",
+      name: "YouTube",
       image: "/youtube-logo.png",
       pros: [
         "Wide variety of topics and instructors.",
@@ -796,7 +796,7 @@ const CompetitorAnalysis = () => {
 
   return (
     <div className="w-full">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
         {competitors.map((competitor, index) => (
           <motion.div
             key={competitor.name}
@@ -804,64 +804,53 @@ const CompetitorAnalysis = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:bg-white/[0.07] transition-all duration-300"
+            className="space-y-6"
           >
-            {/* Placeholder Image */}
-            <div className="aspect-[4/3] bg-neutral-900/50 border-b border-white/10 flex items-center justify-center">
+            {/* Logo/Image */}
+            <div className="aspect-[4/3] flex items-center justify-center">
               <img
                 src={competitor.image}
                 alt={competitor.name}
-                className="w-full h-full object-cover opacity-50"
+                className="w-full h-full object-contain"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.style.display = 'none';
                 }}
               />
-              <span className="absolute text-neutral-600 font-mono text-sm">
-                [{competitor.name} Screenshot]
-              </span>
             </div>
 
-            {/* Content */}
-            <div className="p-6 space-y-6">
-              {/* Header */}
-              <h3 className="text-lg md:text-xl font-bold text-white">
-                {competitor.name}
-              </h3>
+            {/* Pros */}
+            <div className="space-y-3">
+              <h4 className="text-sm font-bold text-emerald-400 uppercase tracking-wider">
+                Pros:
+              </h4>
+              <ul className="space-y-2 list-none">
+                {competitor.pros.map((pro, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <span className="w-1 h-1 rounded-full bg-emerald-400 mt-2 flex-shrink-0" />
+                    <p className="text-xs text-neutral-400 leading-relaxed">
+                      {pro}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-              {/* Pros */}
-              <div className="space-y-3">
-                <h4 className="text-sm font-bold text-emerald-400 uppercase tracking-wider">
-                  Pros:
-                </h4>
-                <ul className="space-y-2 list-none">
-                  {competitor.pros.map((pro, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="w-1 h-1 rounded-full bg-emerald-400 mt-2 flex-shrink-0" />
-                      <p className="text-xs text-neutral-400 leading-relaxed">
-                        {pro}
-                      </p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Cons */}
-              <div className="space-y-3">
-                <h4 className="text-sm font-bold text-red-400 uppercase tracking-wider">
-                  Cons:
-                </h4>
-                <ul className="space-y-2 list-none">
-                  {competitor.cons.map((con, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="w-1 h-1 rounded-full bg-red-400 mt-2 flex-shrink-0" />
-                      <p className="text-xs text-neutral-400 leading-relaxed">
-                        {con}
-                      </p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {/* Cons */}
+            <div className="space-y-3">
+              <h4 className="text-sm font-bold text-red-400 uppercase tracking-wider">
+                Cons:
+              </h4>
+              <ul className="space-y-2 list-none">
+                {competitor.cons.map((con, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <span className="w-1 h-1 rounded-full bg-red-400 mt-2 flex-shrink-0" />
+                    <p className="text-xs text-neutral-400 leading-relaxed">
+                      {con}
+                    </p>
+                  </li>
+                ))}
+              </ul>
             </div>
           </motion.div>
         ))}
