@@ -1252,37 +1252,14 @@ const FlowTutorCaseStudy = () => {
             </div>
 
             {/* Layout Comparison Section */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
-              {/* Left Side - Stacked Layouts with gap for chosen layout */}
-              <div className="flex flex-col gap-4">
-                {/* Layout 2 */}
+            <div className="flex flex-col gap-4 mt-12">
+              {/* Layout 2 Row */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <img 
                   src="/layout2.png" 
                   alt="Layout 2 - Video on top, Transcript and AI Chatbot below" 
                   className="w-full border border-white/10 opacity-60"
                 />
-                
-                {/* Layout 3 */}
-                <img 
-                  src="/layout3.png" 
-                  alt="Layout 3 - Video left, AI Chatbot and Transcript stacked right" 
-                  className="w-full border border-white/10 opacity-60"
-                />
-                
-                {/* Gap to show Layout 1 is the chosen one */}
-                <div className="h-8" />
-                
-                {/* Layout 1 - Chosen */}
-                <img 
-                  src="/layout1.png" 
-                  alt="Layout 1 - Video and Transcript stacked left, AI Chatbot right" 
-                  className="w-full border-2 border-white shadow-xl"
-                />
-              </div>
-              
-              {/* Right Side - Pros and Cons for each layout */}
-              <div className="flex flex-col gap-8">
-                {/* Layout 2 Analysis */}
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <p className="text-green-400 text-sm font-medium mb-2">Pros</p>
@@ -1299,8 +1276,15 @@ const FlowTutorCaseStudy = () => {
                     </ul>
                   </div>
                 </div>
-                
-                {/* Layout 3 Analysis */}
+              </div>
+              
+              {/* Layout 3 Row */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <img 
+                  src="/layout3.png" 
+                  alt="Layout 3 - Video left, AI Chatbot and Transcript stacked right" 
+                  className="w-full border border-white/10 opacity-60"
+                />
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <p className="text-green-400 text-sm font-medium mb-2">Pros</p>
@@ -1317,11 +1301,18 @@ const FlowTutorCaseStudy = () => {
                     </ul>
                   </div>
                 </div>
-                
-                {/* Gap to align with chosen layout */}
-                <div className="h-8" />
-                
-                {/* Layout 1 Analysis - Chosen */}
+              </div>
+              
+              {/* Gap to show Layout 1 is the chosen one (Gestalt principle) */}
+              <div className="h-8" />
+              
+              {/* Layout 1 Row - Chosen */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <img 
+                  src="/layout1.png" 
+                  alt="Layout 1 - Video and Transcript stacked left, AI Chatbot right" 
+                  className="w-full shadow-xl"
+                />
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <p className="text-green-400 text-sm font-medium mb-2">Pros</p>
