@@ -1126,10 +1126,31 @@ const FlowTutorCaseStudy = () => {
             className="max-w-4xl"
             id="contributions"
           >
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-6">
               <p className="text-lg font-semibold text-white">
                 My Contributions
               </p>
+              
+              {/* Role Details Grid */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+                <div>
+                  <p className="text-xs uppercase tracking-widest font-medium text-neutral-500 mb-1">Role</p>
+                  <p className="text-sm text-white font-medium">Product Designer</p>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-widest font-medium text-neutral-500 mb-1">Timeline</p>
+                  <p className="text-sm text-white font-medium">August - September 2025</p>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-widest font-medium text-neutral-500 mb-1">Team</p>
+                  <p className="text-sm text-white font-medium">6 Members</p>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-widest font-medium text-neutral-500 mb-1">Tools</p>
+                  <p className="text-sm text-white font-medium">Miro, Figma, Lovable</p>
+                </div>
+              </div>
+              
               <div className="space-y-4 text-neutral-400 text-lg md:text-xl max-w-prose" style={{ lineHeight: '1.7' }}>
                 <p>
                   I advocated for conducting user interviews, synthesis sessions and brainstorming sessions before arriving at solutions.
