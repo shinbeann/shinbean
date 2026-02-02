@@ -1123,7 +1123,7 @@ const FlowTutorCaseStudy = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="max-w-4xl pt-16 md:pt-24"
+            className="max-w-4xl"
             id="contributions"
           >
             <div className="flex flex-col gap-6">
