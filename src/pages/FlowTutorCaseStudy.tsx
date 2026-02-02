@@ -1367,14 +1367,12 @@ const FlowTutorCaseStudy = () => {
             {/* Row 2: The Visual Evidence */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               {/* Column A: The Paper Prototype */}
-              <div className="relative overflow-hidden">
+              <div className="overflow-hidden">
                 <img
                   src={onboardingBefore}
                   alt="Paper prototype showing Upload File interaction"
                   className="w-full h-auto"
                 />
-                {/* Red tint overlay */}
-                <div className="absolute inset-0 bg-red-500/10 pointer-events-none" />
               </div>
 
               {/* Column B: The Mid-Fi Solution */}
