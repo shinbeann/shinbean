@@ -796,7 +796,7 @@ const CompetitorAnalysis = () => {
 
   return (
     <div className="w-full">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 items-stretch">
         {competitors.map((competitor, index) => (
           <motion.div
             key={competitor.name}
@@ -804,10 +804,10 @@ const CompetitorAnalysis = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="space-y-6"
+            className="flex flex-col h-full"
           >
             {/* Logo/Image */}
-            <div className="aspect-[4/3] flex items-center justify-center">
+            <div className="aspect-[4/3] flex items-center justify-center mb-6 flex-shrink-0">
               <img
                 src={competitor.image}
                 alt={competitor.name}
@@ -820,7 +820,7 @@ const CompetitorAnalysis = () => {
             </div>
 
             {/* Pros */}
-            <div className="space-y-3">
+            <div className="space-y-3 mb-6 flex-grow">
               <h4 className="text-sm font-bold text-emerald-400 uppercase tracking-wider">
                 Pros:
               </h4>
@@ -837,7 +837,7 @@ const CompetitorAnalysis = () => {
             </div>
 
             {/* Cons */}
-            <div className="space-y-3">
+            <div className="space-y-3 flex-shrink-0 mt-auto">
               <h4 className="text-sm font-bold text-red-400 uppercase tracking-wider">
                 Cons:
               </h4>
