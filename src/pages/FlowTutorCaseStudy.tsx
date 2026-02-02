@@ -1244,6 +1244,15 @@ const FlowTutorCaseStudy = () => {
                 PROTOTYPING AND TESTING
               </p>
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">
+                Solving for "Alt-Tab Fatigue".
+              </h2>
+              <p className="text-lg md:text-xl text-neutral-400 max-w-prose" style={{ lineHeight: '1.7' }}>
+                Since the biggest problem we wanted to tackle was tab switching, deciding the main layout seemed to be the obvious first step to take.
+              </p>
+            </div>
+            
+            <div className="flex flex-col gap-4 mt-8">
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">
                 From paper to pixel.
               </h2>
               <p className="text-lg md:text-xl text-neutral-400 max-w-prose" style={{ lineHeight: '1.7' }}>
