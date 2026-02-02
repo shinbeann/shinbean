@@ -1435,43 +1435,6 @@ const FlowTutorCaseStudy = () => {
               By adding the ability to pin important responses, users can quickly reference key information without scrolling through the entire chat history. This reduces cognitive load and keeps critical context visible.
             </p>
 
-            {/* Third Before/After: Video Player Feature */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              {/* Column A: Before */}
-              <div className="flex flex-col gap-4 items-center">
-                <h3 className="text-xl md:text-2xl font-bold text-neutral-500 uppercase tracking-wider text-center">
-                  Before
-                </h3>
-                <div className="aspect-[4/3] w-full overflow-hidden">
-                  <img
-                    src={vpBefore}
-                    alt="Interface without AI transparency"
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-              </div>
-
-              {/* Column B: After with subtle purple underlay covering header + image */}
-              <div className="relative flex flex-col gap-4 items-center">
-                {/* Subtle purple underlay - covers header and image */}
-                <div className="absolute -top-4 -left-4 -right-4 -bottom-4 bg-purple-500/10" />
-                <h3 className="text-xl md:text-2xl font-bold text-purple-500 uppercase tracking-wider relative z-10 text-center">
-                  After
-                </h3>
-                <div className="aspect-[4/3] w-full overflow-hidden relative z-10">
-                  <img
-                    src={vpAfter}
-                    alt="Interface with AI transparency modal"
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* The "Why" (The Heuristic Rationale) for AI Transparency */}
-            <p className="text-neutral-400 text-base md:text-lg leading-relaxed max-w-3xl">
-              By providing clear information about what FlowTutor AI can and cannot do, we set appropriate expectations and build trust. Users understand the system's capabilities and limitations upfront, preventing frustration from unmet expectations.
-            </p>
           </div>
           </div>
           </div>
