@@ -1255,11 +1255,14 @@ const FlowTutorCaseStudy = () => {
             <div className="flex flex-col gap-4 mt-12">
               {/* Layout 2 Row */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                <img 
-                  src="/layout2.png" 
-                  alt="Layout 2 - Video on top, Transcript and AI Chatbot below" 
-                  className="w-full border border-white/10 opacity-60"
-                />
+                <div className="relative">
+                  <span className="absolute -top-2 -left-2 text-3xl md:text-4xl font-bold text-neutral-500 z-10" style={{ fontFamily: 'serif', fontStyle: 'italic' }}>1</span>
+                  <img 
+                    src="/layout2.png" 
+                    alt="Layout 2 - Video on top, Transcript and AI Chatbot below" 
+                    className="w-full border border-white/10 opacity-60"
+                  />
+                </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <p className="text-green-400 text-sm font-medium mb-2">Pros</p>
@@ -1280,11 +1283,14 @@ const FlowTutorCaseStudy = () => {
               
               {/* Layout 3 Row */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                <img 
-                  src="/layout3.png" 
-                  alt="Layout 3 - Video left, AI Chatbot and Transcript stacked right" 
-                  className="w-full border border-white/10 opacity-60"
-                />
+                <div className="relative">
+                  <span className="absolute -top-2 -left-2 text-3xl md:text-4xl font-bold text-neutral-500 z-10" style={{ fontFamily: 'serif', fontStyle: 'italic' }}>2</span>
+                  <img 
+                    src="/layout3.png" 
+                    alt="Layout 3 - Video left, AI Chatbot and Transcript stacked right" 
+                    className="w-full border border-white/10 opacity-60"
+                  />
+                </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <p className="text-green-400 text-sm font-medium mb-2">Pros</p>
@@ -1308,11 +1314,14 @@ const FlowTutorCaseStudy = () => {
               
               {/* Layout 1 Row - Chosen */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                <img 
-                  src="/layout1.png" 
-                  alt="Layout 1 - Video and Transcript stacked left, AI Chatbot right" 
-                  className="w-full shadow-xl"
-                />
+                <div className="relative">
+                  <span className="absolute -top-2 -left-2 text-3xl md:text-4xl font-bold text-neutral-500 z-10" style={{ fontFamily: 'serif', fontStyle: 'italic' }}>3</span>
+                  <img 
+                    src="/layout1.png" 
+                    alt="Layout 1 - Video and Transcript stacked left, AI Chatbot right" 
+                    className="w-full shadow-xl"
+                  />
+                </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <p className="text-green-400 text-sm font-medium mb-2">Pros</p>
