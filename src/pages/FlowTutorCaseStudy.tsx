@@ -1366,11 +1366,11 @@ const FlowTutorCaseStudy = () => {
                 <h3 className="text-xl md:text-2xl font-bold text-neutral-500 uppercase tracking-wider text-center">
                   Before
                 </h3>
-                <div className="overflow-hidden">
+                <div className="aspect-[4/3] w-full overflow-hidden">
                   <img
                     src={onboardingBefore}
                     alt="Paper prototype showing Upload File interaction"
-                    className="w-full h-auto"
+                    className="w-full h-full object-cover object-top"
                   />
                 </div>
               </div>
@@ -1382,11 +1382,13 @@ const FlowTutorCaseStudy = () => {
                 <h3 className="text-xl md:text-2xl font-bold text-purple-500 uppercase tracking-wider relative z-10 text-center">
                   After
                 </h3>
-                <img
-                  src={onboardingAfter}
-                  alt="FlowTutor interface with Paste URL input"
-                  className="w-full h-auto relative z-10"
-                />
+                <div className="aspect-[4/3] w-full overflow-hidden relative z-10">
+                  <img
+                    src={onboardingAfter}
+                    alt="FlowTutor interface with Paste URL input"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
               </div>
             </div>
 
@@ -1402,11 +1404,11 @@ const FlowTutorCaseStudy = () => {
                 <h3 className="text-xl md:text-2xl font-bold text-neutral-500 uppercase tracking-wider text-center">
                   Before
                 </h3>
-                <div className="overflow-hidden">
+                <div className="aspect-[4/3] w-full overflow-hidden">
                   <img
                     src={pinBefore}
                     alt="Chat interface without pin feature"
-                    className="w-full h-auto"
+                    className="w-full h-full object-cover object-top"
                   />
                 </div>
               </div>
@@ -1418,11 +1420,13 @@ const FlowTutorCaseStudy = () => {
                 <h3 className="text-xl md:text-2xl font-bold text-purple-500 uppercase tracking-wider relative z-10 text-center">
                   After
                 </h3>
-                <img
-                  src={pinAfter}
-                  alt="Chat interface with pin feature"
-                  className="w-full h-auto relative z-10"
-                />
+                <div className="aspect-[4/3] w-full overflow-hidden relative z-10">
+                  <img
+                    src={pinAfter}
+                    alt="Chat interface with pin feature"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
               </div>
             </div>
 
@@ -1438,11 +1442,11 @@ const FlowTutorCaseStudy = () => {
                 <h3 className="text-xl md:text-2xl font-bold text-neutral-500 uppercase tracking-wider text-center">
                   Before
                 </h3>
-                <div className="overflow-hidden">
+                <div className="aspect-[4/3] w-full overflow-hidden">
                   <img
                     src={vpBefore}
                     alt="Interface without AI transparency"
-                    className="w-full h-auto"
+                    className="w-full h-full object-cover object-top"
                   />
                 </div>
               </div>
@@ -1454,11 +1458,13 @@ const FlowTutorCaseStudy = () => {
                 <h3 className="text-xl md:text-2xl font-bold text-purple-500 uppercase tracking-wider relative z-10 text-center">
                   After
                 </h3>
-                <img
-                  src={vpAfter}
-                  alt="Interface with AI transparency modal"
-                  className="w-full h-auto relative z-10"
-                />
+                <div className="aspect-[4/3] w-full overflow-hidden relative z-10">
+                  <img
+                    src={vpAfter}
+                    alt="Interface with AI transparency modal"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
               </div>
             </div>
 
