@@ -1106,7 +1106,7 @@ const FlowTutorCaseStudy = () => {
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white leading-tight">
                 A Unified Viewport.
               </h2>
-              <div className="text-neutral-400 text-lg md:text-xl leading-relaxed max-w-prose">
+              <div className="text-neutral-400 text-lg md:text-xl leading-relaxed">
                 <p>
                   We designed FlowTutor, a web app which integrates the video player directly with a context-aware AI chatbot and a dedicated note-taking panel to eliminate the need to juggle external tabs. This layout respects the user's focus, bringing all necessary tools into one central view. The result is a seamless, linear workflow that feels intuitive rather than overwhelming.
                 </p>
@@ -1151,7 +1151,7 @@ const FlowTutorCaseStudy = () => {
                 </div>
               </div>
               
-              <div className="space-y-4 text-neutral-400 text-lg md:text-xl leading-relaxed max-w-prose">
+              <div className="space-y-4 text-neutral-400 text-lg md:text-xl leading-relaxed">
                 <p>
                   I advocated for conducting user interviews, synthesis sessions and brainstorming sessions before arriving at solutions.
                 </p>
@@ -1212,7 +1212,7 @@ const FlowTutorCaseStudy = () => {
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
                 The Market Opportunity.
               </h2>
-              <div className="text-neutral-400 text-lg md:text-xl leading-relaxed max-w-prose">
+              <div className="text-neutral-400 text-lg md:text-xl leading-relaxed">
                 <p>
                   The global e-learning market is forecast to reach almost USD 400 billion in 2026, up from USD 198 billion in 2019.
                 </p>
@@ -1246,7 +1246,7 @@ const FlowTutorCaseStudy = () => {
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">
                 Solving for "Alt-Tab Fatigue".
               </h2>
-              <p className="text-neutral-400 text-lg md:text-xl leading-relaxed max-w-prose">
+              <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
                 Since the biggest problem we wanted to tackle was tab switching, deciding the main layout seemed to be the obvious first step to take.
               </p>
             </div>
@@ -1342,7 +1342,7 @@ const FlowTutorCaseStudy = () => {
               </div>
               
               {/* Explanation text */}
-              <p className="text-neutral-400 text-lg md:text-xl leading-relaxed mt-8 max-w-prose">
+              <p className="text-neutral-400 text-lg md:text-xl leading-relaxed mt-8">
                 While Layout 1 offered better immersion and Layout 2 centralised the tools, Layout 3 was the only architecture that respected the relationship between content types.
               </p>
             </div>
@@ -1351,7 +1351,7 @@ const FlowTutorCaseStudy = () => {
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">
                 From paper to pixel.
               </h2>
-              <p className="text-neutral-400 text-lg md:text-xl leading-relaxed max-w-prose">
+              <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
                 We conducted a heuristic evaluation with 5 evaluators who interacted with our paper prototype. They identified several usability issues, ranked by severity.
               </p>
             </div>
@@ -1393,7 +1393,7 @@ const FlowTutorCaseStudy = () => {
             </div>
 
             {/* The "Why" (The Heuristic Rationale) */}
-            <p className="text-neutral-400 text-base md:text-lg leading-relaxed max-w-3xl">
+            <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
               By removing the file upload requirement, we eliminated an unnecessary decision step. The interface now matches the user's goal ('Watch this video') rather than the system's requirement ('Input a file').
             </p>
 
@@ -1431,7 +1431,7 @@ const FlowTutorCaseStudy = () => {
             </div>
 
             {/* The "Why" (The Heuristic Rationale) for Pin Feature */}
-            <p className="text-neutral-400 text-base md:text-lg leading-relaxed max-w-3xl">
+            <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
               By adding the ability to pin important responses, users can quickly reference key information without scrolling through the entire chat history. This reduces cognitive load and keeps critical context visible.
             </p>
 
