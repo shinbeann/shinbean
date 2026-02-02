@@ -1256,108 +1256,87 @@ const FlowTutorCaseStudy = () => {
               {/* Left Side - Stacked Layouts with gap for chosen layout */}
               <div className="flex flex-col gap-4">
                 {/* Layout 2 */}
-                <div className="relative">
-                  <div className="absolute -top-2 -left-2 bg-neutral-800 text-neutral-400 text-xs font-medium px-2 py-1 rounded z-10">
-                    Layout 2
-                  </div>
-                  <img 
-                    src="/layout2.png" 
-                    alt="Layout 2 - Video on top, Transcript and AI Chatbot below" 
-                    className="w-full rounded-lg border border-white/10 opacity-60"
-                  />
-                </div>
+                <img 
+                  src="/layout2.png" 
+                  alt="Layout 2 - Video on top, Transcript and AI Chatbot below" 
+                  className="w-full border border-white/10 opacity-60"
+                />
                 
                 {/* Layout 3 */}
-                <div className="relative">
-                  <div className="absolute -top-2 -left-2 bg-neutral-800 text-neutral-400 text-xs font-medium px-2 py-1 rounded z-10">
-                    Layout 3
-                  </div>
-                  <img 
-                    src="/layout3.png" 
-                    alt="Layout 3 - Video left, AI Chatbot and Transcript stacked right" 
-                    className="w-full rounded-lg border border-white/10 opacity-60"
-                  />
-                </div>
+                <img 
+                  src="/layout3.png" 
+                  alt="Layout 3 - Video left, AI Chatbot and Transcript stacked right" 
+                  className="w-full border border-white/10 opacity-60"
+                />
                 
                 {/* Gap to show Layout 1 is the chosen one */}
                 <div className="h-8" />
                 
                 {/* Layout 1 - Chosen */}
-                <div className="relative">
-                  <div className="absolute -top-2 -left-2 bg-white text-neutral-900 text-xs font-bold px-2 py-1 rounded z-10">
-                    Layout 1 ✓
-                  </div>
-                  <img 
-                    src="/layout1.png" 
-                    alt="Layout 1 - Video and Transcript stacked left, AI Chatbot right" 
-                    className="w-full rounded-lg border-2 border-white shadow-xl"
-                  />
-                </div>
+                <img 
+                  src="/layout1.png" 
+                  alt="Layout 1 - Video and Transcript stacked left, AI Chatbot right" 
+                  className="w-full border-2 border-white shadow-xl"
+                />
               </div>
               
               {/* Right Side - Pros and Cons for each layout */}
               <div className="flex flex-col gap-8">
                 {/* Layout 2 Analysis */}
-                <div className="bg-neutral-900/50 rounded-lg p-6 border border-white/10">
-                  <h4 className="text-white font-semibold mb-4">Layout 2</h4>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <p className="text-green-400 text-sm font-medium mb-2">Pros</p>
-                      <ul className="text-neutral-400 text-sm space-y-1">
-                        <li>• Video takes full width</li>
-                        <li>• Clear visual hierarchy</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <p className="text-red-400 text-sm font-medium mb-2">Cons</p>
-                      <ul className="text-neutral-400 text-sm space-y-1">
-                        <li>• Requires scrolling</li>
-                        <li>• Transcript competes with chat</li>
-                      </ul>
-                    </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-green-400 text-sm font-medium mb-2">Pros</p>
+                    <ul className="text-neutral-400 text-sm space-y-1">
+                      <li>• Video takes full width</li>
+                      <li>• Clear visual hierarchy</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="text-red-400 text-sm font-medium mb-2">Cons</p>
+                    <ul className="text-neutral-400 text-sm space-y-1">
+                      <li>• Requires scrolling</li>
+                      <li>• Transcript competes with chat</li>
+                    </ul>
                   </div>
                 </div>
                 
                 {/* Layout 3 Analysis */}
-                <div className="bg-neutral-900/50 rounded-lg p-6 border border-white/10">
-                  <h4 className="text-white font-semibold mb-4">Layout 3</h4>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <p className="text-green-400 text-sm font-medium mb-2">Pros</p>
-                      <ul className="text-neutral-400 text-sm space-y-1">
-                        <li>• Video prominent on left</li>
-                        <li>• Tools grouped together</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <p className="text-red-400 text-sm font-medium mb-2">Cons</p>
-                      <ul className="text-neutral-400 text-sm space-y-1">
-                        <li>• Chat above transcript feels unnatural</li>
-                        <li>• Vertical scrolling for tools</li>
-                      </ul>
-                    </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-green-400 text-sm font-medium mb-2">Pros</p>
+                    <ul className="text-neutral-400 text-sm space-y-1">
+                      <li>• Video prominent on left</li>
+                      <li>• Tools grouped together</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="text-red-400 text-sm font-medium mb-2">Cons</p>
+                    <ul className="text-neutral-400 text-sm space-y-1">
+                      <li>• Chat above transcript feels unnatural</li>
+                      <li>• Vertical scrolling for tools</li>
+                    </ul>
                   </div>
                 </div>
                 
+                {/* Gap to align with chosen layout */}
+                <div className="h-8" />
+                
                 {/* Layout 1 Analysis - Chosen */}
-                <div className="bg-white/5 rounded-lg p-6 border-2 border-white">
-                  <h4 className="text-white font-semibold mb-4">Layout 1 <span className="text-green-400 ml-2">— Chosen</span></h4>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <p className="text-green-400 text-sm font-medium mb-2">Pros</p>
-                      <ul className="text-neutral-400 text-sm space-y-1">
-                        <li>• Video + transcript in natural reading flow</li>
-                        <li>• Chat always accessible</li>
-                        <li>• No scrolling needed</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <p className="text-red-400 text-sm font-medium mb-2">Cons</p>
-                      <ul className="text-neutral-400 text-sm space-y-1">
-                        <li>• Smaller video viewport</li>
-                        <li>• Fixed panel widths</li>
-                      </ul>
-                    </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-green-400 text-sm font-medium mb-2">Pros</p>
+                    <ul className="text-neutral-400 text-sm space-y-1">
+                      <li>• Video + transcript in natural reading flow</li>
+                      <li>• Chat always accessible</li>
+                      <li>• No scrolling needed</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="text-red-400 text-sm font-medium mb-2">Cons</p>
+                    <ul className="text-neutral-400 text-sm space-y-1">
+                      <li>• Smaller video viewport</li>
+                      <li>• Fixed panel widths</li>
+                    </ul>
                   </div>
                 </div>
               </div>
