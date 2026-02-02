@@ -1395,8 +1395,88 @@ const FlowTutorCaseStudy = () => {
             </div>
 
             {/* The "Why" (The Heuristic Rationale) */}
-            <p className="text-neutral-400 text-base md:text-lg leading-relaxed max-w-3xl pt-4">
+            <p className="text-neutral-400 text-base md:text-lg leading-relaxed max-w-3xl">
               By removing the file upload requirement, we eliminated an unnecessary decision step. The interface now matches the user's goal ('Watch this video') rather than the system's requirement ('Input a file').
+            </p>
+
+            {/* Second Before/After: Pin Feature */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              {/* Column A: Before */}
+              <div className="flex flex-col gap-4">
+                <h3 className="text-xl md:text-2xl font-bold text-neutral-300 uppercase tracking-wider">
+                  Before
+                </h3>
+                <div className="overflow-hidden">
+                  <img
+                    src={pinBefore}
+                    alt="Chat interface without pin feature"
+                    className="w-full h-auto"
+                  />
+                </div>
+              </div>
+
+              {/* Column B: After with purple card background */}
+              <div className="flex flex-col gap-4">
+                <h3 className="text-xl md:text-2xl font-bold text-purple-500 uppercase tracking-wider">
+                  After
+                </h3>
+                <div className="relative">
+                  {/* Purple background card - offset to bottom-right */}
+                  <div className="absolute top-4 left-4 right-0 bottom-0 bg-purple-500/20 rounded-lg -z-10" />
+                  <div className="overflow-hidden relative z-10">
+                    <img
+                      src={pinAfter}
+                      alt="Chat interface with pin feature"
+                      className="w-full h-auto"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* The "Why" (The Heuristic Rationale) for Pin Feature */}
+            <p className="text-neutral-400 text-base md:text-lg leading-relaxed max-w-3xl">
+              By adding the ability to pin important responses, users can quickly reference key information without scrolling through the entire chat history. This reduces cognitive load and keeps critical context visible.
+            </p>
+
+            {/* Third Before/After: Video Player Feature */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              {/* Column A: Before */}
+              <div className="flex flex-col gap-4">
+                <h3 className="text-xl md:text-2xl font-bold text-neutral-300 uppercase tracking-wider">
+                  Before
+                </h3>
+                <div className="overflow-hidden">
+                  <img
+                    src={vpBefore}
+                    alt="Interface without AI transparency"
+                    className="w-full h-auto"
+                  />
+                </div>
+              </div>
+
+              {/* Column B: After with purple card background */}
+              <div className="flex flex-col gap-4">
+                <h3 className="text-xl md:text-2xl font-bold text-purple-500 uppercase tracking-wider">
+                  After
+                </h3>
+                <div className="relative">
+                  {/* Purple background card - offset to bottom-right */}
+                  <div className="absolute top-4 left-4 right-0 bottom-0 bg-purple-500/20 rounded-lg -z-10" />
+                  <div className="overflow-hidden relative z-10">
+                    <img
+                      src={vpAfter}
+                      alt="Interface with AI transparency modal"
+                      className="w-full h-auto"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* The "Why" (The Heuristic Rationale) for AI Transparency */}
+            <p className="text-neutral-400 text-base md:text-lg leading-relaxed max-w-3xl">
+              By providing clear information about what FlowTutor AI can and cannot do, we set appropriate expectations and build trust. Users understand the system's capabilities and limitations upfront, preventing frustration from unmet expectations.
             </p>
           </div>
           </div>
