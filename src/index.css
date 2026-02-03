@@ -179,14 +179,12 @@ All colors MUST be HSL.
     box-shadow: 0 20px 60px -12px rgb(0 0 0 / 0.25), 0 8px 16px -4px rgb(0 0 0 / 0.1);
   }
 
-  /* SECTION 1: FlowTutor - Deep Midnight Blue matching video */
+  /* SECTION 1: FlowTutor - Deep Midnight Blue */
   .flowtutor-section {
     background: linear-gradient(
       to bottom,
-      #0c1829 0%,
-      #0d1a2d 25%,
-      #0a1525 50%,
-      #060d16 75%,
+      #0F172A 0%,
+      #0a1120 50%,
       #000000 100%
     );
   }
