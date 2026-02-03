@@ -183,39 +183,14 @@ All colors MUST be HSL.
   .flowtutor-section {
     background: linear-gradient(
       to bottom,
-      #0F172A 0%,
-      #0a1120 50%,
+      #0d1526 0%,
+      #0d1526 60%,
       #000000 100%
     );
   }
 
   .northern-lights-glow {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    height: 60%;
-    background: radial-gradient(
-      ellipse at center,
-      rgba(56, 189, 248, 0.15) 0%,
-      rgba(59, 130, 246, 0.08) 30%,
-      rgba(147, 51, 234, 0.05) 50%,
-      transparent 70%
-    );
-    filter: blur(60px);
-    animation: aurora-pulse 8s ease-in-out infinite;
-  }
-
-  @keyframes aurora-pulse {
-    0%, 100% {
-      opacity: 0.6;
-      transform: translateX(-50%) scale(1);
-    }
-    50% {
-      opacity: 0.9;
-      transform: translateX(-50%) scale(1.1);
-    }
+    display: none;
   }
 
   /* SECTION 2: KidneyQuest - Marigold Yellow Spotlight */
