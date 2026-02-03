@@ -179,14 +179,13 @@ All colors MUST be HSL.
     box-shadow: 0 20px 60px -12px rgb(0 0 0 / 0.25), 0 8px 16px -4px rgb(0 0 0 / 0.1);
   }
 
-  /* SECTION 1: FlowTutor - Deep Midnight Blue matching video */
+  /* SECTION 1: FlowTutor - Deep Midnight Blue */
   .flowtutor-section {
     background: linear-gradient(
       to bottom,
-      #0c1929 0%,
-      #0a1525 40%,
-      #070f1a 70%,
-      #050a12 100%
+      #0F172A 0%,
+      #0a1120 50%,
+      #000000 100%
     );
   }
 
@@ -199,9 +198,9 @@ All colors MUST be HSL.
     height: 60%;
     background: radial-gradient(
       ellipse at center,
-      rgba(56, 130, 200, 0.12) 0%,
-      rgba(40, 100, 170, 0.08) 30%,
-      rgba(30, 80, 140, 0.04) 50%,
+      rgba(56, 189, 248, 0.15) 0%,
+      rgba(59, 130, 246, 0.08) 30%,
+      rgba(147, 51, 234, 0.05) 50%,
       transparent 70%
     );
     filter: blur(60px);
@@ -210,12 +209,12 @@ All colors MUST be HSL.
 
   @keyframes aurora-pulse {
     0%, 100% {
-      opacity: 0.5;
+      opacity: 0.6;
       transform: translateX(-50%) scale(1);
     }
     50% {
-      opacity: 0.7;
-      transform: translateX(-50%) scale(1.05);
+      opacity: 0.9;
+      transform: translateX(-50%) scale(1.1);
     }
   }
 
