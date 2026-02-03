@@ -625,7 +625,11 @@ const ComparisonSlider = ({ beforeLabel, afterLabel, beforeImage, afterImage, ca
         ref={containerRef}
         onMouseMove={handleMouseMove}
         onTouchMove={handleTouchMove}
-        className="relative w-full aspect-[16/9] bg-[#111] rounded-lg overflow-hidden cursor-col-resize border border-white/10 select-none group touch-none"
+        className="relative w-full aspect-[16/9] bg-[#111] rounded-lg overflow-hidden cursor-col-resize select-none group touch-none"
+        style={{
+          maskImage: 'radial-gradient(ellipse 100% 100% at 50% 50%, black 60%, transparent 100%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 100% 100% at 50% 50%, black 60%, transparent 100%)'
+        }}
       >
         {/* After Image (Background) */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
