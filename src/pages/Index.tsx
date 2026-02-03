@@ -6,6 +6,54 @@ import Footer from "@/components/Footer";
 import FloatingContactButton from "@/components/FloatingContactButton";
 import { KidneyQuestInteractiveDemo } from "@/components/KidneyQuestInteractiveDemo";
 import ftHeroVid from "@/assets/ft_herovid.mp4";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
+// Tool Icon Component with hover tooltip
+const ToolIcon = ({ name, icon }: { name: string; icon: React.ReactNode }) => (
+  <Tooltip>
+    <TooltipTrigger asChild>
+      <div className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 flex items-center justify-center cursor-pointer hover:bg-white/20 hover:border-white/20 transition-all duration-200">
+        {icon}
+      </div>
+    </TooltipTrigger>
+    <TooltipContent side="bottom" className="bg-neutral-900 border-white/10 text-white text-xs">
+      {name}
+    </TooltipContent>
+  </Tooltip>
+);
+
+// SVG Icons for tools
+const FigmaIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8 24C10.208 24 12 22.208 12 20V16H8C5.792 16 4 17.792 4 20C4 22.208 5.792 24 8 24Z" fill="#0ACF83"/>
+    <path d="M4 12C4 9.792 5.792 8 8 8H12V16H8C5.792 16 4 14.208 4 12Z" fill="#A259FF"/>
+    <path d="M4 4C4 1.792 5.792 0 8 0H12V8H8C5.792 8 4 6.208 4 4Z" fill="#F24E1E"/>
+    <path d="M12 0H16C18.208 0 20 1.792 20 4C20 6.208 18.208 8 16 8H12V0Z" fill="#FF7262"/>
+    <path d="M20 12C20 14.208 18.208 16 16 16C13.792 16 12 14.208 12 12C12 9.792 13.792 8 16 8C18.208 8 20 9.792 20 12Z" fill="#1ABCFE"/>
+  </svg>
+);
+
+const LovableIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="24" height="24" rx="6" fill="#1A1A1A"/>
+    <path d="M12 6L14.5 11H9.5L12 6Z" fill="#FF6B6B"/>
+    <path d="M12 18L9.5 13H14.5L12 18Z" fill="#4ECDC4"/>
+    <circle cx="12" cy="12" r="2" fill="white"/>
+  </svg>
+);
+
+const MiroIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.4 0H14.2L18.8 12L14.2 24H17.4L22 12L17.4 0Z" fill="#FFD02F"/>
+    <path d="M12.2 0H9L13.6 12L9 24H12.2L16.8 12L12.2 0Z" fill="#FFD02F"/>
+    <path d="M7 0H3.8L8.4 12L3.8 24H7L11.6 12L7 0Z" fill="#FFD02F"/>
+  </svg>
+);
 
 const scrollReveal = {
   initial: { opacity: 0, y: 24 },
@@ -15,6 +63,7 @@ const scrollReveal = {
 
 const Index = () => {
   return (
+    <TooltipProvider>
     <div className="min-h-screen flex flex-col">
       <Navigation tone="light" enableSmartHide />
 
@@ -44,6 +93,13 @@ const Index = () => {
                 A concept for turning chaotic YouTube tutorials into interactive lessons, allowing learners to ask questions, generate quizzes, and instantly jump to relevant timestamps for more efficient self-directed learning
                 zone.
               </p>
+              
+              {/* Tools Section */}
+              <div className="flex items-center gap-3 mt-4">
+                <ToolIcon name="Figma" icon={<FigmaIcon />} />
+                <ToolIcon name="Lovable" icon={<LovableIcon />} />
+                <ToolIcon name="Miro" icon={<MiroIcon />} />
+              </div>
               <div className="mt-6 md:mt-8">
                 <Link 
                   to="/case-study/flowtutor" 
@@ -254,6 +310,7 @@ const Index = () => {
       <Footer />
       <FloatingContactButton />
     </div>
+    </TooltipProvider>
   );
 };
 
