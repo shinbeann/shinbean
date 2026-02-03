@@ -23,7 +23,7 @@ const ProjectCard = ({ title, role, roles, problem, outcome, tags, image, slug, 
       to={`/case-study/${slug}`}
       className="block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-2xl"
     >
-      <Card className="group overflow-hidden border border-border hover:border-primary/50 transition-all duration-300 h-full hover:shadow-[0_8px_30px_rgb(0,0,0,0.12),0_4px_8px_rgb(0,0,0,0.08)] hover:-translate-y-1">
+      <Card className="group overflow-hidden border border-border hover:border-primary/50 transition-all duration-300 h-full shadow-none hover:shadow-none hover:-translate-y-1">
         {/* Project Image with semi-transparent inner border to prevent background bleed */}
         <div className="aspect-[16/10] overflow-hidden bg-muted relative">
           <img 
