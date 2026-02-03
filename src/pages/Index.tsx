@@ -92,6 +92,7 @@ const Index = () => {
               
               {/* Tools Section */}
               <div className="flex items-center gap-3 mt-4">
+                <span className="text-xs text-blue-100/50 uppercase tracking-wider">Tools:</span>
                 <ToolIcon name="Figma" icon={<FigmaIcon />} />
                 <ToolIcon name="Lovable" icon={<LovableIcon />} />
                 <ToolIcon name="Miro" icon={<MiroIcon />} />
