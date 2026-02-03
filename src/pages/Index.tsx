@@ -13,11 +13,11 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-// Tool Icon Component with hover tooltip
+// Tool Icon Component with hover tooltip - no card, just logo
 const ToolIcon = ({ name, icon }: { name: string; icon: React.ReactNode }) => (
   <Tooltip>
     <TooltipTrigger asChild>
-      <div className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 flex items-center justify-center cursor-pointer hover:bg-white/20 hover:border-white/20 transition-all duration-200">
+      <div className="w-8 h-8 flex items-center justify-center cursor-pointer opacity-70 hover:opacity-100 transition-opacity duration-200">
         {icon}
       </div>
     </TooltipTrigger>
@@ -27,9 +27,9 @@ const ToolIcon = ({ name, icon }: { name: string; icon: React.ReactNode }) => (
   </Tooltip>
 );
 
-// SVG Icons for tools
+// SVG Icons for tools - all 24x24 for consistent sizing
 const FigmaIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M8 24C10.208 24 12 22.208 12 20V16H8C5.792 16 4 17.792 4 20C4 22.208 5.792 24 8 24Z" fill="#0ACF83"/>
     <path d="M4 12C4 9.792 5.792 8 8 8H12V16H8C5.792 16 4 14.208 4 12Z" fill="#A259FF"/>
     <path d="M4 4C4 1.792 5.792 0 8 0H12V8H8C5.792 8 4 6.208 4 4Z" fill="#F24E1E"/>
@@ -39,7 +39,7 @@ const FigmaIcon = () => (
 );
 
 const LovableIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect width="24" height="24" rx="6" fill="#1A1A1A"/>
     <path d="M12 6L14.5 11H9.5L12 6Z" fill="#FF6B6B"/>
     <path d="M12 18L9.5 13H14.5L12 18Z" fill="#4ECDC4"/>
@@ -48,7 +48,7 @@ const LovableIcon = () => (
 );
 
 const MiroIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M17.4 0H14.2L18.8 12L14.2 24H17.4L22 12L17.4 0Z" fill="#FFD02F"/>
     <path d="M12.2 0H9L13.6 12L9 24H12.2L16.8 12L12.2 0Z" fill="#FFD02F"/>
     <path d="M7 0H3.8L8.4 12L3.8 24H7L11.6 12L7 0Z" fill="#FFD02F"/>
