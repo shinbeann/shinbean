@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import FloatingContactButton from "@/components/FloatingContactButton";
 import { KidneyQuestInteractiveDemo } from "@/components/KidneyQuestInteractiveDemo";
 import ftHeroVid from "@/assets/ft_herovid.mp4";
+import lovableHeart from "@/assets/lovable-heart.png";
 import {
   Tooltip,
   TooltipContent,
@@ -39,12 +40,7 @@ const FigmaIcon = () => (
 );
 
 const LovableIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="24" height="24" rx="6" fill="#1A1A1A"/>
-    <path d="M12 6L14.5 11H9.5L12 6Z" fill="#FF6B6B"/>
-    <path d="M12 18L9.5 13H14.5L12 18Z" fill="#4ECDC4"/>
-    <circle cx="12" cy="12" r="2" fill="white"/>
-  </svg>
+  <img src={lovableHeart} alt="Lovable" width="24" height="24" className="object-contain" />
 );
 
 const MiroIcon = () => (
