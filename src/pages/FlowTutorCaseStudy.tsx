@@ -869,21 +869,15 @@ const CompetitorAnalysisSection = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="w-full">
+    <div className="w-full flex flex-col items-center">
       {/* Toggle Button - Pill style matching nav */}
       <motion.button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-medium text-white hover:bg-white/20 transition-all duration-300 flex items-center gap-2"
+        className="px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-medium text-white hover:bg-white/20 transition-all duration-300"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
       >
-        See detailed analysis
-        <motion.div
-          animate={{ rotate: isExpanded ? 180 : 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <ChevronDown className="w-4 h-4" />
-        </motion.div>
+        {isExpanded ? "Hide detailed analysis" : "See detailed analysis"}
       </motion.button>
 
       {/* Collapsible Content */}
