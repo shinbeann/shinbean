@@ -6,50 +6,6 @@ import Navigation from "@/components/Navigation";
 import FloatingContactButton from "@/components/FloatingContactButton";
 import { KidneyQuestInteractiveDemo } from "@/components/KidneyQuestInteractiveDemo";
 import ftHeroVid from "@/assets/ft_herovid.mp4";
-import lovableHeart from "@/assets/lovable-heart.png";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-
-// Tool Icon Component with hover tooltip - no card, just logo
-const ToolIcon = ({ name, icon }: { name: string; icon: React.ReactNode }) => (
-  <Tooltip>
-    <TooltipTrigger asChild>
-      <div className="w-8 h-8 flex items-center justify-center cursor-pointer opacity-70 hover:opacity-100 transition-opacity duration-200">
-        {icon}
-      </div>
-    </TooltipTrigger>
-    <TooltipContent side="bottom" className="bg-neutral-900 border-white/10 text-white text-xs">
-      {name}
-    </TooltipContent>
-  </Tooltip>
-);
-
-// SVG Icons for tools - all 24x24 for consistent sizing
-const FigmaIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M8 24C10.208 24 12 22.208 12 20V16H8C5.792 16 4 17.792 4 20C4 22.208 5.792 24 8 24Z" fill="#0ACF83"/>
-    <path d="M4 12C4 9.792 5.792 8 8 8H12V16H8C5.792 16 4 14.208 4 12Z" fill="#A259FF"/>
-    <path d="M4 4C4 1.792 5.792 0 8 0H12V8H8C5.792 8 4 6.208 4 4Z" fill="#F24E1E"/>
-    <path d="M12 0H16C18.208 0 20 1.792 20 4C20 6.208 18.208 8 16 8H12V0Z" fill="#FF7262"/>
-    <path d="M20 12C20 14.208 18.208 16 16 16C13.792 16 12 14.208 12 12C12 9.792 13.792 8 16 8C18.208 8 20 9.792 20 12Z" fill="#1ABCFE"/>
-  </svg>
-);
-
-const LovableIcon = () => (
-  <img src={lovableHeart} alt="Lovable" width="24" height="24" className="object-contain" />
-);
-
-const MiroIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M17.4 0H14.2L18.8 12L14.2 24H17.4L22 12L17.4 0Z" fill="#FFD02F"/>
-    <path d="M12.2 0H9L13.6 12L9 24H12.2L16.8 12L12.2 0Z" fill="#FFD02F"/>
-    <path d="M7 0H3.8L8.4 12L3.8 24H7L11.6 12L7 0Z" fill="#FFD02F"/>
-  </svg>
-);
 
 const scrollReveal = {
   initial: { opacity: 0, y: 24 },
@@ -59,7 +15,6 @@ const scrollReveal = {
 
 const Index = () => {
   return (
-    <TooltipProvider>
     <div className="min-h-screen flex flex-col">
       <Navigation tone="light" enableSmartHide />
 
@@ -80,23 +35,16 @@ const Index = () => {
             {/* Heading - Not sticky on mobile */}
             <div className="w-full md:w-1/3 md:sticky md:top-28 self-start space-y-4">
               <p className="text-xs uppercase tracking-[0.25em] text-blue-300/80">
-                <span className="font-bold">FlowTutor</span> — Web · AI / Edtech
+                <span className="font-bold">FlowTutor</span>
               </p>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono text-white">
-                Streamlined learning.
+              <h2 className="font-sans text-2xl sm:text-3xl md:text-4xl font-normal text-zinc-300 uppercase">
+                Learn smarter with AI powered assistance.
               </h2>
               <p className="text-sm md:text-base text-blue-100/70">
-                A concept for turning chaotic YouTube tutorials into interactive lessons, allowing learners to ask questions, generate quizzes, and instantly jump to relevant timestamps for more efficient self-directed learning
+                A concept for turning chaotic YouTube tutorials into interactive lessons, allowing learners to ask questions and generate quizzes for more efficient self-directed learning
                 zone.
               </p>
               
-              {/* Tools Section */}
-              <div className="flex items-center gap-3 mt-4">
-                <span className="text-xs text-blue-100/50 uppercase tracking-wider">Tools:</span>
-                <ToolIcon name="Figma" icon={<FigmaIcon />} />
-                <ToolIcon name="Lovable" icon={<LovableIcon />} />
-                <ToolIcon name="Miro" icon={<MiroIcon />} />
-              </div>
               <div className="mt-6 md:mt-8">
                 <Link 
                   to="/case-study/flowtutor" 
@@ -154,22 +102,15 @@ const Index = () => {
             {/* Heading - Not sticky on mobile */}
             <div className="w-full md:w-1/3 md:sticky md:top-28 self-start space-y-4">
               <p className="text-xs uppercase tracking-[0.25em] kidneyquest-text-muted">
-                <span className="font-bold">KidneyQuest</span> — AR / Healthcare
+                <span className="font-bold">KidneyQuest</span>
               </p>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono kidneyquest-text-primary">
+              <h2 className="font-sans text-2xl sm:text-3xl md:text-4xl font-normal kidneyquest-text-primary">
                 Gamifying health education.
               </h2>
               <p className="text-sm md:text-base kidneyquest-text-secondary leading-relaxed">
                 A browser-based AR mini-game for the National Kidney Foundation that
                 turns kidney health education into a playful, memorable experience.
               </p>
-              <div className="mt-6 md:mt-8">
-                <span className="inline-flex items-center gap-2 text-sm font-medium text-yellow-400/50 cursor-not-allowed">
-                  <span className="px-3 py-1.5 bg-yellow-500/10 border border-yellow-500/20 rounded-md">
-                    Work in progress
-                  </span>
-                </span>
-              </div>
             </div>
 
             {/* Story & Media */}
@@ -231,9 +172,9 @@ const Index = () => {
             {/* Heading - Not sticky on mobile */}
             <div className="w-full md:w-1/3 md:sticky md:top-28 self-start space-y-4">
               <p className="text-xs uppercase tracking-[0.25em] text-neutral-500">
-                <span className="font-bold">HybridRAG</span> — AI / Mobile
+                <span className="font-bold">Hybrid RAG </span>
               </p>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono text-neutral-200">
+              <h2 className="font-sans text-2xl sm:text-3xl md:text-4xl font-normal text-neutral-200">
                 Intelligence in the dark.
               </h2>
               <p className="text-sm md:text-base text-neutral-400 leading-relaxed">
@@ -241,13 +182,6 @@ const Index = () => {
                 Singapore Police Force officers informed—even in connectivity
                 blackspots.
               </p>
-              <div className="mt-6 md:mt-8">
-                <span className="inline-flex items-center gap-2 text-sm font-medium text-neutral-500 cursor-not-allowed">
-                  <span className="px-3 py-1.5 bg-neutral-800/50 border border-neutral-700/50 rounded-md">
-                    Work in progress
-                  </span>
-                </span>
-              </div>
             </div>
 
             {/* Story & Media */}
@@ -310,7 +244,6 @@ const Index = () => {
 
       <FloatingContactButton />
     </div>
-    </TooltipProvider>
   );
 };
 
