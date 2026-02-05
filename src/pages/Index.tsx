@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
+
 import FloatingContactButton from "@/components/FloatingContactButton";
 import { KidneyQuestInteractiveDemo } from "@/components/KidneyQuestInteractiveDemo";
 import ftHeroVid from "@/assets/ft_herovid.mp4";
@@ -308,7 +308,6 @@ const Index = () => {
         </div>
       </section>
 
-      <Footer />
       <FloatingContactButton />
     </div>
     </TooltipProvider>
