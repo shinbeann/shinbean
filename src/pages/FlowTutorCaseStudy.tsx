@@ -1379,14 +1379,12 @@ const FlowTutorCaseStudy = () => {
                 </div>
               </div>
 
-              {/* Column B: After with subtle purple underlay covering header + image */}
-              <div className="relative flex flex-col gap-4 items-center">
-                {/* Subtle purple underlay - covers header and image */}
-                <div className="absolute -top-4 -left-4 -right-4 -bottom-4 bg-purple-500/10" />
-                <h3 className="text-xl md:text-2xl font-bold text-purple-500 uppercase tracking-wider relative z-10 text-center">
+              {/* Column B: After */}
+              <div className="flex flex-col gap-4 items-center">
+                <h3 className="text-xl md:text-2xl font-bold text-purple-500 uppercase tracking-wider text-center">
                   After
                 </h3>
-                <div className="aspect-[4/3] w-full overflow-hidden relative z-10">
+                <div className="aspect-[4/3] w-full overflow-hidden">
                   <img
                     src={onboardingAfter}
                     alt="FlowTutor interface with Paste URL input"
@@ -1417,14 +1415,12 @@ const FlowTutorCaseStudy = () => {
                 </div>
               </div>
 
-              {/* Column B: After with subtle purple underlay covering header + image */}
-              <div className="relative flex flex-col gap-4 items-center">
-                {/* Subtle purple underlay - covers header and image */}
-                <div className="absolute -top-4 -left-4 -right-4 -bottom-4 bg-purple-500/10" />
-                <h3 className="text-xl md:text-2xl font-bold text-purple-500 uppercase tracking-wider relative z-10 text-center">
+              {/* Column B: After */}
+              <div className="flex flex-col gap-4 items-center">
+                <h3 className="text-xl md:text-2xl font-bold text-purple-500 uppercase tracking-wider text-center">
                   After
                 </h3>
-                <div className="aspect-[4/3] w-full overflow-hidden relative z-10">
+                <div className="aspect-[4/3] w-full overflow-hidden">
                   <img
                     src={pinAfter}
                     alt="Chat interface with pin feature"
