@@ -2,7 +2,6 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import aboutMeImage from "/public/aboutme.jpg";
 import { motion } from "framer-motion";
-import { Code2, Figma } from "lucide-react";
 
 const sectionVariants: any = {
   hidden: { opacity: 0, y: 24 },
@@ -122,36 +121,64 @@ const About = () => {
             </div>
           </motion.section>
 
-          {/* Section 3: Tech Stack */}
+          {/* Section 3: The How - Skills */}
           <motion.section
             variants={sectionVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="space-y-6"
+            className="space-y-8"
           >
             <header className="space-y-2">
               <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">The How</p>
-              <h2 className="text-lg md:text-xl font-medium text-foreground">Tech stack</h2>
-              <p className="text-sm text-muted-foreground max-w-prose">
-                A pragmatic mix of languages and tools I use to move from research insight to production-ready interfaces.
-              </p>
+              <h2 className="text-lg md:text-xl font-medium text-foreground">Skills & Tools</h2>
             </header>
 
-            <div className="flex flex-wrap gap-3">
-              {["Python", "Java", "JavaScript", "HTML", "CSS", "Figma"].map((item) => (
-                <div
-                  key={item}
-                  className="flex items-center gap-2 rounded-full border border-border/60 bg-muted/10 px-4 py-2 text-xs font-medium text-muted-foreground"
-                >
-                  {item === "Figma" ? (
-                    <Figma className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
-                  ) : (
-                    <Code2 className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
-                  )}
-                  <span className="uppercase tracking-[0.18em]">{item}</span>
+            <div className="grid gap-8 md:grid-cols-3">
+              {/* Design */}
+              <div className="space-y-4">
+                <h3 className="text-sm font-medium text-foreground uppercase tracking-[0.15em]">Design</h3>
+                <div className="flex flex-wrap gap-2">
+                  {["Figma", "Figma Make", "Lovable", "Sketch", "InVision Studio"].map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-border/60 bg-muted/10 px-3 py-1.5 text-xs text-muted-foreground"
+                    >
+                      {item}
+                    </span>
+                  ))}
                 </div>
-              ))}
+              </div>
+
+              {/* Research */}
+              <div className="space-y-4">
+                <h3 className="text-sm font-medium text-foreground uppercase tracking-[0.15em]">Research</h3>
+                <div className="flex flex-wrap gap-2">
+                  {["Field Studies", "Contextual Inquiry", "A/B Testing", "Surveys", "Questionnaires", "Heuristic Evaluation", "Cognitive Walkthrough"].map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-border/60 bg-muted/10 px-3 py-1.5 text-xs text-muted-foreground"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Development */}
+              <div className="space-y-4">
+                <h3 className="text-sm font-medium text-foreground uppercase tracking-[0.15em]">Development</h3>
+                <div className="flex flex-wrap gap-2">
+                  {["Java", "HTML/CSS/JS", "React.js", "Python"].map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-border/60 bg-muted/10 px-3 py-1.5 text-xs text-muted-foreground"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           </motion.section>
         </article>
