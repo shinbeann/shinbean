@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import Footer from "@/components/Footer";
 import StackedCardCarousel from "@/components/StackedCardCarousel";
@@ -863,6 +864,48 @@ const CompetitorAnalysis = () => {
   );
 };
 
+// Competitor Analysis Section with Collapsible Toggle
+const CompetitorAnalysisSection = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <div className="w-full">
+      {/* Toggle Button - Pill style matching nav */}
+      <motion.button
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-medium text-white hover:bg-white/20 transition-all duration-300 flex items-center gap-2"
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+      >
+        See detailed analysis
+        <motion.div
+          animate={{ rotate: isExpanded ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <ChevronDown className="w-4 h-4" />
+        </motion.div>
+      </motion.button>
+
+      {/* Collapsible Content */}
+      <AnimatePresence>
+        {isExpanded && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            <div className="pt-8">
+              <CompetitorAnalysis />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
 // Table of Contents for the layout
 const flowTutorToc = [
   { 
@@ -1227,8 +1270,8 @@ const FlowTutorCaseStudy = () => {
             </div>
           </motion.div>
 
-          {/* Competitor Analysis */}
-          <CompetitorAnalysis />
+          {/* Competitor Analysis Toggle */}
+          <CompetitorAnalysisSection />
         </SectionContainer>
 
         {/* 3. PAPER TO PIXEL */}
