@@ -130,7 +130,6 @@ const About = () => {
             className="space-y-8"
           >
             <header className="space-y-2">
-              <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">The How</p>
               <h2 className="text-lg md:text-xl font-medium text-foreground">Skills & Tools</h2>
             </header>
 
