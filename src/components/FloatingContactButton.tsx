@@ -1,8 +1,9 @@
-import { motion } from "framer-motion";
-import { MessageCircle } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronUp, ExternalLink, Mail, Github, Linkedin, FileText } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const FloatingContactButton = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -10,7 +11,6 @@ const FloatingContactButton = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
-      // Hide when scrolling down, show when scrolling up
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         setIsVisible(false);
       } else {
@@ -24,29 +24,119 @@ const FloatingContactButton = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  const scrollToContact = () => {
-    const footer = document.getElementById("contact");
-    if (footer) {
-      footer.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
+  const contactLinks = [
+    {
+      label: "Email",
+      href: "mailto:gayshinlee@gmail.com",
+      icon: Mail,
+      external: false,
+    },
+    {
+      label: "LinkedIn",
+      href: "https://linkedin.com/in/gayshinlee",
+      icon: Linkedin,
+      external: true,
+    },
+    {
+      label: "GitHub",
+      href: "https://github.com/gayshinlee",
+      icon: Github,
+      external: true,
+    },
+    {
+      label: "Resume",
+      href: "/GAYSHINLEE_resume.pdf",
+      icon: FileText,
+      external: true,
+    },
+  ];
 
   return (
-    <motion.button
-      onClick={scrollToContact}
-      initial={{ opacity: 0, scale: 0.8 }}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
       animate={{
         opacity: isVisible ? 1 : 0,
-        scale: isVisible ? 1 : 0.8,
+        y: isVisible ? 0 : 20,
       }}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
       transition={{ duration: 0.2 }}
-      className="fixed bottom-8 right-8 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-background/90 border border-border/60 shadow-lg backdrop-blur-xl text-foreground hover:bg-background hover:border-primary/70 transition-colors"
-      aria-label="Scroll to contact"
+      className="fixed bottom-6 right-6 z-50"
     >
-      <MessageCircle className="w-5 h-5" />
-    </motion.button>
+      {/* Main Container */}
+      <div className="bg-background/80 backdrop-blur-xl border border-border/60 rounded-2xl shadow-lg overflow-hidden min-w-[240px]">
+        {/* Header - Always Visible */}
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="w-full flex items-center justify-between gap-3 px-4 py-3 hover:bg-muted/50 transition-colors"
+        >
+          <div className="flex items-center gap-3">
+            {/* Profile Avatar */}
+            <div className="w-8 h-8 rounded-full overflow-hidden border border-border/40">
+              <img
+                src="/aboutme.jpg"
+                alt="Gay Shin Lee"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <span className="text-sm font-medium text-foreground">Get in Touch</span>
+          </div>
+          
+          <div className="flex items-center gap-2">
+            {/* Pulse indicator */}
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </span>
+            
+            <motion.div
+              animate={{ rotate: isExpanded ? 180 : 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <ChevronUp className="w-4 h-4 text-muted-foreground" />
+            </motion.div>
+          </div>
+        </button>
+
+        {/* Expandable Content */}
+        <AnimatePresence>
+          {isExpanded && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="border-t border-border/40"
+            >
+              <div className="py-2">
+                {contactLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target={link.external ? "_blank" : undefined}
+                    rel={link.external ? "noopener noreferrer" : undefined}
+                    className="flex items-center justify-between px-4 py-2.5 hover:bg-muted/50 transition-colors group"
+                  >
+                    <div className="flex items-center gap-3">
+                      <link.icon className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                      <span className="text-sm text-foreground">{link.label}</span>
+                    </div>
+                    {link.external && (
+                      <ExternalLink className="w-3.5 h-3.5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                    )}
+                  </a>
+                ))}
+              </div>
+              
+              {/* Status footer */}
+              <div className="px-4 py-2 border-t border-border/40 bg-muted/30">
+                <p className="text-xs text-muted-foreground">
+                  <span className="text-green-500">●</span> Open to opportunities
+                </p>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </motion.div>
   );
 };
 
