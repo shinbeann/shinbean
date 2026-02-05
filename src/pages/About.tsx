@@ -78,13 +78,6 @@ const About = () => {
             <div className="space-y-3">
               <div className="flex flex-col gap-1 rounded-xl border border-border/60 bg-muted/5 px-4 py-3 md:flex-row md:items-center md:justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-background">
-                    <img
-                      src="/htxlogo.png"
-                      alt="HTX logo"
-                      className="h-8 w-auto object-contain"
-                    />
-                  </div>
                   <div className="space-y-0.5">
                     <p className="text-sm font-medium text-foreground">
                       HTX (Home Team Science and Technology Agency)
@@ -97,13 +90,6 @@ const About = () => {
 
               <div className="flex flex-col gap-1 rounded-xl border border-border/60 bg-muted/5 px-4 py-3 md:flex-row md:items-center md:justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-background">
-                    <img
-                      src="/nkflogo.png"
-                      alt="National Kidney Foundation logo"
-                      className="h-8 w-auto object-contain"
-                    />
-                  </div>
                   <div className="space-y-0.5">
                     <p className="text-sm font-medium text-foreground">
                       National Kidney Foundation (NKF)
@@ -116,13 +102,6 @@ const About = () => {
 
               <div className="flex flex-col gap-1 rounded-xl border border-border/60 bg-muted/5 px-4 py-3 md:flex-row md:items-center md:justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-background">
-                    <img
-                      src="/techcreatelogo.png"
-                      alt="TechCreate Group logo"
-                      className="h-8 w-auto object-contain"
-                    />
-                  </div>
                   <div className="space-y-0.5">
                     <p className="text-sm font-medium text-foreground">TechCreate Group</p>
                     <p className="text-xs text-muted-foreground">Fullstack Software Engineer</p>
@@ -133,13 +112,6 @@ const About = () => {
 
               <div className="flex flex-col gap-1 rounded-xl border border-border/60 bg-muted/5 px-4 py-3 md:flex-row md:items-center md:justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-background">
-                    <img
-                      src="/dbslogo.png"
-                      alt="DBS Bank logo"
-                      className="h-8 w-auto object-contain"
-                    />
-                  </div>
                   <div className="space-y-0.5">
                     <p className="text-sm font-medium text-foreground">DBS Bank</p>
                     <p className="text-xs text-muted-foreground">QA Tester</p>
