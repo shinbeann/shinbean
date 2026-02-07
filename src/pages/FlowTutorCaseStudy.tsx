@@ -22,6 +22,7 @@ import ftFeature2 from "@/assets/ft_f2.png";
 import ftFeature3 from "@/assets/ft_notes.png";
 import ftQuizVideo from "@/assets/ft_quiz.mp4";
 import ftMapping from "@/assets/ft_mapping.png";
+import ftAi from "@/assets/ft_ai.png";
 import ZigZagFeatures from "@/components/ZigZagFeatures";
 
 // --- COMPONENTS ---
@@ -1202,7 +1203,7 @@ const FlowTutorCaseStudy = () => {
               
               <div className="space-y-4 text-neutral-400 text-lg md:text-xl leading-relaxed">
                 <p>
-                  I advocated for conducting user interviews, synthesis sessions and brainstorming sessions before arriving at solutions.
+                  I advocated for conducting user interviews, synthesise sessions and brainstorming sessions before arriving at solutions.
                 </p>
                 <p>
                   I refined the interview scripts and pushed to implement a Quizlet-style flashcard integration, to ensure FlowTutor supported active recall rather than just passive consumption.
@@ -1508,10 +1509,25 @@ const FlowTutorCaseStudy = () => {
             </p>
 
             {/* What if the best AI tutor sometimes refuses to answer? */}
-            <div className="mt-12 md:mt-16 flex justify-center">
-              <p className="text-sm md:text-base uppercase tracking-widest font-bold text-purple-400 text-center">
-                What if the best AI tutor sometimes refuses to answer?
-              </p>
+            <div className="mt-12 md:mt-16 space-y-4">
+              <div className="w-full max-w-4xl h-24 md:h-32 flex items-center justify-center">
+                <p className="text-sm md:text-base uppercase tracking-widest font-bold text-purple-400 text-center">
+                  What if the best AI tutor sometimes refuses to answer?
+                </p>
+              </div>
+              <div className="text-neutral-400 text-lg md:text-xl leading-relaxed space-y-4">
+                <p>
+                  In an age where AI is trained to be maximally helpful, FlowTutor&apos;s AI tutor <span className="bg-purple-500/30 text-purple-200 px-1 rounded border border-purple-500/40">sometimes says no.</span>
+                </p>
+                <p>
+                  This design decision emerged from a critical finding: when AI tutors mix in-scope and out-of-scope content, students cannot reliably distinguish what the tutorial taught versus what the AI added (Rummer et al., 2016). To prevent this, we designed three distinct interaction states:
+                </p>
+              </div>
+              <img
+                className="mt-6 w-full rounded-xl object-cover"
+                src={ftAi}
+                alt="Flow diagram showing how FlowTutor handles directly relevant, related-but-not-mentioned, and irrelevant user questions with appropriate responses"
+              />
             </div>
 
           </div>
@@ -1545,7 +1561,7 @@ const FlowTutorCaseStudy = () => {
                   </ul>
                 </div>
                 <p className="mt-4">
-                  While our quantitative data supported our hypotheses (H1-H3), the qualitative feedback forced <strong className="font-bold text-white">three architectural changes</strong>.
+                  While our quantitative data supported our hypotheses (H1-H3), the qualitative feedback forced three architectural changes.
                 </p>
               </div>
             </div>
