@@ -21,6 +21,7 @@ import ftDemoVideo from "@/assets/Screen Recording 2026-01-29 143535.mp4";
 import ftFeature2 from "@/assets/ft_f2.png";
 import ftFeature3 from "@/assets/ft_notes.png";
 import ftQuizVideo from "@/assets/ft_quiz.mp4";
+import ftMapping from "@/assets/ft_mapping.png";
 import ZigZagFeatures from "@/components/ZigZagFeatures";
 
 // --- COMPONENTS ---
@@ -911,7 +912,14 @@ const flowTutorToc = [
       { id: "contributions", label: "My Contributions" }
     ]
   },
-  { id: "discovery", label: "Discovery" },
+  {
+    id: "Research",
+    label: "Research",
+    children: [
+      { id: "market-research", label: "Market research" },
+      { id: "affinity-mapping", label: "Affinity mapping" },
+    ],
+  },
   { id: "prototyping", label: "Prototyping" },
   { id: "validation", label: "Impact" },
   { id: "reflection", label: "Reflection" },
@@ -1164,7 +1172,7 @@ const FlowTutorCaseStudy = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="max-w-4xl py-16 md:py-24"
+            className="max-w-4xl"
             id="contributions"
           >
             <div className="flex flex-col gap-6">
@@ -1209,10 +1217,11 @@ const FlowTutorCaseStudy = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
+            className="max-w-4xl"
           >
-            <div className="flex flex-col gap-4">
-              <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
-                IMPACT
+            <div className="flex flex-col gap-6">
+              <p className="text-lg font-semibold text-white">
+                Impact
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                 {/* Stat 1 */}
@@ -1237,10 +1246,12 @@ const FlowTutorCaseStudy = () => {
           </motion.div>
         </SectionContainer>
 
-        {/* 3. DISCOVERY */}
-        <SectionContainer id="discovery" hasBorder={true}>
-          {/* Market Opportunity Section */}
+        {/* 3. RESEARCH (Discovery) */}
+        <SectionContainer id="Research" hasBorder={true}>
+          {/* Market research */}
           <motion.div
+            id="market-research"
+            className="scroll-mt-20 md:scroll-mt-24"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -1264,8 +1275,32 @@ const FlowTutorCaseStudy = () => {
             </div>
           </motion.div>
 
-          {/* Competitor Analysis Toggle */}
+          {/* See detailed analysis */}
           <CompetitorAnalysisSection />
+
+          {/* Affinity Mapping */}
+          <motion.div
+            id="affinity-mapping"
+            className="scroll-mt-20 md:scroll-mt-24"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="flex flex-col gap-6">
+              <p className="text-lg font-semibold text-white">
+                Affinity Mapping
+              </p>
+              <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+                To better understand how international students currently order in ethnic restaurants and identify potential problems, I advocated for conducting user interviews first before diving into solutions.
+              </p>
+              <img
+                src={ftMapping}
+                alt="Affinity map organizing pain points, must-have and nice-to-have features, and design heuristics from user research"
+                className="w-full border border-white/10 object-cover"
+              />
+            </div>
+          </motion.div>
         </SectionContainer>
 
         {/* 3. PAPER TO PIXEL */}
@@ -1471,6 +1506,13 @@ const FlowTutorCaseStudy = () => {
             <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
               By adding the ability to pin important responses, users can quickly reference key information without scrolling through the entire chat history. This reduces cognitive load and keeps critical context visible.
             </p>
+
+            {/* What if the best AI tutor sometimes refuses to answer? */}
+            <div className="mt-12 md:mt-16 flex justify-center">
+              <p className="text-sm md:text-base uppercase tracking-widest font-bold text-purple-400 text-center">
+                What if the best AI tutor sometimes refuses to answer?
+              </p>
+            </div>
 
           </div>
           </div>
