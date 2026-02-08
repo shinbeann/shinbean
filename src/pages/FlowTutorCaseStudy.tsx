@@ -563,7 +563,7 @@ const ABConditionCard = ({
         <p className="text-neutral-400 text-sm leading-relaxed break-words">{description}</p>
         {/* Visual */}
         {image ? (
-          <div className="mt-6 aspect-video bg-neutral-900/50 rounded-lg border border-white/5 overflow-hidden">
+          <div className="mt-6 aspect-video bg-neutral-900/50 border border-white/5 overflow-hidden">
             <img
               src={image}
               alt={title}
@@ -571,7 +571,7 @@ const ABConditionCard = ({
             />
           </div>
         ) : (
-          <div className="mt-6 aspect-video bg-neutral-900/50 rounded-lg border border-white/5 flex items-center justify-center">
+          <div className="mt-6 aspect-video bg-neutral-900/50 border border-white/5 flex items-center justify-center">
             <span className="text-neutral-600 font-mono text-sm">
               {isExperimental ? "[FlowTutor UI]" : "[YouTube Screenshot]"}
             </span>
@@ -1228,7 +1228,7 @@ const FlowTutorCaseStudy = () => {
                 {/* Stat 1 */}
                 <div>
                   <div className="flex items-baseline gap-2 mb-2">
-                    <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-emerald-400">25%</span>
+                    <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">25%</span>
                     <span className="text-lg font-semibold text-white">Higher Retention</span>
                   </div>
                   <p className="text-sm text-neutral-400">vs. YouTube Baseline (p&lt;0.05)</p>
@@ -1237,7 +1237,7 @@ const FlowTutorCaseStudy = () => {
                 {/* Stat 2 */}
                 <div>
                   <div className="flex items-baseline gap-2 mb-2">
-                    <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-emerald-400">60%</span>
+                    <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">60%</span>
                     <span className="text-lg font-semibold text-white">Less Context Switching</span>
                   </div>
                   <p className="text-sm text-neutral-400">Hypothesis Validated</p>
