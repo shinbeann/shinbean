@@ -23,6 +23,9 @@ import ftFeature3 from "@/assets/ft_notes.png";
 import ftQuizVideo from "@/assets/ft_quiz.mp4";
 import ftMapping from "@/assets/ft_mapping.png";
 import ftAi from "@/assets/ft_ai.png";
+import ftS1 from "@/assets/ft_s1.png";
+import ftS2 from "@/assets/ft_s2.png";
+import ftS3 from "@/assets/ft_s3.png";
 import ZigZagFeatures from "@/components/ZigZagFeatures";
 
 // --- COMPONENTS ---
@@ -1523,11 +1526,78 @@ const FlowTutorCaseStudy = () => {
                   This design decision emerged from a critical finding: when AI tutors mix in-scope and out-of-scope content, students cannot reliably distinguish what the tutorial taught versus what the AI added (Rummer et al., 2016). To prevent this, we designed three distinct interaction states:
                 </p>
               </div>
-              <img
-                className="mt-6 w-full rounded-xl object-cover"
-                src={ftAi}
-                alt="Flow diagram showing how FlowTutor handles directly relevant, related-but-not-mentioned, and irrelevant user questions with appropriate responses"
-              />
+              {/* Interactive States Diagram */}
+              <div className="mt-8 md:mt-12 w-full">
+                <div className="relative flex flex-col lg:flex-row items-center lg:items-stretch gap-8 lg:gap-0">
+                  
+                  {/* Left: Circles + Lines */}
+                  <div className="flex-shrink-0 flex flex-col items-center lg:items-end relative w-full lg:w-[280px]">
+                    {/* Circle 1: User asks a question */}
+                    <div className="relative z-10 w-40 h-40 md:w-48 md:h-48 rounded-full bg-neutral-700/80 border border-white/10 flex items-center justify-center text-center px-4 lg:mt-[30%]">
+                      <span className="text-white text-sm md:text-base font-medium leading-tight">User asks a<br />question...</span>
+                    </div>
+                    {/* Connector line between circles */}
+                    <div className="hidden lg:block absolute top-[calc(30%+6rem)] left-[calc(100%-1px)] w-16 h-px bg-white/20" />
+                    {/* Circle 2: User query analysis */}
+                    <div className="hidden lg:flex absolute z-10 w-40 h-40 md:w-48 md:h-48 rounded-full bg-neutral-700/80 border border-white/10 items-center justify-center text-center px-4 top-[calc(30%+6rem)] -right-24 -translate-y-1/2"
+                      style={{ top: 'calc(30% + 6rem)' }}>
+                      <span className="text-white text-sm md:text-base font-medium leading-tight">User query<br />analysis</span>
+                    </div>
+                    {/* Mobile Circle 2 */}
+                    <div className="flex lg:hidden z-10 w-40 h-40 md:w-48 md:h-48 rounded-full bg-neutral-700/80 border border-white/10 items-center justify-center text-center px-4 -mt-6">
+                      <span className="text-white text-sm md:text-base font-medium leading-tight">User query<br />analysis</span>
+                    </div>
+                  </div>
+
+                  {/* Right: Three states with branch lines */}
+                  <div className="flex-1 flex flex-col gap-8 lg:gap-6 lg:pl-32 relative">
+                    {/* SVG branch lines (desktop only) */}
+                    <svg className="hidden lg:block absolute left-0 top-0 w-32 h-full" viewBox="0 0 128 600" fill="none" preserveAspectRatio="none">
+                      {/* Central trunk */}
+                      <line x1="0" y1="300" x2="40" y2="300" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
+                      {/* Branch to S1 (top) */}
+                      <path d="M40,300 Q64,300 64,100 Q64,60 128,60" stroke="rgba(255,255,255,0.15)" strokeWidth="1" fill="none" />
+                      {/* Branch to S2 (middle) */}
+                      <line x1="40" y1="300" x2="128" y2="300" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
+                      {/* Branch to S3 (bottom) */}
+                      <path d="M40,300 Q64,300 64,500 Q64,540 128,540" stroke="rgba(255,255,255,0.15)" strokeWidth="1" fill="none" />
+                    </svg>
+
+                    {/* S1: Directly Relevant */}
+                    <div>
+                      <div className="mb-3">
+                        <span className="text-purple-400 font-bold text-lg">S1</span>
+                        <span className="text-white font-semibold text-lg ml-1">: User Asks a DIRECTLY RELEVANT Question</span>
+                      </div>
+                      <div className="border border-purple-500/30 overflow-hidden">
+                        <img src={ftS1} alt="S1: FlowTutor responding to a directly relevant question about transformers" className="w-full h-auto object-contain" />
+                      </div>
+                    </div>
+
+                    {/* S2: Related But Not Mentioned */}
+                    <div>
+                      <div className="mb-3">
+                        <span className="text-purple-400 font-bold text-lg">S2</span>
+                        <span className="text-white font-semibold text-lg ml-1">: User Asks a RELATED BUT NOT MENTIONED Question</span>
+                      </div>
+                      <div className="border border-purple-500/30 overflow-hidden">
+                        <img src={ftS2} alt="S2: FlowTutor detecting an off-topic question and redirecting" className="w-full h-auto object-contain" />
+                      </div>
+                    </div>
+
+                    {/* S3: Irrelevant */}
+                    <div>
+                      <div className="mb-3">
+                        <span className="text-purple-400 font-bold text-lg">S3</span>
+                        <span className="text-white font-semibold text-lg ml-1">: User Asks an IRRELEVANT Question</span>
+                      </div>
+                      <div className="border border-purple-500/30 overflow-hidden">
+                        <img src={ftS3} alt="S3: FlowTutor handling an irrelevant question by saving it for later research" className="w-full h-auto object-contain" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
           </div>
