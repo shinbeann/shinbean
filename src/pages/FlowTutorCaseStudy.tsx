@@ -1529,101 +1529,101 @@ const FlowTutorCaseStudy = () => {
               {/* Interactive States Diagram */}
               <div className="mt-8 md:mt-12 w-full">
                 {/* Desktop Layout */}
-                <div className="hidden lg:block relative w-full" style={{ minHeight: '900px' }}>
+                <div className="hidden lg:block relative w-full" style={{ minHeight: '950px' }}>
                   {/* Circle 1: User asks a question */}
                   <div 
-                    className="absolute z-10 w-48 h-48 rounded-full bg-neutral-700/80 border-2 border-neutral-500/60 flex items-center justify-center text-center px-4"
-                    style={{ top: '60px', left: '40px' }}
+                    className="absolute z-10 w-36 h-36 rounded-full bg-neutral-700/80 border-2 border-neutral-500/60 flex items-center justify-center text-center px-3"
+                    style={{ top: '340px', left: '20px' }}
                     role="img"
                     aria-label="Step 1: User asks a question"
                   >
-                    <span className="text-white text-base font-medium leading-tight">User asks a<br />question...</span>
+                    <span className="text-white text-sm font-medium leading-tight">User asks a<br />question...</span>
                   </div>
 
                   {/* Circle 2: User query analysis */}
                   <div 
-                    className="absolute z-10 w-48 h-48 rounded-full bg-neutral-700/80 border-2 border-neutral-500/60 flex items-center justify-center text-center px-4"
-                    style={{ top: '300px', left: '180px' }}
+                    className="absolute z-10 w-36 h-36 rounded-full bg-neutral-700/80 border-2 border-neutral-500/60 flex items-center justify-center text-center px-3"
+                    style={{ top: '340px', left: '200px' }}
                     role="img"
                     aria-label="Step 2: User query analysis"
                   >
-                    <span className="text-white text-base font-medium leading-tight">User query<br />analysis</span>
+                    <span className="text-white text-sm font-medium leading-tight">User query<br />analysis</span>
                   </div>
 
                   {/* SVG Connectors - WCAG AA compliant (min 3:1 contrast on #050505 bg) */}
                   <svg 
                     className="absolute inset-0 w-full h-full pointer-events-none z-0" 
                     aria-hidden="true"
-                    style={{ minHeight: '900px' }}
+                    style={{ minHeight: '950px' }}
                   >
-                    {/* Line: Circle 1 → Circle 2 */}
+                    {/* Line: Circle 1 → Circle 2 (horizontal) */}
                     <line 
-                      x1="164" y1="252" 
-                      x2="252" y2="324" 
+                      x1="164" y1="408" 
+                      x2="200" y2="408" 
                       stroke="rgba(163,163,163,0.7)" 
                       strokeWidth="2" 
                     />
 
-                    {/* Branch: Circle 2 → S1 (top) */}
-                    <path 
-                      d="M 372,396 C 420,396 430,120 480,120" 
+                    {/* Branch: Circle 2 → S1 (straight line to top) */}
+                    <line 
+                      x1="336" y1="408" 
+                      x2="430" y2="140" 
                       stroke="rgba(163,163,163,0.7)" 
                       strokeWidth="2" 
-                      fill="none" 
                     />
 
-                    {/* Branch: Circle 2 → S2 (middle) */}
-                    <path 
-                      d="M 372,396 C 420,396 430,460 480,460" 
+                    {/* Branch: Circle 2 → S2 (straight line to middle) */}
+                    <line 
+                      x1="336" y1="408" 
+                      x2="430" y2="460" 
                       stroke="rgba(163,163,163,0.7)" 
                       strokeWidth="2" 
-                      fill="none" 
                     />
 
-                    {/* Branch: Circle 2 → S3 (bottom) */}
-                    <path 
-                      d="M 372,396 C 420,396 430,780 480,780" 
+                    {/* Branch: Circle 2 → S3 (straight line to bottom) */}
+                    <line 
+                      x1="336" y1="408" 
+                      x2="430" y2="780" 
                       stroke="rgba(163,163,163,0.7)" 
                       strokeWidth="2" 
-                      fill="none" 
                     />
 
                     {/* Small dots at branch endpoints for clarity */}
-                    <circle cx="480" cy="120" r="4" fill="rgba(163,163,163,0.7)" />
-                    <circle cx="480" cy="460" r="4" fill="rgba(163,163,163,0.7)" />
-                    <circle cx="480" cy="780" r="4" fill="rgba(163,163,163,0.7)" />
+                    <circle cx="430" cy="140" r="4" fill="rgba(163,163,163,0.7)" />
+                    <circle cx="430" cy="460" r="4" fill="rgba(163,163,163,0.7)" />
+                    <circle cx="430" cy="780" r="4" fill="rgba(163,163,163,0.7)" />
                   </svg>
 
                   {/* Three state containers positioned absolutely */}
                   {/* S1: Directly Relevant */}
-                  <div className="absolute" style={{ top: '20px', left: '500px', right: '0' }}>
+                  <div className="absolute" style={{ top: '20px', left: '450px', right: '0' }}>
                     <div className="mb-3">
                       <span className="text-purple-400 font-bold text-lg">S1</span>
                       <span className="text-white font-semibold text-lg ml-1">: User Asks a DIRECTLY RELEVANT Question</span>
                     </div>
-                    <div className="border border-purple-500/30 overflow-hidden rounded-lg">
+                    <div className="border border-purple-500/30 overflow-hidden">
                       <img src={ftS1} alt="S1: FlowTutor responding to a directly relevant question about transformers" className="w-full h-auto object-contain" />
                     </div>
                   </div>
 
                   {/* S2: Related But Not Mentioned */}
-                  <div className="absolute" style={{ top: '340px', left: '500px', right: '0' }}>
+                  <div className="absolute" style={{ top: '340px', left: '450px', right: '0' }}>
                     <div className="mb-3">
                       <span className="text-purple-400 font-bold text-lg">S2</span>
                       <span className="text-white font-semibold text-lg ml-1">: User Asks a RELATED BUT NOT MENTIONED Question</span>
                     </div>
-                    <div className="border border-purple-500/30 overflow-hidden rounded-lg">
+                    <div className="border border-purple-500/30 overflow-hidden">
                       <img src={ftS2} alt="S2: FlowTutor detecting an off-topic question and redirecting" className="w-full h-auto object-contain" />
                     </div>
                   </div>
 
                   {/* S3: Irrelevant */}
-                  <div className="absolute" style={{ top: '660px', left: '500px', right: '0' }}>
+                  <div className="absolute" style={{ top: '660px', left: '450px', right: '0' }}>
                     <div className="mb-3">
                       <span className="text-purple-400 font-bold text-lg">S3</span>
                       <span className="text-white font-semibold text-lg ml-1">: User Asks an IRRELEVANT Question</span>
                     </div>
-                    <div className="border border-purple-500/30 overflow-hidden rounded-lg">
+                    <div className="border border-purple-500/30 overflow-hidden">
                       <img src={ftS3} alt="S3: FlowTutor handling an irrelevant question by saving it for later research" className="w-full h-auto object-contain" />
                     </div>
                   </div>
@@ -1632,16 +1632,16 @@ const FlowTutorCaseStudy = () => {
                 {/* Mobile Layout - stacked vertically with visible connectors */}
                 <div className="flex lg:hidden flex-col items-center gap-4">
                   {/* Circle 1 */}
-                  <div className="w-40 h-40 md:w-48 md:h-48 rounded-full bg-neutral-700/80 border-2 border-neutral-500/60 flex items-center justify-center text-center px-4" role="img" aria-label="Step 1: User asks a question">
-                    <span className="text-white text-sm md:text-base font-medium leading-tight">User asks a<br />question...</span>
+                  <div className="w-32 h-32 md:w-36 md:h-36 rounded-full bg-neutral-700/80 border-2 border-neutral-500/60 flex items-center justify-center text-center px-3" role="img" aria-label="Step 1: User asks a question">
+                    <span className="text-white text-sm font-medium leading-tight">User asks a<br />question...</span>
                   </div>
 
                   {/* Vertical connector */}
                   <div className="w-0.5 h-10 bg-neutral-400/70" aria-hidden="true" />
 
                   {/* Circle 2 */}
-                  <div className="w-40 h-40 md:w-48 md:h-48 rounded-full bg-neutral-700/80 border-2 border-neutral-500/60 flex items-center justify-center text-center px-4" role="img" aria-label="Step 2: User query analysis">
-                    <span className="text-white text-sm md:text-base font-medium leading-tight">User query<br />analysis</span>
+                  <div className="w-32 h-32 md:w-36 md:h-36 rounded-full bg-neutral-700/80 border-2 border-neutral-500/60 flex items-center justify-center text-center px-3" role="img" aria-label="Step 2: User query analysis">
+                    <span className="text-white text-sm font-medium leading-tight">User query<br />analysis</span>
                   </div>
 
                   {/* Branch indicator */}
@@ -1653,7 +1653,7 @@ const FlowTutorCaseStudy = () => {
                       <span className="text-purple-400 font-bold text-lg">S1</span>
                       <span className="text-white font-semibold text-lg ml-1">: Directly Relevant</span>
                     </div>
-                    <div className="border border-purple-500/30 overflow-hidden rounded-lg">
+                    <div className="border border-purple-500/30 overflow-hidden">
                       <img src={ftS1} alt="S1: FlowTutor responding to a directly relevant question" className="w-full h-auto object-contain" />
                     </div>
                   </div>
@@ -1666,7 +1666,7 @@ const FlowTutorCaseStudy = () => {
                       <span className="text-purple-400 font-bold text-lg">S2</span>
                       <span className="text-white font-semibold text-lg ml-1">: Related But Not Mentioned</span>
                     </div>
-                    <div className="border border-purple-500/30 overflow-hidden rounded-lg">
+                    <div className="border border-purple-500/30 overflow-hidden">
                       <img src={ftS2} alt="S2: FlowTutor detecting an off-topic question" className="w-full h-auto object-contain" />
                     </div>
                   </div>
@@ -1679,7 +1679,7 @@ const FlowTutorCaseStudy = () => {
                       <span className="text-purple-400 font-bold text-lg">S3</span>
                       <span className="text-white font-semibold text-lg ml-1">: Irrelevant</span>
                     </div>
-                    <div className="border border-purple-500/30 overflow-hidden rounded-lg">
+                    <div className="border border-purple-500/30 overflow-hidden">
                       <img src={ftS3} alt="S3: FlowTutor handling an irrelevant question" className="w-full h-auto object-contain" />
                     </div>
                   </div>
