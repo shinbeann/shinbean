@@ -913,7 +913,8 @@ const flowTutorToc = [
     children: [
       { id: "problem", label: "Problem" },
       { id: "solution", label: "Solution" },
-      { id: "contributions", label: "My Contributions" }
+      { id: "contributions", label: "My Contributions" },
+      { id: "impact", label: "Impact" }
     ]
   },
   {
@@ -924,14 +925,21 @@ const flowTutorToc = [
       { id: "affinity-mapping", label: "Affinity mapping" },
     ],
   },
-  { id: "prototyping", label: "Prototyping" },
-  { id: "validation", label: "Impact" },
+  {
+    id: "prototyping",
+    label: "Prototyping",
+    children: [
+      { id: "heuristic-evaluation", label: "Heuristic evaluation" },
+      { id: "within-subjects-counterbalanced", label: "Within-Subjects Counterbalanced" },
+      { id: "between-subjects-ab-test", label: "Between-Subjects A/B Test" },
+    ],
+  },
   { id: "reflection", label: "Reflection" },
 ];
 
 const FlowTutorCaseStudy = () => {
   return (
-    <CaseStudyLayout tableOfContents={flowTutorToc} theme="dark" showSidebarsAfter="problem">
+    <CaseStudyLayout tableOfContents={flowTutorToc} theme="dark" showSidebarsAfter="problem" showContactSection={false}>
       <div className="text-white selection:bg-purple-500/30 font-sans">
         {/* FULLSCREEN LANDING HERO */}
         <section className="relative -mx-4 md:-mx-[calc((90vw-896px)/2+1.5rem)] max-w-[80vw] min-h-screen flex items-center justify-center overflow-hidden">
@@ -1176,54 +1184,46 @@ const FlowTutorCaseStudy = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="max-w-4xl"
+            className="max-w-4xl pt-12 md:pt-16"
             id="contributions"
           >
-            <div className="flex flex-col gap-6">
-              <p className="text-lg font-semibold text-white">
-                My Contributions
-              </p>
-              
-              {/* Role Details Grid */}
-              <div className="flex flex-wrap gap-x-12 gap-y-4">
-                <div>
-                  <p className="text-xs uppercase tracking-widest font-medium text-neutral-500 mb-1">Role</p>
-                  <p className="text-sm text-white font-medium">Product Designer</p>
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-widest font-medium text-neutral-500 mb-1">Timeline</p>
-                  <p className="text-sm text-white font-medium">August - September 2025</p>
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-widest font-medium text-neutral-500 mb-1">Team</p>
-                  <p className="text-sm text-white font-medium">6 Members</p>
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-widest font-medium text-neutral-500 mb-1">Tools</p>
-                  <p className="text-sm text-white font-medium">Miro, Figma, Lovable</p>
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-start">
+              <div className="flex flex-col gap-4 min-w-0">
+                <p className="text-lg font-semibold text-white">
+                  My Contributions
+                </p>
+                <div className="space-y-4 text-neutral-400 text-lg md:text-xl leading-relaxed">
+                  <p>
+                    I advocated for conducting user interviews, synthesise sessions and brainstorming sessions before arriving at solutions.
+                  </p>
+                  <p>
+                    I refined the interview scripts and pushed to implement a Quizlet-style flashcard integration, to ensure FlowTutor supported active recall rather than just passive consumption.
+                  </p>
                 </div>
               </div>
-              
-              <div className="space-y-4 text-neutral-400 text-lg md:text-xl leading-relaxed">
-                <p>
-                  I advocated for conducting user interviews, synthesise sessions and brainstorming sessions before arriving at solutions.
-                </p>
-                <p>
-                  I refined the interview scripts and pushed to implement a Quizlet-style flashcard integration, to ensure FlowTutor supported active recall rather than just passive consumption.
-                </p>
+
+              <div className="space-y-4 text-left md:min-w-[200px]">
+                <div>
+                  <p className="text-lg font-semibold text-white mb-1">Role</p>
+                  <p className="text-sm md:text-base text-neutral-400 leading-relaxed">Product Designer</p>
+                </div>
+                <div>
+                  <p className="text-lg font-semibold text-white mb-1">Timeline</p>
+                  <p className="text-sm md:text-base text-neutral-400 leading-relaxed">August - September 2025</p>
+                </div>
+                <div>
+                  <p className="text-lg font-semibold text-white mb-1">Team</p>
+                  <p className="text-sm md:text-base text-neutral-400 leading-relaxed">6 Members</p>
+                </div>
+                <div>
+                  <p className="text-lg font-semibold text-white mb-1">Tools</p>
+                  <p className="text-sm md:text-base text-neutral-400 leading-relaxed">Miro, Figma, Lovable</p>
+                </div>
               </div>
             </div>
-          </motion.div>
 
-          {/* Section 2: The Impact */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="max-w-4xl"
-          >
-            <div className="flex flex-col gap-6">
+            {/* Impact (subheader under My Contributions) */}
+            <div id="impact" className="scroll-mt-20 md:scroll-mt-24 flex flex-col gap-6 pt-12 md:pt-16">
               <p className="text-lg font-semibold text-white">
                 Impact
               </p>
@@ -1298,11 +1298,16 @@ const FlowTutorCaseStudy = () => {
               <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
                 Led a brainstorming session to ideate on potential solutions relating to core pain points identified in the user interviews.
               </p>
-              <img
-                src={ftMapping}
-                alt="Affinity map organizing pain points, must-have and nice-to-have features, and design heuristics from user research"
-                className="w-full border border-white/10 object-cover"
-              />
+              <figure>
+                <img
+                  src={ftMapping}
+                  alt="Affinity map organizing pain points, must-have and nice-to-have features, and design heuristics from user research"
+                  className="w-full border border-white/10 object-cover"
+                />
+                <figcaption className="mt-2 text-sm text-neutral-500 text-center">
+                  Led a brainstorming session with 5 other members
+                </figcaption>
+              </figure>
             </div>
           </motion.div>
         </SectionContainer>
@@ -1427,7 +1432,7 @@ const FlowTutorCaseStudy = () => {
               </p>
             </div>
             
-            <div className="flex flex-col gap-4 mt-16">
+            <div id="heuristic-evaluation" className="flex flex-col gap-4 mt-16 scroll-mt-20 md:scroll-mt-24">
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">
                 From paper to pixel.
               </h2>
@@ -1602,37 +1607,39 @@ const FlowTutorCaseStudy = () => {
                     />
                   </svg>
 
-                  {/* Three state containers positioned absolutely */}
-                  {/* S1: Directly Relevant */}
-                  <div className="absolute" style={{ top: '20px', left: '450px', right: '0' }}>
-                    <div className="mb-3">
-                      <span className="text-purple-400 font-bold text-lg">S1</span>
-                      <span className="text-white font-semibold text-lg ml-1">: User Asks a DIRECTLY RELEVANT Question</span>
+                  {/* Three state containers: flex column for consistent spacing */}
+                  <div className="absolute flex flex-col gap-8" style={{ top: '20px', left: '450px', right: '0' }}>
+                    {/* S1: Directly Relevant */}
+                    <div>
+                      <div className="mb-4">
+                        <span className="text-purple-400 font-bold text-lg">S1</span>
+                        <span className="text-white text-lg md:text-xl leading-relaxed ml-1">: User asks a DIRECTLY RELEVANT question</span>
+                      </div>
+                      <div className="border border-purple-500/30 overflow-hidden">
+                        <img src={ftS1} alt="S1: FlowTutor responding to a directly relevant question about transformers" className="w-full h-auto object-contain" />
+                      </div>
                     </div>
-                    <div className="border border-purple-500/30 overflow-hidden">
-                      <img src={ftS1} alt="S1: FlowTutor responding to a directly relevant question about transformers" className="w-full h-auto object-contain" />
-                    </div>
-                  </div>
 
-                  {/* S2: Related But Not Mentioned */}
-                  <div className="absolute" style={{ top: '340px', left: '450px', right: '0' }}>
-                    <div className="mb-3">
-                      <span className="text-purple-400 font-bold text-lg">S2</span>
-                      <span className="text-white font-semibold text-lg ml-1">: User Asks a RELATED BUT NOT MENTIONED Question</span>
+                    {/* S2: Related But Not Mentioned */}
+                    <div>
+                      <div className="mb-4">
+                        <span className="text-purple-400 font-bold text-lg">S2</span>
+                        <span className="text-white text-lg md:text-xl leading-relaxed ml-1">: User asks a RELATED BUT NOT MENTIONED question</span>
+                      </div>
+                      <div className="border border-purple-500/30 overflow-hidden">
+                        <img src={ftS2} alt="S2: FlowTutor detecting an off-topic question and redirecting" className="w-full h-auto object-contain" />
+                      </div>
                     </div>
-                    <div className="border border-purple-500/30 overflow-hidden">
-                      <img src={ftS2} alt="S2: FlowTutor detecting an off-topic question and redirecting" className="w-full h-auto object-contain" />
-                    </div>
-                  </div>
 
-                  {/* S3: Irrelevant */}
-                  <div className="absolute" style={{ top: '660px', left: '450px', right: '0' }}>
-                    <div className="mb-3">
-                      <span className="text-purple-400 font-bold text-lg">S3</span>
-                      <span className="text-white font-semibold text-lg ml-1">: User Asks an IRRELEVANT Question</span>
-                    </div>
-                    <div className="border border-purple-500/30 overflow-hidden">
-                      <img src={ftS3} alt="S3: FlowTutor handling an irrelevant question by saving it for later research" className="w-full h-auto object-contain" />
+                    {/* S3: Irrelevant */}
+                    <div>
+                      <div className="mb-4">
+                        <span className="text-purple-400 font-bold text-lg">S3</span>
+                        <span className="text-white text-lg md:text-xl leading-relaxed ml-1">: User asks an IRRELEVANT question</span>
+                      </div>
+                      <div className="border border-purple-500/30 overflow-hidden">
+                        <img src={ftS3} alt="S3: FlowTutor handling an irrelevant question by saving it for later research" className="w-full h-auto object-contain" />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1655,40 +1662,36 @@ const FlowTutorCaseStudy = () => {
                   {/* Branch indicator */}
                   <div className="w-0.5 h-8 bg-neutral-400/70" aria-hidden="true" />
 
-                  {/* S1 */}
-                  <div className="w-full">
-                    <div className="mb-3">
-                      <span className="text-purple-400 font-bold text-lg">S1</span>
-                      <span className="text-white font-semibold text-lg ml-1">: Directly Relevant</span>
+                  {/* S1, S2, S3 with consistent spacing */}
+                  <div className="flex flex-col gap-8 w-full">
+                    <div className="w-full">
+                      <div className="mb-4">
+                        <span className="text-purple-400 font-bold text-lg">S1</span>
+                        <span className="text-white text-lg md:text-xl leading-relaxed ml-1">: Directly Relevant</span>
+                      </div>
+                      <div className="border border-purple-500/30 overflow-hidden">
+                        <img src={ftS1} alt="S1: FlowTutor responding to a directly relevant question" className="w-full h-auto object-contain" />
+                      </div>
                     </div>
-                    <div className="border border-purple-500/30 overflow-hidden">
-                      <img src={ftS1} alt="S1: FlowTutor responding to a directly relevant question" className="w-full h-auto object-contain" />
-                    </div>
-                  </div>
 
-                  <div className="w-0.5 h-6 bg-neutral-400/70" aria-hidden="true" />
-
-                  {/* S2 */}
-                  <div className="w-full">
-                    <div className="mb-3">
-                      <span className="text-purple-400 font-bold text-lg">S2</span>
-                      <span className="text-white font-semibold text-lg ml-1">: Related But Not Mentioned</span>
+                    <div className="w-full">
+                      <div className="mb-4">
+                        <span className="text-purple-400 font-bold text-lg">S2</span>
+                        <span className="text-white text-lg md:text-xl leading-relaxed ml-1">: Related But Not Mentioned</span>
+                      </div>
+                      <div className="border border-purple-500/30 overflow-hidden">
+                        <img src={ftS2} alt="S2: FlowTutor detecting an off-topic question" className="w-full h-auto object-contain" />
+                      </div>
                     </div>
-                    <div className="border border-purple-500/30 overflow-hidden">
-                      <img src={ftS2} alt="S2: FlowTutor detecting an off-topic question" className="w-full h-auto object-contain" />
-                    </div>
-                  </div>
 
-                  <div className="w-0.5 h-6 bg-neutral-400/70" aria-hidden="true" />
-
-                  {/* S3 */}
-                  <div className="w-full">
-                    <div className="mb-3">
-                      <span className="text-purple-400 font-bold text-lg">S3</span>
-                      <span className="text-white font-semibold text-lg ml-1">: Irrelevant</span>
-                    </div>
-                    <div className="border border-purple-500/30 overflow-hidden">
-                      <img src={ftS3} alt="S3: FlowTutor handling an irrelevant question" className="w-full h-auto object-contain" />
+                    <div className="w-full">
+                      <div className="mb-4">
+                        <span className="text-purple-400 font-bold text-lg">S3</span>
+                        <span className="text-white text-lg md:text-xl leading-relaxed ml-1">: Irrelevant</span>
+                      </div>
+                      <div className="border border-purple-500/30 overflow-hidden">
+                        <img src={ftS3} alt="S3: FlowTutor handling an irrelevant question" className="w-full h-auto object-contain" />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1702,116 +1705,132 @@ const FlowTutorCaseStudy = () => {
       </section>
 
         {/* 4. THE LAB PIVOT (Validating & Refining) */}
-        <SectionContainer id="lab-pivot">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="flex flex-col gap-4">
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">The Lab Pivot.</h2>
-              <div className="text-neutral-400 text-lg md:text-xl max-w-prose" style={{ lineHeight: '1.7' }}>
-                <p>
-                  With a functioning prototype, we moved from identifying usability issues to measuring impact.
-                </p>
-                <div className="border-l-2 border-purple-500/30 pl-6 mt-4">
-                  <p className="text-lg md:text-xl font-semibold text-white mb-4">
-                    Three Core Hypotheses:
-                  </p>
-                  <ul className="space-y-1 list-none">
-                    <li className="text-neutral-400">H1 (Efficiency): Users will locate information at least 50% faster with FlowTutor.</li>
-                    <li className="text-neutral-400">H2 (Cognitive Load): Context switching will be reduced by at least 60%.</li>
-                    <li className="text-neutral-400">H3 (Retention): Users will score at least 20% higher on a recall quiz.</li>
-                  </ul>
+        <section id="lab-pivot" className="relative py-16 md:py-24 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
+          <div className="relative z-10">
+            <div className="max-w-4xl mx-auto">
+              <div className="flex flex-col gap-8">
+                <motion.div
+                  id="within-subjects-counterbalanced"
+                  className="scroll-mt-20 md:scroll-mt-24"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <div className="flex flex-col gap-4">
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">The Lab Pivot.</h2>
+                    <div className="text-neutral-400 text-lg md:text-xl max-w-prose" style={{ lineHeight: '1.7' }}>
+                      <p>
+                        With a functioning prototype, we moved from identifying usability issues to measuring impact.
+                      </p>
+                      <div className="border-l-2 border-purple-500/30 pl-6 mt-4">
+                        <p className="text-lg md:text-xl font-semibold text-white mb-4">
+                          Three Core Hypotheses:
+                        </p>
+                        <ul className="space-y-1 list-none">
+                          <li className="text-neutral-400">H1 (Efficiency): Users will locate information at least 50% faster with FlowTutor.</li>
+                          <li className="text-neutral-400">H2 (Cognitive Load): Context switching will be reduced by at least 60%.</li>
+                          <li className="text-neutral-400">H3 (Retention): Users will score at least 20% higher on a recall quiz.</li>
+                        </ul>
+                      </div>
+                      <p className="mt-4">
+                        While our quantitative data supported our hypotheses (H1-H3), the qualitative feedback forced three architectural changes.
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Methodology Bar */}
+                <MethodologyBar />
+
+                {/* Insights Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
+                  <InsightCard
+                    title="Layout Flexibility"
+                    problem="Fixed panels felt restrictive. Users struggled to focus on video or notes when they couldn't control the viewport size."
+                    solution="Implemented a **Draggable Divider**, allowing users to dynamically resize their workspace."
+                    icon={GripVertical}
+                    delay={0}
+                  />
+                  <InsightCard
+                    title="Conversational Depth"
+                    problem="Preset AI prompts were helpful but too rigid. Users wanted to ask complex, open-ended follow-up questions."
+                    solution="Integrated a **Live LLM API**, enabling fully dynamic, context-aware conversation."
+                    icon={Sparkles}
+                    delay={0.1}
+                  />
+                  <InsightCard
+                    title="Screen Real Estate"
+                    problem="The sticky navigation bar consumed 15% of the vertical view on smaller laptops, crowding the content."
+                    solution="Redesigned the chrome to be **Non-Sticky** and reduced padding by 20% to maximize the learning view."
+                    icon={Maximize}
+                    delay={0.2}
+                  />
                 </div>
-                <p className="mt-4">
-                  While our quantitative data supported our hypotheses (H1-H3), the qualitative feedback forced three architectural changes.
-                </p>
               </div>
             </div>
-          </motion.div>
-
-          {/* Methodology Bar */}
-          <MethodologyBar />
-
-          {/* Insights Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
-          <InsightCard
-            title="Layout Flexibility"
-            problem="Fixed panels felt restrictive. Users struggled to focus on video or notes when they couldn't control the viewport size."
-            solution="Implemented a **Draggable Divider**, allowing users to dynamically resize their workspace."
-            icon={GripVertical}
-            delay={0}
-          />
-          <InsightCard
-            title="Conversational Depth"
-            problem="Preset AI prompts were helpful but too rigid. Users wanted to ask complex, open-ended follow-up questions."
-            solution="Integrated a **Live LLM API**, enabling fully dynamic, context-aware conversation."
-            icon={Sparkles}
-            delay={0.1}
-          />
-          <InsightCard
-            title="Screen Real Estate"
-            problem="The sticky navigation bar consumed 15% of the vertical view on smaller laptops, crowding the content."
-            solution="Redesigned the chrome to be **Non-Sticky** and reduced padding by 20% to maximize the learning view."
-            icon={Maximize}
-            delay={0.2}
-          />
-        </div>
-        </SectionContainer>
+          </div>
+        </section>
 
         {/* 6. THE SOLUTION (Product Anatomy Diagram) */}
-        <div id="solution" className="scroll-mt-20 md:scroll-mt-24">
+        <div id="product-anatomy" className="scroll-mt-20 md:scroll-mt-24">
           <ProductAnatomySection />
         </div>
 
         {/* 7. THE VALIDATION (Iteration 3: Web Experiment) */}
-        <SectionContainer id="validation">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="flex flex-col gap-4">
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">Measuring Efficacy.</h2>
-              <p className="text-lg md:text-xl text-neutral-400 max-w-prose" style={{ lineHeight: '1.7' }}>
-                Moving beyond usability, we rigorously tested our central claim: does an integrated interface lead to better learning outcomes?
-              </p>
+        <section id="validation" className="relative py-16 md:py-24 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
+          <div className="relative z-10">
+            <div className="max-w-4xl mx-auto">
+              <div className="flex flex-col gap-8">
+                <motion.div
+                  id="between-subjects-ab-test"
+                  className="scroll-mt-20 md:scroll-mt-24"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <div className="flex flex-col gap-4">
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">Measuring Efficacy.</h2>
+                    <p className="text-lg md:text-xl text-neutral-400 max-w-prose" style={{ lineHeight: '1.7' }}>
+                      Moving beyond usability, we rigorously tested our central claim: does an integrated interface lead to better learning outcomes?
+                    </p>
+                  </div>
+                </motion.div>
+
+                {/* Methodology Bar */}
+                <ValidationMethodologyBar />
+
+                {/* A/B Conditions */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <ABConditionCard
+                    title="Baseline: Fragmented Workflow"
+                    description="YouTube + External Notepad (Alt-Tab required)."
+                    isExperimental={false}
+                    delay={0}
+                    image="/flowtutor-baseline.png"
+                  />
+                  <ABConditionCard
+                    title="FlowTutor: Integrated Workflow"
+                    description="Unified Viewport (Video + Chat + Notes)."
+                    isExperimental={true}
+                    delay={0.1}
+                    image="/flowtutor-experiment.png"
+                  />
+                </div>
+
+                {/* Narrative Bridge */}
+                <NarrativeBridge />
+
+                {/* Results Visualization */}
+                <ResultsVisualizationCard />
+              </div>
             </div>
-          </motion.div>
-
-          {/* Methodology Bar */}
-          <ValidationMethodologyBar />
-
-          {/* A/B Conditions */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <ABConditionCard
-              title="Baseline: Fragmented Workflow"
-              description="YouTube + External Notepad (Alt-Tab required)."
-              isExperimental={false}
-              delay={0}
-              image="/flowtutor-baseline.png"
-            />
-            <ABConditionCard
-              title="FlowTutor: Integrated Workflow"
-              description="Unified Viewport (Video + Chat + Notes)."
-              isExperimental={true}
-              delay={0.1}
-              image="/flowtutor-experiment.png"
-            />
           </div>
-
-          {/* Narrative Bridge */}
-          <NarrativeBridge />
-
-          {/* Results Visualization */}
-          <ResultsVisualizationCard />
-        </SectionContainer>
+        </section>
 
         {/* 8. REFLECTION */}
-        <section id="reflection" className="relative py-16 md:py-24 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
+        <section id="reflection" className="relative py-16 md:py-24 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden border-t border-white/10">
           <div className="relative z-10">
           <div className="max-w-4xl mx-auto">
           <div className="flex flex-col gap-8">

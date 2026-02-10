@@ -17,6 +17,7 @@ interface CaseStudyLayoutProps {
   backLink?: { to: string; label: string };
   theme?: "light" | "dark";
   showSidebarsAfter?: string; // Section ID after which sidebars should appear
+  showContactSection?: boolean; // When false, hide the Contact / Footer section
 }
 
 const CaseStudyLayout = ({
@@ -25,6 +26,7 @@ const CaseStudyLayout = ({
   backLink = { to: "/", label: "Back to Work" },
   theme = "light",
   showSidebarsAfter,
+  showContactSection = true,
 }: CaseStudyLayoutProps) => {
   const [activeSection, setActiveSection] = useState<string>("");
   const [showSidebars, setShowSidebars] = useState(!showSidebarsAfter);
@@ -62,6 +64,13 @@ const CaseStudyLayout = ({
           const rect = section.element.getBoundingClientRect();
           if (rect.top <= 150) {
             setActiveSection(section.id);
+            // Auto-expand parent if active section is a child, so the subheader is visible and can show as active (e.g. Problem)
+            const parent = tableOfContents.find((item) =>
+              item.children?.some((child) => child.id === section.id)
+            );
+            if (parent) {
+              setExpandedHeader(parent.id);
+            }
             return;
           }
         }
@@ -77,7 +86,9 @@ const CaseStudyLayout = ({
   const handleScrollTo = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      const y = element.getBoundingClientRect().top + window.scrollY;
+      const offset = 140; // Consistent eye level: space for nav + padding
+      window.scrollTo({ top: y - offset, behavior: "smooth" });
     }
   };
 
@@ -123,8 +134,10 @@ const CaseStudyLayout = ({
                 <div key={item.id}>
                   <button
                     onClick={() => {
-                      handleScrollTo(item.id);
-                      // Toggle expansion: if clicking the same header, close it; otherwise, expand this and close others
+                      // Parent items with children (e.g. Overview) only expand/collapse; no scroll
+                      if (!item.children) {
+                        handleScrollTo(item.id);
+                      }
                       if (expandedHeader === item.id) {
                         setExpandedHeader(null);
                       } else {
@@ -174,7 +187,12 @@ const CaseStudyLayout = ({
         </main>
       </div>
 
-      <Footer />
+      {showContactSection && <Footer />}
+      <footer className="border-t border-border/60 py-6 px-4">
+        <p className="text-center text-sm text-muted-foreground">
+          Gay Shin Lee © 2026 All Rights Reserved
+        </p>
+      </footer>
       <FloatingScrollToTop />
     </div>
   );

@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import aboutMeImage from "/public/aboutme.jpg";
 import { motion } from "framer-motion";
+import { Mail, Linkedin, Github, FileText } from "lucide-react";
 
 const sectionVariants: any = {
   hidden: { opacity: 0, y: 24 },
@@ -28,37 +28,70 @@ const About = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.4 }}
-            className="grid gap-8 md:grid-cols-[minmax(0,0.9fr),minmax(0,1.4fr)] items-start"
+            className="grid gap-8 md:grid-cols-[minmax(0,1.4fr),minmax(0,0.9fr)] items-start"
           >
-            <div className="flex justify-center md:justify-start">
-              <div className="relative aspect-[4/5] w-[60%] max-w-xs overflow-hidden bg-muted/20">
-                <img
-                  src={aboutMeImage}
-                  alt="Portrait of Shinbean"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </div>
-
             <header className="space-y-4">
-              <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
-                Profile
-              </p>
-              <h1 className="text-2xl md:text-3xl font-semibold text-foreground">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-tight">
                 Gay Shin Lee
               </h1>
-              <p className="text-sm md:text-base text-muted-foreground max-w-prose leading-relaxed">
+              <p className="text-white text-lg md:text-xl">
+                UX/UI Designer
+              </p>
+              <p className="text-lg md:text-xl text-muted-foreground max-w-prose leading-relaxed">
                 My initial interest in AI evolved into a fascination with how humans actually interact with them.
                 This shifted my passion from pure development to User Experience, specifically within
                 <strong> Agentic Experience (AX)</strong>.
               </p>
-              <p className="text-sm md:text-base text-muted-foreground max-w-prose leading-relaxed">
-                These days, instead of just designing static screens, I am interested in designing relationships
-                between humans and autonomous systems. I work on bridging the gap between algorithmic capabilities
-                and human intent, ensuring that AI agents are not only helpful, but also transparent and
-                trustworthy rather than just black-box tools.
+              <p className="text-lg md:text-xl text-muted-foreground max-w-prose leading-relaxed">
+                Beyond that, I love refining little details that matter to make sure people actually use, value and perhaps even fall in love with digital products.
               </p>
+              <div className="flex items-center gap-4">
+                <a
+                  href="mailto:gayshinlee@gmail.com"
+                  aria-label="Email"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Mail className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://linkedin.com/in/gayshinlee"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Linkedin className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://github.com/gayshinlee"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Github className="h-5 w-5" />
+                </a>
+                <a
+                  href="/GAYSHINLEE_resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Resume"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <FileText className="h-5 w-5" />
+                </a>
+              </div>
             </header>
+
+            <div className="flex justify-center md:justify-end">
+              <div className="relative aspect-[4/5] w-[70%] max-w-xs overflow-hidden bg-muted/20">
+                <img
+                  src={aboutMeImage}
+                  alt="Portrait of Gay Shin Lee"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
           </motion.section>
 
           {/* Section 2: Experience */}
@@ -69,57 +102,56 @@ const About = () => {
             viewport={{ once: true, amount: 0.3 }}
             className="space-y-6"
           >
-            <header className="space-y-2">
-              <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Experience</p>
-              <h2 className="text-lg md:text-xl font-medium text-foreground">Recent roles</h2>
-            </header>
-
-            <div className="space-y-0">
-              <div className="flex flex-col gap-1 px-4 py-3 md:flex-row md:items-center md:justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="space-y-0.5">
-                    <p className="text-sm font-medium text-foreground">
-                      HTX (Home Team Science and Technology Agency)
-                    </p>
-                    <p className="text-xs text-muted-foreground">UI/UX Lead</p>
+            <p className="text-lg font-semibold text-foreground">
+              Recent roles
+            </p>
+            {/* Timeline: horizontal row of cards with line segments between them */}
+            <div className="overflow-x-auto pb-2">
+              <div className="relative flex flex-row items-stretch gap-4 md:gap-0 min-w-max md:min-w-0">
+                {[
+                  {
+                    company: "HTX (Home Team Science and Technology Agency)",
+                    role: "UI/UX Lead",
+                    year: "2025",
+                  },
+                  {
+                    company: "National Kidney Foundation (NKF)",
+                    role: "UI/UX Lead",
+                    year: "2025",
+                  },
+                  {
+                    company: "TechCreate Group",
+                    role: "Fullstack Software Engineer",
+                    year: "2025",
+                  },
+                  {
+                    company: "DBS Bank",
+                    role: "QA Tester",
+                    year: "2024",
+                  },
+                ].map((item, index) => (
+                  <div key={item.company} className="contents">
+                    <div className="relative flex flex-1 flex-col rounded-xl border border-border bg-muted/5 p-4 min-w-[200px] md:min-w-0">
+                      <p className="text-xs text-muted-foreground text-right mb-1">
+                        {item.year}
+                      </p>
+                      <p className="font-bold text-foreground text-sm leading-tight">
+                        {item.company}
+                      </p>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        {item.role}
+                      </p>
+                    </div>
+                    {index < 3 && (
+                      <div
+                        className="hidden md:flex flex-shrink-0 w-4 md:w-6 items-center"
+                        aria-hidden
+                      >
+                        <div className="w-full h-px bg-border" />
+                      </div>
+                    )}
                   </div>
-                </div>
-                <p className="text-xs text-muted-foreground md:text-sm">2025</p>
-              </div>
-              <hr className="border-border/60" />
-
-              <div className="flex flex-col gap-1 px-4 py-3 md:flex-row md:items-center md:justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="space-y-0.5">
-                    <p className="text-sm font-medium text-foreground">
-                      National Kidney Foundation (NKF)
-                    </p>
-                    <p className="text-xs text-muted-foreground">UI/UX Lead</p>
-                  </div>
-                </div>
-                <p className="text-xs text-muted-foreground md:text-sm">2025</p>
-              </div>
-              <hr className="border-border/60" />
-
-              <div className="flex flex-col gap-1 px-4 py-3 md:flex-row md:items-center md:justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="space-y-0.5">
-                    <p className="text-sm font-medium text-foreground">TechCreate Group</p>
-                    <p className="text-xs text-muted-foreground">Fullstack Software Engineer</p>
-                  </div>
-                </div>
-                <p className="text-xs text-muted-foreground md:text-sm">2025</p>
-              </div>
-              <hr className="border-border/60" />
-
-              <div className="flex flex-col gap-1 px-4 py-3 md:flex-row md:items-center md:justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="space-y-0.5">
-                    <p className="text-sm font-medium text-foreground">DBS Bank</p>
-                    <p className="text-xs text-muted-foreground">QA Tester</p>
-                  </div>
-                </div>
-                <p className="text-xs text-muted-foreground md:text-sm">2024</p>
+                ))}
               </div>
             </div>
           </motion.section>
@@ -133,60 +165,45 @@ const About = () => {
             className="space-y-8"
           >
             <header className="space-y-2">
-              <h2 className="text-lg md:text-xl font-medium text-foreground">Skills & Tools</h2>
+              <h2 className="text-lg font-semibold text-foreground">Skills & Tools</h2>
             </header>
 
-            <div className="grid gap-8 md:grid-cols-3">
-              {/* Design */}
-              <div className="space-y-4">
-                <h3 className="text-sm font-medium text-foreground uppercase tracking-[0.15em]">Design</h3>
-                <div className="flex flex-wrap gap-2">
-                  {["Figma", "Figma Make", "Lovable", "Sketch", "InVision Studio"].map((item) => (
-                    <span
-                      key={item}
-                      className="rounded-full border border-border/60 bg-muted/10 px-3 py-1.5 text-xs text-muted-foreground"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
+            <div className="grid grid-cols-3 gap-x-8 gap-y-1">
+              <h3 className="text-sm font-medium text-foreground uppercase tracking-[0.15em]">Design</h3>
+              <h3 className="text-sm font-medium text-foreground uppercase tracking-[0.15em]">Research</h3>
+              <h3 className="text-sm font-medium text-foreground uppercase tracking-[0.15em]">Development</h3>
 
-              {/* Research */}
-              <div className="space-y-4">
-                <h3 className="text-sm font-medium text-foreground uppercase tracking-[0.15em]">Research</h3>
-                <div className="flex flex-wrap gap-2">
-                  {["Field Studies", "Contextual Inquiry", "A/B Testing", "Surveys", "Questionnaires", "Heuristic Evaluation", "Cognitive Walkthrough"].map((item) => (
-                    <span
-                      key={item}
-                      className="rounded-full border border-border/60 bg-muted/10 px-3 py-1.5 text-xs text-muted-foreground"
-                    >
-                      {item}
+              {(() => {
+                const design = ["Figma", "Figma Make", "Lovable", "Sketch", "InVision Studio"];
+                const research = ["Field Studies", "Contextual Inquiry", "A/B Testing", "Surveys", "Questionnaires", "Heuristic Evaluation", "Cognitive Walkthrough"];
+                const development = ["Java", "HTML/CSS/JS", "React.js", "Python"];
+                const maxRows = Math.max(design.length, research.length, development.length);
+                const rows = [];
+                for (let i = 0; i < maxRows; i++) {
+                  rows.push(
+                    <span key={`d-${i}`} className="text-xs text-muted-foreground py-0.5">
+                      {design[i] ?? ""}
+                    </span>,
+                    <span key={`r-${i}`} className="text-xs text-muted-foreground py-0.5">
+                      {research[i] ?? ""}
+                    </span>,
+                    <span key={`dev-${i}`} className="text-xs text-muted-foreground py-0.5">
+                      {development[i] ?? ""}
                     </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Development */}
-              <div className="space-y-4">
-                <h3 className="text-sm font-medium text-foreground uppercase tracking-[0.15em]">Development</h3>
-                <div className="flex flex-wrap gap-2">
-                  {["Java", "HTML/CSS/JS", "React.js", "Python"].map((item) => (
-                    <span
-                      key={item}
-                      className="rounded-full border border-border/60 bg-muted/10 px-3 py-1.5 text-xs text-muted-foreground"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
+                  );
+                }
+                return rows;
+              })()}
             </div>
           </motion.section>
         </article>
       </main>
 
-      <Footer />
+      <footer className="border-t border-border/60 py-6 px-4">
+        <p className="text-center text-sm text-muted-foreground">
+          Gay Shin Lee © 2026 All Rights Reserved
+        </p>
+      </footer>
     </div>
   );
 };

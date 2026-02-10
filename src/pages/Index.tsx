@@ -243,6 +243,12 @@ const Index = () => {
       </section>
 
       <FloatingContactButton />
+
+      <footer className="border-t border-border/60 py-6 px-4">
+        <p className="text-center text-sm text-muted-foreground">
+          Gay Shin Lee © 2026 All Rights Reserved
+        </p>
+      </footer>
     </div>
   );
 };
