@@ -31,7 +31,7 @@ const About = () => {
             className="grid gap-8 md:grid-cols-[minmax(0,0.9fr),minmax(0,1.4fr)] items-start"
           >
             <div className="flex justify-center md:justify-start">
-              <div className="relative aspect-[4/5] w-full max-w-xs overflow-hidden rounded-2xl border border-border/60 bg-muted/20">
+              <div className="relative aspect-[4/5] w-[60%] max-w-xs overflow-hidden bg-muted/20">
                 <img
                   src={aboutMeImage}
                   alt="Portrait of Shinbean"
@@ -74,8 +74,8 @@ const About = () => {
               <h2 className="text-lg md:text-xl font-medium text-foreground">Recent roles</h2>
             </header>
 
-            <div className="space-y-3">
-              <div className="flex flex-col gap-1 rounded-xl border border-border/60 bg-muted/5 px-4 py-3 md:flex-row md:items-center md:justify-between">
+            <div className="space-y-0">
+              <div className="flex flex-col gap-1 px-4 py-3 md:flex-row md:items-center md:justify-between">
                 <div className="flex items-center gap-3">
                   <div className="space-y-0.5">
                     <p className="text-sm font-medium text-foreground">
@@ -86,8 +86,9 @@ const About = () => {
                 </div>
                 <p className="text-xs text-muted-foreground md:text-sm">2025</p>
               </div>
+              <hr className="border-border/60" />
 
-              <div className="flex flex-col gap-1 rounded-xl border border-border/60 bg-muted/5 px-4 py-3 md:flex-row md:items-center md:justify-between">
+              <div className="flex flex-col gap-1 px-4 py-3 md:flex-row md:items-center md:justify-between">
                 <div className="flex items-center gap-3">
                   <div className="space-y-0.5">
                     <p className="text-sm font-medium text-foreground">
@@ -98,8 +99,9 @@ const About = () => {
                 </div>
                 <p className="text-xs text-muted-foreground md:text-sm">2025</p>
               </div>
+              <hr className="border-border/60" />
 
-              <div className="flex flex-col gap-1 rounded-xl border border-border/60 bg-muted/5 px-4 py-3 md:flex-row md:items-center md:justify-between">
+              <div className="flex flex-col gap-1 px-4 py-3 md:flex-row md:items-center md:justify-between">
                 <div className="flex items-center gap-3">
                   <div className="space-y-0.5">
                     <p className="text-sm font-medium text-foreground">TechCreate Group</p>
@@ -108,8 +110,9 @@ const About = () => {
                 </div>
                 <p className="text-xs text-muted-foreground md:text-sm">2025</p>
               </div>
+              <hr className="border-border/60" />
 
-              <div className="flex flex-col gap-1 rounded-xl border border-border/60 bg-muted/5 px-4 py-3 md:flex-row md:items-center md:justify-between">
+              <div className="flex flex-col gap-1 px-4 py-3 md:flex-row md:items-center md:justify-between">
                 <div className="flex items-center gap-3">
                   <div className="space-y-0.5">
                     <p className="text-sm font-medium text-foreground">DBS Bank</p>
