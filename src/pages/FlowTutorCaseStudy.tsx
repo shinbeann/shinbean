@@ -1263,7 +1263,7 @@ const FlowTutorCaseStudy = () => {
           >
             <div className="flex flex-col gap-4">
               <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
-                DISCOVERY
+                RESEARCH
               </p>
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
                 The Market Opportunity.
