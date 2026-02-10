@@ -1296,7 +1296,7 @@ const FlowTutorCaseStudy = () => {
                 Affinity Mapping
               </p>
               <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
-                To better understand how international students currently order in ethnic restaurants and identify potential problems, I advocated for conducting user interviews first before diving into solutions.
+                Led a brainstorming session to ideate on potential solutions relating to core pain points identified in the user interviews.
               </p>
               <img
                 src={ftMapping}
