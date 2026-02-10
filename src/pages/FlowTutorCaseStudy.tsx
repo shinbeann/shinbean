@@ -1540,10 +1540,10 @@ const FlowTutorCaseStudy = () => {
                     <span className="text-white text-sm font-medium leading-tight">User asks a<br />question...</span>
                   </div>
 
-                  {/* Circle 2: User query analysis - at intersection of vertical trunk */}
+                  {/* Circle 2: User query analysis - same size as Circle 1, at intersection of vertical trunk */}
                   <div 
-                    className="absolute z-10 w-44 h-44 rounded-full bg-neutral-700/80 border-2 border-neutral-500/60 flex items-center justify-center text-center px-3"
-                    style={{ top: '388px', left: '290px' }}
+                    className="absolute z-10 w-36 h-36 rounded-full bg-neutral-700/80 border-2 border-neutral-500/60 flex items-center justify-center text-center px-3"
+                    style={{ top: '392px', left: '240px' }}
                     role="img"
                     aria-label="Step 2: User query analysis"
                   >
@@ -1559,43 +1559,43 @@ const FlowTutorCaseStudy = () => {
                     {/* Line: Circle 1 → Circle 2 (horizontal) */}
                     <line 
                       x1="164" y1="460" 
-                      x2="290" y2="460" 
+                      x2="240" y2="460" 
                       stroke="rgba(163,163,163,0.7)" 
                       strokeWidth="2" 
                     />
 
                     {/* Vertical trunk top: S1 → Circle 2 top edge */}
                     <line 
-                      x1="378" y1="140" 
-                      x2="378" y2="388" 
+                      x1="312" y1="140" 
+                      x2="312" y2="392" 
                       stroke="rgba(163,163,163,0.7)" 
                       strokeWidth="2" 
                     />
                     {/* Vertical trunk bottom: Circle 2 bottom edge → S3 */}
                     <line 
-                      x1="378" y1="532" 
-                      x2="378" y2="780" 
+                      x1="312" y1="528" 
+                      x2="312" y2="780" 
                       stroke="rgba(163,163,163,0.7)" 
                       strokeWidth="2" 
                     />
 
                     {/* Horizontal branch to S1 */}
                     <line 
-                      x1="378" y1="140" 
+                      x1="312" y1="140" 
                       x2="450" y2="140" 
                       stroke="rgba(163,163,163,0.7)" 
                       strokeWidth="2" 
                     />
                     {/* Horizontal branch to S2 from circle right edge */}
                     <line 
-                      x1="422" y1="460" 
+                      x1="384" y1="460" 
                       x2="450" y2="460" 
                       stroke="rgba(163,163,163,0.7)" 
                       strokeWidth="2" 
                     />
                     {/* Horizontal branch to S3 */}
                     <line 
-                      x1="378" y1="780" 
+                      x1="312" y1="780" 
                       x2="450" y2="780" 
                       stroke="rgba(163,163,163,0.7)" 
                       strokeWidth="2" 
