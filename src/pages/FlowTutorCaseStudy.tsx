@@ -1550,7 +1550,7 @@ const FlowTutorCaseStudy = () => {
                     <span className="text-white text-sm font-medium leading-tight">User query<br />analysis</span>
                   </div>
 
-                  {/* SVG Connectors - WCAG AA compliant (min 3:1 contrast on #050505 bg) */}
+                  {/* SVG Connectors - WCAG AA compliant, orthogonal lines only */}
                   <svg 
                     className="absolute inset-0 w-full h-full pointer-events-none z-0" 
                     aria-hidden="true"
@@ -1564,34 +1564,42 @@ const FlowTutorCaseStudy = () => {
                       strokeWidth="2" 
                     />
 
-                    {/* Branch: Circle 2 → S1 (straight line to top) */}
+                    {/* Vertical trunk from Circle 2 right edge */}
                     <line 
-                      x1="336" y1="408" 
-                      x2="430" y2="140" 
+                      x1="380" y1="408" 
+                      x2="380" y2="408" 
+                      stroke="rgba(163,163,163,0.7)" 
+                      strokeWidth="2" 
+                    />
+                    {/* Vertical line spanning from S1 to S3 */}
+                    <line 
+                      x1="380" y1="140" 
+                      x2="380" y2="780" 
                       stroke="rgba(163,163,163,0.7)" 
                       strokeWidth="2" 
                     />
 
-                    {/* Branch: Circle 2 → S2 (straight line to middle) */}
+                    {/* Horizontal branch to S1 */}
                     <line 
-                      x1="336" y1="408" 
-                      x2="430" y2="460" 
+                      x1="380" y1="140" 
+                      x2="450" y2="140" 
                       stroke="rgba(163,163,163,0.7)" 
                       strokeWidth="2" 
                     />
-
-                    {/* Branch: Circle 2 → S3 (straight line to bottom) */}
+                    {/* Horizontal branch to S2 */}
                     <line 
-                      x1="336" y1="408" 
-                      x2="430" y2="780" 
+                      x1="380" y1="460" 
+                      x2="450" y2="460" 
                       stroke="rgba(163,163,163,0.7)" 
                       strokeWidth="2" 
                     />
-
-                    {/* Small dots at branch endpoints for clarity */}
-                    <circle cx="430" cy="140" r="4" fill="rgba(163,163,163,0.7)" />
-                    <circle cx="430" cy="460" r="4" fill="rgba(163,163,163,0.7)" />
-                    <circle cx="430" cy="780" r="4" fill="rgba(163,163,163,0.7)" />
+                    {/* Horizontal branch to S3 */}
+                    <line 
+                      x1="380" y1="780" 
+                      x2="450" y2="780" 
+                      stroke="rgba(163,163,163,0.7)" 
+                      strokeWidth="2" 
+                    />
                   </svg>
 
                   {/* Three state containers positioned absolutely */}
