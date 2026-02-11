@@ -20,7 +20,7 @@ const Hero = () => {
     <section
       className="relative min-h-screen flex items-end pb-20 md:pb-28 px-6 md:px-16 lg:px-24 overflow-hidden"
       style={{
-        background: "linear-gradient(to bottom, hsl(0 0% 7%) 0%, hsl(0 0% 7%) 50%, #0d1526 100%)",
+        background: "linear-gradient(to bottom, #000000 0%, #000000 60%, #0d1526 100%)",
       }}
     >
       {/* Subtle blue-yellow radial glow in top-right */}
@@ -28,7 +28,7 @@ const Hero = () => {
         className="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle at 80% 20%, hsla(220, 60%, 45%, 0.15) 0%, hsla(45, 80%, 55%, 0.08) 40%, transparent 70%)",
+            "radial-gradient(circle at 80% 20%, hsla(45, 70%, 55%, 0.08) 0%, hsla(45, 60%, 50%, 0.04) 40%, transparent 65%)",
         }}
       />
 
