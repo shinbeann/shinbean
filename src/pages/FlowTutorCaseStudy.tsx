@@ -942,7 +942,7 @@ const FlowTutorCaseStudy = () => {
     <CaseStudyLayout tableOfContents={flowTutorToc} theme="dark" showSidebarsAfter="problem" showContactSection={false}>
       <div className="text-white selection:bg-purple-500/30 font-sans">
         {/* TEXT-DRIVEN HERO - Full width breakout */}
-        <section className="relative -mx-4 md:-mx-[calc((90vw-896px)/2+1.5rem)] max-w-[100vw] pt-24 md:pt-36 pb-16 md:pb-24">
+        <section className="relative w-screen -ml-[50vw] left-1/2 pt-24 md:pt-36 pb-16 md:pb-24 overflow-hidden">
           <div className="w-full max-w-6xl mx-auto px-6 md:px-16 lg:px-24 space-y-10">
             {/* Title */}
             <motion.h1
