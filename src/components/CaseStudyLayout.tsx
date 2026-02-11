@@ -18,6 +18,8 @@ interface CaseStudyLayoutProps {
   theme?: "light" | "dark";
   showSidebarsAfter?: string; // Section ID after which sidebars should appear
   showContactSection?: boolean; // When false, hide the Contact / Footer section
+  /** Optional full-width hero rendered above the 2-column grid; not constrained by TOC/content columns */
+  hero?: React.ReactNode;
 }
 
 const CaseStudyLayout = ({
@@ -27,6 +29,7 @@ const CaseStudyLayout = ({
   theme = "light",
   showSidebarsAfter,
   showContactSection = true,
+  hero,
 }: CaseStudyLayoutProps) => {
   const [activeSection, setActiveSection] = useState<string>("");
   const [showSidebars, setShowSidebars] = useState(!showSidebarsAfter);
@@ -93,13 +96,16 @@ const CaseStudyLayout = ({
   };
 
   return (
-    <div className={cn("min-h-screen", isDark ? "bg-[#050505]" : "bg-background")}>
+    <div className={cn("min-h-screen overflow-x-clip", isDark ? "bg-[#050505]" : "bg-background")}>
       {/* Top Navigation */}
       <Navigation tone={isDark ? "dark" : "light"} enableSmartHide={false} />
       
+      {/* Optional full-width hero (ignores 2-column grid below) */}
+      {hero != null && <div className="w-full overflow-x-hidden">{hero}</div>}
+      
       {/* 2-Column Grid (Left: TOC, Center: Content) */}
       <div className="md:grid md:grid-cols-[240px_1fr] gap-8 max-w-[1600px] mx-auto px-6">
-        {/* Left Column - In-Page Navigation (Table of Contents) */}
+        {/* Left Column - In-Page Navigation (Table of Contents); sticky so it stays visible while right column scrolls */}
         <nav
           aria-label="Table of Contents"
           className={cn(

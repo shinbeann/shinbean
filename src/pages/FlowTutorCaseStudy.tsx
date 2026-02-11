@@ -937,78 +937,87 @@ const flowTutorToc = [
   { id: "reflection", label: "Reflection" },
 ];
 
+const FlowTutorHero = () => (
+  <section className="relative w-full pt-24 md:pt-36 pb-16 md:pb-24 overflow-x-hidden">
+    <div className="w-full max-w-6xl mx-auto px-6 md:px-16 lg:px-24 space-y-10 min-w-0">
+      <motion.h1
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white"
+      >
+        FlowTutor
+      </motion.h1>
+
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.15 }}
+        className="text-neutral-400 text-lg md:text-xl leading-relaxed max-w-3xl break-words"
+      >
+        Students learning on YouTube are often forced to toggle between videos, notes, and AI tools. We created FlowTutor to fix this disjointed workflow so focus stays where it belongs.
+      </motion.p>
+
+      <motion.hr
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+        className="border-white/10"
+      />
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-8 min-w-0"
+      >
+        {[
+          { label: "ROLE", value: "Product Designer" },
+          { label: "TIMELINE", value: "August – September 2025" },
+          { label: "TEAM", value: "6 Members" },
+          { label: "TOOLS", value: "Miro, Figma, Lovable" },
+        ].map((item) => (
+          <div key={item.label} className="space-y-1.5 min-w-0">
+            <p className="text-[11px] uppercase tracking-[0.15em] font-medium text-neutral-500">{item.label}</p>
+            <p className="text-sm text-white font-medium break-words">{item.value}</p>
+          </div>
+        ))}
+      </motion.div>
+
+      <motion.hr
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.45 }}
+        className="border-white/10"
+      />
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.55 }}
+        className="space-y-4 min-w-0"
+      >
+        <p className="text-[11px] uppercase tracking-[0.15em] font-bold text-neutral-500">Key Contributions</p>
+        <ul className="space-y-3 text-neutral-400 text-sm md:text-base leading-relaxed list-disc list-outside pl-5 break-words">
+          <li>Advocated for and led user interviews, synthesis sessions, and brainstorming workshops to ground design decisions in real data.</li>
+          <li>Championed the &lsquo;Quizlet-style&rsquo; flashcard integration to prioritize active recall over passive consumption.</li>
+          <li>Refined qualitative interview scripts to uncover deeper user friction points.</li>
+        </ul>
+      </motion.div>
+    </div>
+  </section>
+);
+
 const FlowTutorCaseStudy = () => {
   return (
-    <CaseStudyLayout tableOfContents={flowTutorToc} theme="dark" showSidebarsAfter="problem" showContactSection={false}>
-      <div className="text-white selection:bg-purple-500/30 font-sans">
-        {/* TEXT-DRIVEN HERO - Full width breakout */}
-        <section className="relative w-screen -ml-[50vw] left-1/2 pt-24 md:pt-36 pb-16 md:pb-24 overflow-hidden">
-          <div className="w-full max-w-6xl mx-auto px-6 md:px-16 lg:px-24 space-y-10">
-            {/* Title */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white"
-            >
-              FlowTutor
-            </motion.h1>
-
-            {/* Lead Paragraph */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.15 }}
-              className="text-neutral-400 text-lg md:text-xl leading-relaxed max-w-3xl"
-            >
-              We noticed students constantly struggling with &lsquo;tab fatigue&rsquo;&mdash;juggling YouTube tutorials, separate notes, and ChatGPT just to understand a concept. I created FlowTutor to bridge this gap, unifying these fragmented tools into a single, distraction-free interface that transforms passive watching into active learning.
-            </motion.p>
-
-            {/* Divider */}
-            <motion.hr
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="border-white/10"
-            />
-
-            {/* Metadata Grid */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-8"
-            >
-              {[
-                { label: "ROLE", value: "Product Designer" },
-                { label: "TIMELINE", value: "August – September 2025" },
-                { label: "TEAM", value: "6 Members" },
-                { label: "TOOLS", value: "Miro, Figma, Lovable" },
-              ].map((item) => (
-                <div key={item.label} className="space-y-1.5">
-                  <p className="text-[11px] uppercase tracking-[0.15em] font-medium text-neutral-500">{item.label}</p>
-                  <p className="text-sm text-white font-medium">{item.value}</p>
-                </div>
-              ))}
-            </motion.div>
-
-            {/* Key Contributions */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.55 }}
-              className="space-y-4"
-            >
-              <p className="text-[11px] uppercase tracking-[0.15em] font-bold text-neutral-500">Key Contributions</p>
-              <ul className="space-y-3 text-neutral-400 text-sm md:text-base leading-relaxed list-disc list-outside pl-5">
-                <li>Advocated for and led user interviews, synthesis sessions, and brainstorming workshops to ground design decisions in real data.</li>
-                <li>Championed the &lsquo;Quizlet-style&rsquo; flashcard integration to prioritize active recall over passive consumption.</li>
-                <li>Refined qualitative interview scripts to uncover deeper user friction points.</li>
-              </ul>
-            </motion.div>
-          </div>
-        </section>
-
+    <CaseStudyLayout
+      tableOfContents={flowTutorToc}
+      theme="dark"
+      showSidebarsAfter="problem"
+      showContactSection={false}
+      hero={<div className="text-white selection:bg-purple-500/30 font-sans"><FlowTutorHero /></div>}
+    >
+      <div className="text-white selection:bg-purple-500/30 font-sans overflow-x-hidden min-w-0">
         {/* 1. THE PROBLEM - This is the section that triggers sidebars */}
         <section id="problem" className="relative flex flex-col pt-24 md:pt-32 pb-20 scroll-mt-20 md:scroll-mt-24">
           {/* Problem Section Content */}
