@@ -1,17 +1,36 @@
 import { motion } from "framer-motion";
 
-const letterVariants = {
-  hidden: { y: 60, opacity: 0 },
-  visible: (i: number) => ({
-    y: 0,
-    opacity: 1,
-    transition: {
-      delay: 0.3 + i * 0.04,
-      duration: 0.5,
-      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
-    },
-  }),
-};
+const EXPERIENCE = [
+  { company: "FlowTutor", role: "Product Designer", date: "2025" },
+  { company: "KidneyQuest (National Kidney Foundation)", role: "UX/UI Designer", date: "2025" },
+  { company: "Hybrid RAG (HTX)", role: "UX/UI Designer", date: "Present" },
+];
+
+const ExperienceRow = ({
+  company,
+  role,
+  date,
+  isFirst,
+}: {
+  company: string;
+  role: string;
+  date: string;
+  isFirst?: boolean;
+}) => (
+  <div
+    className="flex items-baseline justify-between gap-4 py-3 w-full"
+    style={{
+      borderTop: isFirst ? "1px solid rgba(255,255,255,0.1)" : undefined,
+      borderBottom: "1px solid rgba(255,255,255,0.1)",
+    }}
+  >
+    <div className="flex items-baseline gap-2 min-w-0">
+      <span className="font-semibold text-foreground truncate">{company}</span>
+      <span className="text-sm text-muted-foreground shrink-0">{role}</span>
+    </div>
+    <span className="text-sm text-muted-foreground tabular-nums shrink-0">{date}</span>
+  </div>
+);
 
 const Hero = () => {
   const name = "Gay Shin Lee";
@@ -23,36 +42,31 @@ const Hero = () => {
         background: "linear-gradient(to bottom, #000000 0%, #000000 60%, #0d1526 100%)",
       }}
     >
-      {/* Subtle blue-yellow radial glow in top-right */}
+      {/* Soft blue-yellow radial glow – heavy blur, Screen blend so it adds light not mud */}
       <div
-        className="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none"
+        className="absolute top-0 right-0 w-[800px] h-[800px] pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle at 80% 20%, hsla(220, 60%, 45%, 0.2) 0%, hsla(45, 80%, 55%, 0.12) 35%, transparent 70%)",
+            "radial-gradient(circle at 80% 20%, hsla(220, 60%, 45%, 0.25) 0%, hsla(45, 80%, 55%, 0.15) 35%, transparent 70%)",
+          filter: "blur(175px)",
+          mixBlendMode: "screen",
         }}
       />
 
-      <div className="max-w-5xl w-full relative z-10 space-y-8">
-        {/* Name - staggered letter animation */}
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-none overflow-hidden">
-          {name.split("").map((char, i) => (
-            <motion.span
-              key={i}
-              custom={i}
-              variants={letterVariants}
-              initial="hidden"
-              animate="visible"
-              className="inline-block"
-              style={{ whiteSpace: char === " " ? "pre" : undefined }}
-            >
-              {char}
-            </motion.span>
-          ))}
-        </h1>
+      <div className="max-w-5xl w-full relative z-10">
+        {/* Name (Name → Subtitle: 16px) – same fade/slide as rest of hero */}
+        <motion.h1
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-none mb-4"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+        >
+          {name}
+        </motion.h1>
 
-        {/* Subtitle */}
+        {/* Subtitle (Subtitle → Body: 32px) */}
         <motion.p
-          className="text-lg md:text-xl text-muted-foreground tracking-wide"
+          className="text-lg md:text-xl text-muted-foreground tracking-wide mb-8"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.5 }}
@@ -60,46 +74,41 @@ const Hero = () => {
           UX/UI Designer
         </motion.p>
 
-        {/* Body text */}
+        {/* Body text (Body → Divider/Experience: 96px) */}
         <motion.div
-          className="max-w-xl space-y-3"
+          className="max-w-xl space-y-1 mb-24"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1, duration: 0.5 }}
         >
           <p className="text-base md:text-lg text-foreground/80 leading-relaxed">
-            I love improving digital experiences.
+            I &lt;3 improving digital experiences.
           </p>
           <p className="text-base md:text-lg text-foreground/80 leading-relaxed">
             Welcome to my small corner of web.
           </p>
         </motion.div>
 
-        {/* Divider */}
+        {/* Experience – table layout with dividers */}
         <motion.div
-          className="border-t border-foreground/10 max-w-xl"
-          initial={{ scaleX: 0, originX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ delay: 1.3, duration: 0.6 }}
-        />
-
-        {/* Experience */}
-        <motion.div
-          className="space-y-3"
+          className="w-full max-w-xl"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.5 }}
         >
-          <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground font-semibold">
+          <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground font-semibold mb-3">
             Experience
           </p>
-          <div className="space-y-1">
-            <p className="text-sm text-foreground/70">
-              FlowTutor (Aug – Sept 2025)
-            </p>
-            <p className="text-sm text-muted-foreground">
-              … (Other roles)
-            </p>
+          <div className="flex flex-col">
+            {EXPERIENCE.map((item, i) => (
+              <ExperienceRow
+                key={i}
+                company={item.company}
+                role={item.role}
+                date={item.date}
+                isFirst={i === 0}
+              />
+            ))}
           </div>
         </motion.div>
       </div>
