@@ -28,7 +28,7 @@ const Hero = () => {
         className="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle at 80% 20%, hsla(45, 70%, 55%, 0.08) 0%, hsla(45, 60%, 50%, 0.04) 40%, transparent 65%)",
+            "radial-gradient(circle at 85% 15%, hsla(220, 60%, 45%, 0.12) 0%, hsla(45, 80%, 55%, 0.06) 35%, transparent 65%)",
         }}
       />
 
