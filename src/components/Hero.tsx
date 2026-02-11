@@ -17,7 +17,12 @@ const Hero = () => {
   const name = "Gay Shin Lee";
 
   return (
-    <section className="relative min-h-screen flex items-end pb-20 md:pb-28 px-6 md:px-16 lg:px-24 overflow-hidden bg-background">
+    <section
+      className="relative min-h-screen flex items-end pb-20 md:pb-28 px-6 md:px-16 lg:px-24 overflow-hidden"
+      style={{
+        background: "linear-gradient(to bottom, hsl(0 0% 7%) 0%, hsl(0 0% 7%) 50%, #0d1526 100%)",
+      }}
+    >
       {/* Subtle blue-yellow radial glow in top-right */}
       <div
         className="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none"

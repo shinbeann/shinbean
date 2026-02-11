@@ -29,7 +29,7 @@ const Index = () => {
           <div className="northern-lights-glow" />
         </div>
         
-        <div className="container max-w-6xl mx-auto px-4 pt-24 pb-16 md:pb-32 relative z-10">
+        <div className="container max-w-6xl mx-auto px-4 pt-8 md:pt-16 pb-16 md:pb-32 relative z-10">
           <motion.div
             className="min-h-[60vh] md:min-h-[80vh] flex flex-col gap-8 md:gap-16 md:flex-row items-start"
             initial={{ opacity: 0 }}
