@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 
 import FloatingContactButton from "@/components/FloatingContactButton";
+import Hero from "@/components/Hero";
 import { KidneyQuestInteractiveDemo } from "@/components/KidneyQuestInteractiveDemo";
 import ftHeroVid from "@/assets/ft_herovid.mp4";
 
@@ -17,6 +18,9 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation tone="light" enableSmartHide />
+
+      {/* HERO */}
+      <Hero />
 
       {/* SECTION 1: FLOWTUTOR - Deep Midnight Blue */}
       <section className="flowtutor-section relative min-h-screen">
