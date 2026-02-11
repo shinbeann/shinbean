@@ -941,34 +941,72 @@ const FlowTutorCaseStudy = () => {
   return (
     <CaseStudyLayout tableOfContents={flowTutorToc} theme="dark" showSidebarsAfter="problem" showContactSection={false}>
       <div className="text-white selection:bg-purple-500/30 font-sans">
-        {/* FULLSCREEN LANDING HERO */}
-        <section className="relative -mx-4 md:-mx-[calc((90vw-896px)/2+1.5rem)] max-w-[80vw] min-h-screen flex items-center justify-center overflow-hidden">
-          {/* Background Image */}
-          <div className="absolute inset-0 z-0">
-            <img
-              src={ftLanding}
-              alt="FlowTutor - Learn smarter with AI-powered tutorial assistance"
-              className="w-full h-full object-cover object-center"
-            />
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent" />
-          </div>
-
-          {/* Scroll Indicator */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.5 }}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
-          >
-            <span className="text-xs uppercase tracking-widest text-white/60 font-medium">Scroll</span>
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+        {/* TEXT-DRIVEN HERO */}
+        <section className="pt-24 md:pt-36 pb-16 md:pb-24">
+          <div className="w-full max-w-4xl space-y-10">
+            {/* Title */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white"
             >
-              <ChevronDown className="w-5 h-5 text-white/60" />
+              FlowTutor
+            </motion.h1>
+
+            {/* Lead Paragraph */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.15 }}
+              className="text-neutral-400 text-lg md:text-xl leading-relaxed max-w-3xl"
+            >
+              We noticed students constantly struggling with &lsquo;tab fatigue&rsquo;&mdash;juggling YouTube tutorials, separate notes, and ChatGPT just to understand a concept. I created FlowTutor to bridge this gap, unifying these fragmented tools into a single, distraction-free interface that transforms passive watching into active learning.
+            </motion.p>
+
+            {/* Divider */}
+            <motion.hr
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="border-white/10"
+            />
+
+            {/* Metadata Grid */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-8"
+            >
+              {[
+                { label: "ROLE", value: "Product Designer" },
+                { label: "TIMELINE", value: "August – September 2025" },
+                { label: "TEAM", value: "6 Members" },
+                { label: "TOOLS", value: "Miro, Figma, Lovable" },
+              ].map((item) => (
+                <div key={item.label} className="space-y-1.5">
+                  <p className="text-[11px] uppercase tracking-[0.15em] font-medium text-neutral-500">{item.label}</p>
+                  <p className="text-sm text-white font-medium">{item.value}</p>
+                </div>
+              ))}
             </motion.div>
-          </motion.div>
+
+            {/* Key Contributions */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.55 }}
+              className="space-y-4"
+            >
+              <p className="text-[11px] uppercase tracking-[0.15em] font-bold text-neutral-500">Key Contributions</p>
+              <ul className="space-y-3 text-neutral-400 text-sm md:text-base leading-relaxed list-disc list-outside pl-5">
+                <li>Advocated for and led user interviews, synthesis sessions, and brainstorming workshops to ground design decisions in real data.</li>
+                <li>Championed the &lsquo;Quizlet-style&rsquo; flashcard integration to prioritize active recall over passive consumption.</li>
+                <li>Refined qualitative interview scripts to uncover deeper user friction points.</li>
+              </ul>
+            </motion.div>
+          </div>
         </section>
 
         {/* 1. THE PROBLEM - This is the section that triggers sidebars */}
