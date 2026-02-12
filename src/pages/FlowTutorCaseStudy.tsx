@@ -908,12 +908,11 @@ const CompetitorAnalysisSection = () => {
 // Table of Contents for the layout
 const flowTutorToc = [
   { 
-    id: "overview", 
+    id: "problem", 
     label: "Overview",
     children: [
       { id: "problem", label: "Problem" },
       { id: "solution", label: "Solution" },
-      { id: "contributions", label: "My Contributions" },
       { id: "impact", label: "Impact" }
     ]
   },
@@ -1225,52 +1224,16 @@ const FlowTutorCaseStudy = () => {
           {/* Zig-Zag Features Section */}
           <ZigZagFeatures />
 
-          {/* My Contributions Subsection */}
+          {/* Impact Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="max-w-4xl pt-12 md:pt-16"
-            id="contributions"
+            id="impact"
           >
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-start">
-              <div className="flex flex-col gap-4 min-w-0">
-                <p className="text-lg font-semibold text-white">
-                  My Contributions
-                </p>
-                <div className="space-y-4 text-neutral-400 text-lg md:text-xl leading-relaxed">
-                  <p>
-                    I advocated for conducting user interviews, synthesise sessions and brainstorming sessions before arriving at solutions.
-                  </p>
-                  <p>
-                    I refined the interview scripts and pushed to implement a Quizlet-style flashcard integration, to ensure FlowTutor supported active recall rather than just passive consumption.
-                  </p>
-                </div>
-              </div>
-
-              <div className="space-y-4 text-left md:min-w-[200px]">
-                <div>
-                  <p className="text-lg font-semibold text-white mb-1">Role</p>
-                  <p className="text-sm md:text-base text-neutral-400 leading-relaxed">Product Designer</p>
-                </div>
-                <div>
-                  <p className="text-lg font-semibold text-white mb-1">Timeline</p>
-                  <p className="text-sm md:text-base text-neutral-400 leading-relaxed">August - September 2025</p>
-                </div>
-                <div>
-                  <p className="text-lg font-semibold text-white mb-1">Team</p>
-                  <p className="text-sm md:text-base text-neutral-400 leading-relaxed">6 Members</p>
-                </div>
-                <div>
-                  <p className="text-lg font-semibold text-white mb-1">Tools</p>
-                  <p className="text-sm md:text-base text-neutral-400 leading-relaxed">Miro, Figma, Lovable</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Impact (subheader under My Contributions) */}
-            <div id="impact" className="scroll-mt-20 md:scroll-mt-24 flex flex-col gap-6 pt-12 md:pt-16">
+            <div className="scroll-mt-20 md:scroll-mt-24 flex flex-col gap-6">
               <p className="text-lg font-semibold text-white">
                 Impact
               </p>
