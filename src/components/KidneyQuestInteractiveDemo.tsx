@@ -156,7 +156,7 @@ export const KidneyQuestInteractiveDemo = () => {
                       />
                     </div>
                     <span className="text-xs font-medium text-white">
-                      Live Demo • Tap to Play
+                      Click Me!
                     </span>
                   </div>
                 </motion.div>
@@ -181,7 +181,7 @@ export const KidneyQuestInteractiveDemo = () => {
                 animate={clickedButton === "A" ? { scale: 0.95 } : {}}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                <span className="text-[10px] sm:text-xs md:text-sm leading-tight sm:leading-normal whitespace-normal break-words">
+                <span className="text-[10px] sm:text-xs md:text-sm leading-tight sm:leading-normal whitespace-normal break-words text-left">
                   A. Break down food into energy
                 </span>
               </motion.button>
@@ -206,7 +206,7 @@ export const KidneyQuestInteractiveDemo = () => {
                 animate={clickedButton === "B" ? { scale: 0.95 } : {}}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                <span className="text-[10px] sm:text-xs md:text-sm leading-tight sm:leading-normal whitespace-normal break-words">
+                <span className="text-[10px] sm:text-xs md:text-sm leading-tight sm:leading-normal whitespace-normal break-words text-left">
                   B. Filter blood, remove waste and excess fluid
                 </span>
               </motion.button>
@@ -231,7 +231,7 @@ export const KidneyQuestInteractiveDemo = () => {
                 animate={clickedButton === "C" ? { scale: 0.95 } : {}}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                <span className="text-[10px] sm:text-xs md:text-sm leading-tight sm:leading-normal whitespace-normal break-words">
+                <span className="text-[10px] sm:text-xs md:text-sm leading-tight sm:leading-normal whitespace-normal break-words text-left">
                   C. Produce insulin for sugar control
                 </span>
               </motion.button>
@@ -256,7 +256,7 @@ export const KidneyQuestInteractiveDemo = () => {
                 animate={clickedButton === "D" ? { scale: 0.95 } : {}}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                <span className="text-[10px] sm:text-xs md:text-sm leading-tight sm:leading-normal whitespace-normal break-words">
+                <span className="text-[10px] sm:text-xs md:text-sm leading-tight sm:leading-normal whitespace-normal break-words text-left">
                   D. Pump blood like the heart
                 </span>
               </motion.button>

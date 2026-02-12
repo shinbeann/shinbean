@@ -99,11 +99,11 @@ const Index = () => {
         
         <div className="container max-w-6xl mx-auto px-4 py-16 md:py-32 relative z-10">
           <motion.div
-            className="min-h-[60vh] md:min-h-[80vh] flex flex-col gap-8 md:gap-16 md:flex-row items-start"
+            className="min-h-[60vh] md:min-h-[80vh] flex flex-col gap-8 md:gap-16 md:flex-row md:flex-row-reverse items-start"
             {...scrollReveal}
             transition={{ duration: 0.6 }}
           >
-            {/* Heading - Not sticky on mobile */}
+            {/* Heading - Now on the right side on desktop */}
             <div className="w-full md:w-1/3 md:sticky md:top-28 self-start space-y-4">
               <p className="text-xs uppercase tracking-[0.25em] kidneyquest-text-muted">
                 <span className="font-bold">KidneyQuest</span>
@@ -117,7 +117,7 @@ const Index = () => {
               </p>
             </div>
 
-            {/* Story & Media */}
+            {/* Demo Card - Now on the left side on desktop */}
             <div className="w-full md:w-2/3 space-y-8 md:space-y-10">
               <motion.div
                 {...scrollReveal}
@@ -127,39 +127,6 @@ const Index = () => {
                 <KidneyQuestInteractiveDemo />
               </motion.div>
 
-              <motion.div
-                {...scrollReveal}
-                transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-                className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-3"
-              >
-                <div className="space-y-2">
-                  <h3 className="text-xs font-semibold uppercase tracking-[0.25em] kidneyquest-text-muted">
-                    Challenge
-                  </h3>
-                  <p className="text-sm kidneyquest-text-secondary">
-                    Make kidney health education engaging in busy public spaces
-                    without asking people to download an app.
-                  </p>
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-xs font-semibold uppercase tracking-[0.25em] kidneyquest-text-muted">
-                    Execution
-                  </h3>
-                  <p className="text-sm kidneyquest-text-secondary">
-                    Designed a WebAR game flow that guides players through
-                    bite-sized trivia, rewards, and subtle behavior nudges.
-                  </p>
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-xs font-semibold uppercase tracking-[0.25em] kidneyquest-text-muted">
-                    Visuals
-                  </h3>
-                  <p className="text-sm kidneyquest-text-secondary">
-                    Organic shapes, soft gradients, and a friendly mascot make
-                    kidney health feel approachable instead of clinical.
-                  </p>
-                </div>
-              </motion.div>
             </div>
           </motion.div>
         </div>
@@ -183,7 +150,7 @@ const Index = () => {
               </h2>
               <p className="text-sm md:text-base text-neutral-400 leading-relaxed">
                 An offline retrieval-augmented generation system that keeps
-                Singapore Police Force officers informed—even in connectivity
+                Singapore Police Force officers informed, even in connectivity
                 blackspots.
               </p>
             </div>
@@ -204,43 +171,6 @@ const Index = () => {
                 />
               </motion.div>
 
-              <motion.div
-                {...scrollReveal}
-                transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-                className="space-y-8"
-              >
-                <div className="grid gap-6 grid-cols-1 sm:grid-cols-3">
-                  <div className="space-y-2">
-                    <h3 className="text-xs font-bold uppercase tracking-[0.25em] text-neutral-500">
-                      Conflict
-                    </h3>
-                    <p className="text-sm text-neutral-400 leading-relaxed">
-                      In basements and alleyways, officers lose connectivity and
-                      can&apos;t search legal references during critical moments.
-                    </p>
-                  </div>
-                  <div className="space-y-2">
-                    <h3 className="text-xs font-bold uppercase tracking-[0.25em] text-neutral-500">
-                      Architecture
-                    </h3>
-                    <p className="text-sm text-neutral-400 leading-relaxed">
-                      Mobile RAG pipeline using on-device vector search,
-                      centroid clustering to compress memory, and Llama.cpp +
-                      ObjectBox for fully offline inference.
-                    </p>
-                  </div>
-                  <div className="space-y-2">
-                    <h3 className="text-xs font-bold uppercase tracking-[0.25em] text-neutral-500">
-                      UX Detail
-                    </h3>
-                    <p className="text-sm text-neutral-400 leading-relaxed">
-                      Natural language search surfaces recognisable scenarios
-                      instead of cryptic legal codes—optimised for recognition
-                      over recall.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
             </div>
           </motion.div>
         </div>
