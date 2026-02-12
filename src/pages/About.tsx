@@ -1,5 +1,8 @@
 import Navigation from "@/components/Navigation";
 import aboutMeImage from "/public/aboutme.jpg";
+import meBookImage from "@/assets/me-book.jpg";
+import meViolinImage from "@/assets/me-violin.jpg";
+import meSkiImage from "@/assets/me-ski.jpg";
 import { motion } from "framer-motion";
 import { Mail, Linkedin, Github, FileText } from "lucide-react";
 
@@ -45,7 +48,7 @@ const About = () => {
               <p className="text-lg md:text-xl text-muted-foreground max-w-prose leading-relaxed">
                 Beyond that, I love refining little details that matter to make sure people actually use, value and perhaps even fall in love with digital products.
               </p>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 pt-0">
                 <a
                   href="mailto:gayshinlee@gmail.com"
                   aria-label="Email"
@@ -84,7 +87,7 @@ const About = () => {
             </header>
 
             <div className="flex justify-center md:justify-end">
-              <div className="relative aspect-[4/5] w-[70%] max-w-xs overflow-hidden bg-muted/20">
+              <div className="relative aspect-[4/5] w-[90%] max-w-xs overflow-hidden bg-muted/20">
                 <img
                   src={aboutMeImage}
                   alt="Portrait of Gay Shin Lee"
@@ -103,7 +106,7 @@ const About = () => {
             className="space-y-6"
           >
             <p className="text-lg font-semibold text-foreground">
-              Recent roles
+              Work
             </p>
             {/* Timeline: horizontal row of cards with line segments between them */}
             <div className="overflow-x-auto pb-2">
@@ -131,7 +134,7 @@ const About = () => {
                   },
                 ].map((item, index) => (
                   <div key={item.company} className="contents">
-                    <div className="relative flex flex-1 flex-col rounded-xl border border-border bg-muted/5 p-4 min-w-[200px] md:min-w-0">
+                    <div className="relative flex flex-1 flex-col rounded-xl bg-[#1A1A1A] p-4 min-w-[200px] md:min-w-0 transition-all duration-300 hover:-translate-y-1 hover:bg-[#222222] hover:shadow-lg cursor-pointer">
                       <p className="text-xs text-muted-foreground text-right mb-1">
                         {item.year}
                       </p>
@@ -156,44 +159,111 @@ const About = () => {
             </div>
           </motion.section>
 
-          {/* Section 3: The How - Skills */}
+          {/* Section 3: Beyond work */}
+          <motion.section
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="space-y-6"
+          >
+            <p className="text-lg font-semibold text-foreground">
+              Beyond work
+            </p>
+            <div className="flex flex-col md:flex-row gap-6">
+              <div className="w-full md:w-[40%] space-y-2">
+                <div className="relative overflow-hidden">
+                  <img
+                    src={meBookImage}
+                    alt="Books and matcha"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                <p className="text-sm text-muted-foreground italic text-center">
+                  I really do like books and matcha
+                </p>
+              </div>
+              <div className="w-full md:w-[40%] space-y-2">
+                <div className="relative overflow-hidden">
+                  <img
+                    src={meViolinImage}
+                    alt="National day performance"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                <p className="text-sm text-muted-foreground italic text-center">
+                  2024 National Day performance for Minister Maliki Osman @ Siglap CC
+                </p>
+              </div>
+              <div className="w-full md:w-[40%] space-y-2">
+                <div className="relative overflow-hidden">
+                  <img
+                    src={meSkiImage}
+                    alt="Trying new things"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                <p className="text-sm text-muted-foreground italic text-center">
+                  Trying new things!!!
+                </p>
+              </div>
+            </div>
+          </motion.section>
+
+          {/* Section 4: Skills - Spec Sheet Style */}
           <motion.section
             variants={sectionVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="space-y-8"
+            className="space-y-6"
           >
-            <header className="space-y-2">
-              <h2 className="text-lg font-semibold text-foreground">Skills & Tools</h2>
-            </header>
+            <p className="text-lg font-semibold text-foreground">
+              Skills & Tools
+            </p>
+            
+            <div className="space-y-0">
+              {/* Design Row */}
+              <div className="flex flex-col md:flex-row gap-4 md:gap-8 py-6 md:py-8 border-b border-white/10">
+              <div className="w-full md:w-32 flex-shrink-0">
+                <p className="text-sm uppercase tracking-wider text-zinc-500">
+                  Design
+                </p>
+              </div>
+              <div className="flex-1">
+                <p className="text-base md:text-lg text-foreground leading-relaxed">
+                  Figma · Figma Make · Lovable · Sketch · InVision Studio
+                </p>
+              </div>
+            </div>
 
-            <div className="grid grid-cols-3 gap-x-8 gap-y-1">
-              <h3 className="text-sm font-medium text-foreground uppercase tracking-[0.15em]">Design</h3>
-              <h3 className="text-sm font-medium text-foreground uppercase tracking-[0.15em]">Research</h3>
-              <h3 className="text-sm font-medium text-foreground uppercase tracking-[0.15em]">Development</h3>
+            {/* Research Row */}
+            <div className="flex flex-col md:flex-row gap-4 md:gap-8 py-6 md:py-8 border-b border-white/10">
+              <div className="w-full md:w-32 flex-shrink-0">
+                <p className="text-sm uppercase tracking-wider text-zinc-500">
+                  Research
+                </p>
+              </div>
+              <div className="flex-1">
+                <p className="text-base md:text-lg text-foreground leading-relaxed">
+                  Field Studies · Contextual Inquiry · A/B Testing · Surveys · Questionnaires · Heuristic Evaluation · Cognitive Walkthrough
+                </p>
+              </div>
+            </div>
 
-              {(() => {
-                const design = ["Figma", "Figma Make", "Lovable", "Sketch", "InVision Studio"];
-                const research = ["Field Studies", "Contextual Inquiry", "A/B Testing", "Surveys", "Questionnaires", "Heuristic Evaluation", "Cognitive Walkthrough"];
-                const development = ["Java", "HTML/CSS/JS", "React.js", "Python"];
-                const maxRows = Math.max(design.length, research.length, development.length);
-                const rows = [];
-                for (let i = 0; i < maxRows; i++) {
-                  rows.push(
-                    <span key={`d-${i}`} className="text-xs text-muted-foreground py-0.5">
-                      {design[i] ?? ""}
-                    </span>,
-                    <span key={`r-${i}`} className="text-xs text-muted-foreground py-0.5">
-                      {research[i] ?? ""}
-                    </span>,
-                    <span key={`dev-${i}`} className="text-xs text-muted-foreground py-0.5">
-                      {development[i] ?? ""}
-                    </span>
-                  );
-                }
-                return rows;
-              })()}
+            {/* Development Row */}
+            <div className="flex flex-col md:flex-row gap-4 md:gap-8 py-6 md:py-8 border-b border-white/10">
+              <div className="w-full md:w-32 flex-shrink-0">
+                <p className="text-sm uppercase tracking-wider text-zinc-500">
+                  Development
+                </p>
+              </div>
+              <div className="flex-1">
+                <p className="text-base md:text-lg text-foreground leading-relaxed">
+                  Java · HTML/CSS/JS · React.js · Python
+                </p>
+              </div>
+            </div>
             </div>
           </motion.section>
         </article>

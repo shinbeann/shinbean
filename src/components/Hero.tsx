@@ -85,7 +85,7 @@ const Hero = () => {
             I &lt;3 improving digital experiences.
           </p>
           <p className="text-base md:text-lg text-foreground/80 leading-relaxed">
-            Welcome to my small corner of web.
+            Welcome to my small corner of the web.
           </p>
         </motion.div>
 
@@ -97,7 +97,7 @@ const Hero = () => {
           transition={{ delay: 1.5, duration: 0.5 }}
         >
           <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground font-semibold mb-3">
-            Experience
+            On this page
           </p>
           <div className="flex flex-col">
             {EXPERIENCE.map((item, i) => (
