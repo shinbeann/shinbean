@@ -4,6 +4,7 @@ import { useEffect, useLayoutEffect, useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingScrollToTop from "@/components/FloatingScrollToTop";
+import CaseStudyNav from "@/components/CaseStudyNav";
 
 interface TableOfContentsItem {
   id: string;
@@ -223,6 +224,7 @@ const CaseStudyLayout = ({
       </div>
 
       {showContactSection && <Footer />}
+      <CaseStudyNav />
       <footer className="border-t border-border/60 py-6 px-4">
         <p className="text-center text-sm text-muted-foreground">
           Gay Shin Lee © 2026 All Rights Reserved
