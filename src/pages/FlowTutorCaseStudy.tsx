@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import StackedCardCarousel from "@/components/StackedCardCarousel";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
 import { ArrowLeft, ArrowRight, Code, Brain, Layout, Sliders, ChevronRight, ChevronDown, ArrowDown, Search, Zap, Layers, AlertCircle, Eye, AlertTriangle, BookOpen, MessageSquare, FileText, CheckCircle, GripVertical, Sparkles, Maximize, Puzzle, XCircle, Lightbulb } from "lucide-react";
+import CaseStudyNav from "@/components/CaseStudyNav";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import onboardingBefore from "@/assets/flowtutor-onboarding-before.png";
@@ -1879,6 +1880,7 @@ const FlowTutorCaseStudy = () => {
           </div>
         </div>
       </section>
+        <CaseStudyNav />
       </div>
     </CaseStudyLayout>
   );
