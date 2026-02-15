@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
+import CaseStudyNav from "@/components/CaseStudyNav";
 
 const KidneyQuestHero = () => (
   <section className="relative w-full pt-24 md:pt-36 pb-16 md:pb-24 overflow-x-hidden bg-black">
@@ -84,6 +85,7 @@ const KidneyQuestCaseStudy = () => {
       hero={<div className="text-white selection:bg-amber-500/30 font-sans"><KidneyQuestHero /></div>}
     >
       <div className="min-h-[40vh]" />
+      <CaseStudyNav />
     </CaseStudyLayout>
   );
 };
