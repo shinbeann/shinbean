@@ -42,8 +42,11 @@ const SectionContainer = ({ id, children, className = "", hasBorder = false }: S
   return (
     <section 
       id={id} 
-      className={`py-16 md:py-24 scroll-mt-20 md:scroll-mt-24 ${hasBorder ? 'border-t border-white/10' : ''} ${className}`}
+      className={`py-16 md:py-24 scroll-mt-20 md:scroll-mt-24 ${className}`}
     >
+      {hasBorder && (
+        <div className="w-3/4 max-w-2xl h-px bg-white/10 mb-16 md:mb-24" />
+      )}
       <div className="flex flex-col gap-8">
         {children}
       </div>
@@ -1324,7 +1327,8 @@ const FlowTutorCaseStudy = () => {
         </SectionContainer>
 
         {/* 3. PAPER TO PIXEL */}
-        <section id="prototyping" className="relative py-16 md:py-24 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden border-t border-white/10">
+        <section id="prototyping" className="relative py-16 md:py-24 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
+          <div className="w-3/4 max-w-2xl h-px bg-white/10 mx-auto mb-16 md:mb-24" />
           <div className="relative z-10">
           <div className="max-w-4xl mx-auto">
           <div className="flex flex-col gap-8">
@@ -1841,7 +1845,8 @@ const FlowTutorCaseStudy = () => {
         </section>
 
         {/* 8. REFLECTION */}
-        <section id="reflection" className="relative py-16 md:py-24 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden border-t border-white/10">
+        <section id="reflection" className="relative py-16 md:py-24 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
+          <div className="w-3/4 max-w-2xl h-px bg-white/10 mx-auto mb-16 md:mb-24" />
           <div className="relative z-10">
           <div className="max-w-4xl mx-auto">
           <div className="flex flex-col gap-8">
