@@ -10,7 +10,7 @@ const CaseStudyNav = () => {
   const { pathname } = useLocation();
 
   return (
-    <div className="relative left-1/2 -translate-x-1/2 w-screen flex items-center justify-center gap-2 py-12">
+    <div className="fixed bottom-0 left-0 w-screen flex items-center justify-center gap-2 py-4 z-50 bg-black/80 backdrop-blur-sm">
       {studies.map((s, i) => {
         const isActive = pathname === s.path;
         const content = (
