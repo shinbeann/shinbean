@@ -1868,7 +1868,7 @@ const FlowTutorCaseStudy = () => {
                 <p className="mt-4">
                   If I had more time, I would <span className="bg-purple-500/30 text-purple-200 px-1 rounded border border-purple-500/40">implement Minimum Context Guardrails</span>. If video transcripts are too sparse, the system should disable the Quizlet and pivot to a &lsquo;Visual Summary&rsquo; instead. This prevents the &lsquo;garbage-in, garbage-out&rsquo; problem.
                 </p>
-                <hr className="my-16 md:my-24 border-white/10" />
+                <div className="my-16 md:my-24 w-3/4 max-w-2xl h-px bg-white/10" />
                 <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
                   Thank you for reading till the end ;))) I love learning! If you have feedback, I&apos;d love to hear from you. Till then.
                 </p>
