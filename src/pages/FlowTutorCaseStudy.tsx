@@ -46,7 +46,7 @@ const SectionContainer = ({ id, children, className = "", hasBorder = false }: S
       className={`py-16 md:py-24 scroll-mt-20 md:scroll-mt-24 ${className}`}
     >
       {hasBorder && (
-        <div className="w-3/4 max-w-2xl h-px bg-white/10 mb-16 md:mb-24" />
+        <div className="w-[30%] max-w-[270px] h-px bg-white/10 mx-auto mb-16 md:mb-24" />
       )}
       <div className="flex flex-col gap-8">
         {children}
@@ -1329,7 +1329,7 @@ const FlowTutorCaseStudy = () => {
 
         {/* 3. PAPER TO PIXEL */}
         <section id="prototyping" className="relative py-16 md:py-24 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
-          <div className="w-3/4 max-w-2xl h-px bg-white/10 mx-auto mb-16 md:mb-24" />
+          <div className="w-[30%] max-w-[270px] h-px bg-white/10 mx-auto mb-16 md:mb-24" />
           <div className="relative z-10">
           <div className="max-w-4xl mx-auto">
           <div className="flex flex-col gap-8">
@@ -1847,7 +1847,7 @@ const FlowTutorCaseStudy = () => {
 
         {/* 8. REFLECTION */}
         <section id="reflection" className="relative py-16 md:py-24 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
-          <div className="w-3/4 max-w-2xl h-px bg-white/10 mx-auto mb-16 md:mb-24" />
+          <div className="w-[30%] max-w-[270px] h-px bg-white/10 mx-auto mb-16 md:mb-24" />
           <div className="relative z-10">
           <div className="max-w-4xl mx-auto">
           <div className="flex flex-col gap-8">
@@ -1869,9 +1869,9 @@ const FlowTutorCaseStudy = () => {
                 <p className="mt-4">
                   If I had more time, I would <span className="bg-purple-500/30 text-purple-200 px-1 rounded border border-purple-500/40">implement Minimum Context Guardrails</span>. If video transcripts are too sparse, the system should disable the Quizlet and pivot to a &lsquo;Visual Summary&rsquo; instead. This prevents the &lsquo;garbage-in, garbage-out&rsquo; problem.
                 </p>
-                <div className="my-16 md:my-24 w-3/4 max-w-2xl h-px bg-white/10" />
+                <div className="my-16 md:my-24 w-[30%] max-w-[270px] h-px bg-white/10 mx-auto" />
                 <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
-                  Thank you for reading till the end ;))) I love learning! If you have feedback, I&apos;d love to hear from you. Till then.
+                  Yayy thank you for reading till the end ;))) If you have feedback regarding my design or thought process, I&apos;d love to hear from you! Till then.
                 </p>
               </div>
             </div>
