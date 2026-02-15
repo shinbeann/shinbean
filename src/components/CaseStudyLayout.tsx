@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingScrollToTop from "@/components/FloatingScrollToTop";
@@ -18,6 +18,8 @@ interface CaseStudyLayoutProps {
   theme?: "light" | "dark";
   showSidebarsAfter?: string; // Section ID after which sidebars should appear
   showContactSection?: boolean; // When false, hide the Contact / Footer section
+  /** When true, hide the left TOC sidebar and use full-width content */
+  hideTableOfContents?: boolean;
   /** Optional full-width hero rendered above the 2-column grid; not constrained by TOC/content columns */
   hero?: React.ReactNode;
 }
@@ -29,6 +31,7 @@ const CaseStudyLayout = ({
   theme = "light",
   showSidebarsAfter,
   showContactSection = true,
+  hideTableOfContents = false,
   hero,
 }: CaseStudyLayoutProps) => {
   const [activeSection, setActiveSection] = useState<string>("");
@@ -36,6 +39,11 @@ const CaseStudyLayout = ({
   const [expandedHeader, setExpandedHeader] = useState<string | null>(null);
 
   const isDark = theme === "dark";
+
+  // Scroll to top when entering a case study (useLayoutEffect runs before paint — no visible scroll)
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, []);
 
   // Track active section on scroll + sidebar visibility
   useEffect(() => {
@@ -103,9 +111,13 @@ const CaseStudyLayout = ({
       {/* Optional full-width hero (ignores 2-column grid below) */}
       {hero != null && <div className="w-full overflow-x-hidden">{hero}</div>}
       
-      {/* 2-Column Grid (Left: TOC, Center: Content) */}
-      <div className="md:grid md:grid-cols-[240px_1fr] gap-8 max-w-[1600px] mx-auto px-6">
+      {/* 2-Column Grid (Left: TOC, Center: Content) — or single column when hideTableOfContents */}
+      <div className={cn(
+        "max-w-[1600px] mx-auto px-6",
+        hideTableOfContents ? "" : "md:grid md:grid-cols-[240px_1fr] gap-8"
+      )}>
         {/* Left Column - In-Page Navigation (Table of Contents); sticky so it stays visible while right column scrolls */}
+        {!hideTableOfContents && (
         <nav
           aria-label="Table of Contents"
           className={cn(
@@ -186,9 +198,26 @@ const CaseStudyLayout = ({
             </div>
           </div>
         </nav>
+        )}
 
         {/* Center Column - Main Case Study Content */}
         <main className="pb-48 min-w-0">
+          {hideTableOfContents && (
+            <div className="pt-24 pb-6 px-4 md:px-0 max-w-4xl mx-auto">
+              <Link
+                to={backLink.to}
+                onClick={() => window.scrollTo(0, 0)}
+                className={cn(
+                  "inline-flex items-center gap-2 text-sm transition-colors font-medium",
+                  isDark 
+                    ? "text-neutral-500 hover:text-white" 
+                    : "text-neutral-500 hover:text-foreground"
+                )}
+              >
+                ← {backLink.label}
+              </Link>
+            </div>
+          )}
           <div className="max-w-4xl mx-auto px-4 md:px-0">{children}</div>
         </main>
       </div>

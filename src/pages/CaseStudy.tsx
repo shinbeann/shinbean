@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import Footer from "@/components/Footer";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -64,7 +63,7 @@ const CaseStudy = () => {
     <div className="min-h-screen flex flex-col bg-background">
       <ScrollProgressBar />
       
-      <CaseStudyLayout tableOfContents={tableOfContents}>
+      <CaseStudyLayout tableOfContents={tableOfContents} showContactSection={false}>
         {/* Hero */}
         <header id="hero" className="mb-16">
           <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6 text-foreground font-sans">
@@ -373,8 +372,6 @@ const CaseStudy = () => {
           </Button>
         </div>
       </CaseStudyLayout>
-
-      <Footer />
     </div>
   );
 };

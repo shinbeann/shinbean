@@ -1014,6 +1014,7 @@ const FlowTutorCaseStudy = () => {
       theme="dark"
       showSidebarsAfter="problem"
       showContactSection={false}
+      backLink={{ to: "/#flowtutor", label: "Back to Work" }}
       hero={<div className="text-white selection:bg-purple-500/30 font-sans"><FlowTutorHero /></div>}
     >
       <div className="text-white selection:bg-purple-500/30 font-sans overflow-x-hidden min-w-0">
@@ -1461,7 +1462,7 @@ const FlowTutorCaseStudy = () => {
                 <h3 className="text-xl md:text-2xl font-bold text-neutral-500 uppercase tracking-wider text-center">
                   Before
                 </h3>
-                <div className="aspect-[4/3] w-full overflow-hidden">
+                <div className="aspect-video w-full overflow-hidden">
                   <img
                     src={onboardingBefore}
                     alt="Paper prototype showing Upload File interaction"
@@ -1475,7 +1476,7 @@ const FlowTutorCaseStudy = () => {
                 <h3 className="text-xl md:text-2xl font-bold text-purple-500 uppercase tracking-wider text-center">
                   After
                 </h3>
-                <div className="aspect-[4/3] w-full overflow-hidden">
+                <div className="aspect-video w-full overflow-hidden">
                   <img
                     src={onboardingAfter}
                     alt="FlowTutor interface with Paste URL input"
@@ -1497,7 +1498,7 @@ const FlowTutorCaseStudy = () => {
                 <h3 className="text-xl md:text-2xl font-bold text-neutral-500 uppercase tracking-wider text-center">
                   Before
                 </h3>
-                <div className="aspect-[4/3] w-full overflow-hidden">
+                <div className="aspect-video w-full overflow-hidden">
                   <img
                     src={pinBefore}
                     alt="Chat interface without pin feature"
@@ -1511,7 +1512,7 @@ const FlowTutorCaseStudy = () => {
                 <h3 className="text-xl md:text-2xl font-bold text-purple-500 uppercase tracking-wider text-center">
                   After
                 </h3>
-                <div className="aspect-[4/3] w-full overflow-hidden">
+                <div className="aspect-video w-full overflow-hidden">
                   <img
                     src={pinAfter}
                     alt="Chat interface with pin feature"
@@ -1535,10 +1536,10 @@ const FlowTutorCaseStudy = () => {
               </div>
               <div className="text-neutral-400 text-lg md:text-xl leading-relaxed space-y-4">
                 <p>
-                  In an age where AI is trained to be maximally helpful, FlowTutor&apos;s AI tutor <span className="bg-purple-500/30 text-purple-200 px-1 rounded border border-purple-500/40">sometimes says no.</span>
+                  In an age where AI is trained to be maximally helpful, FlowTutor&apos;s AI tutor sometimes says no.
                 </p>
                 <p>
-                  This design decision emerged from a critical finding: when AI tutors mix in-scope and out-of-scope content, students cannot reliably distinguish what the tutorial taught versus what the AI added (Rummer et al., 2016). To prevent this, we designed three distinct interaction states:
+                  When AI tutors mix in-scope and out-of-scope content, students cannot reliably distinguish what the tutorial taught versus what the AI added. To prevent this, we designed three distinct interaction states:
                 </p>
               </div>
               {/* Interactive States Diagram */}
@@ -1851,13 +1852,22 @@ const FlowTutorCaseStudy = () => {
             transition={{ duration: 0.8 }}
           >
             <div className="flex flex-col gap-4">
-              <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
+              <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 text-center">
                 REFLECTION
               </p>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">Fail Fast.</h2>
-              <p className="text-lg md:text-xl text-neutral-400 max-w-prose" style={{ lineHeight: '1.7' }}>
-                In early iterations, it is easy to come up with a lot of ideas to refine a single 'perfect' prototype. But this often creates dangerous blind spots. Instead of over-analysing, it is better to release rough concepts early to let empirical user data drive decisions.
-              </p>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white text-center">Designing for AI Uncertainty.</h2>
+              <div className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+                <p>
+                  Due to the 4-week timeline, the current iteration of <span className="bg-purple-500/30 text-purple-200 px-1 rounded border border-purple-500/40">FlowTutor assumes the AI is always correct</span> and the <span className="bg-purple-500/30 text-purple-200 px-1 rounded border border-purple-500/40">video context is always sufficient</span>. But in a real-world deployment, LLMs hallucinate and sometimes fail to retrieve context.
+                </p>
+                <p className="mt-4">
+                  If I had more time, I would <span className="bg-purple-500/30 text-purple-200 px-1 rounded border border-purple-500/40">implement Minimum Context Guardrails</span>. If video transcripts are too sparse, the system should disable the Quizlet and pivot to a &lsquo;Visual Summary&rsquo; instead. This prevents the &lsquo;garbage-in, garbage-out&rsquo; problem.
+                </p>
+                <hr className="my-16 md:my-24 border-white/10" />
+                <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+                  Thank you for reading till the end ;))) I love learning! If you have feedback, I&apos;d love to hear from you. Till then.
+                </p>
+              </div>
             </div>
           </motion.div>
           </div>

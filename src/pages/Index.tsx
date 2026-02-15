@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import { ArrowUpRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 
@@ -15,6 +16,18 @@ const scrollReveal = {
 };
 
 const Index = () => {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const id = hash.slice(1);
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  }, [hash]);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation tone="light" enableSmartHide />
@@ -23,7 +36,7 @@ const Index = () => {
       <Hero />
 
       {/* SECTION 1: FLOWTUTOR - Deep Midnight Blue */}
-      <section className="flowtutor-section relative min-h-screen">
+      <section id="flowtutor" className="flowtutor-section relative min-h-screen scroll-mt-20">
         {/* Northern Lights Glow Effect */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="northern-lights-glow" />
@@ -93,7 +106,7 @@ const Index = () => {
       </section>
 
       {/* SECTION 2: KIDNEYQUEST - Marigold Yellow Spotlight */}
-      <section className="kidneyquest-section relative">
+      <section id="kidneyquest" className="kidneyquest-section relative scroll-mt-20">
         {/* Yellow Spotlight Effect */}
         <div className="absolute inset-0 kidneyquest-spotlight pointer-events-none" />
         
@@ -115,6 +128,19 @@ const Index = () => {
                 A browser-based AR mini-game for the National Kidney Foundation that
                 turns kidney health education into a playful, memorable experience.
               </p>
+              
+              <div className="mt-6 md:mt-8">
+                <Link 
+                  to="/case-study/kidneyquest" 
+                  className="group inline-flex items-center gap-2 text-sm font-medium kidneyquest-text-primary hover:opacity-90 transition-all duration-200"
+                >
+                  <span className="relative">
+                    Read KidneyQuest case study
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400/60 group-hover:w-full transition-all duration-300" />
+                  </span>
+                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </Link>
+              </div>
             </div>
 
             {/* Demo Card - Now on the left side on desktop */}
