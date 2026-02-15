@@ -81,7 +81,6 @@ const KidneyQuestCaseStudy = () => {
       theme="dark"
       hideTableOfContents
       showContactSection={false}
-      backLink={{ to: "/#kidneyquest", label: "Back to Work" }}
       hero={<div className="text-white selection:bg-amber-500/30 font-sans"><KidneyQuestHero /></div>}
     >
       <div className="min-h-[40vh]" />

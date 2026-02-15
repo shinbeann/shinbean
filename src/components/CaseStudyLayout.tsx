@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { useEffect, useLayoutEffect, useState } from "react";
 import Navigation from "@/components/Navigation";
@@ -15,7 +14,6 @@ interface TableOfContentsItem {
 interface CaseStudyLayoutProps {
   children: React.ReactNode;
   tableOfContents: TableOfContentsItem[];
-  backLink?: { to: string; label: string };
   theme?: "light" | "dark";
   showSidebarsAfter?: string; // Section ID after which sidebars should appear
   showContactSection?: boolean; // When false, hide the Contact / Footer section
@@ -28,7 +26,6 @@ interface CaseStudyLayoutProps {
 const CaseStudyLayout = ({
   children,
   tableOfContents,
-  backLink = { to: "/", label: "Back to Work" },
   theme = "light",
   showSidebarsAfter,
   showContactSection = true,
@@ -127,20 +124,6 @@ const CaseStudyLayout = ({
           )}
         >
           <div className="space-y-6">
-            {/* Back Link */}
-            <Link
-              to={backLink.to}
-              onClick={() => window.scrollTo(0, 0)}
-              className={cn(
-                "inline-flex items-center gap-2 text-sm transition-colors font-medium",
-                isDark 
-                  ? "text-neutral-500 hover:text-white" 
-                  : "text-neutral-500 hover:text-foreground"
-              )}
-            >
-              ← {backLink.label}
-            </Link>
-
             {/* ToC Links */}
             <div className="space-y-1">
               <p className={cn(
@@ -165,7 +148,7 @@ const CaseStudyLayout = ({
                     }}
                     className={cn(
                       "block w-full text-left text-sm transition-colors py-1.5 pl-3 border-l-2",
-                      activeSection === item.id
+                      activeSection === item.id && !item.children?.length
                         ? isDark 
                           ? "text-white border-white font-medium"
                           : "text-foreground border-foreground font-medium"
@@ -203,22 +186,6 @@ const CaseStudyLayout = ({
 
         {/* Center Column - Main Case Study Content */}
         <main className="pb-48 min-w-0">
-          {hideTableOfContents && (
-            <div className="pt-24 pb-6 px-4 md:px-0 max-w-4xl mx-auto">
-              <Link
-                to={backLink.to}
-                onClick={() => window.scrollTo(0, 0)}
-                className={cn(
-                  "inline-flex items-center gap-2 text-sm transition-colors font-medium",
-                  isDark 
-                    ? "text-neutral-500 hover:text-white" 
-                    : "text-neutral-500 hover:text-foreground"
-                )}
-              >
-                ← {backLink.label}
-              </Link>
-            </div>
-          )}
           <div className="max-w-4xl mx-auto px-4 md:px-0">{children}</div>
         </main>
       </div>

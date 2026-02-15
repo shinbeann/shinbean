@@ -1018,7 +1018,6 @@ const FlowTutorCaseStudy = () => {
       theme="dark"
       showSidebarsAfter="problem"
       showContactSection={false}
-      backLink={{ to: "/#flowtutor", label: "Back to Work" }}
       hero={<div className="text-white selection:bg-purple-500/30 font-sans"><FlowTutorHero /></div>}
     >
       <div className="text-white selection:bg-purple-500/30 font-sans overflow-x-hidden min-w-0">
