@@ -1870,7 +1870,7 @@ const FlowTutorCaseStudy = () => {
                 </p>
                 <div className="my-16 md:my-24 w-[30%] max-w-[270px] h-px bg-white/10 mx-auto" />
                 <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
-                  Yayy thank you for reading till the end ;))) If you have feedback regarding my design or thought process, I&apos;d love to hear from you! Till then.
+                  Yayy thank you for reading till the end ;))) If you have feedback regarding my design or thought process, I&apos;d love to hear from you! 
                 </p>
               </div>
             </div>
