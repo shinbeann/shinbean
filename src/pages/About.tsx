@@ -22,56 +22,57 @@ const About = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background relative overflow-hidden">
       {/* Subtle glowing blue gradient bubbles */}
-      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden>
+      <Navigation tone="dark" enableSmartHide={false} />
+
+      {/* Floating blue gradient bubbles - behind content */}
+      <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden" aria-hidden>
         <motion.div
           className="absolute w-[400px] h-[400px] rounded-full blur-3xl"
-          style={{ background: "radial-gradient(circle, hsl(220 55% 45%), hsl(220 50% 22%) 50%, transparent 70%)", top: "5%", left: "10%" }}
+          style={{ background: "radial-gradient(circle, hsl(220 60% 50%), hsl(220 55% 26%) 50%, transparent 70%)", top: "5%", left: "10%" }}
           animate={{
-            x: [0, 60, -40, 20, -30, 0],
-            y: [0, -50, 30, -20, 40, 0],
-            scale: [1, 1.15, 0.95, 1.1, 0.9, 1],
-            opacity: [0.18, 0.30, 0.14, 0.26, 0.16, 0.18],
+            x: [0, 80, -50, 30, -60, 20, 0],
+            y: [0, -60, 40, -30, 50, -20, 0],
+            scale: [1, 1.15, 0.95, 1.1, 0.9, 1.05, 1],
+            opacity: [0.22, 0.36, 0.17, 0.31, 0.19, 0.28, 0.22],
           }}
-          transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear", times: [0, 0.15, 0.3, 0.5, 0.65, 0.85, 1] }}
         />
         <motion.div
           className="absolute w-[300px] h-[300px] rounded-full blur-3xl"
-          style={{ background: "radial-gradient(circle, hsl(220 60% 42%), hsl(220 50% 20%) 50%, transparent 70%)", top: "40%", right: "5%" }}
+          style={{ background: "radial-gradient(circle, hsl(220 65% 48%), hsl(220 55% 24%) 50%, transparent 70%)", top: "40%", right: "5%" }}
           animate={{
-            x: [0, -50, 35, -20, 45, 0],
-            y: [0, 40, -55, 25, -35, 0],
-            scale: [1, 0.9, 1.12, 0.95, 1.05, 1],
-            opacity: [0.14, 0.26, 0.12, 0.24, 0.15, 0.14],
+            x: [0, -60, 45, -30, 55, -15, 0],
+            y: [0, 50, -65, 35, -45, 20, 0],
+            scale: [1, 0.9, 1.12, 0.95, 1.08, 0.93, 1],
+            opacity: [0.17, 0.31, 0.14, 0.29, 0.18, 0.26, 0.17],
           }}
-          transition={{ duration: 28, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 34, repeat: Infinity, ease: "linear", times: [0, 0.14, 0.32, 0.48, 0.67, 0.84, 1] }}
         />
         <motion.div
           className="absolute w-[250px] h-[250px] rounded-full blur-2xl"
-          style={{ background: "radial-gradient(circle, hsl(220 52% 40%), hsl(220 48% 18%) 50%, transparent 70%)", bottom: "15%", left: "30%" }}
+          style={{ background: "radial-gradient(circle, hsl(220 58% 46%), hsl(220 52% 22%) 50%, transparent 70%)", bottom: "15%", left: "30%" }}
           animate={{
-            x: [0, 45, -30, 15, -40, 0],
-            y: [0, -35, 50, -25, 30, 0],
-            scale: [1, 1.1, 0.88, 1.06, 0.92, 1],
-            opacity: [0.16, 0.28, 0.12, 0.25, 0.14, 0.16],
+            x: [0, 55, -40, 25, -50, 15, 0],
+            y: [0, -45, 60, -35, 40, -25, 0],
+            scale: [1, 1.1, 0.88, 1.06, 0.92, 1.04, 1],
+            opacity: [0.19, 0.34, 0.14, 0.30, 0.17, 0.27, 0.19],
           }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 26, repeat: Infinity, ease: "linear", times: [0, 0.16, 0.33, 0.5, 0.66, 0.83, 1] }}
         />
         <motion.div
           className="absolute w-[350px] h-[350px] rounded-full blur-3xl"
-          style={{ background: "radial-gradient(circle, hsl(220 56% 43%), hsl(220 50% 21%) 50%, transparent 70%)", top: "70%", right: "25%" }}
+          style={{ background: "radial-gradient(circle, hsl(220 62% 47%), hsl(220 54% 25%) 50%, transparent 70%)", top: "70%", right: "25%" }}
           animate={{
-            x: [0, -35, 50, -25, 40, 0],
-            y: [0, 55, -30, 40, -20, 0],
-            scale: [1, 1.14, 0.92, 1.08, 0.96, 1],
-            opacity: [0.12, 0.24, 0.10, 0.22, 0.13, 0.12],
+            x: [0, -45, 60, -35, 50, -20, 0],
+            y: [0, 65, -40, 50, -30, 35, 0],
+            scale: [1, 1.14, 0.92, 1.08, 0.96, 1.06, 1],
+            opacity: [0.14, 0.29, 0.12, 0.26, 0.16, 0.24, 0.14],
           }}
-          transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 32, repeat: Infinity, ease: "linear", times: [0, 0.13, 0.3, 0.48, 0.65, 0.82, 1] }}
         />
       </div>
 
-      <Navigation tone="dark" enableSmartHide={false} />
-
-      <main className="flex-grow pt-24 pb-20 px-4 relative z-10">
+      <main className="flex-grow pt-24 pb-20 px-4 relative z-[2]">
         <article className="container mx-auto max-w-5xl space-y-16">
           {/* Section 1: Bio / Hook */}
           <motion.section
