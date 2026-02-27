@@ -172,7 +172,7 @@ const Index = () => {
                 <span className="font-bold">Hybrid RAG </span>
               </p>
               <h2 className="font-sans text-2xl sm:text-3xl md:text-4xl font-normal text-neutral-200">
-                Intelligence in the dark.
+                Hybrid RAG for SOP retrieval.
               </h2>
               <p className="text-sm md:text-base text-neutral-400 leading-relaxed">
                 An offline retrieval-augmented generation system that keeps
