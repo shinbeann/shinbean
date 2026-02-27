@@ -25,47 +25,47 @@ const About = () => {
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden>
         <motion.div
           className="absolute w-[400px] h-[400px] rounded-full blur-3xl"
-          style={{ background: "radial-gradient(circle, hsl(210 60% 50%), hsl(210 50% 30%) 50%, transparent 70%)", top: "5%", left: "10%" }}
+          style={{ background: "radial-gradient(circle, hsl(220 55% 45%), hsl(220 50% 22%) 50%, transparent 70%)", top: "5%", left: "10%" }}
           animate={{
-            x: [0, 30, -20, 0],
-            y: [0, -25, 15, 0],
-            scale: [1, 1.15, 0.95, 1],
-            opacity: [0.15, 0.25, 0.12, 0.15],
+            x: [0, 60, -40, 20, -30, 0],
+            y: [0, -50, 30, -20, 40, 0],
+            scale: [1, 1.15, 0.95, 1.1, 0.9, 1],
+            opacity: [0.18, 0.30, 0.14, 0.26, 0.16, 0.18],
           }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
           className="absolute w-[300px] h-[300px] rounded-full blur-3xl"
-          style={{ background: "radial-gradient(circle, hsl(210 65% 48%), hsl(210 50% 28%) 50%, transparent 70%)", top: "40%", right: "5%" }}
+          style={{ background: "radial-gradient(circle, hsl(220 60% 42%), hsl(220 50% 20%) 50%, transparent 70%)", top: "40%", right: "5%" }}
           animate={{
-            x: [0, -25, 15, 0],
-            y: [0, 20, -30, 0],
-            scale: [1, 0.9, 1.1, 1],
-            opacity: [0.12, 0.22, 0.1, 0.12],
+            x: [0, -50, 35, -20, 45, 0],
+            y: [0, 40, -55, 25, -35, 0],
+            scale: [1, 0.9, 1.12, 0.95, 1.05, 1],
+            opacity: [0.14, 0.26, 0.12, 0.24, 0.15, 0.14],
           }}
-          transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 28, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
           className="absolute w-[250px] h-[250px] rounded-full blur-2xl"
-          style={{ background: "radial-gradient(circle, hsl(210 55% 45%), hsl(210 48% 25%) 50%, transparent 70%)", bottom: "15%", left: "30%" }}
+          style={{ background: "radial-gradient(circle, hsl(220 52% 40%), hsl(220 48% 18%) 50%, transparent 70%)", bottom: "15%", left: "30%" }}
           animate={{
-            x: [0, 20, -15, 0],
-            y: [0, -15, 25, 0],
-            scale: [1, 1.08, 0.9, 1],
-            opacity: [0.13, 0.23, 0.1, 0.13],
+            x: [0, 45, -30, 15, -40, 0],
+            y: [0, -35, 50, -25, 30, 0],
+            scale: [1, 1.1, 0.88, 1.06, 0.92, 1],
+            opacity: [0.16, 0.28, 0.12, 0.25, 0.14, 0.16],
           }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
           className="absolute w-[350px] h-[350px] rounded-full blur-3xl"
-          style={{ background: "radial-gradient(circle, hsl(210 58% 46%), hsl(210 50% 26%) 50%, transparent 70%)", top: "70%", right: "25%" }}
+          style={{ background: "radial-gradient(circle, hsl(220 56% 43%), hsl(220 50% 21%) 50%, transparent 70%)", top: "70%", right: "25%" }}
           animate={{
-            x: [0, -15, 25, 0],
-            y: [0, 30, -10, 0],
-            scale: [1, 1.12, 0.95, 1],
-            opacity: [0.1, 0.2, 0.08, 0.1],
+            x: [0, -35, 50, -25, 40, 0],
+            y: [0, 55, -30, 40, -20, 0],
+            scale: [1, 1.14, 0.92, 1.08, 0.96, 1],
+            opacity: [0.12, 0.24, 0.10, 0.22, 0.13, 0.12],
           }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
 
