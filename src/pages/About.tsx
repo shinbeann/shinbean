@@ -26,49 +26,53 @@ const About = () => {
 
       {/* Floating blue gradient bubbles - behind content */}
       <div className="pointer-events-none fixed inset-0 z-[1] overflow-hidden" aria-hidden>
+        {/* Bubble A: starts top-left, drifts to center, bounces right, returns */}
         <motion.div
           className="absolute w-[450px] h-[450px] rounded-full blur-3xl"
-          style={{ background: "radial-gradient(circle, hsl(220 65% 55%), hsl(220 58% 30%) 50%, transparent 70%)", top: "5%", left: "10%" }}
+          style={{ background: "radial-gradient(circle, hsl(220 65% 55%), hsl(220 58% 30%) 50%, transparent 70%)", top: "8%", left: "5%" }}
           animate={{
-            x: [0, 90, -60, 40, -70, 30, 0],
-            y: [0, -70, 50, -40, 60, -25, 0],
-            scale: [1, 1.18, 0.93, 1.12, 0.88, 1.06, 1],
-            opacity: [0.26, 0.43, 0.20, 0.37, 0.23, 0.34, 0.26],
+            x: ["0vw", "25vw", "35vw", "20vw", "10vw", "-5vw", "0vw"],
+            y: ["0vh", "15vh", "30vh", "20vh", "5vh", "-5vh", "0vh"],
+            scale: [1, 1.1, 1.25, 1.08, 0.95, 1.05, 1],
+            opacity: [0.26, 0.35, 0.45, 0.32, 0.22, 0.30, 0.26],
           }}
-          transition={{ duration: 35, repeat: Infinity, ease: "easeInOut", times: [0, 0.14, 0.28, 0.46, 0.62, 0.82, 1] }}
+          transition={{ duration: 28, repeat: Infinity, ease: "easeInOut", times: [0, 0.15, 0.35, 0.5, 0.7, 0.88, 1] }}
         />
-        <motion.div
-          className="absolute w-[320px] h-[320px] rounded-full blur-3xl"
-          style={{ background: "radial-gradient(circle, hsl(220 70% 52%), hsl(220 58% 28%) 50%, transparent 70%)", top: "40%", right: "5%" }}
-          animate={{
-            x: [0, -70, 55, -35, 65, -20, 0],
-            y: [0, 60, -75, 45, -55, 30, 0],
-            scale: [1, 0.88, 1.14, 0.93, 1.1, 0.92, 1],
-            opacity: [0.20, 0.37, 0.17, 0.35, 0.22, 0.31, 0.20],
-          }}
-          transition={{ duration: 40, repeat: Infinity, ease: "easeInOut", times: [0, 0.13, 0.3, 0.47, 0.64, 0.83, 1] }}
-        />
-        <motion.div
-          className="absolute w-[280px] h-[280px] rounded-full blur-2xl"
-          style={{ background: "radial-gradient(circle, hsl(220 62% 50%), hsl(220 55% 26%) 50%, transparent 70%)", bottom: "15%", left: "30%" }}
-          animate={{
-            x: [0, 65, -45, 30, -55, 20, 0],
-            y: [0, -55, 70, -40, 50, -30, 0],
-            scale: [1, 1.12, 0.86, 1.08, 0.9, 1.05, 1],
-            opacity: [0.23, 0.41, 0.17, 0.36, 0.20, 0.32, 0.23],
-          }}
-          transition={{ duration: 30, repeat: Infinity, ease: "easeInOut", times: [0, 0.15, 0.32, 0.5, 0.67, 0.84, 1] }}
-        />
+        {/* Bubble B: starts right, drifts to center-left, meets A, drifts back */}
         <motion.div
           className="absolute w-[380px] h-[380px] rounded-full blur-3xl"
-          style={{ background: "radial-gradient(circle, hsl(220 66% 52%), hsl(220 56% 28%) 50%, transparent 70%)", top: "70%", right: "25%" }}
+          style={{ background: "radial-gradient(circle, hsl(220 70% 52%), hsl(220 58% 28%) 50%, transparent 70%)", top: "30%", right: "8%" }}
           animate={{
-            x: [0, -55, 70, -40, 60, -25, 0],
-            y: [0, 75, -45, 55, -35, 40, 0],
-            scale: [1, 1.16, 0.9, 1.1, 0.94, 1.07, 1],
-            opacity: [0.17, 0.35, 0.14, 0.31, 0.19, 0.29, 0.17],
+            x: ["0vw", "-20vw", "-35vw", "-25vw", "-10vw", "5vw", "0vw"],
+            y: ["0vh", "-10vh", "5vh", "15vh", "5vh", "-8vh", "0vh"],
+            scale: [1, 1.05, 1.22, 1.1, 0.92, 1.03, 1],
+            opacity: [0.20, 0.30, 0.42, 0.35, 0.22, 0.28, 0.20],
           }}
-          transition={{ duration: 38, repeat: Infinity, ease: "easeInOut", times: [0, 0.12, 0.28, 0.46, 0.63, 0.81, 1] }}
+          transition={{ duration: 32, repeat: Infinity, ease: "easeInOut", times: [0, 0.14, 0.35, 0.52, 0.7, 0.86, 1] }}
+        />
+        {/* Bubble C: starts bottom-left, floats up to center, meets others, sinks back */}
+        <motion.div
+          className="absolute w-[320px] h-[320px] rounded-full blur-2xl"
+          style={{ background: "radial-gradient(circle, hsl(220 62% 50%), hsl(220 55% 26%) 50%, transparent 70%)", bottom: "10%", left: "15%" }}
+          animate={{
+            x: ["0vw", "15vw", "25vw", "18vw", "5vw", "-3vw", "0vw"],
+            y: ["0vh", "-20vh", "-35vh", "-20vh", "-8vh", "5vh", "0vh"],
+            scale: [1, 1.08, 1.2, 1.05, 0.93, 1.02, 1],
+            opacity: [0.23, 0.33, 0.43, 0.30, 0.20, 0.28, 0.23],
+          }}
+          transition={{ duration: 26, repeat: Infinity, ease: "easeInOut", times: [0, 0.16, 0.38, 0.55, 0.72, 0.88, 1] }}
+        />
+        {/* Bubble D: starts bottom-right, floats up-left to center collision point */}
+        <motion.div
+          className="absolute w-[400px] h-[400px] rounded-full blur-3xl"
+          style={{ background: "radial-gradient(circle, hsl(220 66% 52%), hsl(220 56% 28%) 50%, transparent 70%)", bottom: "5%", right: "10%" }}
+          animate={{
+            x: ["0vw", "-18vw", "-30vw", "-20vw", "-8vw", "3vw", "0vw"],
+            y: ["0vh", "-25vh", "-40vh", "-22vh", "-10vh", "5vh", "0vh"],
+            scale: [1, 1.06, 1.18, 1.08, 0.94, 1.04, 1],
+            opacity: [0.17, 0.28, 0.40, 0.30, 0.19, 0.25, 0.17],
+          }}
+          transition={{ duration: 30, repeat: Infinity, ease: "easeInOut", times: [0, 0.15, 0.36, 0.53, 0.71, 0.87, 1] }}
         />
       </div>
 
