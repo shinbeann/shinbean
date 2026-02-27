@@ -48,6 +48,9 @@ const About = () => {
               <p className="text-lg md:text-xl text-muted-foreground max-w-prose leading-relaxed">
                 Beyond that, I love refining little details that matter to make sure people actually use, value and perhaps even fall in love with digital products.
               </p>
+              <p className="text-lg md:text-xl text-muted-foreground max-w-prose leading-relaxed">
+                <strong>Actively looking for full-time product design or UX/UI design roles starting June 2026.</strong>
+              </p>
               <div className="flex items-center gap-4 pt-0">
                 <a
                   href="mailto:gayshinlee@gmail.com"
