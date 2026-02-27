@@ -25,45 +25,45 @@ const About = () => {
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden>
         <motion.div
           className="absolute w-[400px] h-[400px] rounded-full blur-3xl"
-          style={{ background: "radial-gradient(circle, hsl(210 40% 30%), hsl(210 40% 15%) 50%, transparent 70%)", top: "5%", left: "10%" }}
+          style={{ background: "radial-gradient(circle, hsl(210 60% 50%), hsl(210 50% 30%) 50%, transparent 70%)", top: "5%", left: "10%" }}
           animate={{
             x: [0, 30, -20, 0],
             y: [0, -25, 15, 0],
             scale: [1, 1.15, 0.95, 1],
-            opacity: [0.08, 0.14, 0.06, 0.08],
+            opacity: [0.15, 0.25, 0.12, 0.15],
           }}
           transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
           className="absolute w-[300px] h-[300px] rounded-full blur-3xl"
-          style={{ background: "radial-gradient(circle, hsl(210 45% 35%), hsl(210 40% 18%) 50%, transparent 70%)", top: "40%", right: "5%" }}
+          style={{ background: "radial-gradient(circle, hsl(210 65% 48%), hsl(210 50% 28%) 50%, transparent 70%)", top: "40%", right: "5%" }}
           animate={{
             x: [0, -25, 15, 0],
             y: [0, 20, -30, 0],
             scale: [1, 0.9, 1.1, 1],
-            opacity: [0.06, 0.12, 0.05, 0.06],
+            opacity: [0.12, 0.22, 0.1, 0.12],
           }}
           transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
           className="absolute w-[250px] h-[250px] rounded-full blur-2xl"
-          style={{ background: "radial-gradient(circle, hsl(210 38% 28%), hsl(210 40% 12%) 50%, transparent 70%)", bottom: "15%", left: "30%" }}
+          style={{ background: "radial-gradient(circle, hsl(210 55% 45%), hsl(210 48% 25%) 50%, transparent 70%)", bottom: "15%", left: "30%" }}
           animate={{
             x: [0, 20, -15, 0],
             y: [0, -15, 25, 0],
             scale: [1, 1.08, 0.9, 1],
-            opacity: [0.07, 0.13, 0.05, 0.07],
+            opacity: [0.13, 0.23, 0.1, 0.13],
           }}
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
           className="absolute w-[350px] h-[350px] rounded-full blur-3xl"
-          style={{ background: "radial-gradient(circle, hsl(210 42% 32%), hsl(210 40% 16%) 50%, transparent 70%)", top: "70%", right: "25%" }}
+          style={{ background: "radial-gradient(circle, hsl(210 58% 46%), hsl(210 50% 26%) 50%, transparent 70%)", top: "70%", right: "25%" }}
           animate={{
             x: [0, -15, 25, 0],
             y: [0, 30, -10, 0],
             scale: [1, 1.12, 0.95, 1],
-            opacity: [0.05, 0.1, 0.04, 0.05],
+            opacity: [0.1, 0.2, 0.08, 0.1],
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
         />
