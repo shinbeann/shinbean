@@ -20,10 +20,38 @@ const sectionVariants: any = {
 
 const About = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col bg-background relative overflow-hidden">
+      {/* Subtle glowing blue gradient bubbles */}
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden>
+        <motion.div
+          className="absolute w-[400px] h-[400px] rounded-full opacity-[0.07]"
+          style={{ background: "radial-gradient(circle, hsl(210 100% 60%), transparent 70%)", top: "5%", left: "10%" }}
+          animate={{ x: [0, 30, -20, 0], y: [0, -25, 15, 0], scale: [1, 1.1, 0.95, 1] }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute w-[300px] h-[300px] rounded-full opacity-[0.05]"
+          style={{ background: "radial-gradient(circle, hsl(220 90% 55%), transparent 70%)", top: "40%", right: "5%" }}
+          animate={{ x: [0, -25, 15, 0], y: [0, 20, -30, 0], scale: [1, 0.9, 1.08, 1] }}
+          transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute w-[250px] h-[250px] rounded-full opacity-[0.06]"
+          style={{ background: "radial-gradient(circle, hsl(200 95% 65%), transparent 70%)", bottom: "15%", left: "30%" }}
+          animate={{ x: [0, 20, -15, 0], y: [0, -15, 25, 0], scale: [1, 1.05, 0.92, 1] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute w-[350px] h-[350px] rounded-full opacity-[0.04]"
+          style={{ background: "radial-gradient(circle, hsl(215 85% 50%), transparent 70%)", top: "70%", right: "25%" }}
+          animate={{ x: [0, -15, 25, 0], y: [0, 30, -10, 0], scale: [1, 1.12, 0.97, 1] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        />
+      </div>
+
       <Navigation tone="dark" enableSmartHide={false} />
 
-      <main className="flex-grow pt-24 pb-20 px-4">
+      <main className="flex-grow pt-24 pb-20 px-4 relative z-10">
         <article className="container mx-auto max-w-5xl space-y-16">
           {/* Section 1: Bio / Hook */}
           <motion.section
