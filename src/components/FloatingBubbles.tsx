@@ -6,15 +6,17 @@ interface Bubble {
   vx: number;
   vy: number;
   radius: number;
-  color: string;
+  h: number;
+  s: number;
+  l: number;
   opacity: number;
 }
 
 const BUBBLE_CONFIGS = [
-  { radius: 180, color: "hsl(220, 65%, 55%)", opacity: 0.30 },
-  { radius: 150, color: "hsl(220, 70%, 52%)", opacity: 0.25 },
-  { radius: 130, color: "hsl(220, 62%, 50%)", opacity: 0.28 },
-  { radius: 160, color: "hsl(220, 66%, 52%)", opacity: 0.22 },
+  { radius: 180, r: 220, s: 65, l: 55, opacity: 0.30 },
+  { radius: 150, r: 220, s: 70, l: 52, opacity: 0.25 },
+  { radius: 130, r: 220, s: 62, l: 50, opacity: 0.28 },
+  { radius: 160, r: 220, s: 66, l: 52, opacity: 0.22 },
 ];
 
 const FloatingBubbles = () => {
@@ -41,7 +43,9 @@ const FloatingBubbles = () => {
       vx: (Math.random() - 0.5) * 0.6,
       vy: (Math.random() - 0.5) * 0.6,
       radius: cfg.radius,
-      color: cfg.color,
+      h: cfg.r,
+      s: cfg.s,
+      l: cfg.l,
       opacity: cfg.opacity,
     }));
 
@@ -118,8 +122,8 @@ const FloatingBubbles = () => {
       // Render bubbles with radial gradient glow
       for (const b of bubbles) {
         const gradient = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, b.radius);
-        gradient.addColorStop(0, b.color.replace(")", ` / ${b.opacity})`).replace("hsl(", "hsl("));
-        gradient.addColorStop(0.5, b.color.replace(")", ` / ${b.opacity * 0.5})`).replace("hsl(", "hsl("));
+        gradient.addColorStop(0, `hsla(${b.h}, ${b.s}%, ${b.l}%, ${b.opacity})`);
+        gradient.addColorStop(0.5, `hsla(${b.h}, ${b.s}%, ${b.l}%, ${b.opacity * 0.5})`);
         gradient.addColorStop(1, "transparent");
         ctx.beginPath();
         ctx.arc(b.x, b.y, b.radius, 0, Math.PI * 2);
