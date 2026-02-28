@@ -204,7 +204,7 @@ const Index = () => {
 
       {/* SECTION 4: NEST - Teal Blue */}
       <section className="relative scroll-mt-20" style={{
-        background: "linear-gradient(to bottom, #000000 0%, #1a0a02 30%, #3d1a08 55%, #7a3410 75%, #e66e19 100%)",
+        background: "linear-gradient(to bottom, #111111 0%, #1a0a02 25%, #3d1a08 50%, #7a3410 75%, #e66e19 100%)",
       }}>
         <div className="container max-w-6xl mx-auto px-4 py-16 md:py-32 relative z-10">
           <motion.div
