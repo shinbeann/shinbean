@@ -8,6 +8,7 @@ import FloatingContactButton from "@/components/FloatingContactButton";
 import Hero from "@/components/Hero";
 import { KidneyQuestInteractiveDemo } from "@/components/KidneyQuestInteractiveDemo";
 import ftHeroVid from "@/assets/ft_herovid.mp4";
+import nestMockup from "@/assets/nest_mockup.png";
 
 const scrollReveal = {
   initial: { opacity: 0, y: 24 },
@@ -179,6 +180,19 @@ const Index = () => {
                 Singapore Police Force officers informed, even in connectivity
                 blackspots.
               </p>
+              
+              <div className="mt-6 md:mt-8">
+                <Link 
+                  to="/case-study/hybridrag" 
+                  className="group inline-flex items-center gap-2 text-sm font-medium text-neutral-400 hover:text-neutral-300 transition-all duration-200"
+                >
+                  <span className="relative">
+                    Read Hybrid RAG case study
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neutral-300 group-hover:w-full transition-all duration-300" />
+                  </span>
+                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </Link>
+              </div>
             </div>
 
             {/* Story & Media */}
@@ -223,16 +237,33 @@ const Index = () => {
               <p className="text-sm md:text-base text-orange-100/70 leading-relaxed">
                 A thoughtfully designed journaling app that helps you capture and reflect on your daily moments.
               </p>
+              
+              <div className="mt-6 md:mt-8">
+                <Link 
+                  to="/case-study/nest" 
+                  className="group inline-flex items-center gap-2 text-sm font-medium text-orange-300 hover:text-orange-200 transition-all duration-200"
+                >
+                  <span className="relative">
+                    Read NEST case study
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-200 group-hover:w-full transition-all duration-300" />
+                  </span>
+                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </Link>
+              </div>
             </div>
 
-            {/* Media placeholder */}
+            {/* Media - NEST mockup */}
             <div className="w-full md:w-2/3 space-y-8 md:space-y-10">
               <motion.div
                 {...scrollReveal}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="rounded-2xl md:rounded-3xl border border-orange-400/30 overflow-hidden bg-black/40 backdrop-blur-sm min-h-[400px] flex items-center justify-center"
+                className="rounded-2xl md:rounded-3xl border border-orange-400/30 overflow-hidden bg-black/40 backdrop-blur-sm"
               >
-                <p className="text-orange-200/50 text-lg">Coming soon</p>
+                <img
+                  src={nestMockup}
+                  alt="NEST journaling app mockup showing two mobile screens: Choose your spaces onboarding and journal feed with entries"
+                  className="w-full h-auto object-contain"
+                />
               </motion.div>
             </div>
           </motion.div>

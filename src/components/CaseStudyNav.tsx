@@ -4,6 +4,7 @@ const studies = [
   { label: "FlowTutor", path: "/case-study/flowtutor" },
   { label: "KidneyQuest", path: "/case-study/kidneyquest" },
   { label: "HybridRAG", path: "/case-study/hybridrag", disabled: true },
+  { label: "NEST", path: "/case-study/nest" },
 ];
 
 const CaseStudyNav = () => {
