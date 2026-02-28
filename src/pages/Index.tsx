@@ -159,7 +159,7 @@ const Index = () => {
       </section>
 
       {/* SECTION 3: HYBRIDRAG - Monochrome/Tech */}
-      <section className="hybridrag-section relative">
+      <section id="hybridrag" className="hybridrag-section relative">
         <div className="container max-w-6xl mx-auto px-4 py-16 md:py-32 relative z-10">
           <motion.div
             className="min-h-[60vh] md:min-h-[80vh] flex flex-col gap-8 md:gap-16 md:flex-row items-start"
@@ -203,7 +203,7 @@ const Index = () => {
       </section>
 
       {/* SECTION 4: NEST - Teal Blue */}
-      <section className="relative scroll-mt-20" style={{
+      <section id="nest" className="relative scroll-mt-20" style={{
         background: "linear-gradient(to bottom, #111111 0%, #1a0a02 25%, #3d1a08 50%, #7a3410 75%, #e66e19 100%)",
       }}>
         <div className="container max-w-6xl mx-auto px-4 py-16 md:py-32 relative z-10">
