@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
 const EXPERIENCE = [
-  { company: "FlowTutor", role: "Product Designer", date: "2025" },
-  { company: "KidneyQuest (National Kidney Foundation)", role: "UX/UI Designer", date: "2025" },
-  { company: "Hybrid RAG (HTX)", role: "UX/UI Designer", date: "Present" },
-  { company: "NEST", role: "Product Designer, Developer", date: "Present" },
+  { company: "FlowTutor", role: "Product Designer", date: "2025", sectionId: "flowtutor" },
+  { company: "KidneyQuest (National Kidney Foundation)", role: "UX/UI Designer", date: "2025", sectionId: "kidneyquest" },
+  { company: "Hybrid RAG (HTX)", role: "UX/UI Designer", date: "Present", sectionId: "hybridrag" },
+  { company: "NEST", role: "Product Designer, Developer", date: "Present", sectionId: "nest" },
 ];
 
 const ExperienceRow = ({
@@ -12,26 +12,38 @@ const ExperienceRow = ({
   role,
   date,
   isFirst,
+  sectionId,
 }: {
   company: string;
   role: string;
   date: string;
   isFirst?: boolean;
-}) => (
-  <div
-    className="flex items-baseline justify-between gap-4 py-3 w-full"
-    style={{
-      borderTop: isFirst ? "1px solid rgba(255,255,255,0.1)" : undefined,
-      borderBottom: "1px solid rgba(255,255,255,0.1)",
-    }}
-  >
-    <div className="flex items-baseline gap-2 min-w-0">
-      <span className="font-semibold text-foreground truncate">{company}</span>
-      <span className="text-sm text-muted-foreground shrink-0">{role}</span>
+  sectionId: string;
+}) => {
+  const handleClick = () => {
+    const el = document.getElementById(sectionId);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
+
+  return (
+    <div
+      onClick={handleClick}
+      className="flex items-baseline justify-between gap-4 py-3 w-full cursor-pointer transition-colors duration-200 hover:bg-white/5"
+      style={{
+        borderTop: isFirst ? "1px solid rgba(255,255,255,0.1)" : undefined,
+        borderBottom: "1px solid rgba(255,255,255,0.1)",
+      }}
+    >
+      <div className="flex items-baseline gap-2 min-w-0">
+        <span className="font-semibold text-foreground truncate">{company}</span>
+        <span className="text-sm text-muted-foreground shrink-0">{role}</span>
+      </div>
+      <span className="text-sm text-muted-foreground tabular-nums shrink-0">{date}</span>
     </div>
-    <span className="text-sm text-muted-foreground tabular-nums shrink-0">{date}</span>
-  </div>
-);
+  );
+};
 
 const Hero = () => {
   const name = "Gay Shin Lee";
@@ -107,6 +119,7 @@ const Hero = () => {
                 company={item.company}
                 role={item.role}
                 date={item.date}
+                sectionId={item.sectionId}
                 isFirst={i === 0}
               />
             ))}
