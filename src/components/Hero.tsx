@@ -82,10 +82,10 @@ const Hero = () => {
           transition={{ delay: 1.1, duration: 0.5 }}
         >
           <p className="text-base md:text-lg text-foreground/80 leading-relaxed">
-            I &lt;3 improving digital experiences.
+            Welcome to my small corner of the web.
           </p>
           <p className="text-base md:text-lg text-foreground/80 leading-relaxed">
-            Welcome to my small corner of the web.
+            Currently building Nest, your new favorite digital journal.
           </p>
         </motion.div>
 
