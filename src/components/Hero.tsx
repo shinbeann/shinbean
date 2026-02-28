@@ -86,7 +86,7 @@ const Hero = () => {
             Welcome to my small corner of the web.
           </p>
           <p className="text-base md:text-lg text-foreground/80 leading-relaxed">
-            Currently building Nest, your new favorite digital journal.
+            Currently building NEST, your new favorite digital journal.
           </p>
         </motion.div>
 
