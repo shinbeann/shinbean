@@ -4,7 +4,7 @@ const EXPERIENCE = [
   { company: "FlowTutor", role: "Product Designer", date: "2025" },
   { company: "KidneyQuest (National Kidney Foundation)", role: "UX/UI Designer", date: "2025" },
   { company: "Hybrid RAG (HTX)", role: "UX/UI Designer", date: "Present" },
-  { company: "Nest", role: "Product Designer", date: "Present" },
+  { company: "NEST", role: "Product Designer", date: "Present" },
 ];
 
 const ExperienceRow = ({
@@ -38,7 +38,7 @@ const Hero = () => {
 
   return (
     <section
-      className="relative min-h-screen flex items-end pb-20 md:pb-28 px-6 md:px-16 lg:px-24 overflow-hidden"
+      className="relative min-h-screen flex items-end pb-12 md:pb-20 px-6 md:px-16 lg:px-24 overflow-hidden"
       style={{
         background: "linear-gradient(to bottom, #000000 0%, #000000 60%, #0d1526 100%)",
       }}
