@@ -204,7 +204,7 @@ const Index = () => {
 
       {/* SECTION 4: NEST - Teal Blue */}
       <section className="relative scroll-mt-20" style={{
-        background: "linear-gradient(to bottom, #000000 0%, #2596be 100%)",
+        background: "linear-gradient(to bottom, #000000 0%, #1a0a02 30%, #3d1a08 55%, #7a3410 75%, #e66e19 100%)",
       }}>
         <div className="container max-w-6xl mx-auto px-4 py-16 md:py-32 relative z-10">
           <motion.div
@@ -214,13 +214,13 @@ const Index = () => {
           >
             {/* Heading */}
             <div className="w-full md:w-1/3 md:sticky md:top-28 self-start space-y-4">
-              <p className="text-xs uppercase tracking-[0.25em] text-sky-300/80">
+              <p className="text-xs uppercase tracking-[0.25em] text-orange-300/80">
                 <span className="font-bold">NEST</span>
               </p>
               <h2 className="font-sans text-2xl sm:text-3xl md:text-4xl font-normal text-neutral-200">
                 Your new favorite digital journal.
               </h2>
-              <p className="text-sm md:text-base text-sky-100/70 leading-relaxed">
+              <p className="text-sm md:text-base text-orange-100/70 leading-relaxed">
                 A thoughtfully designed journaling app that helps you capture and reflect on your daily moments.
               </p>
             </div>
@@ -230,9 +230,9 @@ const Index = () => {
               <motion.div
                 {...scrollReveal}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="rounded-2xl md:rounded-3xl border border-sky-400/30 overflow-hidden bg-black/40 backdrop-blur-sm min-h-[400px] flex items-center justify-center"
+                className="rounded-2xl md:rounded-3xl border border-orange-400/30 overflow-hidden bg-black/40 backdrop-blur-sm min-h-[400px] flex items-center justify-center"
               >
-                <p className="text-sky-200/50 text-lg">Coming soon</p>
+                <p className="text-orange-200/50 text-lg">Coming soon</p>
               </motion.div>
             </div>
           </motion.div>
