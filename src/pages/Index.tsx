@@ -202,6 +202,43 @@ const Index = () => {
         </div>
       </section>
 
+      {/* SECTION 4: NEST - Teal Blue */}
+      <section className="relative scroll-mt-20" style={{
+        background: "linear-gradient(to bottom, #000000 0%, #2596be 100%)",
+      }}>
+        <div className="container max-w-6xl mx-auto px-4 py-16 md:py-32 relative z-10">
+          <motion.div
+            className="min-h-[60vh] md:min-h-[80vh] flex flex-col gap-8 md:gap-16 md:flex-row md:flex-row-reverse items-start"
+            {...scrollReveal}
+            transition={{ duration: 0.6 }}
+          >
+            {/* Heading */}
+            <div className="w-full md:w-1/3 md:sticky md:top-28 self-start space-y-4">
+              <p className="text-xs uppercase tracking-[0.25em] text-sky-300/80">
+                <span className="font-bold">NEST</span>
+              </p>
+              <h2 className="font-sans text-2xl sm:text-3xl md:text-4xl font-normal text-neutral-200">
+                Your new favorite digital journal.
+              </h2>
+              <p className="text-sm md:text-base text-sky-100/70 leading-relaxed">
+                A thoughtfully designed journaling app that helps you capture and reflect on your daily moments.
+              </p>
+            </div>
+
+            {/* Media placeholder */}
+            <div className="w-full md:w-2/3 space-y-8 md:space-y-10">
+              <motion.div
+                {...scrollReveal}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="rounded-2xl md:rounded-3xl border border-sky-400/30 overflow-hidden bg-black/40 backdrop-blur-sm min-h-[400px] flex items-center justify-center"
+              >
+                <p className="text-sky-200/50 text-lg">Coming soon</p>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       <FloatingContactButton />
 
       <footer className="border-t border-border/60 py-6 px-4">
