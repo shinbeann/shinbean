@@ -4,6 +4,7 @@ const EXPERIENCE = [
   { company: "FlowTutor", role: "Product Designer", date: "2025" },
   { company: "KidneyQuest (National Kidney Foundation)", role: "UX/UI Designer", date: "2025" },
   { company: "Hybrid RAG (HTX)", role: "UX/UI Designer", date: "Present" },
+  { company: "Nest", role: "Product Designer", date: "Present" },
 ];
 
 const ExperienceRow = ({
