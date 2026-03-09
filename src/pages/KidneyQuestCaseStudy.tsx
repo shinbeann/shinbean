@@ -373,6 +373,33 @@ const KidneyQuestCaseStudy = () => {
                       </div>
                     </div>
 
+                    {/* Design Decision 02 */}
+                    <div className="mt-16 md:mt-24 space-y-10">
+                      <div className="flex items-center gap-4">
+                        <span className="text-5xl md:text-6xl font-bold text-neutral-700/60 leading-none">02</span>
+                        <div>
+                          <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">Mascot Narrative vs. Direct Quiz</h3>
+                          <p className="text-neutral-400 mt-1">How should health information be delivered inside the game?</p>
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="border border-white/10 rounded-lg p-6 bg-white/[0.02]">
+                          <p className="text-xs uppercase tracking-widest text-neutral-500 mb-3 flex items-center gap-1.5">
+                            <span className="text-neutral-500">✕</span> REJECTED AFTER TESTING
+                          </p>
+                          <h4 className="text-lg font-semibold text-white mb-2">Mascot-Led Tutorial</h4>
+                          <p className="text-neutral-400 leading-relaxed">3 of 4 usability testers spent 60+ sec learning the character's logic before reaching any health content. Violated Heuristic #6.</p>
+                        </div>
+                        <div className="border border-[#E5A500]/60 rounded-lg p-6 bg-[#E5A500]/[0.04]">
+                          <p className="text-xs uppercase tracking-widest text-[#E5A500] mb-3 flex items-center gap-1.5">
+                            <span>✓</span> CHOSEN
+                          </p>
+                          <h4 className="text-lg font-semibold text-white mb-2">Direct Trivia + Visual Feedback</h4>
+                          <p className="text-neutral-400 leading-relaxed">Question → wrong answer surfaces a health fact. No narrative scaffolding. Playable within 10 seconds of launch.</p>
+                        </div>
+                      </div>
+                    </div>
+
                     <div id="prototyping" className="pt-16 md:pt-24 scroll-mt-20 md:scroll-mt-24">
                       <div className="w-[30%] max-w-[270px] h-px bg-white/10 mx-auto mb-16 md:mb-24" />
                       <div className="space-y-4">
