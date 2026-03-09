@@ -375,11 +375,8 @@ const ResultsVisualizationCard = () => {
               25%
             </div>
             <p className="text-lg text-neutral-400">
-              Increase in Conceptual Retention
+              Increase in Conceptual Retention (p &lt; 0.05)
             </p>
-          </div>
-          <div className="text-purple-400 font-semibold uppercase tracking-wider text-xs">
-            Statistically Significant(p &lt; 0.05)
           </div>
         </div>
 
@@ -1356,12 +1353,14 @@ const FlowTutorCaseStudy = () => {
               {/* Layout 2 Row */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div className="relative">
-                  <span className="absolute -top-4 -left-4 text-[40px] md:text-[50px] font-bold leading-none text-purple-500/80 select-none pointer-events-none z-10">1</span>
                   <img 
                     src="/layout2.png" 
                     alt="Layout 2 - Video on top, Transcript and AI Chatbot below" 
                     className="w-full border border-white/10 opacity-60"
                   />
+                  <p className="mt-2 text-xs text-neutral-500 tracking-widest text-center">
+                    Layout 1
+                  </p>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
@@ -1384,12 +1383,14 @@ const FlowTutorCaseStudy = () => {
               {/* Layout 3 Row */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div className="relative">
-                  <span className="absolute -top-4 -left-4 text-[40px] md:text-[50px] font-bold leading-none text-purple-500/80 select-none pointer-events-none z-10">2</span>
                   <img 
                     src="/layout3.png" 
                     alt="Layout 3 - Video left, AI Chatbot and Transcript stacked right" 
                     className="w-full border border-white/10 opacity-60"
                   />
+                  <p className="mt-2 text-xs text-neutral-500 tracking-widest text-center">
+                    Layout 2
+                  </p>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
@@ -1415,12 +1416,14 @@ const FlowTutorCaseStudy = () => {
               {/* Layout 1 Row - Chosen */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div className="relative">
-                  <span className="absolute -top-4 -left-4 text-[40px] md:text-[50px] font-bold leading-none text-purple-500/80 select-none pointer-events-none z-10">3</span>
                   <img 
                     src="/layout1.png" 
                     alt="Layout 1 - Video and Transcript stacked left, AI Chatbot right" 
                     className="w-full shadow-xl"
                   />
+                  <p className="mt-2 text-xs text-neutral-500 tracking-widest text-center">
+                    Layout 3
+                  </p>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>

@@ -9,11 +9,13 @@ import kqResult from "@/assets/kq_result.png";
 import kqAr from "@/assets/kq_ar.mp4";
 import kqBrainstorm from "@/assets/kq_brainstorm.png";
 import kqAffinitymap from "@/assets/kq_affinitymap.png";
-import kqLofis from "@/assets/kq_lofis.png";
+import kqIter from "@/assets/kq_iter.jpg";
+import kqTeam1 from "@/assets/kq_team1.jpg";
+import kqTeam2 from "@/assets/kq_team2.jpg";
 
 
 const KidneyQuestHero = () => (
-  <section className="relative w-full pt-24 md:pt-36 pb-16 md:pb-24 overflow-x-hidden bg-black">
+  <section className="relative w-full pt-24 md:pt-36 pb-16 md:pb-24 overflow-x-hidden bg-[#050505]">
     <div className="w-full max-w-6xl mx-auto px-6 md:px-16 lg:px-24 space-y-10 min-w-0">
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
@@ -28,9 +30,9 @@ const KidneyQuestHero = () => (
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.15 }}
-        className="text-neutral-400 text-lg md:text-xl leading-relaxed max-w-3xl break-words"
+        className="text-neutral-400 text-lg md:text-xl leading-relaxed w-full break-words"
       >
-        At public events, dense brochures and static displays are ignored under time pressure. We created KidneyQuest to turn kidney health education into a playful, memorable AR experience—replacing paper handouts with a 3-minute, self-directed mini-game.
+        NKF's kidney inflatble drew crowds but left visitors with a brochure they'd never read. We created KidneyQuest to turn kidney health education into a playful, memorable AR experience to replace paper handouts with a <span className="text-[#FFD700]">3-minute, self-directed mini-game.</span>
       </motion.p>
 
       <motion.hr
@@ -44,11 +46,11 @@ const KidneyQuestHero = () => (
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.4 }}
-        className="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-8 min-w-0"
+        className="grid grid-cols-2 md:grid-cols-[repeat(4,1fr)] gap-y-8 gap-x-8 min-w-0"
       >
         {[
           { label: "ROLE", value: "UI/UX Designer" },
-          { label: "TIMELINE", value: "September – December 2025)" },
+          { label: "TIMELINE", value: "September – December 2025" },
           { label: "CLIENT", value: "National Kidney Foundation (NKF)" },
           { label: "TOOLS", value: "Figma, Figma Make, 8th Wall, Miro" },
         ].map((item) => (
@@ -72,7 +74,7 @@ const KidneyQuestHero = () => (
         transition={{ duration: 0.8, delay: 0.55 }}
         className="space-y-4 min-w-0"
       >
-        <p className="text-[11px] uppercase tracking-[0.15em] font-bold text-neutral-500">Key Contributions</p>
+        <p className="text-[11px] uppercase tracking-[0.15em] font-medium text-neutral-500">Key Contributions</p>
         <ul className="space-y-3 text-neutral-400 text-sm md:text-base leading-relaxed list-disc list-outside pl-5 break-words">
           <li>Led user research with 3 participant interviews and a 61-response survey to understand visitor behavior at public exhibits.</li>
           <li>Conducted affinity mapping and synthesis sessions to identify patterns in content preferences and engagement barriers.</li>
@@ -88,13 +90,13 @@ const KidneyQuestHero = () => (
         {[
           { stat: "3×", desc: "Knowledge retention vs. brochure baseline" },
           { stat: "40%", desc: "Less staff time on manual explanation" },
-          { stat: "4", desc: "Languages · 6 cities deployed" },
+          { stat: "4", desc: "Languages" },
         ].map((item, i) => (
           <div
             key={item.stat}
             className={`flex flex-col items-center text-center ${i < 2 ? "md:border-r md:border-black/15" : ""}`}
           >
-            <p className="text-4xl md:text-5xl lg:text-6xl font-black text-black tracking-tight">{item.stat}</p>
+            <p className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-black">{item.stat}</p>
             <p className="text-sm md:text-base text-black/70 mt-2 max-w-[240px]">{item.desc}</p>
           </div>
         ))}
@@ -157,7 +159,7 @@ const KidneyQuestCaseStudy = () => {
       showContactSection={false}
       hero={<div className="text-white selection:bg-amber-500/30 font-sans"><KidneyQuestHero /></div>}
     >
-      <div className="text-white selection:bg-amber-500/30 font-sans overflow-x-hidden min-w-0">
+      <div className="text-white selection:bg-amber-500/30 font-sans overflow-x-hidden min-w-0 bg-[#050505]">
         <section id="problem" className="relative flex flex-col pt-24 md:pt-32 pb-20 scroll-mt-20 md:scroll-mt-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -233,7 +235,7 @@ const KidneyQuestCaseStudy = () => {
                     transition={{ duration: 0.5, delay: 3.2 + i * 0.1 }}
                     className="flex flex-col gap-2 p-5 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors"
                   >
-                    <span className="text-sm font-bold text-[#FFD700]">0{i + 1}</span>
+                    <span className="text-2xl md:text-3xl font-bold tracking-tight leading-none text-[#FFD700]">0{i + 1}</span>
                     <h3 className="font-bold text-white">{card.title}</h3>
                     <p className="text-sm text-neutral-400 leading-relaxed">{card.text}</p>
                   </motion.div>
@@ -294,17 +296,16 @@ const KidneyQuestCaseStudy = () => {
                 <div id="research" className="pt-16 md:pt-24 scroll-mt-20 md:scroll-mt-24">
                   <div className="w-[30%] max-w-[270px] h-px bg-white/10 mx-auto mb-16 md:mb-24" />
                   <div className="space-y-4">
-                    <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
-                      RESEARCH
-                    </p>
+                    <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">RESEARCH</p>
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
                       Public Engagement with Exhibits.
                     </h2>
                     <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
                       To understand why visitors don&apos;t engage with public exhibits, we conducted a survey (N=61) and observed behaviors at similar roadshows.
                     </p>
+                  </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
                       {[
                         { metric: "78%", title: "Engage in < 2 Minutes", description: "of users walk away within 120 seconds." },
                         { metric: "Top 2", title: "'Boring' & 'Rushed'", description: "Reasons users ignore static exhibits." },
@@ -323,12 +324,11 @@ const KidneyQuestCaseStudy = () => {
                           <p className="text-sm text-neutral-400 leading-relaxed">{card.description}</p>
                         </motion.div>
                       ))}
-                    </div>
+                  </div>
 
-                    <p className="text-lg font-semibold text-white pt-8">
-                      Guided Group Brainstorming
-                    </p>
-                    <div className="flex flex-col md:flex-row gap-4 mt-4">
+                  <div className="mt-16 space-y-4">
+                    <p className="text-lg font-semibold text-white">Guided Group Brainstorming</p>
+                    <div className="flex flex-col md:flex-row gap-4">
                       <div className="flex-1 min-w-0 overflow-hidden border border-white/10">
                         <img
                           src={kqAffinitymap}
@@ -344,9 +344,10 @@ const KidneyQuestCaseStudy = () => {
                         />
                       </div>
                     </div>
+                  </div>
 
-                    {/* Design Decisions */}
-                    <div className="pt-8 space-y-4">
+                  {/* Design Decision 01 */}
+                  <div className="mt-16 space-y-4">
                       <div className="flex items-center gap-4">
                         <span className="text-5xl md:text-6xl font-bold text-neutral-700/60 leading-none">01</span>
                         <div>
@@ -370,10 +371,10 @@ const KidneyQuestCaseStudy = () => {
                           <p className="text-neutral-400 leading-relaxed">Scan → play in under 5 seconds. No install. Any modern browser. Preserves the phygital interaction 65% of users wanted.</p>
                         </div>
                       </div>
-                    </div>
+                  </div>
 
-                    {/* Design Decision 02 */}
-                    <div className="mt-20 md:mt-24 space-y-4">
+                  {/* Design Decision 02 */}
+                  <div className="mt-16 space-y-4">
                       <div className="flex items-center gap-4">
                         <span className="text-5xl md:text-6xl font-bold text-neutral-700/60 leading-none">02</span>
                         <div>
@@ -397,14 +398,14 @@ const KidneyQuestCaseStudy = () => {
                           <p className="text-neutral-400 leading-relaxed">Question → wrong answer surfaces a health fact. No narrative scaffolding. Playable within 10 seconds of launch.</p>
                         </div>
                       </div>
-                    </div>
+                  </div>
 
-                    {/* Design Decision 03 */}
-                    <div className="mt-16 md:mt-20 space-y-4">
+                  {/* Design Decision 03 */}
+                  <div className="mt-16 space-y-4">
                       <div className="flex items-center gap-4">
                         <span className="text-5xl md:text-6xl font-bold text-neutral-700/60 leading-none">03</span>
                         <div>
-                          <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">Language — Auto-detect vs. Explicit Picker</h3>
+                          <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">Language</h3>
                           <p className="text-neutral-400 mt-1">NKF's audience is multilingual. Wrong language = immediate drop.</p>
                         </div>
                       </div>
@@ -414,19 +415,19 @@ const KidneyQuestCaseStudy = () => {
                             <span className="text-neutral-500">✕</span> REJECTED
                           </p>
                           <h4 className="text-lg font-semibold text-white mb-2">Auto-detect device language</h4>
-                          <p className="text-neutral-400 leading-relaxed">Failed in 2 of 4 test sessions — phone language settings didn't match users' preferred reading language.</p>
+                          <p className="text-neutral-400 leading-relaxed">Failed in 2 of 4 test sessions: phone language settings didn't match users' preferred reading language.</p>
                         </div>
                         <div className="border border-[#E5A500]/60 rounded-xl p-6 bg-[#E5A500]/[0.04]">
                           <p className="text-xs uppercase tracking-widest text-[#E5A500] mb-3 flex items-center gap-1.5">
                             <span>✓</span> CHOSEN
                           </p>
                           <h4 className="text-lg font-semibold text-white mb-2">First-screen language picker</h4>
-                          <p className="text-neutral-400 leading-relaxed">EN / ES / 中文 / தமிழ் — one tap. Text + script combination makes options scannable regardless of literacy level.</p>
+                          <p className="text-neutral-400 leading-relaxed">EN / ES / 中文 / தமிழ்: one tap. Text + script combination makes options scannable regardless of literacy level.</p>
                         </div>
                       </div>
-                    </div>
+                  </div>
 
-                    <div id="prototyping" className="pt-16 md:pt-24 scroll-mt-20 md:scroll-mt-24">
+                  <div id="prototyping" className="pt-16 md:pt-24 scroll-mt-20 md:scroll-mt-24">
                       <div className="w-[30%] max-w-[270px] h-px bg-white/10 mx-auto mb-16 md:mb-24" />
                       <div className="space-y-4">
                         <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
@@ -439,21 +440,223 @@ const KidneyQuestCaseStudy = () => {
                           As a team of non-designers, our initial instinct was to design cute mascot and themes. But early stakeholder feedback and usability testing revealed{" "}
                           <span className="font-bold text-[#FFD700]">visual noise, cognitive overload and heuristic issues</span>.
                         </p>
-                        <div className="overflow-hidden mt-6 [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)]">
-                          <img
-                            src={kqLofis}
-                            alt="Grid of low-fidelity mobile prototypes showing The Flow Guardians and Kidney Quest design iterations"
-                            className="w-full h-auto object-cover"
-                          />
+                        <img
+                          src={kqIter}
+                          alt="Early to final KidneyQuest language screen iterations from Flow Guardians to simplified layout"
+                          className="w-full h-auto object-cover mt-6"
+                        />
+
+                        <div
+                          className="w-full overflow-x-auto"
+                          style={{
+                            ["--accent" as never]: "hsl(var(--kidneyquest-gold))",
+                            ["--accent-bg" as never]: "hsl(var(--kidneyquest-gold) / 0.08)",
+                            ["--surface" as never]: "hsl(var(--card))",
+                            ["--border" as never]: "hsl(var(--border))",
+                            ["--muted" as never]: "hsl(var(--muted-foreground))",
+                            ["--text" as never]: "hsl(var(--foreground))",
+                          }}
+                        >
+                          <table className="w-full border-collapse text-[13px] my-7">
+                            <thead>
+                              <tr>
+                                {[
+                                  "NAME",
+                                  "CORE PROBLEM",
+                                  "WHY REJECTED / WHY SHIPPED",
+                                ].map((h) => (
+                                  <th
+                                    key={h}
+                                    className="text-xs uppercase tracking-widest font-medium text-left"
+                                    style={{
+                                      color: "var(--accent)",
+                                      background: "var(--surface)",
+                                      borderBottom: "1px solid var(--border)",
+                                      padding: "10px 14px",
+                                    }}
+                                  >
+                                    {h}
+                                  </th>
+                                ))}
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {[
+                                {
+                                  v: "01",
+                                  name: "Flow Guardians",
+                                  core: "Narrative-first, fiction before function",
+                                  why:
+                                    "Users spent 60s decoding game lore before reaching health content, violates progressive disclosure, cognitive cost before value delivery.",
+                                },
+                                {
+                                  v: "02",
+                                  name: "Mascot + Language Select",
+                                  core: "Mascot overlaps primary action",
+                                  why:
+                                    "Character visual weight competes directly with language buttons; no dominant element. Decoration blocking interaction is noise.",
+                                },
+                                {
+                                  v: "03",
+                                  name: "Clean Grid",
+                                  core: "Ambiguous READ ALOUD toggle state",
+                                  why:
+                                    "Toggle showed ON visually while labelled OFF: violates Heuristic #1 (visibility of system status). Logo consumed 35% of screen before the task.",
+                                },
+                              ].map((row) => (
+                                <tr key={row.v}>
+                                  <td
+                                    style={{
+                                      padding: "14px",
+                                      borderBottom: "1px solid var(--border)",
+                                      color: "var(--muted)",
+                                      verticalAlign: "top",
+                                      lineHeight: 1.55,
+                                    }}
+                                  >
+                                    <span className="font-mono text-[11px]" style={{ color: "var(--accent)" }}>
+                                      {row.v}
+                                    </span>
+                                    <span
+                                      className="block font-semibold"
+                                      style={{
+                                        color: "var(--text)",
+                                        marginBottom: 4,
+                                      }}
+                                    >
+                                      {row.name}
+                                    </span>
+                                  </td>
+                                  <td
+                                    style={{
+                                      padding: "14px",
+                                      borderBottom: "1px solid var(--border)",
+                                      color: "var(--muted)",
+                                      verticalAlign: "top",
+                                      lineHeight: 1.55,
+                                    }}
+                                  >
+                                    {row.core}
+                                  </td>
+                                  <td
+                                    style={{
+                                      padding: "14px",
+                                      borderBottom: "1px solid var(--border)",
+                                      color: "var(--muted)",
+                                      verticalAlign: "top",
+                                      lineHeight: 1.55,
+                                    }}
+                                  >
+                                    {row.why}
+                                  </td>
+                                </tr>
+                              ))}
+
+                              {/* Shipped row */}
+                              <tr
+                                style={{
+                                  background: "var(--accent-bg)",
+                                  boxShadow: "inset 0 0 0 1px var(--accent)",
+                                }}
+                              >
+                                <td
+                                  style={{
+                                    padding: "14px",
+                                    borderBottom: "none",
+                                    color: "var(--muted)",
+                                    verticalAlign: "top",
+                                    lineHeight: 1.55,
+                                  }}
+                                >
+                                  <span className="font-mono text-[11px]" style={{ color: "var(--accent)" }}>
+                                    04
+                                  </span>
+                                  <span
+                                    className="block font-semibold"
+                                    style={{
+                                      color: "var(--text)",
+                                      marginBottom: 4,
+                                    }}
+                                  >
+                                    KidneyQuest (Shipped)
+                                  </span>
+                                </td>
+                                <td
+                                  style={{
+                                    padding: "14px",
+                                    borderBottom: "none",
+                                    color: "var(--muted)",
+                                    verticalAlign: "top",
+                                    lineHeight: 1.55,
+                                  }}
+                                >
+                                  —
+                                </td>
+                                <td
+                                  style={{
+                                    padding: "14px",
+                                    borderBottom: "none",
+                                    color: "var(--muted)",
+                                    verticalAlign: "top",
+                                    lineHeight: 1.55,
+                                  }}
+                                >
+                                  <div>
+                                    Single visual hierarchy. Two typographic voices. White background survives outdoor ambient light. READ ALOUD correctly subordinated. Gestalt closure on 2×2 language grid.
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+
+                        {/* Reflection section — same spacing as Prototyping (pt, divider, content) */}
+                        <div className="pt-16 md:pt-24 scroll-mt-20 md:scroll-mt-24">
+                          <div className="w-[30%] max-w-[270px] h-px bg-white/10 mx-auto mb-16 md:mb-24" />
+                          <div className="space-y-4">
+                            <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
+                              Reflection
+                            </p>
+                          <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white">
+                            Constraints, constraints, constraints.
+                          </h3>
+                          <div className="text-neutral-400 text-lg md:text-xl leading-relaxed space-y-4">
+                            <p>
+                              Tight timeline and technical constraints forced a discipline we should have started with: testing assumptions before committing to features. Early in the project, the team had a long list of interactions we wanted to build: photobooth, mascot animations. But due to the technical difficulties we faced, deadlines were pushed back and features had to be cut.
+                            </p>
+                            <p>
+                              If I were to redo this project, I would run a mock setup to test the feasbility of our project.
+                            </p>
+                          </div>
+
+                          <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white pt-8">
+                            Thank you!
+                          </h3>
+                          <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+                            Thank you to my teammates for pulling the long-nighters together and for sharing their valuable insight. Special thanks to Azfar and Sahitya for teaching me how to play foosball.
+                          </p>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                            <img
+                              src={kqTeam1}
+                              alt="KidneyQuest team"
+                              className="w-full h-auto object-cover"
+                            />
+                            <img
+                              src={kqTeam2}
+                              alt="KidneyQuest team"
+                              className="w-full h-auto object-cover"
+                            />
+                          </div>
+                          </div>
                         </div>
                       </div>
-                    </div>
                   </div>
                 </div>
               </div>
             </section>
           </motion.div>
         </section>
+
       </div>
     </CaseStudyLayout>
   );
