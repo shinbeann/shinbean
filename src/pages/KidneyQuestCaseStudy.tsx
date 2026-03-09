@@ -240,11 +240,21 @@ const KidneyQuestCaseStudy = () => {
                 ))}
               </motion.div>
             </div>
-            <div className="text-center pt-8 md:pt-12">
-              <h2 className="text-lg md:text-xl lg:text-2xl font-bold uppercase tracking-tight text-white leading-tight">
-                How can we create a <span className="bg-amber-500/30 text-amber-200 px-1">sustainable, cost-effective interaction</span> that ensures participants walk away with <span className="bg-amber-500/30 text-amber-200 px-1">3 key takeaways in under 3 minutes</span>, without relying on printed brochures?
-              </h2>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="mt-10 md:mt-14 border border-[#E5A500] rounded-xl px-8 py-10 md:px-12 md:py-12 bg-black/80 text-center"
+            >
+              <p className="text-lg md:text-xl lg:text-2xl font-medium text-white/90 leading-relaxed tracking-tight">
+                How might we create a{" "}
+                <span className="font-bold text-[#5EC4D4]">sustainable, cost-effective interaction</span>{" "}
+                that ensures participants walk away with{" "}
+                <span className="font-bold text-[#FFD700]">3 key kidney health takeaways in under 3 minutes</span>{" "}
+                — without printed brochures?
+              </p>
+            </motion.div>
             <section id="solution" className="pt-16 md:pt-24 scroll-mt-20 md:scroll-mt-24">
               <div className="space-y-6">
                 <p className="text-xs uppercase tracking-widest font-medium text-neutral-500">
