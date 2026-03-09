@@ -347,7 +347,7 @@ const KidneyQuestCaseStudy = () => {
                     </div>
 
                     {/* Design Decisions */}
-                    <div className="mt-16 md:mt-24 space-y-4">
+                    <div className="pt-8 space-y-4">
                       <div className="flex items-center gap-4">
                         <span className="text-5xl md:text-6xl font-bold text-neutral-700/60 leading-none">01</span>
                         <div>
