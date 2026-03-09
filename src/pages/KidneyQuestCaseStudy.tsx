@@ -348,10 +348,10 @@ const KidneyQuestCaseStudy = () => {
 
                     {/* Design Decisions */}
                     <div className="mt-16 md:mt-24 space-y-10">
-                      <div className="flex items-baseline gap-4">
-                        <span className="text-5xl md:text-6xl font-bold text-neutral-700/60">01</span>
+                      <div className="flex items-center gap-4">
+                        <span className="text-5xl md:text-6xl font-bold text-neutral-700/60 leading-none">01</span>
                         <div>
-                          <h3 className="text-xl md:text-2xl font-bold text-white">WebAR vs. Native App vs. Website</h3>
+                          <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">WebAR vs. Native App vs. Website</h3>
                           <p className="text-neutral-400 mt-1">How should users access the experience with zero friction?</p>
                         </div>
                       </div>
