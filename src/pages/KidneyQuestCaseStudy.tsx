@@ -137,6 +137,38 @@ const QuizVideo = ({ src }: { src: string }) => {
   );
 };
 
+const ArVideo = ({ src }: { src: string }) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const isInView = useInView(wrapperRef, { amount: 0.5 });
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (isInView) {
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  }, [isInView]);
+
+  return (
+    <div ref={wrapperRef} className="min-w-0 w-full h-full overflow-hidden">
+      <video
+        ref={videoRef}
+        src={src}
+        controls
+        playsInline
+        muted
+        loop
+        className="w-full h-full object-cover"
+      >
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  );
+};
+
 const kidneyQuestToc = [
   {
     id: "overview",
@@ -148,6 +180,7 @@ const kidneyQuestToc = [
   },
   { id: "research", label: "Research" },
   { id: "prototyping", label: "Prototyping" },
+  { id: "reflection", label: "Reflection" },
 ];
 
 const KidneyQuestCaseStudy = () => {
@@ -267,7 +300,10 @@ const KidneyQuestCaseStudy = () => {
                 <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
                   We designed KidneyQuest, a webAR game that shifts public health education from passive reading to active play.
                 </p>
-                <div className="grid grid-cols-[repeat(2,minmax(0,1fr))] md:grid-cols-[repeat(5,minmax(0,1fr))] gap-4 max-w-6xl w-full">
+                <p>
+                  Scan → choose language → play → learn → AR reward. 3 minutes. 4 languages. Zero install.
+                </p>
+                <div className="grid grid-cols-[repeat(2,minmax(0,1fr))] md:grid-cols-[repeat(5,minmax(0,1fr))] items-stretch gap-4 max-w-6xl w-full">
                   <div className="min-w-0 w-full overflow-hidden">
                     <img
                       src={kqLanguage}
@@ -275,14 +311,14 @@ const KidneyQuestCaseStudy = () => {
                       className="w-full h-auto object-cover"
                     />
                   </div>
-                  <div className="min-w-0 w-full overflow-hidden">
+                  <div className="min-w-0 w-full h-full overflow-hidden">
                     <img
                       src={kqIntro}
                       alt="KidneyQuest welcome screen showing How to play instructions and START button"
-                      className="w-full h-auto object-cover"
+                      className="w-full h-full object-cover"
                     />
                   </div>
-                  <QuizVideo src={kqQuiz} />
+                  <ArVideo src={kqQuiz} />
                   <div className="min-w-0 w-full overflow-hidden">
                     <img
                       src={kqResult}
@@ -290,7 +326,7 @@ const KidneyQuestCaseStudy = () => {
                       className="w-full h-auto object-cover"
                     />
                   </div>
-                  <QuizVideo src={kqAr} />
+                  <ArVideo src={kqAr} />
                 </div>
 
                 <div id="research" className="pt-16 md:pt-24 scroll-mt-20 md:scroll-mt-24">
@@ -328,7 +364,7 @@ const KidneyQuestCaseStudy = () => {
 
                   <div className="mt-16 space-y-4">
                     <p className="text-lg font-semibold text-white">Guided Group Brainstorming</p>
-                    <div className="flex flex-col md:flex-row gap-4">
+                    <div className="flex flex-col md:flex-row md:items-stretch gap-4">
                       <div className="flex-1 min-w-0 overflow-hidden border border-white/10">
                         <img
                           src={kqAffinitymap}
@@ -336,11 +372,11 @@ const KidneyQuestCaseStudy = () => {
                           className="w-full h-auto object-cover"
                         />
                       </div>
-                      <div className="flex-1 min-w-0 overflow-hidden border border-white/10">
+                      <div className="flex-1 min-w-0 h-full overflow-hidden border border-white/10">
                         <img
                           src={kqBrainstorm}
                           alt="Mind map of brainstorm ideas for KidneyQuest including AR game, escape room, physical mini games, and virtual photobooth concepts"
-                          className="w-full h-auto object-cover"
+                          className="w-full h-full object-cover"
                         />
                       </div>
                     </div>
@@ -611,7 +647,7 @@ const KidneyQuestCaseStudy = () => {
                         </div>
 
                         {/* Reflection section — same spacing as Prototyping (pt, divider, content) */}
-                        <div className="pt-16 md:pt-24 scroll-mt-20 md:scroll-mt-24">
+                        <div id="reflection" className="pt-16 md:pt-24 scroll-mt-20 md:scroll-mt-24">
                           <div className="w-[30%] max-w-[270px] h-px bg-white/10 mx-auto mb-16 md:mb-24" />
                           <div className="space-y-4">
                             <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
