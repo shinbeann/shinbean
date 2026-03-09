@@ -400,6 +400,33 @@ const KidneyQuestCaseStudy = () => {
                       </div>
                     </div>
 
+                    {/* Design Decision 03 */}
+                    <div className="mt-16 md:mt-24 space-y-10">
+                      <div className="flex items-center gap-4">
+                        <span className="text-5xl md:text-6xl font-bold text-neutral-700/60 leading-none">03</span>
+                        <div>
+                          <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">Language — Auto-detect vs. Explicit Picker</h3>
+                          <p className="text-neutral-400 mt-1">NKF's audience is multilingual. Wrong language = immediate drop.</p>
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="border border-white/10 rounded-lg p-6 bg-white/[0.02]">
+                          <p className="text-xs uppercase tracking-widest text-neutral-500 mb-3 flex items-center gap-1.5">
+                            <span className="text-neutral-500">✕</span> REJECTED
+                          </p>
+                          <h4 className="text-lg font-semibold text-white mb-2">Auto-detect device language</h4>
+                          <p className="text-neutral-400 leading-relaxed">Failed in 2 of 4 test sessions — phone language settings didn't match users' preferred reading language.</p>
+                        </div>
+                        <div className="border border-[#E5A500]/60 rounded-lg p-6 bg-[#E5A500]/[0.04]">
+                          <p className="text-xs uppercase tracking-widest text-[#E5A500] mb-3 flex items-center gap-1.5">
+                            <span>✓</span> CHOSEN
+                          </p>
+                          <h4 className="text-lg font-semibold text-white mb-2">First-screen language picker</h4>
+                          <p className="text-neutral-400 leading-relaxed">EN / ES / 中文 / தமிழ் — one tap. Text + script combination makes options scannable regardless of literacy level.</p>
+                        </div>
+                      </div>
+                    </div>
+
                     <div id="prototyping" className="pt-16 md:pt-24 scroll-mt-20 md:scroll-mt-24">
                       <div className="w-[30%] max-w-[270px] h-px bg-white/10 mx-auto mb-16 md:mb-24" />
                       <div className="space-y-4">
