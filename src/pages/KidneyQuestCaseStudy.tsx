@@ -81,6 +81,25 @@ const KidneyQuestHero = () => (
         </ul>
       </motion.div>
     </div>
+
+    {/* Yellow impact banner */}
+    <div className="w-screen relative left-1/2 -translate-x-1/2 bg-[#E5A500] py-12 md:py-16 mt-16 md:mt-24">
+      <div className="max-w-5xl mx-auto px-6 md:px-16 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
+        {[
+          { stat: "3×", desc: "Knowledge retention vs. brochure baseline" },
+          { stat: "40%", desc: "Less staff time on manual explanation" },
+          { stat: "4", desc: "Languages · 6 cities deployed" },
+        ].map((item, i) => (
+          <div
+            key={item.stat}
+            className={`flex flex-col items-center text-center ${i < 2 ? "md:border-r md:border-black/15" : ""}`}
+          >
+            <p className="text-4xl md:text-5xl lg:text-6xl font-black text-black tracking-tight">{item.stat}</p>
+            <p className="text-sm md:text-base text-black/70 mt-2 max-w-[240px]">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
   </section>
 );
 
