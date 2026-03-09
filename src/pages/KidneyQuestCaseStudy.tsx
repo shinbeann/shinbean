@@ -246,14 +246,13 @@ const KidneyQuestCaseStudy = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="mb-12 md:mb-16 border border-[#E5A500] rounded-xl px-8 py-10 md:px-12 md:py-12 bg-black/80 text-center"
+                className="mb-12 md:mb-16 text-center"
               >
                 <p className="text-lg md:text-xl lg:text-2xl font-medium text-white/90 leading-relaxed tracking-tight">
                   How might we create a{" "}
-                  <span className="font-bold text-[#5EC4D4]">sustainable, cost-effective interaction</span>{" "}
+                  <span className="font-bold text-[#FFD700]">sustainable, cost-effective interaction</span>{" "}
                   that ensures participants walk away with{" "}
-                  <span className="font-bold text-[#FFD700]">3 key kidney health takeaways in under 3 minutes</span>{" "}
-                  — without printed brochures?
+                  <span className="font-bold text-[#FFD700]">3 key kidney health takeaways in under 3 minutes, without printed brochures?</span>{" "}
                 </p>
               </motion.div>
               <div className="space-y-6">
@@ -356,14 +355,14 @@ const KidneyQuestCaseStudy = () => {
                         </div>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="border border-white/10 rounded-lg p-6 bg-white/[0.02]">
+                        <div className="border border-white/10 rounded-xl p-6 bg-white/[0.02]">
                           <p className="text-xs uppercase tracking-widest text-neutral-500 mb-3 flex items-center gap-1.5">
                             <span className="text-neutral-500">✕</span> REJECTED
                           </p>
                           <h4 className="text-lg font-semibold text-white mb-2">Native App</h4>
                           <p className="text-neutral-400 leading-relaxed">Best AR performance, but 100% of interviewees refused to download a new app at a public event.</p>
                         </div>
-                        <div className="border border-[#E5A500]/60 rounded-lg p-6 bg-[#E5A500]/[0.04]">
+                        <div className="border border-[#E5A500]/60 rounded-xl p-6 bg-[#E5A500]/[0.04]">
                           <p className="text-xs uppercase tracking-widest text-[#E5A500] mb-3 flex items-center gap-1.5">
                             <span>✓</span> CHOSEN
                           </p>
@@ -374,7 +373,7 @@ const KidneyQuestCaseStudy = () => {
                     </div>
 
                     {/* Design Decision 02 */}
-                    <div className="mt-12 md:mt-16 space-y-4">
+                    <div className="mt-20 md:mt-24 space-y-4">
                       <div className="flex items-center gap-4">
                         <span className="text-5xl md:text-6xl font-bold text-neutral-700/60 leading-none">02</span>
                         <div>
@@ -383,14 +382,14 @@ const KidneyQuestCaseStudy = () => {
                         </div>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="border border-white/10 rounded-lg p-6 bg-white/[0.02]">
+                        <div className="border border-white/10 rounded-xl p-6 bg-white/[0.02]">
                           <p className="text-xs uppercase tracking-widest text-neutral-500 mb-3 flex items-center gap-1.5">
                             <span className="text-neutral-500">✕</span> REJECTED AFTER TESTING
                           </p>
                           <h4 className="text-lg font-semibold text-white mb-2">Mascot-Led Tutorial</h4>
                           <p className="text-neutral-400 leading-relaxed">3 of 4 usability testers spent 60+ sec learning the character's logic before reaching any health content. Violated Heuristic #6.</p>
                         </div>
-                        <div className="border border-[#E5A500]/60 rounded-lg p-6 bg-[#E5A500]/[0.04]">
+                        <div className="border border-[#E5A500]/60 rounded-xl p-6 bg-[#E5A500]/[0.04]">
                           <p className="text-xs uppercase tracking-widest text-[#E5A500] mb-3 flex items-center gap-1.5">
                             <span>✓</span> CHOSEN
                           </p>
@@ -401,7 +400,7 @@ const KidneyQuestCaseStudy = () => {
                     </div>
 
                     {/* Design Decision 03 */}
-                    <div className="mt-12 md:mt-16 space-y-4">
+                    <div className="mt-16 md:mt-20 space-y-4">
                       <div className="flex items-center gap-4">
                         <span className="text-5xl md:text-6xl font-bold text-neutral-700/60 leading-none">03</span>
                         <div>
@@ -410,14 +409,14 @@ const KidneyQuestCaseStudy = () => {
                         </div>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="border border-white/10 rounded-lg p-6 bg-white/[0.02]">
+                        <div className="border border-white/10 rounded-xl p-6 bg-white/[0.02]">
                           <p className="text-xs uppercase tracking-widest text-neutral-500 mb-3 flex items-center gap-1.5">
                             <span className="text-neutral-500">✕</span> REJECTED
                           </p>
                           <h4 className="text-lg font-semibold text-white mb-2">Auto-detect device language</h4>
                           <p className="text-neutral-400 leading-relaxed">Failed in 2 of 4 test sessions — phone language settings didn't match users' preferred reading language.</p>
                         </div>
-                        <div className="border border-[#E5A500]/60 rounded-lg p-6 bg-[#E5A500]/[0.04]">
+                        <div className="border border-[#E5A500]/60 rounded-xl p-6 bg-[#E5A500]/[0.04]">
                           <p className="text-xs uppercase tracking-widest text-[#E5A500] mb-3 flex items-center gap-1.5">
                             <span>✓</span> CHOSEN
                           </p>
@@ -437,7 +436,8 @@ const KidneyQuestCaseStudy = () => {
                           The iterations.
                         </h2>
                         <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
-                          As a team of non-designers, our initial instinct was to design cute mascot and themes. But early stakeholder feedback and usability testing revealed <span className="bg-amber-500/30 text-amber-200 px-1">visual noise, cognitive overload and heuristic issues</span>.
+                          As a team of non-designers, our initial instinct was to design cute mascot and themes. But early stakeholder feedback and usability testing revealed{" "}
+                          <span className="font-bold text-[#FFD700]">visual noise, cognitive overload and heuristic issues</span>.
                         </p>
                         <div className="overflow-hidden mt-6 [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)]">
                           <img

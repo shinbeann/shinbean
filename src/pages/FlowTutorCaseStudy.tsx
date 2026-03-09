@@ -1863,10 +1863,14 @@ const FlowTutorCaseStudy = () => {
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white text-center">Designing for AI Uncertainty.</h2>
               <div className="text-neutral-400 text-lg md:text-xl leading-relaxed">
                 <p>
-                  Due to the 4-week timeline, the current iteration of <span className="bg-purple-500/30 text-purple-200 px-1 rounded border border-purple-500/40">FlowTutor assumes the AI is always correct</span> and the <span className="bg-purple-500/30 text-purple-200 px-1 rounded border border-purple-500/40">video context is always sufficient</span>. But in a real-world deployment, LLMs hallucinate and sometimes fail to retrieve context.
+                  Due to the 4-week timeline, the current iteration of{" "}
+                  <span className="font-bold text-purple-400">FlowTutor assumes the AI is always correct</span>{" "}
+                  and the{" "}
+                  <span className="font-bold text-purple-400">video context is always sufficient</span>. But in a real-world deployment, LLMs hallucinate and sometimes fail to retrieve context.
                 </p>
                 <p className="mt-4">
-                  If I had more time, I would <span className="bg-purple-500/30 text-purple-200 px-1 rounded border border-purple-500/40">implement Minimum Context Guardrails</span>. If video transcripts are too sparse, the system should disable the Quizlet and pivot to a &lsquo;Visual Summary&rsquo; instead. This prevents the &lsquo;garbage-in, garbage-out&rsquo; problem.
+                  If I had more time, I would{" "}
+                  <span className="font-bold text-purple-400">implement Minimum Context Guardrails</span>. If video transcripts are too sparse, the system should disable the Quizlet and pivot to a &lsquo;Visual Summary&rsquo; instead. This prevents the &lsquo;garbage-in, garbage-out&rsquo; problem.
                 </p>
                 <div className="my-16 md:my-24 w-[30%] max-w-[270px] h-px bg-white/10 mx-auto" />
                 <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
