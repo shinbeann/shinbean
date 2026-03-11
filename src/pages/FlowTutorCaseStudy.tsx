@@ -939,21 +939,21 @@ const flowTutorToc = [
 
 const FlowTutorHero = () => (
   <section className="relative w-full pt-24 md:pt-36 pb-16 md:pb-24 overflow-x-hidden">
-    <div className="w-full max-w-6xl mx-auto px-6 md:px-16 lg:px-24 space-y-10 min-w-0">
+    <div className="w-full max-w-6xl mx-auto px-6 md:px-16 lg:px-24 min-w-0">
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white"
+        className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-purple-400"
       >
-        FlowTutor
+        FlowTutor.
       </motion.h1>
 
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.15 }}
-        className="text-neutral-400 text-lg md:text-xl leading-relaxed max-w-3xl break-words"
+        className="text-neutral-400 text-lg md:text-xl leading-relaxed w-full break-words mt-10"
       >
         Students learning on YouTube are often forced to toggle between videos, notes, and AI tools. We created FlowTutor to fix this disjointed workflow so focus stays where it belongs.
       </motion.p>
@@ -962,14 +962,14 @@ const FlowTutorHero = () => (
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className="border-white/10"
+        className="border-white/10 mt-10"
       />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.4 }}
-        className="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-8 min-w-0"
+        className="grid grid-cols-2 md:grid-cols-[repeat(4,1fr)] gap-y-8 gap-x-8 min-w-0 mt-4"
       >
         {[
           { label: "ROLE", value: "Product Designer" },
@@ -988,22 +988,42 @@ const FlowTutorHero = () => (
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.45 }}
-        className="border-white/10"
+        className="border-white/10 mt-4"
       />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.55 }}
-        className="space-y-4 min-w-0"
+        className="space-y-4 min-w-0 mt-10"
       >
-        <p className="text-[11px] uppercase tracking-[0.15em] font-bold text-neutral-500">Key Contributions</p>
+        <p className="text-[11px] uppercase tracking-[0.15em] font-medium text-neutral-500">Key Contributions</p>
         <ul className="space-y-3 text-neutral-400 text-sm md:text-base leading-relaxed list-disc list-outside pl-5 break-words">
-          <li>Advocated for and led user interviews, synthesis sessions, and brainstorming workshops to ground design decisions in real data.</li>
-          <li>Championed the &lsquo;Quizlet-style&rsquo; flashcard integration to prioritize active recall over passive consumption.</li>
+          <li>Advocated for and led user interviews with 6 diverse users to identify 4 critical pain points.</li>
+          <li>Led a brainstorming session to ideate potential solutions based on pain points and heuristics.</li>
           <li>Refined qualitative interview scripts to uncover deeper user friction points.</li>
+          <li>Designed a 3-state uncertainty model (directly relevant / related but unmentioned / out-of-scope) with distinct UI feedback for each state.</li>
         </ul>
       </motion.div>
+    </div>
+
+    {/* Purple impact banner */}
+    <div className="w-screen relative left-1/2 -translate-x-1/2 border-t border-b border-purple-500/30 bg-purple-500/[0.06] py-12 md:py-16 mt-16 md:mt-24">
+      <div className="max-w-5xl mx-auto px-6 md:px-16 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
+        {[
+          { stat: "+25%", desc: "Quiz score improvement over fragmented workflow baseline" },
+          { stat: "60%", desc: "Reduction in context-switching between tools" },
+          { stat: "50%", desc: "Faster information retrieval vs. tab-switching baseline" },
+        ].map((item, i) => (
+          <div
+            key={item.stat}
+            className={`flex flex-col items-center text-center ${i < 2 ? "md:border-r md:border-purple-500/20" : ""}`}
+          >
+            <p className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-purple-400">{item.stat}</p>
+            <p className="text-sm md:text-base text-neutral-400 mt-2 max-w-[240px]">{item.desc}</p>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 );

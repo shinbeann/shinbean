@@ -47,6 +47,7 @@ const ExperienceRow = ({
 
 const Hero = () => {
   const name = "Gay Shin Lee";
+  const nameChinese = "倪欣励";
 
   return (
     <section
@@ -69,12 +70,13 @@ const Hero = () => {
       <div className="max-w-5xl w-full relative z-10">
         {/* Name (Name → Subtitle: 16px) – same fade/slide as rest of hero */}
         <motion.h1
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-none mb-4"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-none mb-4 flex items-baseline gap-3 flex-wrap"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
         >
           {name}
+          <span className="text-2xl sm:text-3xl md:text-4xl font-medium text-muted-foreground/50 tracking-normal">({nameChinese})</span>
         </motion.h1>
 
         {/* Subtitle (Subtitle → Body: 32px) */}

@@ -15,22 +15,22 @@ import kqTeam2 from "@/assets/kq_team2.jpg";
 
 
 const KidneyQuestHero = () => (
-  <section className="relative w-full pt-24 md:pt-36 pb-16 md:pb-24 overflow-x-hidden bg-[#050505]">
-    <div className="w-full max-w-6xl mx-auto px-6 md:px-16 lg:px-24 space-y-10 min-w-0">
+  <section className="relative w-full pt-24 md:pt-36 overflow-x-hidden bg-[#050505]">
+    <div className="w-full max-w-6xl mx-auto px-6 md:px-16 lg:px-24 min-w-0">
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-[#FFD700]"
       >
-        KidneyQuest
+        KidneyQuest.
       </motion.h1>
 
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.15 }}
-        className="text-neutral-400 text-lg md:text-xl leading-relaxed w-full break-words"
+        className="text-neutral-400 text-lg md:text-xl leading-relaxed w-full break-words mt-10"
       >
         NKF's kidney inflatble drew crowds but left visitors with a brochure they'd never read. We created KidneyQuest to turn kidney health education into a playful, memorable AR experience to replace paper handouts with a <span className="text-[#FFD700]">3-minute, self-directed mini-game.</span>
       </motion.p>
@@ -39,14 +39,14 @@ const KidneyQuestHero = () => (
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className="border-white/10"
+        className="border-white/10 mt-10"
       />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.4 }}
-        className="grid grid-cols-2 md:grid-cols-[repeat(4,1fr)] gap-y-8 gap-x-8 min-w-0"
+        className="grid grid-cols-2 md:grid-cols-[repeat(4,1fr)] gap-y-8 gap-x-8 min-w-0 mt-4"
       >
         {[
           { label: "ROLE", value: "UI/UX Designer" },
@@ -65,27 +65,27 @@ const KidneyQuestHero = () => (
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.45 }}
-        className="border-white/10"
+        className="border-white/10 mt-4"
       />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.55 }}
-        className="space-y-4 min-w-0"
+        className="space-y-4 min-w-0 mt-10"
       >
         <p className="text-[11px] uppercase tracking-[0.15em] font-medium text-neutral-500">Key Contributions</p>
         <ul className="space-y-3 text-neutral-400 text-sm md:text-base leading-relaxed list-disc list-outside pl-5 break-words">
           <li>Led user research with 3 participant interviews and a 61-response survey to understand visitor behavior at public exhibits.</li>
           <li>Conducted affinity mapping and synthesis sessions to identify patterns in content preferences and engagement barriers.</li>
           <li>Facilitated Crazy 8s ideation workshops to rapidly explore game concepts and converge on the AR mini-game direction.</li>
-          <li>Designed low-fidelity prototypes and user flows, and adapted NKF design system for mobile-first, multilingual delivery.</li>
+          <li>Adapted NKF's design system for mobile-first, multilingual delivery across 4 languages.</li>
         </ul>
       </motion.div>
     </div>
 
     {/* Yellow impact banner */}
-    <div className="w-screen relative left-1/2 -translate-x-1/2 bg-[#E5A500] py-12 md:py-16 mt-16 md:mt-24">
+    <div className="w-screen relative left-1/2 -translate-x-1/2 bg-[#E5A500] py-12 md:py-16 mt-10 md:mt-16">
       <div className="max-w-5xl mx-auto px-6 md:px-16 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
         {[
           { stat: "3×", desc: "Knowledge retention vs. brochure baseline" },
@@ -214,7 +214,7 @@ const KidneyQuestCaseStudy = () => {
                 Diabetes and hypertension are the silent killers driving Chronic Kidney Disease (CKD), particularly in adults over 50. To combat this, the National Kidney Foundation (NKF) uses a massive, physical Inflatable Kidney at public roadshows to attract attention.
               </p>
               <p>
-                It is visually impressive. It draws a crowd. But it had a fundamental flaw.
+                It is visually impressive. It draws a crowd. But it had a <span className="text-[#FFD700] font-semibold">fundamental flaw.</span>
               </p>
             </div>
             {/* Image + Flaw cards layout */}
