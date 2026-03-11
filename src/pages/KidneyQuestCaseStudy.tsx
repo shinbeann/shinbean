@@ -353,7 +353,7 @@ const KidneyQuestCaseStudy = () => {
                           whileInView={{ opacity: 1, y: 0 }}
                           viewport={{ once: true }}
                           transition={{ duration: 0.6, delay: i * 0.1 }}
-                          className="flex flex-col gap-4 p-6 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors"
+                          className="flex flex-col gap-4 p-6 bg-white/5 border border-white/10 rounded-xl"
                         >
                           <p className="text-3xl md:text-4xl font-bold text-[#FFD700]">{card.metric}</p>
                           <h3 className="text-lg font-bold text-white">{card.title}</h3>
@@ -550,7 +550,7 @@ const KidneyQuestCaseStudy = () => {
                                       lineHeight: 1.55,
                                     }}
                                   >
-                                    <span className="font-mono text-[11px]" style={{ color: "var(--accent)" }}>
+                                    <span className="text-xs font-medium" style={{ color: "var(--accent)" }}>
                                       {row.v}
                                     </span>
                                     <span
@@ -604,7 +604,7 @@ const KidneyQuestCaseStudy = () => {
                                     lineHeight: 1.55,
                                   }}
                                 >
-                                  <span className="font-mono text-[11px]" style={{ color: "var(--accent)" }}>
+                                  <span className="text-xs font-medium" style={{ color: "var(--accent)" }}>
                                     04
                                   </span>
                                   <span
@@ -661,7 +661,7 @@ const KidneyQuestCaseStudy = () => {
                               Tight timeline and technical constraints forced a discipline we should have started with: testing assumptions before committing to features. Early in the project, the team had a long list of interactions we wanted to build: photobooth, mascot animations. But due to the technical difficulties we faced, deadlines were pushed back and features had to be cut.
                             </p>
                             <p>
-                              If I were to redo this project, I would run a mock setup to test the feasbility of our project.
+                              If I were to redo this project, I would run a mock setup to test the feasbility of our project, before committing to a solution.
                             </p>
                           </div>
 

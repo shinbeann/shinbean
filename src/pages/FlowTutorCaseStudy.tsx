@@ -323,7 +323,7 @@ const NarrativeBridge = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className="text-neutral-400 text-sm font-mono uppercase tracking-wider text-center max-w-md bg-[#050505] px-4 z-10"
+        className="text-neutral-400 text-s font-medium text-center max-w-md bg-[#050505] px-4 z-10"
       >
         To prove efficacy, we compared the post-task quiz scores of both groups (n=40).
       </motion.div>
@@ -390,7 +390,7 @@ const ResultsVisualizationCard = () => {
           {/* Chart + Axis */}
           <div className="relative pl-0 md:pl-12">
             {/* Y-axis Labels (does not affect layout) */}
-            <div className="hidden md:flex absolute left-0 top-0 h-80 flex-col justify-between text-xs text-neutral-500 font-mono">
+            <div className="hidden md:flex absolute left-0 top-0 h-80 flex-col justify-between text-xs text-neutral-500 font-medium">
               <span>100%</span>
               <span>80%</span>
               <span>60%</span>
@@ -432,7 +432,7 @@ const ResultsVisualizationCard = () => {
                     <div
                       className={[
                         "absolute -top-8 left-1/2 -translate-x-1/2",
-                        "text-white font-bold text-base md:text-lg whitespace-nowrap",
+                        "text-white font-medium text-xs whitespace-nowrap",
                         "transition-all duration-500 ease-out",
                         chartInView ? "opacity-100 translate-y-0 delay-700" : "opacity-0 translate-y-1",
                       ].join(" ")}
@@ -461,7 +461,7 @@ const ResultsVisualizationCard = () => {
                     <div
                       className={[
                         "absolute -top-8 left-1/2 -translate-x-1/2",
-                        "text-white font-bold text-base md:text-lg whitespace-nowrap",
+                        "text-white font-medium text-xs whitespace-nowrap",
                         "transition-all duration-500 ease-out delay-200",
                         chartInView ? "opacity-100 translate-y-0 delay-700" : "opacity-0 translate-y-1",
                       ].join(" ")}
@@ -1102,7 +1102,7 @@ const FlowTutorCaseStudy = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.1 }}
-                  className="bg-white/5 border border-white/10 rounded-2xl p-4 md:p-6 hover:bg-white/10 transition-all duration-300"
+                  className="bg-white/5 border border-white/10 rounded-2xl p-4 md:p-6"
                 >
                   <div className="flex flex-col items-center text-center space-y-2 md:space-y-3">
                     <h3 className="text-lg md:text-xl font-bold text-white">Poor Navigation</h3>
@@ -1123,7 +1123,7 @@ const FlowTutorCaseStudy = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="bg-white/5 border border-white/10 rounded-2xl p-4 md:p-6 hover:bg-white/10 transition-all duration-300"
+                  className="bg-white/5 border border-white/10 rounded-2xl p-4 md:p-6"
                 >
                   <div className="flex flex-col items-center text-center space-y-2 md:space-y-3">
                     <h3 className="text-lg md:text-xl font-bold text-white">Fragmented Workflow</h3>
@@ -1144,7 +1144,7 @@ const FlowTutorCaseStudy = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.3 }}
-                  className="bg-white/5 border border-white/10 rounded-2xl p-4 md:p-6 hover:bg-white/10 transition-all duration-300"
+                  className="bg-white/5 border border-white/10 rounded-2xl p-4 md:p-6"
                 >
                   <div className="flex flex-col items-center text-center space-y-2 md:space-y-3">
                     <h3 className="text-lg md:text-xl font-bold text-white">Cognitive Overload</h3>
@@ -1165,7 +1165,7 @@ const FlowTutorCaseStudy = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.4 }}
-                  className="bg-white/5 border border-white/10 rounded-2xl p-4 md:p-6 hover:bg-white/10 transition-all duration-300"
+                  className="bg-white/5 border border-white/10 rounded-2xl p-4 md:p-6"
                 >
                   <div className="flex flex-col items-center text-center space-y-2 md:space-y-3">
                     <h3 className="text-lg md:text-xl font-bold text-white">Missing Context</h3>
