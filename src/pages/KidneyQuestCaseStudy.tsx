@@ -32,7 +32,7 @@ const KidneyQuestHero = () => (
         transition={{ duration: 0.8, delay: 0.15 }}
         className="text-neutral-400 text-lg md:text-xl leading-relaxed w-full break-words mt-10"
       >
-        NKF's kidney inflatble drew crowds but left visitors with a brochure they'd never read. We created KidneyQuest to turn kidney health education into a playful, memorable AR experience to replace paper handouts with a <span className="text-[#FFD700]">3-minute, self-directed mini-game.</span>
+        NKF's kidney inflatable drew crowds but left visitors with a brochure they'd never read. We created KidneyQuest to turn kidney health education into a playful, memorable AR experience to replace paper handouts with a <span className="text-[#FFD700]">3-minute, self-directed mini-game.</span>
       </motion.p>
 
       <motion.hr
