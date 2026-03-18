@@ -165,7 +165,7 @@ export const KidneyQuestInteractiveDemo = () => {
               <motion.button
                 type="button"
                 onClick={(e) => handleAnswerClick("A", e)}
-                className="absolute left-[13%] right-[13%] top-[47%] h-[9%] cursor-pointer flex items-center justify-start px-2 sm:px-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70"
+                className="absolute left-[13%] right-[13%] top-[47%] min-h-[9%] cursor-pointer flex items-center justify-start px-1 sm:px-4 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70 overflow-visible"
                 style={{
                   borderRadius: '14px',
                   border: '2px solid #1A4A5C',
@@ -181,7 +181,7 @@ export const KidneyQuestInteractiveDemo = () => {
                 animate={clickedButton === "A" ? { scale: 0.95 } : {}}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                <span className="text-[10px] sm:text-xs md:text-sm leading-tight sm:leading-normal whitespace-normal break-words text-left">
+                <span className="text-[8px] sm:text-xs md:text-sm leading-tight whitespace-normal break-words text-left">
                   A. Break down food into energy
                 </span>
               </motion.button>
@@ -190,7 +190,7 @@ export const KidneyQuestInteractiveDemo = () => {
               <motion.button
                 type="button"
                 onClick={(e) => handleAnswerClick("B", e)}
-                className="absolute left-[13%] right-[13%] top-[57.5%] h-[9%] cursor-pointer flex items-center justify-start px-2 sm:px-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70"
+                className="absolute left-[13%] right-[13%] top-[57.5%] min-h-[9%] cursor-pointer flex items-center justify-start px-1 sm:px-4 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70 overflow-visible"
                 style={{
                   borderRadius: '14px',
                   border: '2px solid #1A4A5C',
@@ -206,7 +206,7 @@ export const KidneyQuestInteractiveDemo = () => {
                 animate={clickedButton === "B" ? { scale: 0.95 } : {}}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                <span className="text-[10px] sm:text-xs md:text-sm leading-tight sm:leading-normal whitespace-normal break-words text-left">
+                <span className="text-[8px] sm:text-xs md:text-sm leading-tight whitespace-normal break-words text-left">
                   B. Filter blood, remove waste and excess fluid
                 </span>
               </motion.button>
@@ -215,7 +215,7 @@ export const KidneyQuestInteractiveDemo = () => {
               <motion.button
                 type="button"
                 onClick={(e) => handleAnswerClick("C", e)}
-                className="absolute left-[13%] right-[13%] top-[68%] h-[9%] cursor-pointer flex items-center justify-start px-2 sm:px-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70"
+                className="absolute left-[13%] right-[13%] top-[68%] min-h-[9%] cursor-pointer flex items-center justify-start px-1 sm:px-4 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70 overflow-visible"
                 style={{
                   borderRadius: '14px',
                   border: '2px solid #1A4A5C',
@@ -231,7 +231,7 @@ export const KidneyQuestInteractiveDemo = () => {
                 animate={clickedButton === "C" ? { scale: 0.95 } : {}}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                <span className="text-[10px] sm:text-xs md:text-sm leading-tight sm:leading-normal whitespace-normal break-words text-left">
+                <span className="text-[8px] sm:text-xs md:text-sm leading-tight whitespace-normal break-words text-left">
                   C. Produce insulin for sugar control
                 </span>
               </motion.button>
@@ -240,7 +240,7 @@ export const KidneyQuestInteractiveDemo = () => {
               <motion.button
                 type="button"
                 onClick={(e) => handleAnswerClick("D", e)}
-                className="absolute left-[13%] right-[13%] top-[78.5%] h-[9%] cursor-pointer flex items-center justify-start px-2 sm:px-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70"
+                className="absolute left-[13%] right-[13%] top-[78.5%] min-h-[9%] cursor-pointer flex items-center justify-start px-1 sm:px-4 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70 overflow-visible"
                 style={{
                   borderRadius: '14px',
                   border: '2px solid #1A4A5C',
@@ -256,7 +256,7 @@ export const KidneyQuestInteractiveDemo = () => {
                 animate={clickedButton === "D" ? { scale: 0.95 } : {}}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                <span className="text-[10px] sm:text-xs md:text-sm leading-tight sm:leading-normal whitespace-normal break-words text-left">
+                <span className="text-[8px] sm:text-xs md:text-sm leading-tight whitespace-normal break-words text-left">
                   D. Pump blood like the heart
                 </span>
               </motion.button>
