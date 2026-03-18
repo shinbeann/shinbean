@@ -215,7 +215,7 @@ export const KidneyQuestInteractiveDemo = () => {
               <motion.button
                 type="button"
                 onClick={(e) => handleAnswerClick("C", e)}
-                className="absolute left-[13%] right-[13%] top-[68%] h-[9%] cursor-pointer flex items-center justify-start px-2 sm:px-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70"
+                className="absolute left-[13%] right-[13%] top-[68%] min-h-[9%] cursor-pointer flex items-center justify-start px-1 sm:px-4 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70 overflow-visible"
                 style={{
                   borderRadius: '14px',
                   border: '2px solid #1A4A5C',
