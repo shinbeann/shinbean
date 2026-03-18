@@ -256,7 +256,7 @@ export const KidneyQuestInteractiveDemo = () => {
                 animate={clickedButton === "D" ? { scale: 0.95 } : {}}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                <span className="text-[10px] sm:text-xs md:text-sm leading-tight sm:leading-normal whitespace-normal break-words text-left">
+                <span className="text-[8px] sm:text-xs md:text-sm leading-tight whitespace-normal break-words text-left">
                   D. Pump blood like the heart
                 </span>
               </motion.button>
