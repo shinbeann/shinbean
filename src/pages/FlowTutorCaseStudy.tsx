@@ -1568,9 +1568,9 @@ const FlowTutorCaseStudy = () => {
             </div>
           </motion.div>
 
-            {/* What if the best AI tutor sometimes refuses to answer? */}
-            <div className="mt-4 md:mt-8 space-y-4">
-              <div className="w-full max-w-4xl h-24 md:h-32 flex items-center justify-center">
+            {/* What if… — gap-8 above & below headline matches parent flex rhythm (centered between pin copy and body) */}
+            <div className="flex flex-col gap-8">
+              <div className="w-full max-w-4xl flex justify-center">
                 <p className="text-sm md:text-base uppercase tracking-widest font-bold text-purple-400 text-center">
                   What if the best AI tutor sometimes refuses to answer?
                 </p>
@@ -1584,7 +1584,7 @@ const FlowTutorCaseStudy = () => {
                 </p>
               </div>
               {/* Interactive States Diagram */}
-              <div className="mt-8 md:mt-12 w-full">
+              <div className="w-full">
                 {/* Desktop Layout */}
                 <div className="hidden lg:block relative w-full" style={{ minHeight: '950px' }}>
                   {/* Circle 1: User asks a question */}
