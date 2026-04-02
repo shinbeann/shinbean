@@ -86,7 +86,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.5 }}
         >
-          UX/UI Designer
+          Product Designer
         </motion.p>
 
         {/* Body text (Body → Divider/Experience: 96px) */}

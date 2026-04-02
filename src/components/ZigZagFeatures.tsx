@@ -130,8 +130,8 @@ const ZigZagFeatures = () => {
       {/* Row 1: Customizable Split View */}
       <FeatureRow
         number="01"
-        headline="Customizable Split View."
-        body="Resize the video and workspace effortlessly with a draggable divider that preserves video proportions. FlowTutor adapts to how you learn, letting you focus on the content that matters most at any moment."
+        headline="Draggable Divider"
+        body="Users can resize the video and workspace dynamically."
         visual={<WorkspaceVisual />}
         isReversed={false}
       />
@@ -140,7 +140,7 @@ const ZigZagFeatures = () => {
       <FeatureRow
         number="02"
         headline="Context-Aware AI Tutor."
-        body="Ask questions naturally while you learn. Powered by AI that understands the video itself, FlowTutor delivers accurate, relevant explanations exactly when you need them—no searching, no guesswork."
+        body="Ask questions in real time."
         visual={<ChatBubbleVisual />}
         isReversed={true}
       />
@@ -148,8 +148,8 @@ const ZigZagFeatures = () => {
       {/* Row 3: Smart Notes */}
       <FeatureRow
         number="03"
-        headline="Smart Notes."
-        body="Capture ideas as you watch with flexible, formatted notes designed for real learning. Organize key concepts your way and turn passive watching into active understanding."
+        headline="Notes."
+        body="Capture and organise key ideas."
         visual={<DividerVisual />}
         isReversed={false}
       />
@@ -158,7 +158,7 @@ const ZigZagFeatures = () => {
       <FeatureRow
         number="04"
         headline="Instant Knowledge Checks."
-        body="Reinforce learning with quick, built-in quizzes generated from the tutorial content. Instantly see what you've mastered and what needs another look, so learning actually sticks."
+        body="Validate your understanding instantly with auto-generated quizzes."
         visual={<QuizModalVisual />}
         isReversed={true}
       />

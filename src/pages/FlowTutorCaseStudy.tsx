@@ -955,7 +955,15 @@ const FlowTutorHero = () => (
         transition={{ duration: 0.8, delay: 0.15 }}
         className="text-neutral-400 text-lg md:text-xl leading-relaxed w-full break-words mt-10"
       >
-        Students learning on YouTube are often forced to toggle between videos, notes, and AI tools. We created FlowTutor to fix this disjointed workflow so focus stays where it belongs.
+        Students learning on YouTube are often forced to toggle between videos, notes, and AI tools. This constant context switching increases cognitive load and slows down learning.
+      </motion.p>
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.15 }}
+        className="text-neutral-400 text-lg md:text-xl leading-relaxed w-full break-words mt-4"
+      >
+        FlowTutor introduces a split-learning interface that integrates video and hands-on practice in a single workspace, reducing interaction friction and enabling more continuous learning.
       </motion.p>
 
       <motion.hr
@@ -1232,11 +1240,11 @@ const FlowTutorCaseStudy = () => {
                 SOLUTION
               </p>
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white leading-tight">
-                A Unified Viewport.
+                FlowTutor.
               </h2>
               <div className="text-neutral-400 text-lg md:text-xl leading-relaxed">
                 <p>
-                  We designed FlowTutor, a web app which integrates the video player directly with a context-aware AI chatbot and a dedicated note-taking panel to eliminate the need to juggle external tabs. This layout respects the user's focus, bringing all necessary tools into one central view. The result is a seamless, linear workflow that feels intuitive rather than overwhelming.
+                A web app that brings video, AI guidance, and note-taking into one unified workspace, removing tab-switching and supporting uninterrupted learning.
                 </p>
               </div>
             </div>
@@ -1364,7 +1372,7 @@ const FlowTutorCaseStudy = () => {
                 Solving for "Alt-Tab Fatigue".
               </h2>
               <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
-                Since the biggest problem we wanted to tackle was tab switching, deciding the main layout seemed to be the obvious first step to take.
+                To reduce tab switching, I explored multiple layout architectures that integrate video, transcript, and AI interaction within a single interface.
               </p>
             </div>
 
@@ -1379,22 +1387,22 @@ const FlowTutorCaseStudy = () => {
                     className="w-full border border-white/10 opacity-60"
                   />
                   <p className="mt-2 text-xs text-neutral-500 tracking-widest text-center">
-                    Layout 1
+                    Layout 1: Video Top, Tools Below
                   </p>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <p className="text-green-400 text-sm font-medium mb-2">Pros</p>
                     <ul className="text-neutral-400 text-sm space-y-1">
-                      <li>• Video takes full width</li>
-                      <li>• Clear visual hierarchy</li>
+                      <li>• Strong visual focus on video</li>
+                      <li>• Clear content hierarchy</li>
                     </ul>
                   </div>
                   <div>
                     <p className="text-red-400 text-sm font-medium mb-2">Cons</p>
                     <ul className="text-neutral-400 text-sm space-y-1">
-                      <li>• Requires scrolling</li>
-                      <li>• Transcript competes with chat</li>
+                      <li>• Introduces vertical friction</li>
+                      <li>• Forces users to scroll between watching and interacting</li>
                     </ul>
                   </div>
                 </div>
@@ -1409,21 +1417,21 @@ const FlowTutorCaseStudy = () => {
                     className="w-full border border-white/10 opacity-60"
                   />
                   <p className="mt-2 text-xs text-neutral-500 tracking-widest text-center">
-                    Layout 2
+                    Layout 2: Video Left, Tools Stacked Right
                   </p>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <p className="text-green-400 text-sm font-medium mb-2">Pros</p>
                     <ul className="text-neutral-400 text-sm space-y-1">
-                      <li>• Video prominent on left</li>
-                      <li>• Tools grouped together</li>
+                      <li>• Keeps video consistently visible</li>
+                      <li>• etherGroups interaction tools together</li>
                     </ul>
                   </div>
                   <div>
                     <p className="text-red-400 text-sm font-medium mb-2">Cons</p>
                     <ul className="text-neutral-400 text-sm space-y-1">
-                      <li>• Chat above transcript feels unnatural</li>
+                      <li>• Breaks expected learning flow</li>
                       <li>• Vertical scrolling for tools</li>
                     </ul>
                   </div>
@@ -1442,16 +1450,16 @@ const FlowTutorCaseStudy = () => {
                     className="w-full shadow-xl"
                   />
                   <p className="mt-2 text-xs text-neutral-500 tracking-widest text-center">
-                    Layout 3
+                    Layout 3: Video + Transcript Left, Chat Right (Final)
                   </p>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <p className="text-green-400 text-sm font-medium mb-2">Pros</p>
                     <ul className="text-neutral-400 text-sm space-y-1">
-                      <li>• Video + transcript in natural reading flow</li>
+                      <li>• Aligns with natural learning behavior (watch → read → act)w</li>
                       <li>• Chat always accessible</li>
-                      <li>• No scrolling needed</li>
+                      <li>• Enables immediate interaction without navigation</li>
                     </ul>
                   </div>
                   <div>
@@ -1466,7 +1474,8 @@ const FlowTutorCaseStudy = () => {
               
               {/* Explanation text */}
               <p className="text-neutral-400 text-lg md:text-xl leading-relaxed mt-8">
-                While Layout 1 offered better immersion and Layout 2 centralised the tools, Layout 3 was the only architecture that respected the relationship between content types.
+                While Layout 1 offered better immersion and Layout 2 centralised the tools, Layout 3 was the only architecture that{" "}
+                <span className="text-purple-400">aligns with how users naturally learn.</span>
               </p>
             </div>
             
@@ -1475,87 +1484,92 @@ const FlowTutorCaseStudy = () => {
                 From paper to pixel.
               </h2>
               <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
-                We conducted a heuristic evaluation with 5 evaluators who interacted with our paper prototype. They identified several usability issues, ranked by severity.
+                A heuristic evaluation with 5 users surfaced key usability issues.
               </p>
+            </div>
+
+            {/* Before/After Comparison — two proximity groups (onboarding vs pin); mt-12 matches layout intro → visuals */}
+            <div className="mt-12">
+            {/* Group 1: onboarding visuals + rationale (tight vertical rhythm) */}
+            <div className="space-y-3 md:space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                {/* Column A: Before */}
+                <div className="flex flex-col gap-4 items-center">
+                  <h3 className="text-xl md:text-2xl font-bold text-neutral-500 uppercase tracking-wider text-center">
+                    Before
+                  </h3>
+                  <div className="aspect-video w-full overflow-hidden">
+                    <img
+                      src={onboardingBefore}
+                      alt="Paper prototype showing Upload File interaction"
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                  <p className="text-sm text-neutral-500 italic text-center">Upload file interaction</p>
+                </div>
+
+                {/* Column B: After */}
+                <div className="flex flex-col gap-4 items-center">
+                  <h3 className="text-xl md:text-2xl font-bold text-purple-500 uppercase tracking-wider text-center">
+                    After
+                  </h3>
+                  <div className="aspect-video w-full overflow-hidden">
+                    <img
+                      src={onboardingAfter}
+                      alt="FlowTutor interface with Paste URL input"
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                  <p className="text-sm text-neutral-500 italic text-center">Paste video URL</p>
+                </div>
+              </div>
+
+              <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+                To keep the experience fast and reliable, we limited input to YouTube videos in the newer version.
+              </p>
+            </div>
+
+            {/* Group 2: pin visuals + rationale — separated from group 1 for distinct chunking */}
+            <div className="mt-14 md:mt-20 space-y-3 md:space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                {/* Column A: Before */}
+                <div className="flex flex-col gap-4 items-center">
+                  <h3 className="text-xl md:text-2xl font-bold text-neutral-500 uppercase tracking-wider text-center">
+                    Before
+                  </h3>
+                  <div className="aspect-video w-full overflow-hidden">
+                    <img
+                      src={pinBefore}
+                      alt="Chat interface without pin feature"
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                </div>
+
+                {/* Column B: After */}
+                <div className="flex flex-col gap-4 items-center">
+                  <h3 className="text-xl md:text-2xl font-bold text-purple-500 uppercase tracking-wider text-center">
+                    After
+                  </h3>
+                  <div className="aspect-video w-full overflow-hidden">
+                    <img
+                      src={pinAfter}
+                      alt="Chat interface with pin feature"
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+                By adding the ability to pin important responses, users can quickly reference key information without scrolling through the entire chat history. This reduces cognitive load and keeps critical context visible.
+              </p>
+            </div>
             </div>
           </motion.div>
 
-          {/* Before/After Comparison */}
-          <div className="mt-12 space-y-8">
-            {/* Visual Evidence Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              {/* Column A: Before */}
-              <div className="flex flex-col gap-4 items-center">
-                <h3 className="text-xl md:text-2xl font-bold text-neutral-500 uppercase tracking-wider text-center">
-                  Before
-                </h3>
-                <div className="aspect-video w-full overflow-hidden">
-                  <img
-                    src={onboardingBefore}
-                    alt="Paper prototype showing Upload File interaction"
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-              </div>
-
-              {/* Column B: After */}
-              <div className="flex flex-col gap-4 items-center">
-                <h3 className="text-xl md:text-2xl font-bold text-purple-500 uppercase tracking-wider text-center">
-                  After
-                </h3>
-                <div className="aspect-video w-full overflow-hidden">
-                  <img
-                    src={onboardingAfter}
-                    alt="FlowTutor interface with Paste URL input"
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* The "Why" (The Heuristic Rationale) */}
-            <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
-              By removing the file upload requirement, we eliminated an unnecessary decision step. The interface now matches the user's goal ('Watch this video') rather than the system's requirement ('Input a file').
-            </p>
-
-            {/* Second Before/After: Pin Feature */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              {/* Column A: Before */}
-              <div className="flex flex-col gap-4 items-center">
-                <h3 className="text-xl md:text-2xl font-bold text-neutral-500 uppercase tracking-wider text-center">
-                  Before
-                </h3>
-                <div className="aspect-video w-full overflow-hidden">
-                  <img
-                    src={pinBefore}
-                    alt="Chat interface without pin feature"
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-              </div>
-
-              {/* Column B: After */}
-              <div className="flex flex-col gap-4 items-center">
-                <h3 className="text-xl md:text-2xl font-bold text-purple-500 uppercase tracking-wider text-center">
-                  After
-                </h3>
-                <div className="aspect-video w-full overflow-hidden">
-                  <img
-                    src={pinAfter}
-                    alt="Chat interface with pin feature"
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* The "Why" (The Heuristic Rationale) for Pin Feature */}
-            <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
-              By adding the ability to pin important responses, users can quickly reference key information without scrolling through the entire chat history. This reduces cognitive load and keeps critical context visible.
-            </p>
-
             {/* What if the best AI tutor sometimes refuses to answer? */}
-            <div className="mt-12 md:mt-16 space-y-4">
+            <div className="mt-4 md:mt-8 space-y-4">
               <div className="w-full max-w-4xl h-24 md:h-32 flex items-center justify-center">
                 <p className="text-sm md:text-base uppercase tracking-widest font-bold text-purple-400 text-center">
                   What if the best AI tutor sometimes refuses to answer?
@@ -1736,7 +1750,6 @@ const FlowTutorCaseStudy = () => {
               </div>
             </div>
 
-          </div>
           </div>
           </div>
         </div>

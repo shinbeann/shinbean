@@ -91,7 +91,7 @@ const About = () => {
                 Gay Shin Lee
               </h1>
               <p className="text-white text-lg md:text-xl">
-                UX/UI Designer
+                Product Designer
               </p>
               <p className="text-lg md:text-xl text-muted-foreground max-w-prose leading-relaxed">
                 My initial interest in AI evolved into a fascination with how humans actually interact with them.
