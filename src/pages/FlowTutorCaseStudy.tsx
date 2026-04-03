@@ -1526,7 +1526,7 @@ const FlowTutorCaseStudy = () => {
               </div>
 
               <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
-               3/5 users encountered friction with the file upload flow, citing unclear requirements and unnecessary steps.
+               3 of 5 users encountered friction with the file upload flow, citing unclear requirements and unnecessary steps.
               </p>
 
               <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
@@ -1571,7 +1571,7 @@ const FlowTutorCaseStudy = () => {
               </div>
 
               <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
-               2/5 users overlooked the initial pin feature. 
+               2 of 5 users overlooked the initial pin feature. 
               </p>
 
               <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
