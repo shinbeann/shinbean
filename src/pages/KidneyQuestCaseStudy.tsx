@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
+import { ArrowDown } from "lucide-react";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
 import kqInflatable from "@/assets/kq_inflatable.jpg";
 import kqLanguage from "@/assets/kq_language.png";
@@ -52,7 +53,7 @@ const KidneyQuestHero = () => (
           { label: "ROLE", value: "UI/UX Designer" },
           { label: "TIMELINE", value: "September – December 2025" },
           { label: "CLIENT", value: "National Kidney Foundation (NKF)" },
-          { label: "TOOLS", value: "Figma, Figma Make, 8th Wall, Miro" },
+          { label: "TOOLS", value: "Figma, Figma Make, Nano Banana, 8th Wall, Miro" },
         ].map((item) => (
           <div key={item.label} className="space-y-1.5 min-w-0">
             <p className="text-[11px] uppercase tracking-[0.15em] font-medium text-neutral-500">{item.label}</p>
@@ -231,13 +232,18 @@ const KidneyQuestCaseStudy = () => {
                   whileInView={{ x: ["30%", "30%", "0%"] }}
                   viewport={{ once: true }}
                   transition={{ duration: 4, times: [0, 0.75, 1], ease: "easeOut" }}
-                  className="w-full max-w-md overflow-hidden border border-white/10"
+                  className="w-full max-w-md flex flex-col"
                 >
-                  <img
-                    src={kqInflatable}
-                    alt="National Kidney Foundation's massive inflatable kidney exhibit at a public roadshow, showing healthy and diseased kidney models"
-                    className="w-full h-auto object-cover"
-                  />
+                  <div className="overflow-hidden border border-white/10">
+                    <img
+                      src={kqInflatable}
+                      alt="National Kidney Foundation's massive inflatable kidney exhibit at a public roadshow, showing healthy and diseased kidney models"
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
+                  <p className="text-sm text-neutral-500 italic text-center mt-2">
+                    NKF Inflatable Kidney exhibit
+                  </p>
                 </motion.div>
               </motion.div>
               <motion.div
@@ -250,7 +256,7 @@ const KidneyQuestCaseStudy = () => {
                 {[
                   {
                     title: "Passive Engagement",
-                    text: "Visitors walked through, looked at the structure, and left without engaging with the educational panels.",
+                    text: "Visitors spent <2 minutes at the exhibit, and left with mininmal engagement with the educational panels.",
                   },
                   {
                     title: "Manpower Bottleneck",
@@ -298,7 +304,7 @@ const KidneyQuestCaseStudy = () => {
                   KidneyQuest
                 </h2>
                 <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
-                  We designed KidneyQuest, a webAR game that shifts public health education from passive reading to active play.
+                  We designed KidneyQuest, a webAR game that transforms passive exhibit viewing into an active, time-bound interaction designed to deliver 3 key health takeaways within 3 minutes.
                 </p>
                 <p>
                   Scan → choose language → play → learn → AR reward. 3 minutes. 4 languages. Zero install.
@@ -343,9 +349,24 @@ const KidneyQuestCaseStudy = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
                       {[
-                        { metric: "78%", title: "Engage in < 2 Minutes", description: "of users walk away within 120 seconds." },
-                        { metric: "Top 2", title: "'Boring' & 'Rushed'", description: "Reasons users ignore static exhibits." },
-                        { metric: "65%", title: "Want 'Phygital' Play", description: "Prefer mixing physical exhibits with digital interaction." },
+                        {
+                          metric: "78%",
+                          title: "Engage in < 2 Minutes",
+                          description:
+                            "Interface must deliver value within the first 30–60 seconds.",
+                        },
+                        {
+                          metric: "Top 2",
+                          title: "'Boring' & 'No time'",
+                          description:
+                            "Experience must be:\n- Visually engaging\n- Minimal onboarding and immediate interaction",
+                        },
+                        {
+                          metric: "65%",
+                          title: "Want 'Phygital' Play",
+                          description:
+                            "The solution must bridge physical and digital seamlessly.",
+                        },
                       ].map((card, i) => (
                         <motion.div
                           key={card.title}
@@ -353,31 +374,55 @@ const KidneyQuestCaseStudy = () => {
                           whileInView={{ opacity: 1, y: 0 }}
                           viewport={{ once: true }}
                           transition={{ duration: 0.6, delay: i * 0.1 }}
-                          className="flex flex-col gap-4 p-6 bg-white/5 border border-white/10 rounded-xl"
+                          className="flex flex-col gap-3 p-6 bg-white/5 border border-white/10 rounded-xl"
                         >
                           <p className="text-3xl md:text-4xl font-bold text-[#FFD700]">{card.metric}</p>
                           <h3 className="text-lg font-bold text-white">{card.title}</h3>
-                          <p className="text-sm text-neutral-400 leading-relaxed">{card.description}</p>
+                          {/* Bridge: same pattern as FlowTutor Lab Pivot insight cards */}
+                          <div
+                            className="flex-shrink-0 flex items-center justify-between gap-3 py-3 my-1"
+                            aria-hidden="true"
+                          >
+                            <div className="h-px flex-1 bg-white/5 min-w-[1rem]" />
+                            <div className="flex items-center justify-center w-8 h-8 rounded-full border border-white/10 bg-[#0A0A0A] shadow-sm z-10 shrink-0">
+                              <ArrowDown className="w-3.5 h-3.5 text-[#FFD700]" style={{ strokeWidth: 3 }} />
+                            </div>
+                            <div className="h-px flex-1 bg-white/5 min-w-[1rem]" />
+                          </div>
+                          <p className="text-sm text-neutral-400 leading-relaxed whitespace-pre-line">
+                            {card.description}
+                          </p>
                         </motion.div>
                       ))}
                   </div>
 
+
                   <div className="mt-16 space-y-4">
                     <p className="text-lg font-semibold text-white">Guided Group Brainstorming</p>
                     <div className="flex flex-col md:flex-row md:items-stretch gap-4">
-                      <div className="flex-1 min-w-0 overflow-hidden border border-white/10">
-                        <img
-                          src={kqAffinitymap}
-                          alt="Affinity map of pain points, must-have features, and nice-to-have features for KidneyQuest"
-                          className="w-full h-auto object-cover"
-                        />
+                      <div className="flex-1 min-w-0 flex flex-col">
+                        <div className="overflow-hidden border border-white/10">
+                          <img
+                            src={kqAffinitymap}
+                            alt="Affinity map of pain points, must-have features, and nice-to-have features for KidneyQuest"
+                            className="w-full h-auto object-cover"
+                          />
+                        </div>
+                        <p className="text-sm text-neutral-500 italic text-center mt-2">
+                          Modified MoSCoW prioritisation
+                        </p>
                       </div>
-                      <div className="flex-1 min-w-0 h-full overflow-hidden border border-white/10">
-                        <img
-                          src={kqBrainstorm}
-                          alt="Mind map of brainstorm ideas for KidneyQuest including AR game, escape room, physical mini games, and virtual photobooth concepts"
-                          className="w-full h-full object-cover"
-                        />
+                      <div className="flex-1 min-w-0 flex flex-col">
+                        <div className="overflow-hidden border border-white/10">
+                          <img
+                            src={kqBrainstorm}
+                            alt="Mind map of brainstorm ideas for KidneyQuest including AR game, escape room, physical mini games, and virtual photobooth concepts"
+                            className="w-full h-auto object-cover"
+                          />
+                        </div>
+                        <p className="text-sm text-neutral-500 italic text-center mt-2">
+                          Group brainstorming
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -387,7 +432,7 @@ const KidneyQuestCaseStudy = () => {
                       <div className="flex items-center gap-4">
                         <span className="text-5xl md:text-6xl font-bold text-neutral-700/60 leading-none">01</span>
                         <div>
-                          <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">WebAR vs. Native App vs. Website</h3>
+                          <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">Access Model</h3>
                           <p className="text-neutral-400 mt-1">How should users access the experience with zero friction?</p>
                         </div>
                       </div>
@@ -404,7 +449,8 @@ const KidneyQuestCaseStudy = () => {
                             <span>✓</span> CHOSEN
                           </p>
                           <h4 className="text-lg font-semibold text-white mb-2">WebAR via QR (8th Wall)</h4>
-                          <p className="text-neutral-400 leading-relaxed">Scan → play in under 5 seconds. No install. Any modern browser. Preserves the phygital interaction 65% of users wanted.</p>
+                          <p className="text-neutral-400 leading-relaxed">- Scan → play in under 5 seconds. No installation required. </p>
+                          <p className="text-neutral-400 leading-relaxed">- Preserves the phygital interaction 65% of users wanted.</p>
                         </div>
                       </div>
                   </div>
@@ -414,17 +460,17 @@ const KidneyQuestCaseStudy = () => {
                       <div className="flex items-center gap-4">
                         <span className="text-5xl md:text-6xl font-bold text-neutral-700/60 leading-none">02</span>
                         <div>
-                          <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">Mascot Narrative vs. Direct Quiz</h3>
+                          <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">Content Delivery</h3>
                           <p className="text-neutral-400 mt-1">How should health information be delivered inside the game?</p>
                         </div>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="border border-white/10 rounded-xl p-6 bg-white/[0.02]">
                           <p className="text-xs uppercase tracking-widest text-neutral-500 mb-3 flex items-center gap-1.5">
-                            <span className="text-neutral-500">✕</span> REJECTED AFTER TESTING
+                            <span className="text-neutral-500">✕</span> REJECTED
                           </p>
                           <h4 className="text-lg font-semibold text-white mb-2">Mascot-Led Tutorial</h4>
-                          <p className="text-neutral-400 leading-relaxed">3 of 4 usability testers spent 60+ sec learning the character's logic before reaching any health content. Violated Heuristic #6.</p>
+                          <p className="text-neutral-400 leading-relaxed">3 of 4 usability testers spent &gt;60s understanding the narrative before reaching any health content.</p>
                         </div>
                         <div className="border border-[#E5A500]/60 rounded-xl p-6 bg-[#E5A500]/[0.04]">
                           <p className="text-xs uppercase tracking-widest text-[#E5A500] mb-3 flex items-center gap-1.5">
@@ -442,7 +488,7 @@ const KidneyQuestCaseStudy = () => {
                         <span className="text-5xl md:text-6xl font-bold text-neutral-700/60 leading-none">03</span>
                         <div>
                           <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">Language</h3>
-                          <p className="text-neutral-400 mt-1">NKF's audience is multilingual. Wrong language = immediate drop.</p>
+                          <p className="text-neutral-400 mt-1">How should we support a multilingual audience?</p>
                         </div>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -451,16 +497,22 @@ const KidneyQuestCaseStudy = () => {
                             <span className="text-neutral-500">✕</span> REJECTED
                           </p>
                           <h4 className="text-lg font-semibold text-white mb-2">Auto-detect device language</h4>
-                          <p className="text-neutral-400 leading-relaxed">Failed in 2 of 4 test sessions: phone language settings didn't match users' preferred reading language.</p>
+                          <p className="text-neutral-400 leading-relaxed">Phone language settings did not match users' preferred reading language.</p>
                         </div>
                         <div className="border border-[#E5A500]/60 rounded-xl p-6 bg-[#E5A500]/[0.04]">
                           <p className="text-xs uppercase tracking-widest text-[#E5A500] mb-3 flex items-center gap-1.5">
                             <span>✓</span> CHOSEN
                           </p>
                           <h4 className="text-lg font-semibold text-white mb-2">First-screen language picker</h4>
-                          <p className="text-neutral-400 leading-relaxed">EN / ES / 中文 / தமிழ்: one tap. Text + script combination makes options scannable regardless of literacy level.</p>
+                          <p className="text-neutral-400 leading-relaxed">One-tap selection EN / ES / 中文 / தமிழ்</p>
                         </div>
                       </div>
+                      <p className="text-neutral-400 text-lg md:text-xl leading-relaxed max-w-3xl pt-8 md:pt-4">
+                        Across all decisions, we{" "}
+                        <span className="font-bold text-[#FFD700]">prioritised minimising friction</span>
+                        {" "}and{" "}
+                        <span className="font-bold text-[#FFD700]">delivering value within seconds.</span>
+                      </p>
                   </div>
 
                   <div id="prototyping" className="pt-16 md:pt-24 scroll-mt-20 md:scroll-mt-24">
