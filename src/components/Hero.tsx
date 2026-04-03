@@ -76,7 +76,6 @@ const Hero = () => {
           transition={{ delay: 0.3, duration: 0.5 }}
         >
           {name}
-          <span className="text-2xl sm:text-3xl md:text-4xl font-medium text-muted-foreground/50 tracking-normal">({nameChinese})</span>
         </motion.h1>
 
         {/* Subtitle (Subtitle → Body: 32px) */}

@@ -1568,8 +1568,8 @@ const FlowTutorCaseStudy = () => {
             </div>
           </motion.div>
 
-            {/* What if… — gap-8 above & below headline matches parent flex rhythm (centered between pin copy and body) */}
-            <div className="flex flex-col gap-8">
+            {/* What if… (keep headline vertically centered: match gap-12 above & below) */}
+            <div className="mt-4 flex flex-col gap-12">
               <div className="w-full max-w-4xl flex justify-center">
                 <p className="text-sm md:text-base uppercase tracking-widest font-bold text-purple-400 text-center">
                   What if the best AI tutor sometimes refuses to answer?
