@@ -983,7 +983,7 @@ const FlowTutorHero = () => (
           { label: "ROLE", value: "Product Designer" },
           { label: "TIMELINE", value: "August – September 2025" },
           { label: "TEAM", value: "6 Members" },
-          { label: "TOOLS", value: "Miro, Figma, Lovable" },
+          { label: "TOOLS", value: "Miro, Lovable" },
         ].map((item) => (
           <div key={item.label} className="space-y-1.5 min-w-0">
             <p className="text-[11px] uppercase tracking-[0.15em] font-medium text-neutral-500">{item.label}</p>
@@ -1009,7 +1009,7 @@ const FlowTutorHero = () => (
         <ul className="space-y-3 text-neutral-400 text-sm md:text-base leading-relaxed list-disc list-outside pl-5 break-words">
           <li>Advocated for and led user interviews with 6 diverse users to identify 4 critical pain points.</li>
           <li>Led a brainstorming session to ideate potential solutions based on pain points and heuristics.</li>
-          <li>Refined qualitative interview scripts to uncover deeper user friction points.</li>
+          <li>Optimised interaction design by aligning inputs and actions with user intent to improve usability.</li>
           <li>Designed a 3-state uncertainty model (directly relevant / related but unmentioned / out-of-scope) with distinct UI feedback for each state.</li>
         </ul>
       </motion.div>
@@ -1474,8 +1474,9 @@ const FlowTutorCaseStudy = () => {
               
               {/* Explanation text */}
               <p className="text-neutral-400 text-lg md:text-xl leading-relaxed mt-8">
-                While Layout 1 offered better immersion and Layout 2 centralised the tools, Layout 3 was the only architecture that{" "}
-                <span className="text-purple-400">aligns with how users naturally learn.</span>
+                While Layout 1 offered better immersion and Layout 2 centralised the tools,{" "}
+                <span className="font-bold text-purple-400">Layout 3</span> was the only architecture that{" "}
+                <span className="font-bold text-purple-400">aligns with how users naturally learn.</span>
               </p>
             </div>
             
@@ -1525,7 +1526,11 @@ const FlowTutorCaseStudy = () => {
               </div>
 
               <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
-                To keep the experience fast and reliable, we limited input to YouTube videos in the newer version.
+               3/5 users encountered friction with the file upload flow, citing unclear requirements and unnecessary steps.
+              </p>
+
+              <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+               Switching to URL input simplified the interaction and better aligned with user expectations.
               </p>
             </div>
 
@@ -1544,6 +1549,7 @@ const FlowTutorCaseStudy = () => {
                       className="w-full h-full object-cover object-top"
                     />
                   </div>
+                  <p className="text-sm text-neutral-500 italic text-center">Pin action at the top of chat response</p>
                 </div>
 
                 {/* Column B: After */}
@@ -1558,11 +1564,18 @@ const FlowTutorCaseStudy = () => {
                       className="w-full h-full object-cover object-top"
                     />
                   </div>
+                  <p className="text-sm text-neutral-500 italic text-center">
+                    Pin action at the bottom of chat response
+                  </p>
                 </div>
               </div>
 
               <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
-                By adding the ability to pin important responses, users can quickly reference key information without scrolling through the entire chat history. This reduces cognitive load and keeps critical context visible.
+               2/5 users overlooked the initial pin feature. 
+              </p>
+
+              <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+              Relocating the pin action below each message aligns it with the user’s reading flow, improving discoverability and reducing interaction effort.
               </p>
             </div>
             </div>
@@ -1580,7 +1593,7 @@ const FlowTutorCaseStudy = () => {
                   In an age where AI is trained to be maximally helpful, FlowTutor&apos;s AI tutor sometimes says no.
                 </p>
                 <p>
-                  When AI tutors mix in-scope and out-of-scope content, students cannot reliably distinguish what the tutorial taught versus what the AI added. To prevent this, we designed three distinct interaction states:
+                  When AI tutors mix in-scope and out-of-scope content, students cannot reliably distinguish what the tutorial taught versus what the AI added. To prevent this, i designed three distinct interaction states:
                 </p>
               </div>
               {/* Interactive States Diagram */}
@@ -1636,24 +1649,22 @@ const FlowTutorCaseStudy = () => {
                       strokeWidth="2" 
                     />
 
-                    {/* Horizontal branch to S1 */}
+                    {/* Horizontal branches → image column (450 + badge 36 + gap-12 ≈ 498; extend to meet frame) */}
                     <line 
                       x1="312" y1="140" 
-                      x2="450" y2="140" 
+                      x2="502" y2="140" 
                       stroke="rgba(163,163,163,0.7)" 
                       strokeWidth="2" 
                     />
-                    {/* Horizontal branch to S2 from circle right edge */}
                     <line 
                       x1="384" y1="460" 
-                      x2="450" y2="460" 
+                      x2="502" y2="460" 
                       stroke="rgba(163,163,163,0.7)" 
                       strokeWidth="2" 
                     />
-                    {/* Horizontal branch to S3 */}
                     <line 
                       x1="312" y1="780" 
-                      x2="450" y2="780" 
+                      x2="502" y2="780" 
                       stroke="rgba(163,163,163,0.7)" 
                       strokeWidth="2" 
                     />
@@ -1662,35 +1673,56 @@ const FlowTutorCaseStudy = () => {
                   {/* Three state containers: flex column for consistent spacing */}
                   <div className="absolute flex flex-col gap-8" style={{ top: '20px', left: '450px', right: '0' }}>
                     {/* S1: Directly Relevant */}
-                    <div>
-                      <div className="mb-4">
-                        <span className="text-purple-400 font-bold text-lg">S1</span>
-                        <span className="text-white text-lg md:text-xl leading-relaxed ml-1">: User asks a DIRECTLY RELEVANT question</span>
+                    <div className="flex gap-3 items-start">
+                      <div
+                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-purple-500/40 bg-purple-500/10 text-[11px] font-bold tracking-wider text-purple-400"
+                        aria-hidden="true"
+                      >
+                        S1
                       </div>
-                      <div className="border border-purple-500/30 overflow-hidden">
-                        <img src={ftS1} alt="S1: FlowTutor responding to a directly relevant question about transformers" className="w-full h-auto object-contain" />
+                      <div className="min-w-0 flex-1">
+                        <div className="border border-purple-500/30 overflow-hidden">
+                          <img src={ftS1} alt="S1: FlowTutor responding to a directly relevant question about transformers" className="w-full h-auto object-contain" />
+                        </div>
+                        <p className="text-sm text-neutral-500 italic text-center mt-2">
+                          User asks a DIRECTLY RELEVANT question
+                        </p>
                       </div>
                     </div>
 
                     {/* S2: Related But Not Mentioned */}
-                    <div>
-                      <div className="mb-4">
-                        <span className="text-purple-400 font-bold text-lg">S2</span>
-                        <span className="text-white text-lg md:text-xl leading-relaxed ml-1">: User asks a RELATED BUT NOT MENTIONED question</span>
+                    <div className="flex gap-3 items-start">
+                      <div
+                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-purple-500/40 bg-purple-500/10 text-[11px] font-bold tracking-wider text-purple-400"
+                        aria-hidden="true"
+                      >
+                        S2
                       </div>
-                      <div className="border border-purple-500/30 overflow-hidden">
-                        <img src={ftS2} alt="S2: FlowTutor detecting an off-topic question and redirecting" className="w-full h-auto object-contain" />
+                      <div className="min-w-0 flex-1">
+                        <div className="border border-purple-500/30 overflow-hidden">
+                          <img src={ftS2} alt="S2: FlowTutor detecting an off-topic question and redirecting" className="w-full h-auto object-contain" />
+                        </div>
+                        <p className="text-sm text-neutral-500 italic text-center mt-2">
+                          User asks a RELATED BUT NOT MENTIONED question
+                        </p>
                       </div>
                     </div>
 
                     {/* S3: Irrelevant */}
-                    <div>
-                      <div className="mb-4">
-                        <span className="text-purple-400 font-bold text-lg">S3</span>
-                        <span className="text-white text-lg md:text-xl leading-relaxed ml-1">: User asks an IRRELEVANT question</span>
+                    <div className="flex gap-3 items-start">
+                      <div
+                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-purple-500/40 bg-purple-500/10 text-[11px] font-bold tracking-wider text-purple-400"
+                        aria-hidden="true"
+                      >
+                        S3
                       </div>
-                      <div className="border border-purple-500/30 overflow-hidden">
-                        <img src={ftS3} alt="S3: FlowTutor handling an irrelevant question by saving it for later research" className="w-full h-auto object-contain" />
+                      <div className="min-w-0 flex-1">
+                        <div className="border border-purple-500/30 overflow-hidden">
+                          <img src={ftS3} alt="S3: FlowTutor handling an irrelevant question by saving it for later research" className="w-full h-auto object-contain" />
+                        </div>
+                        <p className="text-sm text-neutral-500 italic text-center mt-2">
+                          User asks an IRRELEVANT question
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -1716,33 +1748,54 @@ const FlowTutorCaseStudy = () => {
 
                   {/* S1, S2, S3 with consistent spacing */}
                   <div className="flex flex-col gap-8 w-full">
-                    <div className="w-full">
-                      <div className="mb-4">
-                        <span className="text-purple-400 font-bold text-lg">S1</span>
-                        <span className="text-white text-lg md:text-xl leading-relaxed ml-1">: Directly Relevant</span>
+                    <div className="flex w-full gap-3 items-start">
+                      <div
+                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-purple-500/40 bg-purple-500/10 text-[11px] font-bold tracking-wider text-purple-400"
+                        aria-hidden="true"
+                      >
+                        S1
                       </div>
-                      <div className="border border-purple-500/30 overflow-hidden">
-                        <img src={ftS1} alt="S1: FlowTutor responding to a directly relevant question" className="w-full h-auto object-contain" />
-                      </div>
-                    </div>
-
-                    <div className="w-full">
-                      <div className="mb-4">
-                        <span className="text-purple-400 font-bold text-lg">S2</span>
-                        <span className="text-white text-lg md:text-xl leading-relaxed ml-1">: Related But Not Mentioned</span>
-                      </div>
-                      <div className="border border-purple-500/30 overflow-hidden">
-                        <img src={ftS2} alt="S2: FlowTutor detecting an off-topic question" className="w-full h-auto object-contain" />
+                      <div className="min-w-0 flex-1">
+                        <div className="border border-purple-500/30 overflow-hidden">
+                          <img src={ftS1} alt="S1: FlowTutor responding to a directly relevant question" className="w-full h-auto object-contain" />
+                        </div>
+                        <p className="text-sm text-neutral-500 italic text-center mt-2">
+                          User asks a DIRECTLY RELEVANT question
+                        </p>
                       </div>
                     </div>
 
-                    <div className="w-full">
-                      <div className="mb-4">
-                        <span className="text-purple-400 font-bold text-lg">S3</span>
-                        <span className="text-white text-lg md:text-xl leading-relaxed ml-1">: Irrelevant</span>
+                    <div className="flex w-full gap-3 items-start">
+                      <div
+                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-purple-500/40 bg-purple-500/10 text-[11px] font-bold tracking-wider text-purple-400"
+                        aria-hidden="true"
+                      >
+                        S2
                       </div>
-                      <div className="border border-purple-500/30 overflow-hidden">
-                        <img src={ftS3} alt="S3: FlowTutor handling an irrelevant question" className="w-full h-auto object-contain" />
+                      <div className="min-w-0 flex-1">
+                        <div className="border border-purple-500/30 overflow-hidden">
+                          <img src={ftS2} alt="S2: FlowTutor detecting an off-topic question" className="w-full h-auto object-contain" />
+                        </div>
+                        <p className="text-sm text-neutral-500 italic text-center mt-2">
+                          User asks a RELATED BUT NOT MENTIONED question
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex w-full gap-3 items-start">
+                      <div
+                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-purple-500/40 bg-purple-500/10 text-[11px] font-bold tracking-wider text-purple-400"
+                        aria-hidden="true"
+                      >
+                        S3
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="border border-purple-500/30 overflow-hidden">
+                          <img src={ftS3} alt="S3: FlowTutor handling an irrelevant question" className="w-full h-auto object-contain" />
+                        </div>
+                        <p className="text-sm text-neutral-500 italic text-center mt-2">
+                          User asks an IRRELEVANT question
+                        </p>
                       </div>
                     </div>
                   </div>
