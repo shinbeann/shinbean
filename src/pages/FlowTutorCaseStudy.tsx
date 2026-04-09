@@ -24,9 +24,6 @@ import ftFeature3 from "@/assets/ft_notes.png";
 import ftQuizVideo from "@/assets/ft_quiz.mp4";
 import ftMapping from "@/assets/ft_mapping.png";
 import ftAi from "@/assets/ft_ai.png";
-import ftS1 from "@/assets/ft_s1.png";
-import ftS2 from "@/assets/ft_s2.png";
-import ftS3 from "@/assets/ft_s3.png";
 import ZigZagFeatures from "@/components/ZigZagFeatures";
 
 // --- COMPONENTS ---
@@ -1357,130 +1354,16 @@ const FlowTutorCaseStudy = () => {
           <div className="relative z-10">
           <div className="max-w-4xl mx-auto">
           <div className="flex flex-col gap-8">
-          {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="flex flex-col gap-4">
-              <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
-                PROTOTYPING AND TESTING
-              </p>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">
-                Solving for "Alt-Tab Fatigue".
-              </h2>
-              <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
-                To reduce tab switching, I explored multiple layout architectures that integrate video, transcript, and AI interaction within a single interface.
-              </p>
-            </div>
-
-            {/* Layout Comparison Section */}
-            <div className="flex flex-col gap-4 mt-12">
-              {/* Layout 2 Row */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                <div className="relative">
-                  <img 
-                    src="/layout2.png" 
-                    alt="Layout 2 - Video on top, Transcript and AI Chatbot below" 
-                    className="w-full border border-white/10 opacity-60"
-                  />
-                  <p className="mt-2 text-xs text-neutral-500 tracking-widest text-center">
-                    Layout 1: Video Top, Tools Below
-                  </p>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <p className="text-green-400 text-sm font-medium mb-2">Pros</p>
-                    <ul className="text-neutral-400 text-sm space-y-1">
-                      <li>• Strong visual focus on video</li>
-                      <li>• Clear content hierarchy</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <p className="text-red-400 text-sm font-medium mb-2">Cons</p>
-                    <ul className="text-neutral-400 text-sm space-y-1">
-                      <li>• Introduces vertical friction</li>
-                      <li>• Forces users to scroll between watching and interacting</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Layout 3 Row */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                <div className="relative">
-                  <img 
-                    src="/layout3.png" 
-                    alt="Layout 3 - Video left, AI Chatbot and Transcript stacked right" 
-                    className="w-full border border-white/10 opacity-60"
-                  />
-                  <p className="mt-2 text-xs text-neutral-500 tracking-widest text-center">
-                    Layout 2: Video Left, Tools Stacked Right
-                  </p>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <p className="text-green-400 text-sm font-medium mb-2">Pros</p>
-                    <ul className="text-neutral-400 text-sm space-y-1">
-                      <li>• Keeps video consistently visible</li>
-                      <li>• etherGroups interaction tools together</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <p className="text-red-400 text-sm font-medium mb-2">Cons</p>
-                    <ul className="text-neutral-400 text-sm space-y-1">
-                      <li>• Breaks expected learning flow</li>
-                      <li>• Vertical scrolling for tools</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Gap to show Layout 1 is the chosen one (Gestalt principle) */}
-              <div className="h-8" />
-              
-              {/* Layout 1 Row - Chosen */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                <div className="relative">
-                  <img 
-                    src="/layout1.png" 
-                    alt="Layout 1 - Video and Transcript stacked left, AI Chatbot right" 
-                    className="w-full shadow-xl"
-                  />
-                  <p className="mt-2 text-xs text-neutral-500 tracking-widest text-center">
-                    Layout 3: Video + Transcript Left, Chat Right (Final)
-                  </p>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <p className="text-green-400 text-sm font-medium mb-2">Pros</p>
-                    <ul className="text-neutral-400 text-sm space-y-1">
-                      <li>• Aligns with natural learning behavior (watch → read → act)w</li>
-                      <li>• Chat always accessible</li>
-                      <li>• Enables immediate interaction without navigation</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <p className="text-red-400 text-sm font-medium mb-2">Cons</p>
-                    <ul className="text-neutral-400 text-sm space-y-1">
-                      <li>• Smaller video viewport</li>
-                      <li>• Fixed panel widths</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Explanation text */}
-              <p className="text-neutral-400 text-lg md:text-xl leading-relaxed mt-8">
-                While Layout 1 offered better immersion and Layout 2 centralised the tools,{" "}
-                <span className="font-bold text-purple-400">Layout 3</span> was the only architecture that{" "}
-                <span className="font-bold text-purple-400">aligns with how users naturally learn.</span>
-              </p>
-            </div>
-            
             <div id="heuristic-evaluation" className="flex flex-col gap-4 mt-16 scroll-mt-20 md:scroll-mt-24">
+              <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
+                PROTOTYPING
+              </p>
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">
                 From paper to pixel.
               </h2>
@@ -1590,214 +1473,187 @@ const FlowTutorCaseStudy = () => {
               </div>
               <div className="text-neutral-400 text-lg md:text-xl leading-relaxed space-y-4">
                 <p>
-                  In an age where AI is trained to be maximally helpful, FlowTutor&apos;s AI tutor sometimes says no.
+                 After the project was submitted, I independently designed a 3-state uncertainty model with distinct UI feedback for each query type.
                 </p>
-                <p>
-                  When AI tutors mix in-scope and out-of-scope content, students cannot reliably distinguish what the tutorial taught versus what the AI added. To prevent this, i designed three distinct interaction states:
-                </p>
+
               </div>
               {/* Interactive States Diagram */}
               <div className="w-full">
-                {/* Desktop Layout */}
-                <div className="hidden lg:block relative w-full" style={{ minHeight: '950px' }}>
-                  {/* Circle 1: User asks a question */}
-                  <div 
-                    className="absolute z-10 w-36 h-36 rounded-full bg-neutral-700/80 border-2 border-neutral-500/60 flex items-center justify-center text-center px-3"
-                    style={{ top: '392px', left: '20px' }}
-                    role="img"
-                    aria-label="Step 1: User asks a question"
-                  >
-                    <span className="text-white text-sm font-medium leading-tight">User asks a<br />question...</span>
-                  </div>
-
-                  {/* Circle 2: User query analysis - same size as Circle 1, at intersection of vertical trunk */}
-                  <div 
-                    className="absolute z-10 w-36 h-36 rounded-full bg-neutral-700/80 border-2 border-neutral-500/60 flex items-center justify-center text-center px-3"
-                    style={{ top: '392px', left: '240px' }}
-                    role="img"
-                    aria-label="Step 2: User query analysis"
-                  >
-                    <span className="text-white text-sm font-medium leading-tight">User query<br />analysis</span>
-                  </div>
-
-                  {/* SVG Connectors - WCAG AA compliant, orthogonal lines only */}
-                  <svg 
-                    className="absolute inset-0 w-full h-full pointer-events-none z-0" 
-                    aria-hidden="true"
-                    style={{ minHeight: '950px' }}
-                  >
-                    {/* Line: Circle 1 → Circle 2 (horizontal) */}
-                    <line 
-                      x1="164" y1="460" 
-                      x2="240" y2="460" 
-                      stroke="rgba(163,163,163,0.7)" 
-                      strokeWidth="2" 
-                    />
-
-                    {/* Vertical trunk top: S1 → Circle 2 top edge */}
-                    <line 
-                      x1="312" y1="140" 
-                      x2="312" y2="392" 
-                      stroke="rgba(163,163,163,0.7)" 
-                      strokeWidth="2" 
-                    />
-                    {/* Vertical trunk bottom: Circle 2 bottom edge → S3 */}
-                    <line 
-                      x1="312" y1="528" 
-                      x2="312" y2="780" 
-                      stroke="rgba(163,163,163,0.7)" 
-                      strokeWidth="2" 
-                    />
-
-                    {/* Horizontal branches → image column (450 + badge 36 + gap-12 ≈ 498; extend to meet frame) */}
-                    <line 
-                      x1="312" y1="140" 
-                      x2="502" y2="140" 
-                      stroke="rgba(163,163,163,0.7)" 
-                      strokeWidth="2" 
-                    />
-                    <line 
-                      x1="384" y1="460" 
-                      x2="502" y2="460" 
-                      stroke="rgba(163,163,163,0.7)" 
-                      strokeWidth="2" 
-                    />
-                    <line 
-                      x1="312" y1="780" 
-                      x2="502" y2="780" 
-                      stroke="rgba(163,163,163,0.7)" 
-                      strokeWidth="2" 
-                    />
-                  </svg>
-
-                  {/* Three state containers: flex column for consistent spacing */}
-                  <div className="absolute flex flex-col gap-8" style={{ top: '20px', left: '450px', right: '0' }}>
-                    {/* S1: Directly Relevant */}
-                    <div className="flex gap-3 items-start">
-                      <div
-                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-purple-500/40 bg-purple-500/10 text-[11px] font-bold tracking-wider text-purple-400"
-                        aria-hidden="true"
-                      >
-                        S1
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <div className="border border-purple-500/30 overflow-hidden">
-                          <img src={ftS1} alt="S1: FlowTutor responding to a directly relevant question about transformers" className="w-full h-auto object-contain" />
-                        </div>
-                        <p className="text-sm text-neutral-500 italic text-center mt-2">
-                          User asks a DIRECTLY RELEVANT question
-                        </p>
-                      </div>
+                <div className="border border-purple-500/30 rounded-xl overflow-hidden bg-neutral-900/60">
+                  <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-purple-500/20">
+                    <div className="p-5 md:p-6">
+                      <p className="text-purple-400 text-xs md:text-sm font-semibold tracking-wider uppercase">S1</p>
+                      <h3 className="text-white text-lg font-semibold mt-1">Directly Relevant</h3>
+                      <p className="text-neutral-300 text-sm md:text-base mt-3">
+                        Question is answered by video content.
+                      </p>
+                      <p className="text-neutral-400 text-sm italic mt-2">
+                        e.g. &quot;What is the main idea behind transformers?&quot;
+                      </p>
                     </div>
-
-                    {/* S2: Related But Not Mentioned */}
-                    <div className="flex gap-3 items-start">
-                      <div
-                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-purple-500/40 bg-purple-500/10 text-[11px] font-bold tracking-wider text-purple-400"
-                        aria-hidden="true"
-                      >
-                        S2
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <div className="border border-purple-500/30 overflow-hidden">
-                          <img src={ftS2} alt="S2: FlowTutor detecting an off-topic question and redirecting" className="w-full h-auto object-contain" />
-                        </div>
-                        <p className="text-sm text-neutral-500 italic text-center mt-2">
-                          User asks a RELATED BUT NOT MENTIONED question
-                        </p>
-                      </div>
+                    <div className="p-5 md:p-6">
+                      <p className="text-purple-400 text-xs md:text-sm font-semibold tracking-wider uppercase">S2</p>
+                      <h3 className="text-white text-lg font-semibold mt-1">Related, Not Mentioned</h3>
+                      <p className="text-neutral-300 text-sm md:text-base mt-3">
+                        Topic is connected but outside this video&apos;s scope.
+                      </p>
+                      <p className="text-neutral-400 text-sm italic mt-2">
+                        e.g. &quot;What is BERT?&quot; - related to transformers, not covered
+                      </p>
                     </div>
-
-                    {/* S3: Irrelevant */}
-                    <div className="flex gap-3 items-start">
-                      <div
-                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-purple-500/40 bg-purple-500/10 text-[11px] font-bold tracking-wider text-purple-400"
-                        aria-hidden="true"
-                      >
-                        S3
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <div className="border border-purple-500/30 overflow-hidden">
-                          <img src={ftS3} alt="S3: FlowTutor handling an irrelevant question by saving it for later research" className="w-full h-auto object-contain" />
-                        </div>
-                        <p className="text-sm text-neutral-500 italic text-center mt-2">
-                          User asks an IRRELEVANT question
-                        </p>
-                      </div>
+                    <div className="p-5 md:p-6">
+                      <p className="text-purple-400 text-xs md:text-sm font-semibold tracking-wider uppercase">S3</p>
+                      <h3 className="text-white text-lg font-semibold mt-1">Out of Scope</h3>
+                      <p className="text-neutral-300 text-sm md:text-base mt-3">
+                        Question has no connection to the video context.
+                      </p>
+                      <p className="text-neutral-400 text-sm italic mt-2">
+                        e.g. &quot;What is the weather in Singapore?&quot;
+                      </p>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                {/* Mobile Layout - stacked vertically with visible connectors */}
-                <div className="flex lg:hidden flex-col items-center gap-4">
-                  {/* Circle 1 */}
-                  <div className="w-32 h-32 md:w-36 md:h-36 rounded-full bg-neutral-700/80 border-2 border-neutral-500/60 flex items-center justify-center text-center px-3" role="img" aria-label="Step 1: User asks a question">
-                    <span className="text-white text-sm font-medium leading-tight">User asks a<br />question...</span>
+              {/* State 1 Example + right-side body text space */}
+              <div className="w-full mt-6">
+                <div className="grid grid-cols-1 lg:grid-cols-[480px_minmax(0,1fr)] gap-8 md:gap-10 items-stretch">
+                  <div>
+                    <div className="w-full max-w-full overflow-hidden border border-purple-500/25 bg-[#f3f3f6] text-neutral-900 shadow-[0_8px_24px_rgba(0,0,0,0.22)]">
+                      <div className="px-3 py-2 border-b border-neutral-300/80 bg-[#ececef]">
+                        <p className="text-[11px] font-medium text-neutral-600">FlowTutor · Transformer Models Explained</p>
+                      </div>
+
+                      <div className="p-3 space-y-3">
+                        <p className="text-[12px] leading-snug font-medium text-neutral-700">
+                          Hi! I&apos;m FlowTutor, here to help you understand this tutorial. Feel free to ask me anything about the video!
+                        </p>
+
+                        <div className="flex justify-end">
+                          <div className="max-w-[84%] rounded-xl bg-[#7d53cf] px-3 py-2 text-white text-[11px] leading-snug font-semibold">
+                            What is the main idea behind transformers?
+                          </div>
+                        </div>
+
+                        <div className="rounded-xl bg-[#e8e8eb] px-3 py-3">
+                          <p className="text-[11px] leading-snug text-neutral-900">
+                            Transformers compute scores on how each word relates to every other word in a sentence to derive meaning from text
+                          </p>
+                          <p className="text-[10px] leading-snug text-[#6f63d3] font-semibold mt-1.5">[00:52]</p>
+                          <p className="text-[11px] leading-snug text-neutral-900 mt-1">
+                            This allows them to augment a sentence&apos;s meaning by considering the context of its words
+                          </p>
+                          <p className="text-[10px] leading-snug text-[#6f63d3] font-semibold mt-1.5">[00:57]</p>
+                          <p className="text-[11px] leading-snug text-neutral-900 mt-1">
+                            This approach differs from previous methods like recurrent neural networks, which processed words sequentially
+                          </p>
+                          <p className="text-[10px] leading-snug text-[#6f63d3] font-semibold mt-1.5">[01:06]</p>
+                          <p className="text-[10px] leading-snug text-[#6f63d3] mt-1.5">↗ Why timestamps?</p>
+                        </div>
+                      </div>
+                    </div>
+                    <p className="mt-2 text-sm text-neutral-500 italic text-center">S1: Directly Relevant</p>
                   </div>
 
-                  {/* Vertical connector */}
-                  <div className="w-0.5 h-10 bg-neutral-400/70" aria-hidden="true" />
+                  <div className="flex items-center">
+                    <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+                      AI responds using video content with relevant timestamps.
+                    </p>
+                  </div>
+                </div>
+              </div>
 
-                  {/* Circle 2 */}
-                  <div className="w-32 h-32 md:w-36 md:h-36 rounded-full bg-neutral-700/80 border-2 border-neutral-500/60 flex items-center justify-center text-center px-3" role="img" aria-label="Step 2: User query analysis">
-                    <span className="text-white text-sm font-medium leading-tight">User query<br />analysis</span>
+              {/* State 2 Example + right-side body text space */}
+              <div className="w-full mt-5">
+                <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_480px] gap-8 md:gap-10 items-stretch">
+                  <div className="flex items-center">
+                    <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+                      AI acknowledges the connection, saves the topic for later, and redirects user back to video content.
+                    </p>
                   </div>
 
-                  {/* Branch indicator */}
-                  <div className="w-0.5 h-8 bg-neutral-400/70" aria-hidden="true" />
-
-                  {/* S1, S2, S3 with consistent spacing */}
-                  <div className="flex flex-col gap-8 w-full">
-                    <div className="flex w-full gap-3 items-start">
-                      <div
-                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-purple-500/40 bg-purple-500/10 text-[11px] font-bold tracking-wider text-purple-400"
-                        aria-hidden="true"
-                      >
-                        S1
+                  <div className="lg:justify-self-end">
+                    <div className="w-full max-w-full overflow-hidden border border-purple-500/25 bg-[#f3f3f6] text-neutral-900 shadow-[0_8px_24px_rgba(0,0,0,0.22)]">
+                      <div className="px-3 py-2 border-b border-neutral-300/80 bg-[#ececef]">
+                        <p className="text-[11px] font-medium text-neutral-600">FlowTutor · Transformer Models Explained</p>
                       </div>
-                      <div className="min-w-0 flex-1">
-                        <div className="border border-purple-500/30 overflow-hidden">
-                          <img src={ftS1} alt="S1: FlowTutor responding to a directly relevant question" className="w-full h-auto object-contain" />
-                        </div>
-                        <p className="text-sm text-neutral-500 italic text-center mt-2">
-                          User asks a DIRECTLY RELEVANT question
+
+                      <div className="p-3 space-y-3">
+                        <p className="text-[12px] leading-snug font-medium text-neutral-700">
+                          Hi! I&apos;m FlowTutor, here to help you understand this tutorial. Feel free to ask me anything about the video!
                         </p>
+
+                        <div className="flex justify-end">
+                          <div className="max-w-[84%] rounded-xl bg-[#7d53cf] px-3 py-2 text-white text-[11px] leading-snug font-semibold">
+                            What is BERT?
+                          </div>
+                        </div>
+
+                        <div className=" border-neutral-300 bg-[#efeff2] px-3 py-3">
+                          <div className="flex gap-2.5">
+                            <div className="min-w-0">
+                              <p className="text-[10px] leading-none font-semibold tracking-wide text-neutral-500 uppercase">Not in this video.</p>
+                              <p className="text-[11px] leading-snug text-neutral-900 mt-1.5">
+                                That&apos;s a great connection! <strong>bert</strong> is related to this architecture, but this specific video focuses on the underlying{" "}
+                                <span className="text-[#6f63d3] font-semibold">Transformer Models Explained.</span>
+                              </p>
+                              <p className="text-[11px] leading-snug text-neutral-600 mt-1.5">
+                                To keep you focused on the core concepts here, I haven&apos;t explained it yet. I&apos;ve saved &apos;bert&apos; to your Post-Lesson Research List.
+                              </p>
+                              <div className="mt-2 flex items-center gap-4 text-[10px]">
+                                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#E5E7EB] px-2 py-0.5 text-[#008000] font-semibold">✓ Saved</span>
+                                <span className="text-neutral-600">↗ View Research List</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
+                    <p className="mt-2 text-sm text-neutral-500 italic text-center">S2: Related, Not Mentioned</p>
+                  </div>
+                </div>
+              </div>
 
-                    <div className="flex w-full gap-3 items-start">
-                      <div
-                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-purple-500/40 bg-purple-500/10 text-[11px] font-bold tracking-wider text-purple-400"
-                        aria-hidden="true"
-                      >
-                        S2
+              {/* State 3 Example + right-side body text space */}
+              <div className="w-full mt-5">
+                <div className="grid grid-cols-1 lg:grid-cols-[480px_minmax(0,1fr)] gap-8 md:gap-10 items-stretch">
+                  <div>
+                    <div className="w-full max-w-full overflow-hidden border border-purple-500/25 bg-[#f3f3f6] text-neutral-900 shadow-[0_8px_24px_rgba(0,0,0,0.22)]">
+                      <div className="px-3 py-2 border-b border-neutral-300/80 bg-[#ececef]">
+                        <p className="text-[11px] font-medium text-neutral-600">FlowTutor · Transformer Models Explained</p>
                       </div>
-                      <div className="min-w-0 flex-1">
-                        <div className="border border-purple-500/30 overflow-hidden">
-                          <img src={ftS2} alt="S2: FlowTutor detecting an off-topic question" className="w-full h-auto object-contain" />
-                        </div>
-                        <p className="text-sm text-neutral-500 italic text-center mt-2">
-                          User asks a RELATED BUT NOT MENTIONED question
+
+                      <div className="p-3 space-y-3">
+                        <p className="text-[12px] leading-snug font-medium text-neutral-700">
+                          Hi! I&apos;m FlowTutor, here to help you understand this tutorial. Feel free to ask me anything about the video!
                         </p>
+
+                        <div className="flex justify-end">
+                          <div className="max-w-[84%] rounded-xl bg-[#ded9f5] px-3 py-2 text-[#2f2f38] text-[11px] leading-snug">
+                            what is the weather in singapore?
+                          </div>
+                        </div>
+
+                        <div className="rounded-xl border border-[#a8e0ee] bg-[#e6f4f9] px-3 py-3">
+                          <p className="text-[10px] leading-none font-semibold tracking-wide text-[#23aeca] uppercase">Off-topic detected</p>
+                          <p className="text-[11px] leading-snug text-neutral-900 mt-2">
+                            I&apos;m tuned to help you master <span className="text-[#6f63d3] underline">Transformer Models Explained</span>, so I can&apos;t help with{" "}
+                            <span className="italic">&quot;what is the weather in singapore?&quot;</span>.
+                          </p>
+                          <p className="text-[11px] leading-snug text-neutral-900 mt-2">
+                            Shall we get back to the concepts on screen? <span aria-hidden="true"></span>
+                          </p>
+                          <p className="text-[10px] leading-snug text-[#23aeca] mt-2">→ Try asking about the video content instead</p>
+                        </div>
                       </div>
                     </div>
+                    <p className="mt-2 text-sm text-neutral-500 italic text-center">S3: Out of Scope</p>
+                  </div>
 
-                    <div className="flex w-full gap-3 items-start">
-                      <div
-                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-purple-500/40 bg-purple-500/10 text-[11px] font-bold tracking-wider text-purple-400"
-                        aria-hidden="true"
-                      >
-                        S3
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <div className="border border-purple-500/30 overflow-hidden">
-                          <img src={ftS3} alt="S3: FlowTutor handling an irrelevant question" className="w-full h-auto object-contain" />
-                        </div>
-                        <p className="text-sm text-neutral-500 italic text-center mt-2">
-                          User asks an IRRELEVANT question
-                        </p>
-                      </div>
-                    </div>
+                  <div className="flex items-center">
+                    <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+                      AI declines response, and redirects user back to video content.
+                    </p>
                   </div>
                 </div>
               </div>
