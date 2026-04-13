@@ -175,7 +175,7 @@ const Index = () => {
                Offline AI Assistant for Frontline Police Officers.
               </h2>
               <p className="text-sm md:text-base text-neutral-400 leading-relaxed">
-               Reduced information retrieval time for Singapore Police Force by 92% and achieved a 100% unprompted discovery rate for critical SOP documents.
+               Reduced information retrieval time for Singapore Police Force officers by 92% and achieved a 100% unprompted discovery rate for critical SOP documents.
               </p>
               
               <div className="mt-6 md:mt-8">
