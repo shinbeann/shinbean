@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const EXPERIENCE = [
   { company: "FlowTutor", role: "Product Designer", date: "2025", sectionId: "flowtutor" },
   { company: "KidneyQuest (National Kidney Foundation)", role: "UX/UI Designer", date: "2025", sectionId: "kidneyquest" },
-  { company: "Hybrid RAG (HTX)", role: "UX/UI Designer", date: "Present", sectionId: "hybridrag" },
+  { company: "INTELLIPAL (HTX)", role: "UX/UI Designer", date: "Present", sectionId: "intellipal" },
   { company: "NEST", role: "Product Designer, Developer", date: "Present", sectionId: "nest" },
 ];
 

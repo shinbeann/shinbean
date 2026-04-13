@@ -2,17 +2,17 @@ import { useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
-import kqInflatable from "@/assets/kq_inflatable.jpg";
-import kqLanguage from "@/assets/kq_language.png";
-import kqIntro from "@/assets/kq_intro.png";
-import kqQuiz from "@/assets/kq_quiz.mp4";
-import kqResult from "@/assets/kq_result.png";
-import kqAr from "@/assets/kq_ar.mp4";
-import kqBrainstorm from "@/assets/kq_brainstorm.png";
-import kqAffinitymap from "@/assets/kq_affinitymap.png";
-import kqIter from "@/assets/kq_iter.jpg";
-import kqTeam1 from "@/assets/kq_team1.jpg";
-import kqTeam2 from "@/assets/kq_team2.jpg";
+import kqInflatable from "@/assets/kidneyquest/kq_inflatable.jpg";
+import kqLanguage from "@/assets/kidneyquest/kq_language.png";
+import kqIntro from "@/assets/kidneyquest/kq_intro.png";
+import kqQuiz from "@/assets/kidneyquest/kq_quiz.mp4";
+import kqResult from "@/assets/kidneyquest/kq_result.png";
+import kqAr from "@/assets/kidneyquest/kq_ar.mp4";
+import kqBrainstorm from "@/assets/kidneyquest/kq_brainstorm.png";
+import kqAffinitymap from "@/assets/kidneyquest/kq_affinitymap.png";
+import kqIter from "@/assets/kidneyquest/kq_iter.jpg";
+import kqTeam1 from "@/assets/kidneyquest/kq_team1.jpg";
+import kqTeam2 from "@/assets/kidneyquest/kq_team2.jpg";
 
 
 const KidneyQuestHero = () => (

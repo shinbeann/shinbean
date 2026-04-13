@@ -8,6 +8,7 @@ import { Mail, Linkedin, FileText } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { z } from "zod";
+import { publicMedia } from "@/lib/publicMedia";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -156,7 +157,7 @@ const Contact = () => {
 
                 {/* Resume */}
                 <a 
-                  href="/GAYSHINLEE_resume.pdf"
+                  href={publicMedia.resumePdf}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-4 p-4 rounded-lg border border-border hover:border-primary/50 hover:bg-muted/50 transition-all group"

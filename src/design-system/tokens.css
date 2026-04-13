@@ -1,0 +1,31 @@
+/**
+ * Semantic design tokens for layout and long-form pages.
+ * Global color + base typography live in src/index.css (:root).
+ * @see src/design-system/README.md
+ */
+
+:root {
+  /* Font stacks (mirror tailwind.config.ts theme.extend.fontFamily) */
+  --ds-font-sans: Inter, system-ui, sans-serif;
+  --ds-font-mono: "Space Mono", "Courier New", monospace;
+  --ds-font-serif: "Source Serif 4", "Crimson Text", Georgia, serif;
+
+  /* Case study shell (CaseStudyLayout) */
+  --ds-case-study-shell-max-width: 1600px;
+  --ds-case-study-toc-width: 240px;
+  --ds-case-study-content-max-width: 56rem; /* ~896px, Tailwind max-w-4xl */
+  --ds-case-study-main-padding-bottom: 12rem; /* pb-48 */
+
+  /* Sticky TOC: align with top nav (top-12 = 3rem) */
+  --ds-case-study-toc-sticky-top: 3rem;
+  --ds-case-study-toc-padding-top: 6rem; /* pt-24 */
+  --ds-case-study-toc-padding-bottom: 3rem; /* pb-12 */
+
+  /* Scroll / scroll-spy (CaseStudyLayout + section scroll-mt) */
+  --ds-scroll-anchor-offset: 140px;
+  --ds-active-section-threshold: 150px;
+  --ds-sidebar-reveal-threshold: 200px;
+
+  /* Motion */
+  --ds-sidebar-transition-duration: 500ms;
+}

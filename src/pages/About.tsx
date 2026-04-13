@@ -1,8 +1,8 @@
 import Navigation from "@/components/Navigation";
-import aboutMeImage from "/public/aboutme.jpg";
-import meBookImage from "@/assets/me-book.jpg";
-import meViolinImage from "@/assets/me-violin.jpg";
-import meSkiImage from "@/assets/me-ski.jpg";
+import meBookImage from "@/assets/personal/me-book.jpg";
+import meViolinImage from "@/assets/personal/me-violin.jpg";
+import meSkiImage from "@/assets/personal/me-ski.jpg";
+import { publicMedia } from "@/lib/publicMedia";
 import { motion } from "framer-motion";
 import { Mail, Linkedin, Github, FileText } from "lucide-react";
 
@@ -131,7 +131,7 @@ const About = () => {
                   <Github className="h-5 w-5" />
                 </a>
                 <a
-                  href="/GAYSHINLEE_resume.pdf"
+                  href={publicMedia.resumePdf}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Resume"
@@ -145,7 +145,7 @@ const About = () => {
             <div className="flex justify-center md:justify-end">
               <div className="relative aspect-[4/5] w-[90%] max-w-xs overflow-hidden bg-muted/20">
                 <img
-                  src={aboutMeImage}
+                  src={publicMedia.aboutPhoto}
                   alt="Portrait of Gay Shin Lee"
                   className="h-full w-full object-cover"
                 />

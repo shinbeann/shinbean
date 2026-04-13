@@ -1,3 +1,5 @@
+@import "./design-system/tokens.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -72,7 +74,7 @@ All colors MUST be HSL.
     /* Project-specific vibes */
     --kidneyquest-gold: 37 82% 60%;
     --kidneyquest-teal: 194 49% 33%;
-    --hybridrag-deep: 210 10% 9%;
+    --intellipal-deep: 210 10% 9%;
     --flowtutor-soft: 210 40% 30%;
   }
 }
@@ -221,8 +223,8 @@ All colors MUST be HSL.
     color: rgba(255, 215, 0, 0.6);
   }
 
-  /* SECTION 3: HybridRAG - Monochrome/Tech */
-  .hybridrag-section {
+  /* SECTION 3: INTELLIPAL - Monochrome/Tech */
+  .intellipal-section {
     background: linear-gradient(
       to bottom,
       #000000 0%,

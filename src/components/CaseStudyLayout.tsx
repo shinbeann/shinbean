@@ -4,6 +4,15 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingScrollToTop from "@/components/FloatingScrollToTop";
 import CaseStudyNav from "@/components/CaseStudyNav";
+import {
+  caseStudyLayout,
+  caseStudyShellGridClass,
+  caseStudyShellGridColsClass,
+  caseStudyTocChildLinkClass,
+  caseStudyTocNavClasses,
+  caseStudyTocParentLinkClass,
+  caseStudyTocSectionLabelClass,
+} from "@/design-system";
 
 interface TableOfContentsItem {
   id: string;
@@ -46,17 +55,14 @@ const CaseStudyLayout = ({
   // Track active section on scroll + sidebar visibility
   useEffect(() => {
     const handleScroll = () => {
-      // Check if we should show sidebars
       if (showSidebarsAfter) {
         const triggerElement = document.getElementById(showSidebarsAfter);
         if (triggerElement) {
           const rect = triggerElement.getBoundingClientRect();
-          // Show sidebars when the trigger section reaches near top of viewport
-          setShowSidebars(rect.top <= 200);
+          setShowSidebars(rect.top <= caseStudyLayout.sidebarRevealThresholdPx);
         }
       }
 
-      // Flatten all sections including children
       const allSections: { id: string; element: HTMLElement | null }[] = [];
       tableOfContents.forEach((item) => {
         allSections.push({ id: item.id, element: document.getElementById(item.id) });
@@ -71,9 +77,8 @@ const CaseStudyLayout = ({
         const section = allSections[i];
         if (section.element) {
           const rect = section.element.getBoundingClientRect();
-          if (rect.top <= 150) {
+          if (rect.top <= caseStudyLayout.activeSectionThresholdPx) {
             setActiveSection(section.id);
-            // Auto-expand parent if active section is a child, so the subheader is visible and can show as active (e.g. Problem)
             const parent = tableOfContents.find((item) =>
               item.children?.some((child) => child.id === section.id)
             );
@@ -88,7 +93,7 @@ const CaseStudyLayout = ({
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Initial check
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, [tableOfContents, showSidebarsAfter]);
 
@@ -96,95 +101,74 @@ const CaseStudyLayout = ({
     const element = document.getElementById(id);
     if (element) {
       const y = element.getBoundingClientRect().top + window.scrollY;
-      const offset = 140; // Consistent eye level: space for nav + padding
+      const offset = caseStudyLayout.scrollAnchorOffsetPx;
       window.scrollTo({ top: y - offset, behavior: "smooth" });
     }
   };
 
   return (
     <div className={cn("min-h-screen overflow-x-clip", isDark ? "bg-[#050505]" : "bg-background")}>
-      {/* Top Navigation */}
       <Navigation tone={isDark ? "dark" : "light"} enableSmartHide={false} />
-      
-      {/* Optional full-width hero (ignores 2-column grid below) */}
+
       {hero != null && <div className="w-full overflow-x-hidden">{hero}</div>}
-      
-      {/* 2-Column Grid (Left: TOC, Center: Content) — or single column when hideTableOfContents */}
-      <div className={cn(
-        "max-w-[1600px] mx-auto px-6",
-        hideTableOfContents ? "" : "md:grid md:grid-cols-[240px_1fr] gap-8"
-      )}>
-        {/* Left Column - In-Page Navigation (Table of Contents); sticky so it stays visible while right column scrolls */}
+
+      <div
+        className={cn(
+          caseStudyShellGridClass,
+          hideTableOfContents ? "" : caseStudyShellGridColsClass
+        )}
+      >
         {!hideTableOfContents && (
-        <nav
-          aria-label="Table of Contents"
-          className={cn(
-            "hidden md:block sticky top-12 h-fit pt-24 pb-12 transition-all duration-500",
-            showSidebars ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8 pointer-events-none"
-          )}
-        >
-          <div className="space-y-6">
-            {/* ToC Links */}
-            <div className="space-y-1">
-              <p className={cn(
-                "text-xs uppercase tracking-widest font-semibold mb-3",
-                isDark ? "text-neutral-600" : "text-neutral-600"
-              )}>
-                On this page
-              </p>
-              {tableOfContents.map((item) => (
-                <div key={item.id}>
-                  <button
-                    onClick={() => {
-                      // Parent items with children (e.g. Overview) only expand/collapse; no scroll
-                      if (!item.children) {
-                        handleScrollTo(item.id);
-                      }
-                      if (expandedHeader === item.id) {
-                        setExpandedHeader(null);
-                      } else {
-                        setExpandedHeader(item.id);
-                      }
-                    }}
-                    className={cn(
-                      "block w-full text-left text-sm transition-colors py-1.5 pl-3 border-l-2",
-                      activeSection === item.id && !item.children?.length
-                        ? isDark 
-                          ? "text-white border-white font-medium"
-                          : "text-foreground border-foreground font-medium"
-                        : isDark
-                          ? "text-neutral-500 border-transparent hover:text-white hover:border-neutral-600"
-                          : "text-neutral-500 border-transparent hover:text-foreground hover:border-neutral-600"
-                    )}
-                  >
-                    {item.label}
-                  </button>
-                  {item.children && expandedHeader === item.id && item.children.map((child) => (
+          <nav
+            aria-label="Table of Contents"
+            className={caseStudyTocNavClasses(showSidebars)}
+          >
+            <div className="space-y-6">
+              <div className="space-y-1">
+                <p className={caseStudyTocSectionLabelClass}>On this page</p>
+                {tableOfContents.map((item) => (
+                  <div key={item.id}>
                     <button
-                      key={child.id}
-                      onClick={() => handleScrollTo(child.id)}
-                      className={cn(
-                        "block w-full text-left text-sm transition-colors py-1.5 pl-6 border-l-2",
-                        activeSection === child.id
-                          ? isDark 
-                            ? "text-white border-white font-medium"
-                            : "text-foreground border-foreground font-medium"
-                          : isDark
-                            ? "text-neutral-500 border-transparent hover:text-white hover:border-neutral-600"
-                            : "text-neutral-500 border-transparent hover:text-foreground hover:border-neutral-600"
+                      type="button"
+                      onClick={() => {
+                        if (!item.children) {
+                          handleScrollTo(item.id);
+                        }
+                        if (expandedHeader === item.id) {
+                          setExpandedHeader(null);
+                        } else {
+                          setExpandedHeader(item.id);
+                        }
+                      }}
+                      className={caseStudyTocParentLinkClass(
+                        isDark,
+                        activeSection === item.id && !item.children?.length
                       )}
                     >
-                      {child.label}
+                      {item.label}
                     </button>
-                  ))}
-                </div>
-              ))}
+                    {item.children &&
+                      expandedHeader === item.id &&
+                      item.children.map((child) => (
+                        <button
+                          type="button"
+                          key={child.id}
+                          onClick={() => handleScrollTo(child.id)}
+                          className={caseStudyTocChildLinkClass(
+                            isDark,
+                            activeSection === child.id
+                          )}
+                        >
+                          {child.label}
+                        </button>
+                      ))}
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </nav>
+          </nav>
         )}
 
-        {/* Center Column - Main Case Study Content */}
         <main className="pb-48 min-w-0">
           <div className="max-w-4xl mx-auto px-4 md:px-0">{children}</div>
         </main>

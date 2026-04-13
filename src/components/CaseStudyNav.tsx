@@ -1,9 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
 
-const studies = [
+const studies: { label: string; path: string; disabled?: boolean }[] = [
   { label: "FlowTutor", path: "/case-study/flowtutor" },
   { label: "KidneyQuest", path: "/case-study/kidneyquest" },
-  { label: "HybridRAG", path: "/case-study/hybridrag", disabled: true },
+  { label: "INTELLIPAL", path: "/case-study/intellipal" },
   { label: "NEST", path: "/case-study/nest" },
 ];
 

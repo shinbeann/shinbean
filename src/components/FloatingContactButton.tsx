@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronUp, ExternalLink, Mail, Github, Linkedin, FileText } from "lucide-react";
 import { useState, useEffect } from "react";
+import { publicMedia } from "@/lib/publicMedia";
 
 const FloatingContactButton = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -45,7 +46,7 @@ const FloatingContactButton = () => {
     },
     {
       label: "Resume",
-      href: "/GAYSHINLEE_resume.pdf",
+      href: publicMedia.resumePdf,
       icon: FileText,
       external: true,
     },
@@ -72,7 +73,7 @@ const FloatingContactButton = () => {
             {/* Profile Avatar */}
             <div className="w-8 h-8 rounded-full overflow-hidden border border-border/40">
               <img
-                src="/aboutme.jpg"
+                src={publicMedia.aboutPhoto}
                 alt="Gay Shin Lee"
                 className="w-full h-full object-cover"
               />

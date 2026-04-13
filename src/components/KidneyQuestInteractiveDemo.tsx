@@ -1,10 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-import kidneyQuestLanguagePhone from "@/assets/kidneyquest-language-phone.png";
-import kidneyQuestQuizPhone from "@/assets/kidneyquest-quiz-phone.png";
-import correctImage from "@/assets/correct.png";
-import incorrectImage from "@/assets/incorrect.png";
+import { publicMedia } from "@/lib/publicMedia";
+import kidneyQuestLanguagePhone from "@/assets/kidneyquest/kidneyquest-language-phone.png";
+import kidneyQuestQuizPhone from "@/assets/kidneyquest/kidneyquest-quiz-phone.png";
+import correctImage from "@/assets/kidneyquest/correct.png";
+import incorrectImage from "@/assets/kidneyquest/incorrect.png";
 
 type KidneyQuestScreen = "quiz" | "success";
 
@@ -357,7 +358,7 @@ export const KidneyQuestInteractiveDemo = () => {
             >
               <div className="relative w-full">
                 <img
-                  src="/kidneyquest-success.png"
+                  src={publicMedia.kidneyquestSuccess}
                   alt="KidneyQuest success screen showing restored healthy kidney illustration"
                   className="h-auto w-full select-none object-contain drop-shadow-[0_18px_45px_rgba(15,23,42,0.7)]"
                 />

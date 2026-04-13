@@ -7,8 +7,9 @@ import Navigation from "@/components/Navigation";
 import FloatingContactButton from "@/components/FloatingContactButton";
 import Hero from "@/components/Hero";
 import { KidneyQuestInteractiveDemo } from "@/components/KidneyQuestInteractiveDemo";
-import ftHeroVid from "@/assets/ft_herovid.mp4";
-import nestMockup from "@/assets/nest_mockup.png";
+import ftHeroVid from "@/assets/flowtutor/ft_herovid.mp4";
+import nestMockup from "@/assets/nest/nest_mockup.png";
+import { publicMedia } from "@/lib/publicMedia";
 
 const scrollReveal = {
   initial: { opacity: 0, y: 24 },
@@ -159,8 +160,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* SECTION 3: HYBRIDRAG - Monochrome/Tech */}
-      <section id="hybridrag" className="hybridrag-section relative">
+      {/* SECTION 3: INTELLIPAL - Monochrome/Tech */}
+      <section id="intellipal" className="intellipal-section relative">
         <div className="container max-w-6xl mx-auto px-4 py-16 md:py-32 relative z-10">
           <motion.div
             className="min-h-[60vh] md:min-h-[80vh] flex flex-col gap-8 md:gap-16 md:flex-row items-start"
@@ -170,24 +171,24 @@ const Index = () => {
             {/* Heading - Not sticky on mobile */}
             <div className="w-full md:w-1/3 md:sticky md:top-28 self-start space-y-4">
               <p className="text-xs uppercase tracking-[0.25em] text-neutral-500">
-                <span className="font-bold">Hybrid RAG </span>
+                <span className="font-bold">INTELLIPAL </span>
               </p>
               <h2 className="font-sans text-2xl sm:text-3xl md:text-4xl font-normal text-neutral-200">
-                Hybrid RAG for SOP retrieval.
+               Offline AI Assistant for Frontline Police Officers.
               </h2>
               <p className="text-sm md:text-base text-neutral-400 leading-relaxed">
-                An offline retrieval-augmented generation system that keeps
+                INTELLIPAL is an offline retrieval-augmented generation system that keeps
                 Singapore Police Force officers informed, even in connectivity
                 blackspots.
               </p>
               
               <div className="mt-6 md:mt-8">
                 <Link 
-                  to="/case-study/hybridrag" 
+                  to="/case-study/intellipal" 
                   className="group inline-flex items-center gap-2 text-sm font-medium text-neutral-400 hover:text-neutral-300 transition-all duration-200"
                 >
                   <span className="relative">
-                    Read Hybrid RAG case study
+                    Read INTELLIPAL case study
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neutral-300 group-hover:w-full transition-all duration-300" />
                   </span>
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -197,17 +198,15 @@ const Index = () => {
 
             {/* Story & Media */}
             <div className="w-full md:w-2/3 space-y-8 md:space-y-10">
-              {/* UI Screenshot with inner border to prevent background bleed */}
               <motion.div
                 {...scrollReveal}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="rounded-2xl md:rounded-3xl border border-neutral-800 overflow-hidden bg-neutral-900/50 backdrop-blur-sm"
+                className="relative w-full"
               >
-                <div className="absolute inset-0 ring-1 ring-inset ring-white/5 pointer-events-none" />
                 <img
-                  src="/hybridrag-hero.png"
-                  alt="HybridRAG mobile application showing SOP search interface with three smartphone screens displaying search, results, and document view"
-                  className="w-full h-auto object-contain relative z-10"
+                  src={publicMedia.intellipalHomeMockup}
+                  alt="INTELLIPAL SOP Assistance on two phones: suggested SOP questions and chat guidance with likely match and protective equipment details"
+                  className="w-full h-auto object-contain"
                 />
               </motion.div>
 

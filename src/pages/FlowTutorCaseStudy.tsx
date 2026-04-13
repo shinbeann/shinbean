@@ -8,22 +8,27 @@ import { ArrowLeft, ArrowRight, Code, Brain, Layout, Sliders, ChevronRight, Chev
 
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import onboardingBefore from "@/assets/flowtutor-onboarding-before.png";
-import onboardingAfter from "@/assets/flowtutor-onboarding-after.png";
-import pinBefore from "@/assets/flowtutor-pinbefore.png";
-import pinAfter from "@/assets/flowtutor-pinafter.png";
-import vpBefore from "@/assets/flowtutor-vpbefore.png";
-import vpAfter from "@/assets/flowtutor-vpafter.png";
-import ftProblem from "@/assets/ft_problem.png";
-import ftLanding from "@/assets/ft_landing.png";
-import ftPearson from "@/assets/ft_pearson.png";
-import ftMain from "@/assets/ft_main.png";
-import ftDemoVideo from "@/assets/Screen Recording 2026-01-29 143535.mp4";
-import ftFeature2 from "@/assets/ft_f2.png";
-import ftFeature3 from "@/assets/ft_notes.png";
-import ftQuizVideo from "@/assets/ft_quiz.mp4";
-import ftMapping from "@/assets/ft_mapping.png";
-import ftAi from "@/assets/ft_ai.png";
+import onboardingBefore from "@/assets/flowtutor/flowtutor-onboarding-before.png";
+import onboardingAfter from "@/assets/flowtutor/flowtutor-onboarding-after.png";
+import pinBefore from "@/assets/flowtutor/flowtutor-pinbefore.png";
+import pinAfter from "@/assets/flowtutor/flowtutor-pinafter.png";
+import vpBefore from "@/assets/flowtutor/flowtutor-vpbefore.png";
+import vpAfter from "@/assets/flowtutor/flowtutor-vpafter.png";
+import ftProblem from "@/assets/flowtutor/ft_problem.png";
+import ftLanding from "@/assets/flowtutor/ft_landing.png";
+import ftPearson from "@/assets/flowtutor/ft_pearson.png";
+import ftMain from "@/assets/flowtutor/ft_main.png";
+import ftDemoVideo from "@/assets/flowtutor/flowtutor-demo-recording.mp4";
+import ftFeature2 from "@/assets/flowtutor/ft_f2.png";
+import ftFeature3 from "@/assets/flowtutor/ft_notes.png";
+import ftQuizVideo from "@/assets/flowtutor/ft_quiz.mp4";
+import ftMapping from "@/assets/flowtutor/ft_mapping.png";
+import ftAi from "@/assets/flowtutor/ft_ai.png";
+import ftAbBaseline from "@/assets/flowtutor/flowtutor-baseline.png";
+import ftAbExperiment from "@/assets/flowtutor/flowtutor-experiment.png";
+import logoPearson from "@/assets/flowtutor/pearson-logo.png";
+import logoUdemyKhan from "@/assets/flowtutor/udemy-khan-logo.png";
+import logoYoutube from "@/assets/flowtutor/youtube-logo.png";
 import ZigZagFeatures from "@/components/ZigZagFeatures";
 
 // --- COMPONENTS ---
@@ -760,7 +765,7 @@ const CompetitorAnalysis = () => {
   const competitors = [
     {
       name: "Pearson",
-      image: "/pearson-logo.png",
+      image: logoPearson,
       pros: [
         "Structured course format with clear learning paths.",
         "Certificates from accredited universities.",
@@ -774,7 +779,7 @@ const CompetitorAnalysis = () => {
     },
     {
       name: "Udemy / Khan Academy",
-      image: "/udemy-khan-logo.png",
+      image: logoUdemyKhan,
       pros: [
         "Free access to quality educational content.",
         "Practice exercises with instant feedback.",
@@ -788,7 +793,7 @@ const CompetitorAnalysis = () => {
     },
     {
       name: "YouTube",
-      image: "/youtube-logo.png",
+      image: logoYoutube,
       pros: [
         "Wide variety of topics and instructors.",
         "Affordable pricing with frequent sales.",
@@ -1768,14 +1773,14 @@ const FlowTutorCaseStudy = () => {
                     description="YouTube + External Notepad (Alt-Tab required)."
                     isExperimental={false}
                     delay={0}
-                    image="/flowtutor-baseline.png"
+                    image={ftAbBaseline}
                   />
                   <ABConditionCard
                     title="FlowTutor: Integrated Workflow"
                     description="Unified Viewport (Video + Chat + Notes)."
                     isExperimental={true}
                     delay={0.1}
-                    image="/flowtutor-experiment.png"
+                    image={ftAbExperiment}
                   />
                 </div>
 

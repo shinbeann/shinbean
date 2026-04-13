@@ -4,8 +4,8 @@ import CaseStudyLayout from "@/components/CaseStudyLayout";
 
 /**
  * Fallback for /case-study/:slug when no dedicated case study page exists.
- * FlowTutor and KidneyQuest use custom pages (FlowTutorCaseStudy, KidneyQuestCaseStudy).
- * HybridRAG and NEST will get dedicated pages in the same format when ready.
+ * FlowTutor, KidneyQuest, and INTELLIPAL use dedicated pages.
+ * NEST and unknown slugs fall through to this placeholder until a page exists.
  */
 const CaseStudy = () => {
   return (
