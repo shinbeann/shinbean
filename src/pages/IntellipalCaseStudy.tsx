@@ -84,7 +84,7 @@ const IntellipalHero = () => (
         transition={{ duration: 0.8, delay: 0.55 }}
         className="space-y-4 min-w-0 mt-10"
       >
-        <p className="text-[11px] uppercase tracking-[0.15em] font-medium text-neutral-500">Key Contributions</p>
+        <p className="text-[11px] uppercase tracking-[0.15em] font-medium text-neutral-500">My contributions</p>
         <ul className="space-y-3 text-neutral-400 text-sm md:text-base leading-relaxed list-disc list-outside pl-5 break-words">
           <li>Designed mobile search and result flows for low-friction SOP lookup under time pressure.</li>
           <li>Partnered with engineering on dual-mode retrieval UX: when to show citations, confidence, and fallbacks.</li>

@@ -1007,7 +1007,7 @@ const FlowTutorHero = () => (
         transition={{ duration: 0.8, delay: 0.55 }}
         className="space-y-4 min-w-0 mt-10"
       >
-        <p className="text-[11px] uppercase tracking-[0.15em] font-medium text-neutral-500">Key Contributions</p>
+        <p className="text-[11px] uppercase tracking-[0.15em] font-medium text-neutral-500">My contributions</p>
         <ul className="space-y-3 text-neutral-400 text-sm md:text-base leading-relaxed list-disc list-outside pl-5 break-words">
           <li>Advocated for and led user interviews with 6 diverse users to identify 4 critical pain points.</li>
           <li>Led a brainstorming session to ideate potential solutions based on pain points and heuristics.</li>

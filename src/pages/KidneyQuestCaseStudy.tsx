@@ -75,7 +75,7 @@ const KidneyQuestHero = () => (
         transition={{ duration: 0.8, delay: 0.55 }}
         className="space-y-4 min-w-0 mt-10"
       >
-        <p className="text-[11px] uppercase tracking-[0.15em] font-medium text-neutral-500">Key Contributions</p>
+        <p className="text-[11px] uppercase tracking-[0.15em] font-medium text-neutral-500">My contributions</p>
         <ul className="space-y-3 text-neutral-400 text-sm md:text-base leading-relaxed list-disc list-outside pl-5 break-words">
           <li>Led user research with 3 participant interviews and a 61-response survey to understand visitor behavior at public exhibits.</li>
           <li>Conducted affinity mapping and synthesis sessions to identify patterns in content preferences and engagement barriers.</li>
