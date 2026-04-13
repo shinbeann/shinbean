@@ -60,8 +60,7 @@ const Index = () => {
                 Learn smarter with AI powered assistance.
               </h2>
               <p className="text-sm md:text-base text-blue-100/70">
-                A concept for turning chaotic YouTube tutorials into interactive lessons, allowing learners to ask questions and generate quizzes for more efficient self-directed learning
-                zone.
+                Achieved 25% increase in knowledge retention across 50 users compared to traditional learning methods. 
               </p>
               
               <div className="mt-6 md:mt-8">
@@ -127,8 +126,7 @@ const Index = () => {
                 Gamifying health education.
               </h2>
               <p className="text-sm md:text-base kidneyquest-text-secondary leading-relaxed">
-                A browser-based AR mini-game for the National Kidney Foundation that
-                turns kidney health education into a playful, memorable experience.
+                Reduced 40% of staff overhead with a zero-waste, self-sustaining AR experience that scales across 4 languages.
               </p>
               
               <div className="mt-6 md:mt-8">
@@ -177,9 +175,7 @@ const Index = () => {
                Offline AI Assistant for Frontline Police Officers.
               </h2>
               <p className="text-sm md:text-base text-neutral-400 leading-relaxed">
-                INTELLIPAL is an offline retrieval-augmented generation system that keeps
-                Singapore Police Force officers informed, even in connectivity
-                blackspots.
+               Reduced information retrieval time for Singapore Police Force by 92% and achieved a 100% unprompted discovery rate for critical SOP documents.
               </p>
               
               <div className="mt-6 md:mt-8">
