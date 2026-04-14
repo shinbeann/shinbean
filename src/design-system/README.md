@@ -9,6 +9,7 @@ Single place for **reusable layout tokens**, **case study sidebar** styles, and 
 | `tokens.css` | CSS custom properties (`--ds-*`) for case study shell, TOC column width, scroll alignment |
 | `tokens.ts` | Same numbers in TypeScript for `scrollTo`, `getBoundingClientRect` checks, etc. |
 | `caseStudySidebar.ts` | Composed Tailwind class strings for the sticky “On this page” nav |
+| `caseStudyTypography.ts` | Shared editorial typography presets for long-form case study copy |
 | `index.ts` | Barrel re-exports |
 
 Global **colors**, **shadcn-style HSL variables**, and **base heading/body rules** live in `src/index.css`. The **8px spacing scale** and **font size scale** are extended in `tailwind.config.ts`.
@@ -37,6 +38,13 @@ In `src/index.css`, under `:root`:
 ### Tailwind `fontSize`
 
 `tailwind.config.ts` → `theme.extend.fontSize` provides **`text-xs`** through **`text-7xl`** with line heights and letter spacing. Prefer these utilities in components for consistency.
+
+### Case study editorial presets (`caseStudyTypography.ts`)
+
+- **`caseStudyEditorialBodyClass`** — `font-serif text-[18px] md:text-[20px] leading-[1.6] max-w-[65ch]`
+- **`caseStudyEditorialBodyStackClass`** — same as above + `space-y-7` for paragraph rhythm
+
+Use these tokens in long-form sections (problem/solution/research/reflection) so future case studies inherit the same readability standard.
 
 ---
 

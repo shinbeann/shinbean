@@ -2,6 +2,7 @@ import { useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
+import { caseStudyEditorialBodyClass } from "@/design-system";
 import kqInflatable from "@/assets/kidneyquest/kq_inflatable.jpg";
 import kqLanguage from "@/assets/kidneyquest/kq_language.png";
 import kqIntro from "@/assets/kidneyquest/kq_intro.png";
@@ -31,7 +32,7 @@ const KidneyQuestHero = () => (
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.15 }}
-        className="text-neutral-400 text-lg md:text-xl leading-relaxed w-full break-words mt-10"
+        className={`text-neutral-400 w-full break-words mt-10 ${caseStudyEditorialBodyClass}`}
       >
         NKF's kidney inflatable drew crowds but left visitors with a brochure they'd never read. We created KidneyQuest to turn kidney health education into a playful, memorable AR experience to replace paper handouts with a <span className="text-[#FFD700]">3-minute, self-directed mini-game.</span>
       </motion.p>
@@ -210,7 +211,7 @@ const KidneyQuestCaseStudy = () => {
                 The Kidney in the Room.
               </h2>
             </div>
-            <div className="text-neutral-400 text-lg md:text-xl leading-relaxed space-y-4">
+            <div className={`text-neutral-400 space-y-7 ${caseStudyEditorialBodyClass}`}>
               <p>
                 Diabetes and hypertension are the silent killers driving Chronic Kidney Disease (CKD), particularly in adults over 50. To combat this, the National Kidney Foundation (NKF) uses a massive, physical Inflatable Kidney at public roadshows to attract attention.
               </p>
@@ -289,7 +290,7 @@ const KidneyQuestCaseStudy = () => {
                 transition={{ duration: 0.8 }}
                 className="mb-12 md:mb-16 text-center"
               >
-                <p className="text-lg md:text-xl lg:text-2xl font-medium text-white/90 leading-relaxed tracking-tight">
+                <p className={`${caseStudyEditorialBodyClass} font-medium text-white/90 tracking-tight text-center mx-auto`}>
                   How might we create a{" "}
                   <span className="font-bold text-[#FFD700]">sustainable, cost-effective interaction</span>{" "}
                   that ensures participants walk away with{" "}
@@ -303,10 +304,10 @@ const KidneyQuestCaseStudy = () => {
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
                   KidneyQuest
                 </h2>
-                <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+                <p className={`${caseStudyEditorialBodyClass} text-neutral-400`}>
                   We designed KidneyQuest, a webAR game that transforms passive exhibit viewing into an active, time-bound interaction designed to deliver 3 key health takeaways within 3 minutes.
                 </p>
-                <p>
+                <p className={`${caseStudyEditorialBodyClass} text-neutral-300`}>
                   Scan → choose language → play → learn → AR reward. 3 minutes. 4 languages. Zero install.
                 </p>
                 <div className="grid grid-cols-[repeat(2,minmax(0,1fr))] md:grid-cols-[repeat(5,minmax(0,1fr))] items-stretch gap-4 max-w-6xl w-full">
@@ -342,7 +343,7 @@ const KidneyQuestCaseStudy = () => {
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
                       Public Engagement with Exhibits.
                     </h2>
-                    <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+                    <p className={`${caseStudyEditorialBodyClass} text-neutral-400`}>
                       To understand why visitors don&apos;t engage with public exhibits, we conducted a survey (N=61) and observed behaviors at similar roadshows.
                     </p>
                   </div>
@@ -433,7 +434,7 @@ const KidneyQuestCaseStudy = () => {
                         <span className="text-5xl md:text-6xl font-bold text-neutral-700/60 leading-none">01</span>
                         <div>
                           <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">Access Model</h3>
-                          <p className="text-neutral-400 mt-1">How should users access the experience with zero friction?</p>
+                          <p className={`${caseStudyEditorialBodyClass} text-neutral-400 mt-1`}>How should users access the experience with zero friction?</p>
                         </div>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -442,15 +443,15 @@ const KidneyQuestCaseStudy = () => {
                             <span className="text-neutral-500">✕</span> REJECTED
                           </p>
                           <h4 className="text-lg font-semibold text-white mb-2">Native App</h4>
-                          <p className="text-neutral-400 leading-relaxed">Best AR performance, but 100% of interviewees refused to download a new app at a public event.</p>
+                          <p className={`${caseStudyEditorialBodyClass} text-neutral-400`}>Best AR performance, but 100% of interviewees refused to download a new app at a public event.</p>
                         </div>
                         <div className="border border-[#E5A500]/60 rounded-xl p-6 bg-[#E5A500]/[0.04]">
                           <p className="text-xs uppercase tracking-widest text-[#E5A500] mb-3 flex items-center gap-1.5">
                             <span>✓</span> CHOSEN
                           </p>
                           <h4 className="text-lg font-semibold text-white mb-2">WebAR via QR (8th Wall)</h4>
-                          <p className="text-neutral-400 leading-relaxed">- Scan → play in under 5 seconds. No installation required. </p>
-                          <p className="text-neutral-400 leading-relaxed">- Preserves the phygital interaction 65% of users wanted.</p>
+                          <p className={`${caseStudyEditorialBodyClass} text-neutral-400`}>- Scan → play in under 5 seconds. No installation required. </p>
+                          <p className={`${caseStudyEditorialBodyClass} text-neutral-400`}>- Preserves the phygital interaction 65% of users wanted.</p>
                         </div>
                       </div>
                   </div>
@@ -461,7 +462,7 @@ const KidneyQuestCaseStudy = () => {
                         <span className="text-5xl md:text-6xl font-bold text-neutral-700/60 leading-none">02</span>
                         <div>
                           <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">Content Delivery</h3>
-                          <p className="text-neutral-400 mt-1">How should health information be delivered inside the game?</p>
+                          <p className={`${caseStudyEditorialBodyClass} text-neutral-400 mt-1`}>How should health information be delivered inside the game?</p>
                         </div>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -470,14 +471,14 @@ const KidneyQuestCaseStudy = () => {
                             <span className="text-neutral-500">✕</span> REJECTED
                           </p>
                           <h4 className="text-lg font-semibold text-white mb-2">Mascot-Led Tutorial</h4>
-                          <p className="text-neutral-400 leading-relaxed">3 of 4 usability testers spent &gt;60s understanding the narrative before reaching any health content.</p>
+                          <p className={`${caseStudyEditorialBodyClass} text-neutral-400`}>3 of 4 usability testers spent &gt;60s understanding the narrative before reaching any health content.</p>
                         </div>
                         <div className="border border-[#E5A500]/60 rounded-xl p-6 bg-[#E5A500]/[0.04]">
                           <p className="text-xs uppercase tracking-widest text-[#E5A500] mb-3 flex items-center gap-1.5">
                             <span>✓</span> CHOSEN
                           </p>
                           <h4 className="text-lg font-semibold text-white mb-2">Direct Trivia + Visual Feedback</h4>
-                          <p className="text-neutral-400 leading-relaxed">Question → wrong answer surfaces a health fact. No narrative scaffolding. Playable within 10 seconds of launch.</p>
+                          <p className={`${caseStudyEditorialBodyClass} text-neutral-400`}>Question → wrong answer surfaces a health fact. No narrative scaffolding. Playable within 10 seconds of launch.</p>
                         </div>
                       </div>
                   </div>
@@ -488,7 +489,7 @@ const KidneyQuestCaseStudy = () => {
                         <span className="text-5xl md:text-6xl font-bold text-neutral-700/60 leading-none">03</span>
                         <div>
                           <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">Language</h3>
-                          <p className="text-neutral-400 mt-1">How should we support a multilingual audience?</p>
+                          <p className={`${caseStudyEditorialBodyClass} text-neutral-400 mt-1`}>How should we support a multilingual audience?</p>
                         </div>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -497,17 +498,17 @@ const KidneyQuestCaseStudy = () => {
                             <span className="text-neutral-500">✕</span> REJECTED
                           </p>
                           <h4 className="text-lg font-semibold text-white mb-2">Auto-detect device language</h4>
-                          <p className="text-neutral-400 leading-relaxed">Phone language settings did not match users' preferred reading language.</p>
+                          <p className={`${caseStudyEditorialBodyClass} text-neutral-400`}>Phone language settings did not match users' preferred reading language.</p>
                         </div>
                         <div className="border border-[#E5A500]/60 rounded-xl p-6 bg-[#E5A500]/[0.04]">
                           <p className="text-xs uppercase tracking-widest text-[#E5A500] mb-3 flex items-center gap-1.5">
                             <span>✓</span> CHOSEN
                           </p>
                           <h4 className="text-lg font-semibold text-white mb-2">First-screen language picker</h4>
-                          <p className="text-neutral-400 leading-relaxed">One-tap selection EN / ES / 中文 / தமிழ்</p>
+                          <p className={`${caseStudyEditorialBodyClass} text-neutral-400`}>One-tap selection EN / ES / 中文 / தமிழ்</p>
                         </div>
                       </div>
-                      <p className="text-neutral-400 text-lg md:text-xl leading-relaxed max-w-3xl pt-8 md:pt-4">
+                      <p className={`${caseStudyEditorialBodyClass} text-neutral-400 pt-8 md:pt-4`}>
                         Across all decisions, we{" "}
                         <span className="font-bold text-[#FFD700]">prioritised minimising friction</span>
                         {" "}and{" "}
@@ -524,7 +525,7 @@ const KidneyQuestCaseStudy = () => {
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
                           The iterations.
                         </h2>
-                        <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+                        <p className={`${caseStudyEditorialBodyClass} text-neutral-400`}>
                           As a team of non-designers, our initial instinct was to design cute mascot and themes. But early stakeholder feedback and usability testing revealed{" "}
                           <span className="font-bold text-[#FFD700]">visual noise, cognitive overload and heuristic issues</span>.
                         </p>
@@ -708,7 +709,7 @@ const KidneyQuestCaseStudy = () => {
                           <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white">
                             Constraints, constraints, constraints.
                           </h3>
-                          <div className="text-neutral-400 text-lg md:text-xl leading-relaxed space-y-4">
+                          <div className={`text-neutral-400 space-y-7 ${caseStudyEditorialBodyClass}`}>
                             <p>
                               Tight timeline and technical constraints forced a discipline we should have started with: testing assumptions before committing to features. Early in the project, the team had a long list of interactions we wanted to build: photobooth, mascot animations. But due to the technical difficulties we faced, deadlines were pushed back and features had to be cut.
                             </p>
@@ -720,7 +721,7 @@ const KidneyQuestCaseStudy = () => {
                           <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white pt-8">
                             Thank you!
                           </h3>
-                          <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+                          <p className={`${caseStudyEditorialBodyClass} text-neutral-400`}>
                             Thank you to my teammates for pulling the long-nighters together and for sharing their valuable insight. Special thanks to Azfar and Sahitya for teaching me how to play foosball.
                           </p>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">

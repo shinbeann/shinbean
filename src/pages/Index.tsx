@@ -230,7 +230,7 @@ const Index = () => {
                 Your new favorite digital journal.
               </h2>
               <p className="text-sm md:text-base text-orange-100/70 leading-relaxed">
-                A thoughtfully designed journaling app that helps you capture and reflect on your daily moments.
+                Coming soon.
               </p>
               
               <div className="mt-6 md:mt-8">

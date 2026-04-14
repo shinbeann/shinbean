@@ -7,7 +7,11 @@ const studies: { label: string; path: string; disabled?: boolean }[] = [
   { label: "NEST", path: "/case-study/nest" },
 ];
 
-const CaseStudyNav = () => {
+interface CaseStudyNavProps {
+  tone?: "light" | "dark";
+}
+
+const CaseStudyNav = ({ tone = "dark" }: CaseStudyNavProps) => {
   const { pathname } = useLocation();
 
   return (
@@ -16,12 +20,16 @@ const CaseStudyNav = () => {
         const isActive = pathname === s.path;
         const content = (
           <span
-            className={`text-sm font-medium transition-colors ${
+            className={`text-sm transition-colors border-b-2 pb-0.5 ${
               isActive
-                ? "text-white"
+                ? tone === "dark"
+                  ? "text-white font-semibold border-white"
+                  : "text-[#003087] font-semibold border-[#003087]"
                 : s.disabled
-                ? "text-neutral-600 cursor-default"
-                : "text-neutral-500 hover:text-neutral-300"
+                ? "text-neutral-600 cursor-default border-transparent"
+                : tone === "dark"
+                  ? "text-neutral-500 hover:text-neutral-300 border-transparent"
+                  : "text-neutral-700 hover:text-[#003087] border-transparent"
             }`}
           >
             {s.label}
@@ -32,7 +40,13 @@ const CaseStudyNav = () => {
           <span key={s.label} className="flex items-center gap-2">
             {s.disabled ? content : <Link to={s.path}>{content}</Link>}
             {i < studies.length - 1 && (
-              <span className="text-neutral-600 text-sm select-none">/</span>
+              <span
+                className={`text-sm select-none ${
+                  tone === "dark" ? "text-neutral-600" : "text-neutral-600"
+                }`}
+              >
+                /
+              </span>
             )}
           </span>
         );

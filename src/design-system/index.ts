@@ -7,3 +7,7 @@ export {
   caseStudyShellGridClass,
   caseStudyShellGridColsClass,
 } from "./caseStudySidebar";
+export {
+  caseStudyEditorialBodyClass,
+  caseStudyEditorialBodyStackClass,
+} from "./caseStudyTypography";

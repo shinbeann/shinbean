@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
 const EXPERIENCE = [
-  { company: "FlowTutor", role: "Product Designer", date: "2025", sectionId: "flowtutor" },
-  { company: "KidneyQuest (National Kidney Foundation)", role: "UX/UI Designer", date: "2025", sectionId: "kidneyquest" },
-  { company: "INTELLIPAL (HTX)", role: "UX/UI Designer", date: "Present", sectionId: "intellipal" },
-  { company: "NEST", role: "Product Designer, Developer", date: "Present", sectionId: "nest" },
+  { company: "FlowTutor", role: "Product Designer", date: "EdTech ->", sectionId: "flowtutor" },
+  { company: "KidneyQuest", role: "UX/UI Designer ⋅ National Kidney Foundation", date: "Health ->", sectionId: "kidneyquest" },
+  { company: "INTELLIPAL", role: "UX/UI Designer ⋅ HTX", date: "Enterprise Tool", sectionId: "intellipal" },
+  { company: "NEST", role: "Product Designer, Developer", date: "Digital Journal", sectionId: "nest" },
 ];
 
 const ExperienceRow = ({
@@ -47,7 +47,6 @@ const ExperienceRow = ({
 
 const Hero = () => {
   const name = "Gay Shin Lee";
-  const nameChinese = "倪欣励";
 
   return (
     <section
@@ -68,44 +67,49 @@ const Hero = () => {
       />
 
       <div className="max-w-5xl w-full relative z-10">
-        {/* Name (Name → Subtitle: 16px) – same fade/slide as rest of hero */}
-        <motion.h1
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-none mb-4 flex items-baseline gap-3 flex-wrap"
+        {/* Subtitle */}
+        <motion.p
+          className="text-lg md:text-xl text-muted-foreground tracking-wide mb-4"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
         >
-          {name}
-        </motion.h1>
+          Product Designer
+        </motion.p>
 
-        {/* Subtitle (Subtitle → Body: 32px) */}
-        <motion.p
-          className="text-lg md:text-xl text-muted-foreground tracking-wide mb-8"
+        {/* Name */}
+        <motion.h1
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-6xl font-bold tracking-tight leading-none mb-8 flex items-baseline gap-3 flex-wrap"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.5 }}
         >
-          Product Designer
-        </motion.p>
+          {name}
+        </motion.h1>
 
         {/* Body text (Body → Divider/Experience: 96px) */}
         <motion.div
-          className="max-w-xl space-y-1 mb-24"
+          className="max-w-xl mb-24"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1, duration: 0.5 }}
         >
-          <p className="text-base md:text-lg text-foreground/80 leading-relaxed">
-            Welcome to my small corner of the web.
-          </p>
-          <p className="text-base md:text-lg text-foreground/80 leading-relaxed">
-            Currently building NEST, your new favorite digital journal.
+          <div className="space-y-1">
+            <p className="text-base md:text-lg text-foreground/80 leading-relaxed">
+              Welcome to my small corner of the web.
+            </p>
+            <p className="text-base md:text-lg text-foreground/80 leading-relaxed">
+              Currently building NEST, your new favorite digital journal.
+            </p>
+          </div>
+          <p className="text-sm md:text-base text-muted-foreground mt-8">
+            Open to opportunities · June 2026
           </p>
         </motion.div>
 
         {/* Experience – table layout with dividers */}
         <motion.div
-          className="w-full max-w-xl"
+          className="w-full max-w-2xl"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.5 }}

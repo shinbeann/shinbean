@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import Footer from "@/components/Footer";
 import StackedCardCarousel from "@/components/StackedCardCarousel";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
+import { caseStudyEditorialBodyClass } from "@/design-system";
 import { ArrowLeft, ArrowRight, Code, Brain, Layout, Sliders, ChevronRight, ChevronDown, ArrowDown, Search, Zap, Layers, AlertCircle, Eye, AlertTriangle, BookOpen, MessageSquare, FileText, CheckCircle, GripVertical, Sparkles, Maximize, Puzzle, XCircle, Lightbulb } from "lucide-react";
 
 import { Link } from "react-router-dom";
@@ -45,12 +46,12 @@ const SectionContainer = ({ id, children, className = "", hasBorder = false }: S
   return (
     <section 
       id={id} 
-      className={`py-16 md:py-24 scroll-mt-20 md:scroll-mt-24 ${className}`}
+      className={`py-24 md:py-28 scroll-mt-20 md:scroll-mt-24 ${className}`}
     >
       {hasBorder && (
         <div className="w-[30%] max-w-[270px] h-px bg-white/10 mx-auto mb-16 md:mb-24" />
       )}
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-6">
         {children}
       </div>
     </section>
@@ -65,17 +66,17 @@ const BentoCard = ({ title, body, evidence, delay, icon: Icon }: { title: string
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay }}
-      className="p-8 h-full bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors flex flex-col justify-between group"
+      className="p-6 md:p-8 h-full bg-white/[0.04] border border-white/10 rounded-2xl hover:bg-white/[0.07] transition-colors flex flex-col justify-between group"
     >
       <div className="space-y-4">
         <div className="flex items-start justify-between min-h-[3.5rem]">
           <h3 className="text-lg md:text-xl font-bold text-white tracking-tight leading-tight max-w-[85%] md:max-w-[80%] break-words">{title}</h3>
           {Icon && <Icon className="w-5 h-5 text-neutral-600 group-hover:text-purple-400 transition-colors mt-1" />}
         </div>
-        <p className="text-neutral-400 text-sm leading-relaxed break-words">{body}</p>
+        <p className="text-neutral-300 text-sm md:text-base leading-relaxed break-words">{body}</p>
       </div>
       <div className="mt-6 pt-6 border-t border-white/5">
-        <p className="text-xs text-neutral-500 font-mono">"{evidence}"</p>
+        <p className="text-xs text-neutral-300 font-mono">"{evidence}"</p>
       </div>
     </motion.div>
   );
@@ -107,7 +108,7 @@ const HeuristicCard = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}
-      className="relative p-8 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors overflow-hidden"
+      className="relative p-6 md:p-8 bg-white/[0.04] border border-white/10 rounded-2xl hover:bg-white/[0.07] transition-colors overflow-hidden"
     >
       {/* Background Number */}
       <div className="absolute top-0 right-0 text-6xl md:text-[120px] font-bold text-white/5 leading-none select-none pointer-events-none">
@@ -126,10 +127,10 @@ const HeuristicCard = ({
         <p className="text-xs font-mono text-purple-400 uppercase tracking-wider">{heuristic}</p>
         
         {/* Issue Title */}
-        <h3 className="text-xl font-bold text-white tracking-tight">{issue}</h3>
+        <h3 className="text-lg md:text-xl font-bold text-white tracking-tight">{issue}</h3>
         
         {/* Description */}
-        <p className="text-neutral-400 text-sm leading-relaxed break-words">{description}</p>
+        <p className="text-neutral-300 text-sm md:text-base leading-relaxed break-words">{description}</p>
       </div>
     </motion.div>
   );
@@ -163,7 +164,7 @@ const TransformationShowcase = ({
       <div className="flex flex-col md:flex-row items-stretch gap-6 md:gap-10">
         {/* Before */}
         <div className="relative flex-1 w-full bg-white/5 backdrop-blur-md rounded-xl border border-white/10 overflow-hidden opacity-80">
-          <div className="absolute top-3 left-3 z-10 px-3 py-1.5 bg-neutral-800/80 backdrop-blur-sm border border-neutral-600/50 rounded-md text-[10px] font-mono text-neutral-400 uppercase tracking-wider">
+          <div className="absolute top-3 left-3 z-10 px-3 py-1.5 bg-neutral-800/80 backdrop-blur-sm border border-neutral-600/50 rounded-md text-xs font-mono text-neutral-400 uppercase tracking-wider">
             Before
           </div>
           <div className="aspect-[4/3] flex items-center justify-center p-6">
@@ -187,7 +188,7 @@ const TransformationShowcase = ({
 
         {/* After */}
         <div className="relative flex-1 w-full bg-white/5 backdrop-blur-md rounded-xl border border-green-500/30 overflow-hidden shadow-xl shadow-green-500/10">
-          <div className="absolute top-3 left-3 z-10 px-3 py-1.5 bg-green-500/20 backdrop-blur-sm border border-green-500/40 rounded-md text-[10px] font-mono text-green-400 uppercase tracking-wider">
+          <div className="absolute top-3 left-3 z-10 px-3 py-1.5 bg-green-500/20 backdrop-blur-sm border border-green-500/40 rounded-md text-xs font-mono text-green-400 uppercase tracking-wider">
             After
           </div>
           <div className="aspect-[4/3] flex items-center justify-center p-6">
@@ -212,19 +213,19 @@ const MethodologyBar = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md"
+      className="bg-white/[0.04] border border-white/10 rounded-2xl p-6"
     >
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="space-y-1">
-          <p className="text-xs font-mono text-neutral-500 uppercase tracking-wider">Design</p>
+          <p className="text-xs font-mono text-neutral-400 uppercase tracking-wider">Design</p>
           <p className="text-sm font-medium text-white">Within-Subjects Counterbalanced</p>
         </div>
         <div className="space-y-1">
-          <p className="text-xs font-mono text-neutral-500 uppercase tracking-wider">Sample</p>
+          <p className="text-xs font-mono text-neutral-400 uppercase tracking-wider">Sample</p>
           <p className="text-sm font-medium text-white">12 University Students</p>
         </div>
         <div className="space-y-1">
-          <p className="text-xs font-mono text-neutral-500 uppercase tracking-wider">Control</p>
+          <p className="text-xs font-mono text-neutral-400 uppercase tracking-wider">Control</p>
           <p className="text-sm font-medium text-white">vs. Standard YouTube Workflow</p>
         </div>
       </div>
@@ -255,7 +256,7 @@ const InsightCard = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}
-      className="p-5 md:p-8 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors flex flex-col h-full"
+      className="p-6 md:p-8 bg-white/[0.04] border border-white/10 rounded-2xl hover:bg-white/[0.07] transition-colors flex flex-col h-full"
     >
       <div className="flex flex-col h-full">
         {/* Top Section: Header + Problem */}
@@ -265,7 +266,7 @@ const InsightCard = ({
           </div>
           
           <div className="h-[5.5rem]">
-            <p className="text-neutral-400 text-sm leading-relaxed break-words">{problem}</p>
+            <p className="text-neutral-300 text-sm md:text-base leading-relaxed break-words">{problem}</p>
           </div>
         </div>
         
@@ -285,7 +286,7 @@ const InsightCard = ({
         
         {/* Bottom Section: Solution */}
         <div className="flex-1 flex flex-col justify-start">
-          <p className="text-white font-medium text-sm leading-relaxed">
+          <p className="text-white font-medium text-base leading-relaxed">
             {solutionParts.map((part, index) => {
               if (part.startsWith('**') && part.endsWith('**')) {
                 const boldText = part.slice(2, -2);
@@ -325,7 +326,7 @@ const NarrativeBridge = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className="text-neutral-400 text-s font-medium text-center max-w-md bg-[#050505] px-4 z-10"
+        className="text-neutral-300 text-sm font-medium text-center max-w-md bg-[#050505] px-4 z-10"
       >
         To prove efficacy, we compared the post-task quiz scores of both groups (n=40).
       </motion.div>
@@ -344,7 +345,7 @@ const NarrativeBridge = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.8 }}
-          className="text-white/40"
+          className="text-white/60"
         >
           <ChevronDown className="w-5 h-5" />
         </motion.div>
@@ -392,7 +393,7 @@ const ResultsVisualizationCard = () => {
           {/* Chart + Axis */}
           <div className="relative pl-0 md:pl-12">
             {/* Y-axis Labels (does not affect layout) */}
-            <div className="hidden md:flex absolute left-0 top-0 h-80 flex-col justify-between text-xs text-neutral-500 font-medium">
+            <div className="hidden md:flex absolute left-0 top-0 h-80 flex-col justify-between text-xs text-neutral-400 font-medium">
               <span>100%</span>
               <span>80%</span>
               <span>60%</span>
@@ -485,7 +486,7 @@ const ResultsVisualizationCard = () => {
 
               {/* X-axis Labels (below baseline; do not affect bar heights) */}
               <div className="mt-4 flex justify-center gap-12">
-                <p className="w-24 md:w-32 text-neutral-500 text-sm text-center font-medium">
+                <p className="w-24 md:w-32 text-neutral-300 text-sm text-center font-medium">
                   YouTube Baseline
                 </p>
                 <p className="w-24 md:w-32 text-purple-300 text-sm text-center font-bold">
@@ -508,23 +509,23 @@ const ValidationMethodologyBar = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md"
+      className="bg-white/[0.04] border border-white/10 rounded-2xl p-6"
     >
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 divide-y md:divide-y-0 md:divide-x divide-white/10">
         <div className="space-y-2 pr-0 md:pr-6">
-          <p className="text-xs font-mono text-neutral-500 uppercase tracking-wider">Design</p>
+          <p className="text-xs font-mono text-neutral-400 uppercase tracking-wider">Design</p>
           <p className="text-sm font-medium text-white">Between-Subjects A/B Test</p>
-          <p className="text-xs text-neutral-500">Eliminates carryover effects.</p>
+          <p className="text-xs text-neutral-400">Eliminates carryover effects.</p>
         </div>
         <div className="space-y-2 pt-6 md:pt-0 px-0 md:px-6">
-          <p className="text-xs font-mono text-neutral-500 uppercase tracking-wider">Participants</p>
+          <p className="text-xs font-mono text-neutral-400 uppercase tracking-wider">Participants</p>
           <p className="text-sm font-medium text-white">n=40 University Students</p>
-          <p className="text-xs text-neutral-500">Randomly assigned (20/group).</p>
+          <p className="text-xs text-neutral-400">Randomly assigned (20/group).</p>
         </div>
         <div className="space-y-2 pt-6 md:pt-0 pl-0 md:pl-6">
-          <p className="text-xs font-mono text-neutral-500 uppercase tracking-wider">Dependent Variable</p>
+          <p className="text-xs font-mono text-neutral-400 uppercase tracking-wider">Dependent Variable</p>
           <p className="text-sm font-medium text-white">Conceptual Retention</p>
-          <p className="text-xs text-neutral-500">Measured via closed-book quiz.</p>
+          <p className="text-xs text-neutral-400">Measured via closed-book quiz.</p>
         </div>
       </div>
     </motion.div>
@@ -561,7 +562,7 @@ const ABConditionCard = ({
         <div className="flex items-center justify-between">
           <h3 className="text-xl font-bold text-white tracking-tight">{title}</h3>
           {isExperimental && (
-            <span className="px-2 py-1 bg-purple-500/20 border border-purple-500/30 rounded text-[10px] font-mono text-purple-400 uppercase tracking-wider">
+            <span className="px-2 py-1 bg-purple-500/20 border border-purple-500/30 rounded text-xs font-mono text-purple-400 uppercase tracking-wider">
               Experimental
             </span>
           )}
@@ -578,7 +579,7 @@ const ABConditionCard = ({
           </div>
         ) : (
           <div className="mt-6 aspect-video bg-neutral-900/50 border border-white/5 flex items-center justify-center">
-            <span className="text-neutral-600 font-mono text-sm">
+            <span className="text-neutral-300 font-mono text-sm">
               {isExperimental ? "[FlowTutor UI]" : "[YouTube Screenshot]"}
             </span>
           </div>
@@ -601,8 +602,8 @@ const FeatureReveal = ({ title, description, isActive }: { title: string, descri
           : "bg-white/5 border-white/10"
       }`}
     >
-      <h3 className="text-2xl font-bold text-white mb-3 tracking-tight">{title}</h3>
-      <p className="text-neutral-400 leading-relaxed">{description}</p>
+      <h3 className="text-xl md:text-2xl font-bold text-white mb-3 tracking-tight">{title}</h3>
+      <p className="text-neutral-300 text-base leading-relaxed">{description}</p>
     </motion.div>
   );
 };
@@ -643,7 +644,7 @@ const ComparisonSlider = ({ beforeLabel, afterLabel, beforeImage, afterImage, ca
         {/* After Image (Background) */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           {afterImage}
-          <div className="absolute top-4 right-4 bg-black/50 backdrop-blur text-white text-[10px] px-2 py-1 rounded border border-white/10 uppercase tracking-wider">
+          <div className="absolute top-4 right-4 bg-black/50 backdrop-blur text-white text-xs px-2 py-1 rounded border border-white/10 uppercase tracking-wider">
             {afterLabel}
           </div>
         </div>
@@ -659,7 +660,7 @@ const ComparisonSlider = ({ beforeLabel, afterLabel, beforeImage, afterImage, ca
                 {beforeImage}
              </div>
           </div>
-          <div className="absolute top-4 left-4 bg-black/50 backdrop-blur text-white text-[10px] px-2 py-1 rounded border border-white/10 uppercase tracking-wider">
+          <div className="absolute top-4 left-4 bg-black/50 backdrop-blur text-white text-xs px-2 py-1 rounded border border-white/10 uppercase tracking-wider">
             {beforeLabel}
           </div>
         </div>
@@ -674,7 +675,7 @@ const ComparisonSlider = ({ beforeLabel, afterLabel, beforeImage, afterImage, ca
           </div>
         </div>
       </div>
-      <p className="text-sm text-neutral-500 font-mono text-center">{caption}</p>
+      <p className="text-sm text-neutral-400 font-mono text-center">{caption}</p>
     </div>
   );
 };
@@ -744,13 +745,13 @@ const AnimatedStatItem = ({
           {displayValue}
         </div>
         {hasComparison && (
-          <span className="text-xl md:text-2xl text-neutral-500 font-medium">
+          <span className="text-xl md:text-2xl text-neutral-300 font-medium">
             vs {comparisonValue}
           </span>
         )}
       </div>
       <div className="text-purple-400 font-semibold uppercase tracking-wider text-xs">{label}</div>
-      <p className="text-neutral-500 text-sm max-w-full md:max-w-[250px] leading-relaxed break-words">{sublabel}</p>
+      <p className="text-neutral-400 text-sm max-w-full md:max-w-[250px] leading-relaxed break-words">{sublabel}</p>
     </div>
   );
 };
@@ -955,7 +956,7 @@ const FlowTutorHero = () => (
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.15 }}
-        className="text-neutral-400 text-lg md:text-xl leading-relaxed w-full break-words mt-10"
+        className={`${caseStudyEditorialBodyClass} text-neutral-300 w-full break-words mt-10`}
       >
         Students learning on YouTube are often forced to toggle between videos, notes, and AI tools. This constant context switching increases cognitive load and slows down learning.
       </motion.p>
@@ -963,7 +964,7 @@ const FlowTutorHero = () => (
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.15 }}
-        className="text-neutral-400 text-lg md:text-xl leading-relaxed w-full break-words mt-4"
+        className={`${caseStudyEditorialBodyClass} text-neutral-300 w-full break-words mt-4`}
       >
         FlowTutor introduces a split-learning interface that integrates video and hands-on practice in a single workspace, reducing interaction friction and enabling more continuous learning.
       </motion.p>
@@ -988,7 +989,7 @@ const FlowTutorHero = () => (
           { label: "TOOLS", value: "Miro, Lovable" },
         ].map((item) => (
           <div key={item.label} className="space-y-1.5 min-w-0">
-            <p className="text-[11px] uppercase tracking-[0.15em] font-medium text-neutral-500">{item.label}</p>
+            <p className="text-sm uppercase tracking-[0.15em] font-medium text-neutral-400">{item.label}</p>
             <p className="text-sm text-white font-medium break-words">{item.value}</p>
           </div>
         ))}
@@ -1007,8 +1008,8 @@ const FlowTutorHero = () => (
         transition={{ duration: 0.8, delay: 0.55 }}
         className="space-y-4 min-w-0 mt-10"
       >
-        <p className="text-[11px] uppercase tracking-[0.15em] font-medium text-neutral-500">My contributions</p>
-        <ul className="space-y-3 text-neutral-400 text-sm md:text-base leading-relaxed list-disc list-outside pl-5 break-words">
+        <p className="text-sm uppercase tracking-[0.15em] font-medium text-neutral-400">My contributions</p>
+        <ul className="space-y-3 text-neutral-300 text-sm md:text-base leading-relaxed list-disc list-outside pl-5 break-words">
           <li>Advocated for and led user interviews with 6 diverse users to identify 4 critical pain points.</li>
           <li>Led a brainstorming session to ideate potential solutions based on pain points and heuristics.</li>
           <li>Optimised interaction design by aligning inputs and actions with user intent to improve usability.</li>
@@ -1049,7 +1050,7 @@ const FlowTutorCaseStudy = () => {
     >
       <div className="text-white selection:bg-purple-500/30 font-sans overflow-x-hidden min-w-0">
         {/* 1. THE PROBLEM - This is the section that triggers sidebars */}
-        <section id="problem" className="relative flex flex-col pt-24 md:pt-32 pb-20 scroll-mt-20 md:scroll-mt-24">
+        <section id="problem" className="relative flex flex-col py-24 md:py-28 scroll-mt-20 md:scroll-mt-24">
           {/* Problem Section Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1060,13 +1061,13 @@ const FlowTutorCaseStudy = () => {
           >
             {/* Constrained Text Container */}
             <div className="w-full max-w-4xl space-y-6 text-left">
-              <p className="text-xs uppercase tracking-widest font-medium text-neutral-500">
+              <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
                 PROBLEM
               </p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white leading-tight">
                 The Split-Attention Effect.
               </h2>
-              <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+              <p className={`${caseStudyEditorialBodyClass} text-neutral-300`}>
                 When users are forced to toggle between multiple windows to complete a single task, cognitive load spikes. It creates a disjointed experience where the user loses context every time they look away. This "tab fatigue" results in higher error rates and lower user satisfaction.
               </p>
             </div>
@@ -1087,17 +1088,17 @@ const FlowTutorCaseStudy = () => {
                   className="w-full h-auto object-cover"
                 />
               </div>
-              <p className="text-sm text-neutral-500 italic text-center">
+              <p className="text-sm text-neutral-400 italic text-center">
                 A typical study session: 15 tabs open, disjointed notes, and fragmented attention.
               </p>
               
               {/* Body Text Below Image */}
-              <div className="w-full max-w-4xl pt-12 md:pt-16 space-y-4 text-neutral-400 text-lg md:text-xl leading-relaxed" style={{ lineHeight: '1.7' }}>
+              <div className={`w-full max-w-4xl pt-10 md:pt-12 space-y-7 text-neutral-300 ${caseStudyEditorialBodyClass}`}>
                 <p>
                   We sat down with 6 diverse users, from university freshmen to parents upskilling. My focus was simple: identify the exact moments where frustration spikes and focus breaks.
                 </p>
                 <p>
-                  <strong className="font-bold text-white">The struggle was universal.</strong>
+                  <strong className="font-bold text-neutral-100">The struggle was universal.</strong>
                 </p>
                 <p>
                   Despite their different goals, they all faced the same barriers. The study revealed four critical friction points that turn active learning into passive frustration.
@@ -1112,15 +1113,15 @@ const FlowTutorCaseStudy = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.1 }}
-                  className="bg-white/5 border border-white/10 rounded-2xl p-4 md:p-6"
+                  className="bg-white/[0.04] border border-white/10 rounded-2xl p-5 md:p-6"
                 >
                   <div className="flex flex-col items-center text-center space-y-2 md:space-y-3">
                     <h3 className="text-lg md:text-xl font-bold text-white">Poor Navigation</h3>
-                    <p className="text-sm md:text-base text-neutral-400 leading-relaxed">
+                    <p className="text-sm md:text-base text-neutral-300 leading-relaxed">
                       Users struggle to locate specific information without text search.
                     </p>
                     <div className="pt-2 border-t border-white/5">
-                      <p className="text-xs md:text-sm text-neutral-500 italic">
+                      <p className="text-xs md:text-sm text-neutral-400 italic">
                         "I wish there was a Ctrl+F for videos."
                       </p>
                     </div>
@@ -1133,15 +1134,15 @@ const FlowTutorCaseStudy = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="bg-white/5 border border-white/10 rounded-2xl p-4 md:p-6"
+                  className="bg-white/[0.04] border border-white/10 rounded-2xl p-5 md:p-6"
                 >
                   <div className="flex flex-col items-center text-center space-y-2 md:space-y-3">
                     <h3 className="text-lg md:text-xl font-bold text-white">Fragmented Workflow</h3>
-                    <p className="text-sm md:text-base text-neutral-400 leading-relaxed">
+                    <p className="text-sm md:text-base text-neutral-300 leading-relaxed">
                       Juggling YouTube, ChatGPT, and notes breaks concentration.
                     </p>
                     <div className="pt-2 border-t border-white/5">
-                      <p className="text-xs md:text-sm text-neutral-500 italic">
+                      <p className="text-xs md:text-sm text-neutral-400 italic">
                         "Switching tabs constantly is annoying."
                       </p>
                     </div>
@@ -1154,15 +1155,15 @@ const FlowTutorCaseStudy = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.3 }}
-                  className="bg-white/5 border border-white/10 rounded-2xl p-4 md:p-6"
+                  className="bg-white/[0.04] border border-white/10 rounded-2xl p-5 md:p-6"
                 >
                   <div className="flex flex-col items-center text-center space-y-2 md:space-y-3">
                     <h3 className="text-lg md:text-xl font-bold text-white">Cognitive Overload</h3>
-                    <p className="text-sm md:text-base text-neutral-400 leading-relaxed">
+                    <p className="text-sm md:text-base text-neutral-300 leading-relaxed">
                       Distractions (ads, recommendations) divert attention from learning goals.
                     </p>
                     <div className="pt-2 border-t border-white/5">
-                      <p className="text-xs md:text-sm text-neutral-500 italic">
+                      <p className="text-xs md:text-sm text-neutral-400 italic">
                         "Sidetracked by the recommendation feed."
                       </p>
                     </div>
@@ -1175,15 +1176,15 @@ const FlowTutorCaseStudy = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.4 }}
-                  className="bg-white/5 border border-white/10 rounded-2xl p-4 md:p-6"
+                  className="bg-white/[0.04] border border-white/10 rounded-2xl p-5 md:p-6"
                 >
                   <div className="flex flex-col items-center text-center space-y-2 md:space-y-3">
                     <h3 className="text-lg md:text-xl font-bold text-white">Missing Context</h3>
-                    <p className="text-sm md:text-base text-neutral-400 leading-relaxed">
+                    <p className="text-sm md:text-base text-neutral-300 leading-relaxed">
                       Videos often assume prerequisite knowledge, leaving gaps.
                     </p>
                     <div className="pt-2 border-t border-white/5">
-                      <p className="text-xs md:text-sm text-neutral-500 italic">
+                      <p className="text-xs md:text-sm text-neutral-400 italic">
                         "They don't explain the first principles."
                       </p>
                     </div>
@@ -1241,10 +1242,10 @@ const FlowTutorCaseStudy = () => {
               <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
                 SOLUTION
               </p>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white leading-tight">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white leading-tight">
                 FlowTutor.
               </h2>
-              <div className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+              <div className={`text-neutral-300 space-y-7 ${caseStudyEditorialBodyClass}`}>
                 <p>
                 A web app that brings video, AI guidance, and note-taking into one unified workspace, removing tab-switching and supporting uninterrupted learning.
                 </p>
@@ -1264,7 +1265,7 @@ const FlowTutorCaseStudy = () => {
             className="max-w-4xl pt-12 md:pt-16"
             id="impact"
           >
-            <div className="scroll-mt-20 md:scroll-mt-24 flex flex-col gap-6">
+            <div className="scroll-mt-20 md:scroll-mt-24 flex flex-col gap-5">
               <p className="text-lg font-semibold text-white">
                 Impact
               </p>
@@ -1306,14 +1307,14 @@ const FlowTutorCaseStudy = () => {
               <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
                 RESEARCH
               </p>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white leading-tight">
                 The Market Opportunity.
               </h2>
-              <div className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+              <div className={`text-neutral-300 space-y-7 ${caseStudyEditorialBodyClass}`}>
                 <p>
                   The global e-learning market is forecast to reach almost USD 400 billion in 2026, up from USD 198 billion in 2019.
                 </p>
-                <p className="mt-4">
+                <p>
                   Despite this massive growth, there is still space for e-learning platforms to mature.
                 </p>
               </div>
@@ -1336,7 +1337,7 @@ const FlowTutorCaseStudy = () => {
               <p className="text-lg font-semibold text-white">
                 Affinity Mapping
               </p>
-              <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+              <p className={`${caseStudyEditorialBodyClass} text-neutral-300`}>
                 Led a brainstorming session to ideate on potential solutions relating to core pain points identified in the user interviews.
               </p>
               <figure>
@@ -1345,7 +1346,7 @@ const FlowTutorCaseStudy = () => {
                   alt="Affinity map organizing pain points, must-have and nice-to-have features, and design heuristics from user research"
                   className="w-full border border-white/10 object-cover"
                 />
-                <figcaption className="mt-2 text-sm text-neutral-500 text-center">
+                <figcaption className="mt-2 text-sm text-neutral-400 text-center">
                   Led a brainstorming session with 5 other members
                 </figcaption>
               </figure>
@@ -1354,7 +1355,7 @@ const FlowTutorCaseStudy = () => {
         </SectionContainer>
 
         {/* 3. PAPER TO PIXEL */}
-        <section id="prototyping" className="relative py-16 md:py-24 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
+        <section id="prototyping" className="relative py-24 md:py-28 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
           <div className="w-[30%] max-w-[270px] h-px bg-white/10 mx-auto mb-16 md:mb-24" />
           <div className="relative z-10">
           <div className="max-w-4xl mx-auto">
@@ -1369,10 +1370,10 @@ const FlowTutorCaseStudy = () => {
               <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
                 PROTOTYPING
               </p>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">
                 From paper to pixel.
               </h2>
-              <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+              <p className={`${caseStudyEditorialBodyClass} text-neutral-300`}>
                 A heuristic evaluation with 5 users surfaced key usability issues.
               </p>
             </div>
@@ -1384,7 +1385,7 @@ const FlowTutorCaseStudy = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 {/* Column A: Before */}
                 <div className="flex flex-col gap-4 items-center">
-                  <h3 className="text-xl md:text-2xl font-bold text-neutral-500 uppercase tracking-wider text-center">
+                  <h3 className="text-xl md:text-2xl font-bold text-neutral-300 uppercase tracking-wider text-center">
                     Before
                   </h3>
                   <div className="aspect-video w-full overflow-hidden">
@@ -1394,7 +1395,7 @@ const FlowTutorCaseStudy = () => {
                       className="w-full h-full object-cover object-top"
                     />
                   </div>
-                  <p className="text-sm text-neutral-500 italic text-center">Upload file interaction</p>
+                  <p className="text-sm text-neutral-400 italic text-center">Upload file interaction</p>
                 </div>
 
                 {/* Column B: After */}
@@ -1409,15 +1410,15 @@ const FlowTutorCaseStudy = () => {
                       className="w-full h-full object-cover object-top"
                     />
                   </div>
-                  <p className="text-sm text-neutral-500 italic text-center">Paste video URL</p>
+                  <p className="text-sm text-neutral-400 italic text-center">Paste video URL</p>
                 </div>
               </div>
 
-              <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+              <p className={`${caseStudyEditorialBodyClass} text-neutral-300`}>
                3 of 5 users encountered friction with the file upload flow, citing unclear requirements and unnecessary steps.
               </p>
 
-              <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+              <p className={`${caseStudyEditorialBodyClass} text-neutral-300`}>
                Switching to URL input simplified the interaction and better aligned with user expectations.
               </p>
             </div>
@@ -1427,7 +1428,7 @@ const FlowTutorCaseStudy = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 {/* Column A: Before */}
                 <div className="flex flex-col gap-4 items-center">
-                  <h3 className="text-xl md:text-2xl font-bold text-neutral-500 uppercase tracking-wider text-center">
+                  <h3 className="text-xl md:text-2xl font-bold text-neutral-300 uppercase tracking-wider text-center">
                     Before
                   </h3>
                   <div className="aspect-video w-full overflow-hidden">
@@ -1437,7 +1438,7 @@ const FlowTutorCaseStudy = () => {
                       className="w-full h-full object-cover object-top"
                     />
                   </div>
-                  <p className="text-sm text-neutral-500 italic text-center">Pin action at the top of chat response</p>
+                  <p className="text-sm text-neutral-400 italic text-center">Pin action at the top of chat response</p>
                 </div>
 
                 {/* Column B: After */}
@@ -1452,17 +1453,17 @@ const FlowTutorCaseStudy = () => {
                       className="w-full h-full object-cover object-top"
                     />
                   </div>
-                  <p className="text-sm text-neutral-500 italic text-center">
+                  <p className="text-sm text-neutral-400 italic text-center">
                     Pin action at the bottom of chat response
                   </p>
                 </div>
               </div>
 
-              <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+              <p className={`${caseStudyEditorialBodyClass} text-neutral-300`}>
                2 of 5 users overlooked the initial pin feature. 
               </p>
 
-              <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+              <p className={`${caseStudyEditorialBodyClass} text-neutral-300`}>
               Relocating the pin action below each message aligns it with the user’s reading flow, improving discoverability and reducing interaction effort.
               </p>
             </div>
@@ -1476,7 +1477,7 @@ const FlowTutorCaseStudy = () => {
                   What if the best AI tutor sometimes refuses to answer?
                 </p>
               </div>
-              <div className="text-neutral-400 text-lg md:text-xl leading-relaxed space-y-4">
+              <div className={`text-neutral-300 space-y-7 ${caseStudyEditorialBodyClass}`}>
                 <p>
                  After the project was submitted, I independently designed a 3-state uncertainty model with distinct UI feedback for each query type.
                 </p>
@@ -1526,7 +1527,7 @@ const FlowTutorCaseStudy = () => {
                   <div>
                     <div className="w-full max-w-full overflow-hidden border border-purple-500/25 bg-[#f3f3f6] text-neutral-900 shadow-[0_8px_24px_rgba(0,0,0,0.22)]">
                       <div className="px-3 py-2 border-b border-neutral-300/80 bg-[#ececef]">
-                        <p className="text-[11px] font-medium text-neutral-600">FlowTutor · Transformer Models Explained</p>
+                        <p className="text-sm font-medium text-neutral-600">FlowTutor · Transformer Models Explained</p>
                       </div>
 
                       <div className="p-3 space-y-3">
@@ -1535,33 +1536,33 @@ const FlowTutorCaseStudy = () => {
                         </p>
 
                         <div className="flex justify-end">
-                          <div className="max-w-[84%] rounded-xl bg-[#7d53cf] px-3 py-2 text-white text-[11px] leading-snug font-semibold">
+                          <div className="max-w-[84%] rounded-xl bg-[#7d53cf] px-3 py-2 text-white text-sm leading-snug font-semibold">
                             What is the main idea behind transformers?
                           </div>
                         </div>
 
                         <div className="rounded-xl bg-[#e8e8eb] px-3 py-3">
-                          <p className="text-[11px] leading-snug text-neutral-900">
+                          <p className="text-sm leading-snug text-neutral-900">
                             Transformers compute scores on how each word relates to every other word in a sentence to derive meaning from text
                           </p>
-                          <p className="text-[10px] leading-snug text-[#6f63d3] font-semibold mt-1.5">[00:52]</p>
-                          <p className="text-[11px] leading-snug text-neutral-900 mt-1">
+                          <p className="text-xs leading-snug text-[#6f63d3] font-semibold mt-1.5">[00:52]</p>
+                          <p className="text-sm leading-snug text-neutral-900 mt-1">
                             This allows them to augment a sentence&apos;s meaning by considering the context of its words
                           </p>
-                          <p className="text-[10px] leading-snug text-[#6f63d3] font-semibold mt-1.5">[00:57]</p>
-                          <p className="text-[11px] leading-snug text-neutral-900 mt-1">
+                          <p className="text-xs leading-snug text-[#6f63d3] font-semibold mt-1.5">[00:57]</p>
+                          <p className="text-sm leading-snug text-neutral-900 mt-1">
                             This approach differs from previous methods like recurrent neural networks, which processed words sequentially
                           </p>
-                          <p className="text-[10px] leading-snug text-[#6f63d3] font-semibold mt-1.5">[01:06]</p>
-                          <p className="text-[10px] leading-snug text-[#6f63d3] mt-1.5">↗ Why timestamps?</p>
+                          <p className="text-xs leading-snug text-[#6f63d3] font-semibold mt-1.5">[01:06]</p>
+                          <p className="text-xs leading-snug text-[#6f63d3] mt-1.5">↗ Why timestamps?</p>
                         </div>
                       </div>
                     </div>
-                    <p className="mt-2 text-sm text-neutral-500 italic text-center">S1: Directly Relevant</p>
+                    <p className="mt-2 text-sm text-neutral-400 italic text-center">S1: Directly Relevant</p>
                   </div>
 
                   <div className="flex items-center">
-                    <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+                    <p className={`${caseStudyEditorialBodyClass} text-neutral-300`}>
                       AI responds using video content with relevant timestamps.
                     </p>
                   </div>
@@ -1572,7 +1573,7 @@ const FlowTutorCaseStudy = () => {
               <div className="w-full mt-5">
                 <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_480px] gap-8 md:gap-10 items-stretch">
                   <div className="flex items-center">
-                    <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+                    <p className={`${caseStudyEditorialBodyClass} text-neutral-300`}>
                       AI acknowledges the connection, saves the topic for later, and redirects user back to video content.
                     </p>
                   </div>
@@ -1580,7 +1581,7 @@ const FlowTutorCaseStudy = () => {
                   <div className="lg:justify-self-end">
                     <div className="w-full max-w-full overflow-hidden border border-purple-500/25 bg-[#f3f3f6] text-neutral-900 shadow-[0_8px_24px_rgba(0,0,0,0.22)]">
                       <div className="px-3 py-2 border-b border-neutral-300/80 bg-[#ececef]">
-                        <p className="text-[11px] font-medium text-neutral-600">FlowTutor · Transformer Models Explained</p>
+                        <p className="text-sm font-medium text-neutral-600">FlowTutor · Transformer Models Explained</p>
                       </div>
 
                       <div className="p-3 space-y-3">
@@ -1589,7 +1590,7 @@ const FlowTutorCaseStudy = () => {
                         </p>
 
                         <div className="flex justify-end">
-                          <div className="max-w-[84%] rounded-xl bg-[#7d53cf] px-3 py-2 text-white text-[11px] leading-snug font-semibold">
+                          <div className="max-w-[84%] rounded-xl bg-[#7d53cf] px-3 py-2 text-white text-sm leading-snug font-semibold">
                             What is BERT?
                           </div>
                         </div>
@@ -1597,15 +1598,15 @@ const FlowTutorCaseStudy = () => {
                         <div className=" border-neutral-300 bg-[#efeff2] px-3 py-3">
                           <div className="flex gap-2.5">
                             <div className="min-w-0">
-                              <p className="text-[10px] leading-none font-semibold tracking-wide text-neutral-500 uppercase">Not in this video.</p>
-                              <p className="text-[11px] leading-snug text-neutral-900 mt-1.5">
+                              <p className="text-xs leading-none font-semibold tracking-wide text-neutral-700 uppercase">Not in this video.</p>
+                              <p className="text-sm leading-snug text-neutral-900 mt-1.5">
                                 That&apos;s a great connection! <strong>bert</strong> is related to this architecture, but this specific video focuses on the underlying{" "}
                                 <span className="text-[#6f63d3] font-semibold">Transformer Models Explained.</span>
                               </p>
-                              <p className="text-[11px] leading-snug text-neutral-600 mt-1.5">
+                              <p className="text-sm leading-snug text-neutral-600 mt-1.5">
                                 To keep you focused on the core concepts here, I haven&apos;t explained it yet. I&apos;ve saved &apos;bert&apos; to your Post-Lesson Research List.
                               </p>
-                              <div className="mt-2 flex items-center gap-4 text-[10px]">
+                              <div className="mt-2 flex items-center gap-4 text-xs">
                                 <span className="inline-flex items-center gap-1.5 rounded-full bg-[#E5E7EB] px-2 py-0.5 text-[#008000] font-semibold">✓ Saved</span>
                                 <span className="text-neutral-600">↗ View Research List</span>
                               </div>
@@ -1614,7 +1615,7 @@ const FlowTutorCaseStudy = () => {
                         </div>
                       </div>
                     </div>
-                    <p className="mt-2 text-sm text-neutral-500 italic text-center">S2: Related, Not Mentioned</p>
+                    <p className="mt-2 text-sm text-neutral-400 italic text-center">S2: Related, Not Mentioned</p>
                   </div>
                 </div>
               </div>
@@ -1625,7 +1626,7 @@ const FlowTutorCaseStudy = () => {
                   <div>
                     <div className="w-full max-w-full overflow-hidden border border-purple-500/25 bg-[#f3f3f6] text-neutral-900 shadow-[0_8px_24px_rgba(0,0,0,0.22)]">
                       <div className="px-3 py-2 border-b border-neutral-300/80 bg-[#ececef]">
-                        <p className="text-[11px] font-medium text-neutral-600">FlowTutor · Transformer Models Explained</p>
+                        <p className="text-sm font-medium text-neutral-600">FlowTutor · Transformer Models Explained</p>
                       </div>
 
                       <div className="p-3 space-y-3">
@@ -1634,29 +1635,29 @@ const FlowTutorCaseStudy = () => {
                         </p>
 
                         <div className="flex justify-end">
-                          <div className="max-w-[84%] rounded-xl bg-[#ded9f5] px-3 py-2 text-[#2f2f38] text-[11px] leading-snug">
+                          <div className="max-w-[84%] rounded-xl bg-[#ded9f5] px-3 py-2 text-[#2f2f38] text-sm leading-snug">
                             what is the weather in singapore?
                           </div>
                         </div>
 
                         <div className="rounded-xl border border-[#a8e0ee] bg-[#e6f4f9] px-3 py-3">
-                          <p className="text-[10px] leading-none font-semibold tracking-wide text-[#23aeca] uppercase">Off-topic detected</p>
-                          <p className="text-[11px] leading-snug text-neutral-900 mt-2">
+                          <p className="text-xs leading-none font-semibold tracking-wide text-[#23aeca] uppercase">Off-topic detected</p>
+                          <p className="text-sm leading-snug text-neutral-900 mt-2">
                             I&apos;m tuned to help you master <span className="text-[#6f63d3] underline">Transformer Models Explained</span>, so I can&apos;t help with{" "}
                             <span className="italic">&quot;what is the weather in singapore?&quot;</span>.
                           </p>
-                          <p className="text-[11px] leading-snug text-neutral-900 mt-2">
+                          <p className="text-sm leading-snug text-neutral-900 mt-2">
                             Shall we get back to the concepts on screen? <span aria-hidden="true"></span>
                           </p>
-                          <p className="text-[10px] leading-snug text-[#23aeca] mt-2">→ Try asking about the video content instead</p>
+                          <p className="text-xs leading-snug text-[#23aeca] mt-2">→ Try asking about the video content instead</p>
                         </div>
                       </div>
                     </div>
-                    <p className="mt-2 text-sm text-neutral-500 italic text-center">S3: Out of Scope</p>
+                    <p className="mt-2 text-sm text-neutral-400 italic text-center">S3: Out of Scope</p>
                   </div>
 
                   <div className="flex items-center">
-                    <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+                    <p className={`${caseStudyEditorialBodyClass} text-neutral-300`}>
                       AI declines response, and redirects user back to video content.
                     </p>
                   </div>
@@ -1670,7 +1671,7 @@ const FlowTutorCaseStudy = () => {
       </section>
 
         {/* 4. THE LAB PIVOT (Validating & Refining) */}
-        <section id="lab-pivot" className="relative py-16 md:py-24 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
+        <section id="lab-pivot" className="relative py-24 md:py-28 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
           <div className="relative z-10">
             <div className="max-w-4xl mx-auto">
               <div className="flex flex-col gap-8">
@@ -1683,8 +1684,8 @@ const FlowTutorCaseStudy = () => {
                   transition={{ duration: 0.8 }}
                 >
                   <div className="flex flex-col gap-4">
-                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">The Lab Pivot.</h2>
-                    <div className="text-neutral-400 text-lg md:text-xl max-w-prose" style={{ lineHeight: '1.7' }}>
+                    <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">The Lab Pivot.</h2>
+                    <div className={`text-neutral-300 space-y-7 ${caseStudyEditorialBodyClass}`}>
                       <p>
                         With a functioning prototype, we moved from identifying usability issues to measuring impact.
                       </p>
@@ -1698,7 +1699,7 @@ const FlowTutorCaseStudy = () => {
                           <li className="text-neutral-400">H3 (Retention): Users will score at least 20% higher on a recall quiz.</li>
                         </ul>
                       </div>
-                      <p className="mt-4">
+                      <p>
                         While our quantitative data supported our hypotheses (H1-H3), the qualitative feedback forced three architectural changes.
                       </p>
                     </div>
@@ -1743,7 +1744,7 @@ const FlowTutorCaseStudy = () => {
         </div>
 
         {/* 7. THE VALIDATION (Iteration 3: Web Experiment) */}
-        <section id="validation" className="relative py-16 md:py-24 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
+        <section id="validation" className="relative py-24 md:py-28 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
           <div className="relative z-10">
             <div className="max-w-4xl mx-auto">
               <div className="flex flex-col gap-8">
@@ -1756,8 +1757,8 @@ const FlowTutorCaseStudy = () => {
                   transition={{ duration: 0.8 }}
                 >
                   <div className="flex flex-col gap-4">
-                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">Measuring Efficacy.</h2>
-                    <p className="text-lg md:text-xl text-neutral-400 max-w-prose" style={{ lineHeight: '1.7' }}>
+                    <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">Measuring Efficacy.</h2>
+                    <p className={`${caseStudyEditorialBodyClass} text-neutral-300`}>
                       Moving beyond usability, we rigorously tested our central claim: does an integrated interface lead to better learning outcomes?
                     </p>
                   </div>
@@ -1795,7 +1796,7 @@ const FlowTutorCaseStudy = () => {
         </section>
 
         {/* 8. REFLECTION */}
-        <section id="reflection" className="relative py-16 md:py-24 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
+        <section id="reflection" className="relative py-24 md:py-28 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
           <div className="w-[30%] max-w-[270px] h-px bg-white/10 mx-auto mb-16 md:mb-24" />
           <div className="relative z-10">
           <div className="max-w-4xl mx-auto">
@@ -1810,20 +1811,20 @@ const FlowTutorCaseStudy = () => {
               <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 text-center">
                 REFLECTION
               </p>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white text-center">Designing for AI Uncertainty.</h2>
-              <div className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white text-center">Designing for AI Uncertainty.</h2>
+              <div className={`text-neutral-300 space-y-7 ${caseStudyEditorialBodyClass}`}>
                 <p>
                   Due to the 4-week timeline, the current iteration of{" "}
                   <span className="font-bold text-purple-400">FlowTutor assumes the AI is always correct</span>{" "}
                   and the{" "}
                   <span className="font-bold text-purple-400">video context is always sufficient</span>. But in a real-world deployment, LLMs hallucinate and sometimes fail to retrieve context.
                 </p>
-                <p className="mt-4">
+                <p>
                   If I had more time, I would{" "}
                   <span className="font-bold text-purple-400">implement Minimum Context Guardrails</span>. If video transcripts are too sparse, the system should disable the Quizlet and pivot to a &lsquo;Visual Summary&rsquo; instead. This prevents the &lsquo;garbage-in, garbage-out&rsquo; problem.
                 </p>
                 <div className="my-16 md:my-24 w-[30%] max-w-[270px] h-px bg-white/10 mx-auto" />
-                <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+                <p className={`${caseStudyEditorialBodyClass} text-neutral-300`}>
                   Yayy thank you for reading till the end ;))) If you have feedback regarding my design or thought process, I&apos;d love to hear from you! 
                 </p>
               </div>

@@ -24,6 +24,8 @@ interface CaseStudyLayoutProps {
   children: React.ReactNode;
   tableOfContents: TableOfContentsItem[];
   theme?: "light" | "dark";
+  navTone?: "light" | "dark";
+  rootClassName?: string;
   showSidebarsAfter?: string; // Section ID after which sidebars should appear
   showContactSection?: boolean; // When false, hide the Contact / Footer section
   /** When true, hide the left TOC sidebar and use full-width content */
@@ -36,6 +38,8 @@ const CaseStudyLayout = ({
   children,
   tableOfContents,
   theme = "light",
+  navTone = "dark",
+  rootClassName,
   showSidebarsAfter,
   showContactSection = true,
   hideTableOfContents = false,
@@ -107,7 +111,13 @@ const CaseStudyLayout = ({
   };
 
   return (
-    <div className={cn("min-h-screen overflow-x-clip", isDark ? "bg-[#050505]" : "bg-background")}>
+    <div
+      className={cn(
+        "min-h-screen overflow-x-clip",
+        isDark ? "bg-[#050505]" : "bg-background",
+        rootClassName
+      )}
+    >
       <Navigation tone={isDark ? "dark" : "light"} enableSmartHide={false} />
 
       {hero != null && <div className="w-full overflow-x-hidden">{hero}</div>}
@@ -170,12 +180,12 @@ const CaseStudyLayout = ({
         )}
 
         <main className="pb-48 min-w-0">
-          <div className="max-w-4xl mx-auto px-4 md:px-0">{children}</div>
+          <div className="w-full md:w-8/12 lg:w-8/12 mx-auto px-4 md:px-0">{children}</div>
         </main>
       </div>
 
       {showContactSection && <Footer />}
-      <CaseStudyNav />
+      <CaseStudyNav tone={navTone} />
       <footer className="border-t border-border/60 py-6 px-4">
         <p className="text-center text-sm text-muted-foreground">
           Gay Shin Lee © 2026 All Rights Reserved
