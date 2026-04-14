@@ -37,7 +37,7 @@ const IntellipalHero = () => (
         transition={{ duration: 0.8, delay: 0.15 }}
         className={`text-neutral-700 w-full break-words mt-10 ${caseStudyEditorialBodyClass}`}
       >
-        Frontline police officers make high-stakes decisions in seconds, often often in environments with no internet, incomplete information, and legal ambiguity.
+        Frontline police officers make high-stakes decisions in seconds, often underground, offline, and under pressure.
       </motion.p>
       <motion.p
         initial={{ opacity: 0, y: 20 }}
@@ -45,7 +45,7 @@ const IntellipalHero = () => (
         transition={{ duration: 0.8, delay: 0.15 }}
         className={`text-neutral-700 w-full break-words mt-4 ${caseStudyEditorialBodyClass}`}
       >
-        INTELLIPAL is an offline-first AI assistant that helps officers retrieve and apply Standard Operating Procedures (SOPs) through natural language, directly on their mobile devices.
+        INTELLIPAL is an offline-first AI assistant built to help them act with certainty, not guesswork.
       </motion.p>
 
       <motion.hr
@@ -65,7 +65,7 @@ const IntellipalHero = () => (
           { label: "ROLE", value: "UX/UI Designer" },
           { label: "TIMELINE", value: "Sept 2025 – Apr 2026" },
           { label: "ORGANIZATION", value: "HTX (Home Team Science & Technology Agency)" },
-          { label: "TOOLS", value: "Figma, Python, vector DB, on-device inference" },
+          { label: "TOOLS", value: "Figma, Android Studio" },
         ].map((item) => (
           <div key={item.label} className="space-y-1.5 min-w-0">
             <p className="text-[11px] uppercase tracking-[0.15em] font-medium text-[#003087]">{item.label}</p>
@@ -101,7 +101,7 @@ const IntellipalHero = () => (
       <div className="max-w-5xl mx-auto px-6 md:px-16 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
         {[
           { stat: "Offline", desc: "Core retrieval and answering without network dependency" },
-          { stat: "Dual", desc: "Dense + sparse search to balance recall and precision on SOP text" },
+          { stat: "Instant", desc: "Dense + sparse search to balance recall and precision on SOP text" },
           { stat: "Grounded", desc: "Answers tied to retrieved passages—not unconstrained generation" },
         ].map((item, i) => (
           <div
@@ -146,19 +146,14 @@ const IntellipalCaseStudy = () => {
                 SOPs without signal.
               </h2>
               <div className={`text-neutral-700 space-y-7 ${caseStudyEditorialBodyClass}`}>
-                <p>During field operations, officers frequently encounter situations where:</p>
+                <p>During field operations, officers frequently encounter:</p>
                 <ul className="list-disc list-outside pl-6 space-y-1">
-                  <li>The correct legal classification is unclear</li>
-                  <li>SOPs are difficult to search under time pressure</li>
-                  <li>Connectivity is unreliable or unavailable</li>
+                  <li>Legal classification that falls into a grey area</li>
+                  <li>SOPs that are impossible to search under time pressure</li>
+                  <li>Connectivity that is unreliable or completely unavailable</li>
                 </ul>
-                <p>Instead of acting immediately, officers:</p>
-                <ul className="list-disc list-outside pl-6 space-y-1">
-                  <li>Call supervisors</li>
-                  <li>Search static documents</li>
-                  <li>Or rely on memory</li>
-                </ul>
-                <p>This creates delays, inconsistency, and risk.</p>
+                <p>Instead of acting immediately, officers call supervisors, search static documents, or rely on memory. This creates delays, inconsistency, and legal risk.</p>
+                <p>I conducted semi-structured interviews with five GRF officers to uncover officer's behaviours and pain points.</p>
               </div>
             </div>
 
@@ -166,7 +161,7 @@ const IntellipalCaseStudy = () => {
           </motion.div>
         </section>
 
-        <div className="max-w-3xl mx-auto mt-12 md:mt-10 mb-20 md:mb-24 text-center">
+        <div className="max-w-3xl mx-auto mt-8 md:mt-6 mb-20 md:mb-24 text-center">
           <p className="font-serif text-[18px] md:text-[24px] leading-[1.6] text-black">
             &quot;When you&apos;re on the ground,{" "}
             <span className="font-bold text-red-600">things happen very fast</span>. Sometimes you&apos;re
@@ -176,6 +171,17 @@ const IntellipalCaseStudy = () => {
             </span>
             .&quot;
           </p>
+          <p className="mt-4 text-sm md:text-base text-neutral-600 text-center">
+            — GRF Officer, Tanglin Division
+          </p>
+        </div>
+
+        <div className="w-full max-w-4xl mt-16 md:mt-20 mb-20 md:mb-24">
+          <p className={`text-neutral-700 ${caseStudyEditorialBodyClass}`}>
+            I was surprised that the issues we found were common across officers. Connectivity often fails in basements and enclosed spaces, cutting off access to information and communication with the ops room. At the same time, routine knowledge and SOPs are more likely to be forgotten than complex procedures.
+          </p>
+          <p className={`mt-8 md:mt-10 text-neutral-700 ${caseStudyEditorialBodyClass}`}>
+            In such a high-risk environment, how can officers be expected to operate when systems tend to break down?</p>
         </div>
 
         <section id="solution" className="relative pb-20 scroll-mt-20 md:scroll-mt-24">
