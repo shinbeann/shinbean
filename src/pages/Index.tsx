@@ -37,128 +37,7 @@ const Index = () => {
       {/* HERO */}
       <Hero />
 
-      {/* SECTION 1: FLOWTUTOR - Deep Midnight Blue */}
-      <section id="flowtutor" className="flowtutor-section relative min-h-screen scroll-mt-20">
-        {/* Northern Lights Glow Effect */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="northern-lights-glow" />
-        </div>
-        
-        <div className="container max-w-6xl mx-auto px-4 pt-8 md:pt-16 pb-16 md:pb-32 relative z-10">
-          <motion.div
-            className="min-h-[60vh] md:min-h-[80vh] flex flex-col gap-8 md:gap-16 md:flex-row items-start"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            {/* Heading - Not sticky on mobile */}
-            <div className="w-full md:w-1/3 md:sticky md:top-28 self-start space-y-4">
-              <p className="text-xs uppercase tracking-[0.25em] text-blue-300/80">
-                <span className="font-bold">FlowTutor</span>
-              </p>
-              <h2 className="font-sans text-2xl sm:text-3xl md:text-4xl font-normal text-zinc-300 uppercase">
-                Learn smarter with AI powered assistance.
-              </h2>
-              <p className="text-sm md:text-base text-blue-100/70">
-                Achieved 25% increase in knowledge retention across 50 users compared to traditional learning methods. 
-              </p>
-              
-              <div className="mt-6 md:mt-8">
-                <Link 
-                  to="/case-study/flowtutor" 
-                  className="group inline-flex items-center gap-2 text-sm font-medium text-blue-300 hover:text-blue-200 transition-all duration-200"
-                >
-                  <span className="relative">
-                    Read FlowTutor case study
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-200 group-hover:w-full transition-all duration-300" />
-                  </span>
-                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Story & Media */}
-            <div className="w-full md:w-2/3 space-y-10">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="overflow-hidden"
-                style={{
-                  maskImage: 'radial-gradient(ellipse 100% 100% at 50% 50%, black 60%, transparent 100%)',
-                  WebkitMaskImage: 'radial-gradient(ellipse 100% 100% at 50% 50%, black 60%, transparent 100%)'
-                }}
-              >
-                <video
-                  src={ftHeroVid}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
-                  style={{ minHeight: '400px', opacity: 0.95 }}
-                >
-                  Your browser does not support the video tag.
-                </video>
-              </motion.div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* SECTION 2: KIDNEYQUEST - Marigold Yellow Spotlight */}
-      <section id="kidneyquest" className="kidneyquest-section relative scroll-mt-20">
-        {/* Yellow Spotlight Effect */}
-        <div className="absolute inset-0 kidneyquest-spotlight pointer-events-none" />
-        
-        <div className="container max-w-6xl mx-auto px-4 py-16 md:py-32 relative z-10">
-          <motion.div
-            className="min-h-[60vh] md:min-h-[80vh] flex flex-col gap-8 md:gap-16 md:flex-row md:flex-row-reverse items-start"
-            {...scrollReveal}
-            transition={{ duration: 0.6 }}
-          >
-            {/* Heading - Now on the right side on desktop */}
-            <div className="w-full md:w-1/3 md:sticky md:top-28 self-start space-y-4">
-              <p className="text-xs uppercase tracking-[0.25em] kidneyquest-text-muted">
-                <span className="font-bold">KidneyQuest</span>
-              </p>
-              <h2 className="font-sans text-2xl sm:text-3xl md:text-4xl font-normal kidneyquest-text-primary">
-                Gamifying health education.
-              </h2>
-              <p className="text-sm md:text-base kidneyquest-text-secondary leading-relaxed">
-                Reduced 40% of staff overhead with a zero-waste, self-sustaining AR experience that scales across 4 languages.
-              </p>
-              
-              <div className="mt-6 md:mt-8">
-                <Link 
-                  to="/case-study/kidneyquest" 
-                  className="group inline-flex items-center gap-2 text-sm font-medium kidneyquest-text-primary hover:opacity-90 transition-all duration-200"
-                >
-                  <span className="relative">
-                    Read KidneyQuest case study
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400/60 group-hover:w-full transition-all duration-300" />
-                  </span>
-                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Demo Card - Now on the left side on desktop */}
-            <div className="w-full md:w-2/3 space-y-8 md:space-y-10">
-              <motion.div
-                {...scrollReveal}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="rounded-2xl md:rounded-3xl border border-yellow-500/30 bg-black/40 backdrop-blur-sm flex items-center justify-center px-3 py-6 sm:px-4 sm:py-8 md:px-8"
-              >
-                <KidneyQuestInteractiveDemo />
-              </motion.div>
-
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* SECTION 3: INTELLIPAL - Monochrome/Tech */}
+      {/* SECTION 1: INTELLIPAL - Monochrome/Tech */}
       <section id="intellipal" className="intellipal-section relative">
         <div className="container max-w-6xl mx-auto px-4 py-16 md:py-32 relative z-10">
           <motion.div
@@ -216,9 +95,129 @@ const Index = () => {
         </div>
       </section>
 
+      {/* SECTION 2: FLOWTUTOR - Deep Midnight Blue */}
+      <section id="flowtutor" className="flowtutor-section relative min-h-screen scroll-mt-20">
+        {/* Northern Lights Glow Effect */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="northern-lights-glow" />
+        </div>
+
+        <div className="container max-w-6xl mx-auto px-4 pt-8 md:pt-16 pb-16 md:pb-32 relative z-10">
+          <motion.div
+            className="min-h-[60vh] md:min-h-[80vh] flex flex-col gap-8 md:gap-16 md:flex-row items-start"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            {/* Heading - Not sticky on mobile */}
+            <div className="w-full md:w-1/3 md:sticky md:top-28 self-start space-y-4">
+              <p className="text-xs uppercase tracking-[0.25em] text-blue-300/80">
+                <span className="font-bold">FlowTutor</span>
+              </p>
+              <h2 className="font-sans text-2xl sm:text-3xl md:text-4xl font-normal text-zinc-300 uppercase">
+                Learn smarter with AI powered assistance.
+              </h2>
+              <p className="text-sm md:text-base text-blue-100/70">
+                Achieved 25% increase in knowledge retention across 50 users compared to traditional learning methods.
+              </p>
+
+              <div className="mt-6 md:mt-8">
+                <Link
+                  to="/case-study/flowtutor"
+                  className="group inline-flex items-center gap-2 text-sm font-medium text-blue-300 hover:text-blue-200 transition-all duration-200"
+                >
+                  <span className="relative">
+                    Read FlowTutor case study
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-200 group-hover:w-full transition-all duration-300" />
+                  </span>
+                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Story & Media */}
+            <div className="w-full md:w-2/3 space-y-10">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="overflow-hidden"
+                style={{
+                  maskImage: "radial-gradient(ellipse 100% 100% at 50% 50%, black 60%, transparent 100%)",
+                  WebkitMaskImage: "radial-gradient(ellipse 100% 100% at 50% 50%, black 60%, transparent 100%)",
+                }}
+              >
+                <video
+                  src={ftHeroVid}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                  style={{ minHeight: "400px", opacity: 0.95 }}
+                >
+                  Your browser does not support the video tag.
+                </video>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SECTION 3: KIDNEYQUEST - Marigold Yellow Spotlight */}
+      <section id="kidneyquest" className="kidneyquest-section relative scroll-mt-20">
+        {/* Yellow Spotlight Effect */}
+        <div className="absolute inset-0 kidneyquest-spotlight pointer-events-none" />
+
+        <div className="container max-w-6xl mx-auto px-4 py-16 md:py-32 relative z-10">
+          <motion.div
+            className="min-h-[60vh] md:min-h-[80vh] flex flex-col gap-8 md:gap-16 md:flex-row md:flex-row-reverse items-start"
+            {...scrollReveal}
+            transition={{ duration: 0.6 }}
+          >
+            {/* Heading - Now on the right side on desktop */}
+            <div className="w-full md:w-1/3 md:sticky md:top-28 self-start space-y-4">
+              <p className="text-xs uppercase tracking-[0.25em] kidneyquest-text-muted">
+                <span className="font-bold">KidneyQuest</span>
+              </p>
+              <h2 className="font-sans text-2xl sm:text-3xl md:text-4xl font-normal kidneyquest-text-primary">
+                Gamifying health education.
+              </h2>
+              <p className="text-sm md:text-base kidneyquest-text-secondary leading-relaxed">
+                Reduced 40% of staff overhead with a zero-waste, self-sustaining AR experience that scales across 4 languages.
+              </p>
+
+              <div className="mt-6 md:mt-8">
+                <Link
+                  to="/case-study/kidneyquest"
+                  className="group inline-flex items-center gap-2 text-sm font-medium kidneyquest-text-primary hover:opacity-90 transition-all duration-200"
+                >
+                  <span className="relative">
+                    Read KidneyQuest case study
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400/60 group-hover:w-full transition-all duration-300" />
+                  </span>
+                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Demo Card - Now on the left side on desktop */}
+            <div className="w-full md:w-2/3 space-y-8 md:space-y-10">
+              <motion.div
+                {...scrollReveal}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="rounded-2xl md:rounded-3xl border border-yellow-500/30 bg-black/40 backdrop-blur-sm flex items-center justify-center px-3 py-6 sm:px-4 sm:py-8 md:px-8"
+              >
+                <KidneyQuestInteractiveDemo />
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* SECTION 4: NEST - Teal Blue */}
       <section id="nest" className="relative scroll-mt-20" style={{
-        background: "linear-gradient(to bottom, #111111 0%, #1a0a02 25%, #3d1a08 50%, #7a3410 75%, #e66e19 100%)",
+        background: "linear-gradient(to bottom, #000000 0%, #1a0a02 25%, #3d1a08 50%, #7a3410 75%, #e66e19 100%)",
       }}>
         <div className="container max-w-6xl mx-auto px-4 py-16 md:py-32 relative z-10">
           <motion.div

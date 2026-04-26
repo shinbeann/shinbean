@@ -227,9 +227,11 @@ All colors MUST be HSL.
   .intellipal-section {
     background: linear-gradient(
       to bottom,
-      #000000 0%,
-      #111111 30%,
-      #111111 100%
+      #0d1526 0%,
+      #070d17 26%,
+      #000000 56%,
+      #070d17 82%,
+      #0d1526 100%
     );
   }
 

@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
 const EXPERIENCE = [
+  { company: "INTELLIPAL", role: "UX/UI Designer ⋅ HTX", date: "Enterprise Tool ->", sectionId: "intellipal" },
   { company: "FlowTutor", role: "Product Designer", date: "EdTech ->", sectionId: "flowtutor" },
   { company: "KidneyQuest", role: "UX/UI Designer ⋅ National Kidney Foundation", date: "Health ->", sectionId: "kidneyquest" },
-  { company: "INTELLIPAL", role: "UX/UI Designer ⋅ HTX", date: "Enterprise Tool", sectionId: "intellipal" },
-  { company: "NEST", role: "Product Designer, Developer", date: "Digital Journal", sectionId: "nest" },
+  { company: "NEST", role: "Product Designer, Developer", date: "Digital Journal ->", sectionId: "nest" },
 ];
 
 const ExperienceRow = ({
