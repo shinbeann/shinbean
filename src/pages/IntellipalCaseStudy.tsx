@@ -3,6 +3,8 @@ import CaseStudyLayout from "@/components/CaseStudyLayout";
 import intellipalHeroImg from "@/assets/intellipal/intellipal-hero.png";
 import intellipalMockup1 from "@/assets/intellipal/IN_mockup1.png";
 import intellipalMockup2 from "@/assets/intellipal/IN_mockup2.png";
+import intellipalHifi1 from "@/assets/intellipal/IN_hifi1.png";
+import intellipalWireframe from "@/assets/intellipal/IN_wireframe.png";
 import { caseStudyEditorialBodyClass } from "@/design-system";
 
 const intellipalToc = [
@@ -12,10 +14,9 @@ const intellipalToc = [
     children: [
       { id: "problem", label: "Problem" },
       { id: "solution", label: "Solution" },
-      { id: "impact", label: "Impact" },
     ],
   },
-  { id: "system", label: "System" },
+  { id: "system", label: "Prototyping" },
   { id: "reflection", label: "Reflection" },
 ];
 
@@ -37,7 +38,7 @@ const IntellipalHero = () => (
         transition={{ duration: 0.8, delay: 0.15 }}
         className={`text-neutral-700 w-full break-words mt-10 ${caseStudyEditorialBodyClass}`}
       >
-        Frontline police officers make high-stakes decisions in seconds, often underground, offline, and under pressure.
+        When decisions cannot wait but information does, frontline police officers are forced to guess.
       </motion.p>
       <motion.p
         initial={{ opacity: 0, y: 20 }}
@@ -45,7 +46,7 @@ const IntellipalHero = () => (
         transition={{ duration: 0.8, delay: 0.15 }}
         className={`text-neutral-700 w-full break-words mt-4 ${caseStudyEditorialBodyClass}`}
       >
-        INTELLIPAL is an offline-first AI assistant built to help them act with certainty, not guesswork.
+        INTELLIPAL removes that uncertainty, even in offline environments.
       </motion.p>
 
       <motion.hr
@@ -90,7 +91,7 @@ const IntellipalHero = () => (
         <p className="text-[11px] uppercase tracking-[0.15em] font-medium text-neutral-500">My role</p>
         <ul className="space-y-3 text-neutral-700 text-sm md:text-base leading-relaxed list-disc list-outside pl-5 break-words">
           <li>UX research & synthesis</li>
-          <li>nteraction design & prototyping</li>
+          <li>Interaction design & prototyping</li>
           <li>Usability testing & iteration</li>
           <li>Frontend development & integration</li>
         </ul>
@@ -229,24 +230,6 @@ const IntellipalCaseStudy = () => {
           </motion.div>
         </section>
 
-        <section id="impact" className="relative pb-20 scroll-mt-20 md:scroll-mt-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="w-full max-w-4xl space-y-6"
-          >
-            <p className="text-xs uppercase tracking-widest font-medium text-[#003087]">IMPACT</p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-900 leading-tight">
-              Trust in the field.
-            </h2>
-            <p className={`${caseStudyEditorialBodyClass} text-neutral-700`}>
-              Grounding and offline operation directly support operational trust: officers can act on answers that trace back to authoritative SOP passages, even where connectivity is unreliable. Detailed metrics are under partner review; this page summarizes the design and system intent.
-            </p>
-          </motion.div>
-        </section>
-
         <section id="system" className="relative pb-20 scroll-mt-20 md:scroll-mt-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -255,21 +238,54 @@ const IntellipalCaseStudy = () => {
             transition={{ duration: 0.8 }}
             className="w-full max-w-4xl space-y-6"
           >
-            <p className="text-xs uppercase tracking-widest font-medium text-[#003087]">SYSTEM</p>
+            <p className="text-xs uppercase tracking-widest font-medium text-[#003087]">PROTOTYPING</p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-900 leading-tight">
-              How the pieces fit.
+              I got it wrong.
             </h2>
-            <ul className={`text-neutral-700 space-y-4 list-disc list-outside pl-5 ${caseStudyEditorialBodyClass}`}>
-              <li>
-                <span className="text-neutral-900 font-medium">Ingestion &amp; chunking</span> — policy documents are split for retrieval with metadata preserved for display in the UI.
-              </li>
-              <li>
-                <span className="text-neutral-900 font-medium">Combined search</span> — keyword-style and embedding-based retrieval are fused so neither misses critical terminology nor paraphrases.
-              </li>
-              <li>
-                <span className="text-neutral-900 font-medium">Generation</span> — responses are constrained to retrieved context; the UI highlights the supporting spans officers should read.
-              </li>
-            </ul>
+            <div className={`text-neutral-700 space-y-7 ${caseStudyEditorialBodyClass}`}>
+              <p>
+                I started by designing a familiar search interface. I benchmarked patterns from systems like Singapore Statutes Online (SSO), Google, and ChatGPT to match their existing mental models.
+             </p>
+             <div className="rounded-xl overflow-hidden border border-neutral-200 bg-neutral-50 w-full max-w-3xl">
+               <img
+                 src={intellipalWireframe}
+                 alt="INTELLIPAL wireframe concept"
+                 className="w-full h-auto object-contain"
+               />
+             </div>
+              <p>
+                During testing, officers preferred simple input over structured filters, and result formats that showed information without forcing a decision.
+              </p>
+              <p>
+                But A/B testing only validates what you put in front of users. It doesn't reveal what's
+                missing. By giving predefined options, I was narrowing behaviour instead of discovering
+                it.
+              </p>
+            </div>
+            <h2 className="pt-4 text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-neutral-900 leading-tight">
+              <span>The moment it </span>
+              <span className="inline-block rotate-12 translate-y-2">broke.</span>
+            </h2>
+            <p className={`${caseStudyEditorialBodyClass} text-neutral-700`}>
+              When we moved to high-fidelity testing, officers defaulted to typing short keywords (2-3 words) instead of natural-language queries. Even
+              with microcopy encouraging full questions, behaviour didn't change.
+            </p>
+            <div className="w-full max-w-3xl">
+              <img
+                src={intellipalHifi1}
+                alt="INTELLIPAL high-fidelity prototype"
+                className="w-[70%] h-auto object-contain mx-auto"
+              />
+              <p className="mt-3 text-center text-sm text-neutral-500">Search Engine Interface</p>
+            </div>
+            <div className={`${caseStudyEditorialBodyClass} text-neutral-700 space-y-6`}>
+              <p>
+                After a pivotal usability test, I shifted INTELLIPAL from a search interface to a
+                conversational one. I noticed officers naturally asked follow-up questions, treating the
+                system more like a dialogue than a one-off query.
+              </p>
+              <p>This led to the introduction of a multi-query feature.</p>
+            </div>
           </motion.div>
         </section>
 
