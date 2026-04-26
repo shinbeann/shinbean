@@ -95,7 +95,56 @@ const Index = () => {
         </div>
       </section>
 
-      {/* SECTION 2: FLOWTUTOR - Deep Midnight Blue */}
+      {/* SECTION 2: NEST - Teal Blue */}
+      <section id="nest" className="relative scroll-mt-20" style={{
+        background: "linear-gradient(to bottom, #0d1526 0%, #0a111d 50%, #0d1526 100%)",
+      }}>
+        <div className="container max-w-6xl mx-auto px-4 py-16 md:py-32 relative z-10">
+          <motion.div
+            className="min-h-[60vh] md:min-h-[80vh] flex flex-col gap-8 md:gap-16 md:flex-row md:flex-row-reverse items-start"
+            {...scrollReveal}
+            transition={{ duration: 0.6 }}
+          >
+            {/* Heading */}
+            <div className="w-full md:w-1/3 md:sticky md:top-28 self-start space-y-4">
+              <p className="text-xs uppercase tracking-[0.25em] text-orange-300/80">
+                <span className="font-bold">NEST</span>
+              </p>
+              <h2 className="font-sans text-2xl sm:text-3xl md:text-4xl font-normal text-neutral-200">
+                Your new favorite digital journal.
+              </h2>
+              <p className="text-sm md:text-base text-orange-100/70 leading-relaxed">
+                Plz give me feedback &lt;3.
+              </p>
+            </div>
+
+            {/* Media - NEST mockup */}
+            <div className="w-full md:w-2/3 space-y-8 md:space-y-10">
+              <motion.div
+                {...scrollReveal}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="rounded-2xl md:rounded-3xl border border-orange-400/30 overflow-hidden bg-black/40 backdrop-blur-sm"
+              >
+                <a
+                  href="https://nest-journal.vercel.app/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-300/80"
+                  aria-label="Open NEST beta app"
+                >
+                  <img
+                    src={nestMockup}
+                    alt="NEST journaling app mockup showing two mobile screens: Choose your spaces onboarding and journal feed with entries"
+                    className="w-full h-auto object-contain"
+                  />
+                </a>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SECTION 3: FLOWTUTOR - Deep Midnight Blue */}
       <section id="flowtutor" className="flowtutor-section relative min-h-screen scroll-mt-20">
         {/* Northern Lights Glow Effect */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -164,7 +213,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* SECTION 3: KIDNEYQUEST - Marigold Yellow Spotlight */}
+      {/* SECTION 4: KIDNEYQUEST - Marigold Yellow Spotlight */}
       <section id="kidneyquest" className="kidneyquest-section relative scroll-mt-20">
         {/* Yellow Spotlight Effect */}
         <div className="absolute inset-0 kidneyquest-spotlight pointer-events-none" />
@@ -209,60 +258,6 @@ const Index = () => {
                 className="rounded-2xl md:rounded-3xl border border-yellow-500/30 bg-black/40 backdrop-blur-sm flex items-center justify-center px-3 py-6 sm:px-4 sm:py-8 md:px-8"
               >
                 <KidneyQuestInteractiveDemo />
-              </motion.div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* SECTION 4: NEST - Teal Blue */}
-      <section id="nest" className="relative scroll-mt-20" style={{
-        background: "linear-gradient(to bottom, #000000 0%, #1a0a02 25%, #3d1a08 50%, #7a3410 75%, #e66e19 100%)",
-      }}>
-        <div className="container max-w-6xl mx-auto px-4 py-16 md:py-32 relative z-10">
-          <motion.div
-            className="min-h-[60vh] md:min-h-[80vh] flex flex-col gap-8 md:gap-16 md:flex-row md:flex-row-reverse items-start"
-            {...scrollReveal}
-            transition={{ duration: 0.6 }}
-          >
-            {/* Heading */}
-            <div className="w-full md:w-1/3 md:sticky md:top-28 self-start space-y-4">
-              <p className="text-xs uppercase tracking-[0.25em] text-orange-300/80">
-                <span className="font-bold">NEST</span>
-              </p>
-              <h2 className="font-sans text-2xl sm:text-3xl md:text-4xl font-normal text-neutral-200">
-                Your new favorite digital journal.
-              </h2>
-              <p className="text-sm md:text-base text-orange-100/70 leading-relaxed">
-                Coming soon.
-              </p>
-              
-              <div className="mt-6 md:mt-8">
-                <Link 
-                  to="/case-study/nest" 
-                  className="group inline-flex items-center gap-2 text-sm font-medium text-orange-300 hover:text-orange-200 transition-all duration-200"
-                >
-                  <span className="relative">
-                    Read NEST case study
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-200 group-hover:w-full transition-all duration-300" />
-                  </span>
-                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Media - NEST mockup */}
-            <div className="w-full md:w-2/3 space-y-8 md:space-y-10">
-              <motion.div
-                {...scrollReveal}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="rounded-2xl md:rounded-3xl border border-orange-400/30 overflow-hidden bg-black/40 backdrop-blur-sm"
-              >
-                <img
-                  src={nestMockup}
-                  alt="NEST journaling app mockup showing two mobile screens: Choose your spaces onboarding and journal feed with entries"
-                  className="w-full h-auto object-contain"
-                />
               </motion.div>
             </div>
           </motion.div>
