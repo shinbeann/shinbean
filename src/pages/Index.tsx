@@ -199,11 +199,16 @@ const Index = () => {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="relative w-full"
               >
-                <img
+                <video
                   src={publicMedia.intellipalHomeMockup}
-                  alt="INTELLIPAL SOP Assistance on two phones: suggested SOP questions and chat guidance with likely match and protective equipment details"
                   className="w-full h-auto object-contain"
-                />
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                >
+                  Your browser does not support the video tag.
+                </video>
               </motion.div>
 
             </div>

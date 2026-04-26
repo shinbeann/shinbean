@@ -5,6 +5,6 @@
 export const publicMedia = {
   aboutPhoto: "/media/about/aboutme.jpg",
   resumePdf: "/media/about/GayShinLee_Resume.pdf",
-  intellipalHomeMockup: "/media/intellipal/INTELLIPAL_mockup2.png",
+  intellipalHomeMockup: "/media/intellipal/IN_product.mp4",
   kidneyquestSuccess: "/media/kidneyquest/kidneyquest-success.png",
 } as const;
