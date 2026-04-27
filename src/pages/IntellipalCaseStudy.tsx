@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
 import intellipalHeroImg from "@/assets/intellipal/intellipal-hero.png";
-import intellipalMockup1 from "@/assets/intellipal/IN_mockup1.png";
-import intellipalMockup2 from "@/assets/intellipal/IN_mockup2.png";
+import intellipalSolution1 from "@/assets/intellipal/IN_solution1.png";
+import intellipalSolution2 from "@/assets/intellipal/IN_solution2.png";
 import intellipalHifi1 from "@/assets/intellipal/IN_hifi1.png";
+import intellipalHifi2 from "@/assets/intellipal/IN_hifi2.png";
 import intellipalWireframe from "@/assets/intellipal/IN_wireframe.png";
 import { caseStudyEditorialBodyClass } from "@/design-system";
 
@@ -211,21 +212,17 @@ const IntellipalCaseStudy = () => {
                 <li>A confidence signal to calibrate trust</li>
               </ul>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-x-5 md:gap-y-0 md:max-w-[620px] mx-auto pt-4">
-              <div className="rounded-xl overflow-hidden border border-neutral-200 bg-neutral-50 w-full max-w-[min(320px,100%)] mx-auto md:max-w-[300px] md:justify-self-end">
-                <img
-                  src={intellipalMockup1}
-                  alt="INTELLIPAL solution mockup 1"
-                  className="w-full h-auto object-contain"
-                />
-              </div>
-              <div className="rounded-xl overflow-hidden border border-neutral-200 bg-neutral-50 w-full max-w-[min(320px,100%)] mx-auto md:max-w-[300px] md:justify-self-start">
-                <img
-                  src={intellipalMockup2}
-                  alt="INTELLIPAL solution mockup 2"
-                  className="w-full h-auto object-contain"
-                />
-              </div>
+            <div className="w-full max-w-3xl mx-auto pt-4">
+              <img
+                src={intellipalSolution1}
+                alt="INTELLIPAL solution interface"
+                className="w-full h-auto object-contain"
+              />
+              <img
+                src={intellipalSolution2}
+                alt="INTELLIPAL solution interface follow-up"
+                className="w-full h-auto object-contain mt-6"
+              />
             </div>
           </motion.div>
         </section>
@@ -286,6 +283,14 @@ const IntellipalCaseStudy = () => {
               </p>
               <p>This led to the introduction of a multi-query feature.</p>
             </div>
+            <div className="w-full max-w-3xl">
+              <img
+                src={intellipalHifi2}
+                alt="INTELLIPAL conversational interface"
+                className="w-[70%] h-auto object-contain mx-auto"
+              />
+              <p className="mt-3 text-center text-sm text-neutral-500">Conversational Interface</p>
+            </div>
           </motion.div>
         </section>
 
@@ -299,10 +304,11 @@ const IntellipalCaseStudy = () => {
           >
             <p className="text-xs uppercase tracking-widest font-medium text-[#003087]">REFLECTION</p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-900 leading-tight">
-              Designing for accountability.
+              Final Thoughts.
             </h2>
             <p className={`${caseStudyEditorialBodyClass} text-neutral-700`}>
-              Consumer chat patterns break down when stakes are high. The most valuable design work here was not the splashy model demo—it was clarity: what we know from the corpus, what we do not, and how to get to the primary source in one or two taps.
+            Ideally, this project would have involved field observation and in-context usability testing with active SPF officers. That wasn’t possible due to operational constraints. Instead, we worked with university students who had prior or ongoing experience in the police force, using them as proxies to approximate real workflows and decision contexts.
+            It wasn't the most ideal scenario, but it was the best we could do with the resources we had.
             </p>
           </motion.div>
         </section>
