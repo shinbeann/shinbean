@@ -166,16 +166,13 @@ export const KidneyQuestInteractiveDemo = () => {
               <motion.button
                 type="button"
                 onClick={(e) => handleAnswerClick("A", e)}
-                className="absolute left-[13%] right-[13%] top-[47%] min-h-[9%] cursor-pointer flex items-center justify-start px-1 sm:px-4 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70 overflow-visible"
+                className="absolute left-[13%] right-[13%] top-[47%] min-h-[9%] cursor-pointer flex items-center justify-start px-1 sm:px-4 py-1 font-sans focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70 overflow-visible"
                 style={{
                   borderRadius: '14px',
                   border: '2px solid #1A4A5C',
                   background: 'linear-gradient(0deg, #2B6B7F 0%, #4EC1E5 100%)',
                   boxShadow: '0 2px 0 0 rgba(0, 0, 0, 0.25)',
                   color: '#FFF',
-                  fontFamily: 'Arial',
-                  fontStyle: 'normal',
-                  fontWeight: 400,
                 }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.95 }}
@@ -191,16 +188,13 @@ export const KidneyQuestInteractiveDemo = () => {
               <motion.button
                 type="button"
                 onClick={(e) => handleAnswerClick("B", e)}
-                className="absolute left-[13%] right-[13%] top-[57.5%] min-h-[9%] cursor-pointer flex items-center justify-start px-1 sm:px-4 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70 overflow-visible"
+                className="absolute left-[13%] right-[13%] top-[57.5%] min-h-[9%] cursor-pointer flex items-center justify-start px-1 sm:px-4 py-1 font-sans focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70 overflow-visible"
                 style={{
                   borderRadius: '14px',
                   border: '2px solid #1A4A5C',
                   background: 'linear-gradient(0deg, #2B6B7F 0%, #4EC1E5 100%)',
                   boxShadow: '0 2px 0 0 rgba(0, 0, 0, 0.25)',
                   color: '#FFF',
-                  fontFamily: 'Arial',
-                  fontStyle: 'normal',
-                  fontWeight: 400,
                 }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.95 }}
@@ -216,16 +210,13 @@ export const KidneyQuestInteractiveDemo = () => {
               <motion.button
                 type="button"
                 onClick={(e) => handleAnswerClick("C", e)}
-                className="absolute left-[13%] right-[13%] top-[68%] min-h-[9%] cursor-pointer flex items-center justify-start px-1 sm:px-4 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70 overflow-visible"
+                className="absolute left-[13%] right-[13%] top-[68%] min-h-[9%] cursor-pointer flex items-center justify-start px-1 sm:px-4 py-1 font-sans focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70 overflow-visible"
                 style={{
                   borderRadius: '14px',
                   border: '2px solid #1A4A5C',
                   background: 'linear-gradient(0deg, #2B6B7F 0%, #4EC1E5 100%)',
                   boxShadow: '0 2px 0 0 rgba(0, 0, 0, 0.25)',
                   color: '#FFF',
-                  fontFamily: 'Arial',
-                  fontStyle: 'normal',
-                  fontWeight: 400,
                 }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.95 }}
@@ -241,16 +232,13 @@ export const KidneyQuestInteractiveDemo = () => {
               <motion.button
                 type="button"
                 onClick={(e) => handleAnswerClick("D", e)}
-                className="absolute left-[13%] right-[13%] top-[78.5%] min-h-[9%] cursor-pointer flex items-center justify-start px-1 sm:px-4 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70 overflow-visible"
+                className="absolute left-[13%] right-[13%] top-[78.5%] min-h-[9%] cursor-pointer flex items-center justify-start px-1 sm:px-4 py-1 font-sans focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/70 overflow-visible"
                 style={{
                   borderRadius: '14px',
                   border: '2px solid #1A4A5C',
                   background: 'linear-gradient(0deg, #2B6B7F 0%, #4EC1E5 100%)',
                   boxShadow: '0 2px 0 0 rgba(0, 0, 0, 0.25)',
                   color: '#FFF',
-                  fontFamily: 'Arial',
-                  fontStyle: 'normal',
-                  fontWeight: 400,
                 }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.95 }}

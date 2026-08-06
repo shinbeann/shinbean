@@ -17,7 +17,7 @@ import kqTeam2 from "@/assets/kidneyquest/kq_team2.jpg";
 
 
 const KidneyQuestHero = () => (
-  <section className="relative w-full pt-24 md:pt-36 overflow-x-hidden bg-[#050505]">
+  <section className="relative w-full pt-24 md:pt-36 overflow-x-hidden">
     <div className="w-full max-w-6xl mx-auto px-6 md:px-16 lg:px-24 min-w-0">
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
@@ -194,7 +194,7 @@ const KidneyQuestCaseStudy = () => {
       showContactSection={false}
       hero={<div className="text-white selection:bg-amber-500/30 font-sans"><KidneyQuestHero /></div>}
     >
-      <div className="text-white selection:bg-amber-500/30 font-sans overflow-x-hidden min-w-0 bg-[#050505]">
+      <div className="text-white selection:bg-amber-500/30 font-sans overflow-x-hidden min-w-0">
         <section id="problem" className="relative flex flex-col pt-24 md:pt-32 pb-20 scroll-mt-20 md:scroll-mt-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -385,7 +385,7 @@ const KidneyQuestCaseStudy = () => {
                             aria-hidden="true"
                           >
                             <div className="h-px flex-1 bg-white/5 min-w-[1rem]" />
-                            <div className="flex items-center justify-center w-8 h-8 rounded-full border border-white/10 bg-[#0A0A0A] shadow-sm z-10 shrink-0">
+                            <div className="flex items-center justify-center w-8 h-8 rounded-full border border-white/10 bg-white/5 shadow-sm z-10 shrink-0">
                               <ArrowDown className="w-3.5 h-3.5 text-[#FFD700]" style={{ strokeWidth: 3 }} />
                             </div>
                             <div className="h-px flex-1 bg-white/5 min-w-[1rem]" />

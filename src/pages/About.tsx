@@ -90,19 +90,15 @@ const About = () => {
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-tight">
                 Gay Shin Lee
               </h1>
-              <p className="text-white text-lg md:text-xl">
-                Product Designer
+              <p className="text-lg md:text-xl text-muted-foreground tracking-wide max-w-prose">
+                Before pivoting to product design, I was a software engineer working on payment engines for FAST instant transfers, test automation, and QA pipelines at a regional bank. 
+
               </p>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-prose leading-relaxed">
-                My initial interest in AI evolved into a fascination with how humans actually interact with them.
-                This shifted my passion from pure development to User Experience, specifically within
-                <strong> Agentic Experience (AX)</strong>.
+              <p className="text-lg md:text-xl text-muted-foreground tracking-wide max-w-prose">
+                That engineering foundation shaped how I approach design today. As AI tools came around, I used Cursor and Claude code not just to write code, but as a playground to prototype ideas, explore interactions, and accelerate my learning as a designer.  
               </p>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-prose leading-relaxed">
-                Beyond that, I love refining little details that matter to make sure people actually use, value and perhaps even fall in love with digital products.
-              </p>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-prose leading-relaxed">
-                <strong>Actively looking for full-time product design or UX/UI design roles starting June 2026.</strong>
+              <p className="text-lg md:text-xl text-muted-foreground tracking-wide max-w-prose">
+              I love turning concepts into tangible experiences through rapid prototyping and building small tools. This website itself is a testament to that mindset. A space where code and design come together and bring ideas to life ❤️. 
               </p>
               <div className="flex items-center gap-4 pt-0">
                 <a

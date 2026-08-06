@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
-import intellipalHeroImg from "@/assets/intellipal/intellipal-hero.png";
 import intellipalSolution1 from "@/assets/intellipal/IN_solution1.png";
 import intellipalSolution2 from "@/assets/intellipal/IN_solution2.png";
 import intellipalHifi1 from "@/assets/intellipal/IN_hifi1.png";
@@ -28,7 +27,7 @@ const IntellipalHero = () => (
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-[#003087]"
+        className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-intellipal-accent"
       >
         INTELLIPAL.
       </motion.h1>
@@ -37,7 +36,7 @@ const IntellipalHero = () => (
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.15 }}
-        className={`text-neutral-700 w-full break-words mt-10 ${caseStudyEditorialBodyClass}`}
+        className={`text-neutral-200 w-full break-words mt-10 ${caseStudyEditorialBodyClass}`}
       >
         When decisions cannot wait but information does, frontline police officers are forced to guess.
       </motion.p>
@@ -45,7 +44,7 @@ const IntellipalHero = () => (
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.15 }}
-        className={`text-neutral-700 w-full break-words mt-4 ${caseStudyEditorialBodyClass}`}
+        className={`text-neutral-200 w-full break-words mt-4 ${caseStudyEditorialBodyClass}`}
       >
         INTELLIPAL removes that uncertainty, even in offline environments.
       </motion.p>
@@ -54,7 +53,7 @@ const IntellipalHero = () => (
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className="border-neutral-200 mt-10"
+        className="border-white/10 mt-10"
       />
 
       <motion.div
@@ -70,8 +69,8 @@ const IntellipalHero = () => (
           { label: "TOOLS", value: "Figma, Android Studio" },
         ].map((item) => (
           <div key={item.label} className="space-y-1.5 min-w-0">
-            <p className="text-[11px] uppercase tracking-[0.15em] font-medium text-[#003087]">{item.label}</p>
-            <p className="text-sm text-neutral-900 font-medium break-words">{item.value}</p>
+            <p className="text-[11px] uppercase tracking-[0.15em] font-medium text-intellipal-accent">{item.label}</p>
+            <p className="text-sm text-neutral-100 font-medium break-words">{item.value}</p>
           </div>
         ))}
       </motion.div>
@@ -80,7 +79,7 @@ const IntellipalHero = () => (
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.45 }}
-        className="border-neutral-200 mt-4"
+        className="border-white/10 mt-4"
       />
 
       <motion.div
@@ -89,8 +88,8 @@ const IntellipalHero = () => (
         transition={{ duration: 0.8, delay: 0.55 }}
         className="space-y-4 min-w-0 mt-10"
       >
-        <p className="text-[11px] uppercase tracking-[0.15em] font-medium text-neutral-500">My role</p>
-        <ul className="space-y-3 text-neutral-700 text-sm md:text-base leading-relaxed list-disc list-outside pl-5 break-words">
+        <p className="text-[11px] uppercase tracking-[0.15em] font-medium text-neutral-400">My role</p>
+        <ul className="space-y-3 text-neutral-200 text-sm md:text-base leading-relaxed list-disc list-outside pl-5 break-words">
           <li>UX research & synthesis</li>
           <li>Interaction design & prototyping</li>
           <li>Usability testing & iteration</li>
@@ -99,7 +98,7 @@ const IntellipalHero = () => (
       </motion.div>
     </div>
 
-    <div className="w-screen relative left-1/2 -translate-x-1/2 border-t border-b border-[#003087]/30 bg-[#003087]/[0.06] py-12 md:py-16 mt-16 md:mt-24">
+    <div className="w-screen relative left-1/2 -translate-x-1/2 border-t border-b border-intellipal-accent/30 bg-intellipal-accent/10 py-12 md:py-16 mt-16 md:mt-24">
       <div className="max-w-5xl mx-auto px-6 md:px-16 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
         {[
           { stat: "Offline", desc: "Core retrieval and answering without network dependency" },
@@ -108,10 +107,10 @@ const IntellipalHero = () => (
         ].map((item, i) => (
           <div
             key={item.stat}
-            className={`flex flex-col items-center text-center ${i < 2 ? "md:border-r md:border-[#003087]/20" : ""}`}
+            className={`flex flex-col items-center text-center ${i < 2 ? "md:border-r md:border-intellipal-accent/20" : ""}`}
           >
-            <p className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#003087]">{item.stat}</p>
-            <p className="text-sm md:text-base text-neutral-700 mt-2 max-w-[240px]">{item.desc}</p>
+            <p className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-intellipal-accent">{item.stat}</p>
+            <p className="text-sm md:text-base text-neutral-200 mt-2 max-w-[240px]">{item.desc}</p>
           </div>
         ))}
       </div>
@@ -123,17 +122,17 @@ const IntellipalCaseStudy = () => {
   return (
     <CaseStudyLayout
       tableOfContents={intellipalToc}
-      navTone="light"
-      rootClassName="bg-white"
+      theme="dark"
+      navTone="dark"
       showSidebarsAfter="problem"
       showContactSection={false}
       hero={
-        <div className="text-neutral-900 selection:bg-[#003087]/20 font-sans bg-white">
+        <div className="selection:bg-intellipal-accent/30 font-sans">
           <IntellipalHero />
         </div>
       }
     >
-      <div className="text-neutral-900 selection:bg-[#003087]/20 font-sans overflow-x-hidden min-w-0 bg-white">
+      <div className="selection:bg-intellipal-accent/30 font-sans overflow-x-hidden min-w-0">
         <section id="problem" className="relative flex flex-col pt-24 md:pt-32 pb-20 scroll-mt-20 md:scroll-mt-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -143,11 +142,11 @@ const IntellipalCaseStudy = () => {
             className="flex flex-col"
           >
             <div className="w-full max-w-4xl space-y-6 text-left">
-              <p className="text-xs uppercase tracking-widest font-medium text-[#003087]">PROBLEM</p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-900 leading-tight">
+              <p className="text-xs uppercase tracking-widest font-medium text-intellipal-accent">PROBLEM</p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-100 leading-tight">
                 SOPs without signal.
               </h2>
-              <div className={`text-neutral-700 space-y-7 ${caseStudyEditorialBodyClass}`}>
+              <div className={`text-neutral-200 space-y-7 ${caseStudyEditorialBodyClass}`}>
                 <p>During field operations, officers frequently encounter:</p>
                 <ul className="list-disc list-outside pl-6 space-y-1">
                   <li>Legal classification that falls into a grey area</li>
@@ -158,31 +157,29 @@ const IntellipalCaseStudy = () => {
                 <p>I conducted semi-structured interviews with five GRF officers to uncover officer's behaviours and pain points.</p>
               </div>
             </div>
-
-
           </motion.div>
         </section>
 
         <div className="max-w-3xl mx-auto mt-8 md:mt-6 mb-20 md:mb-24 text-center">
-          <p className="font-serif text-[18px] md:text-[24px] leading-[1.6] text-black">
+          <p className="font-serif text-[18px] md:text-[24px] leading-[1.6] text-neutral-100">
             &quot;When you&apos;re on the ground,{" "}
-            <span className="font-bold text-red-600">things happen very fast</span>. Sometimes you&apos;re
+            <span className="font-bold text-red-400">things happen very fast</span>. Sometimes you&apos;re
             not even sure which offence it falls under, and there&apos;s{" "}
-            <span className="font-bold text-red-600">
+            <span className="font-bold text-red-400">
               no time to scroll through documents or find signal
             </span>
             .&quot;
           </p>
-          <p className="mt-4 text-sm md:text-base text-neutral-600 text-center">
+          <p className="mt-4 text-sm md:text-base text-neutral-400 text-center">
             — GRF Officer, Tanglin Division
           </p>
         </div>
 
         <div className="w-full max-w-4xl mt-16 md:mt-20 mb-20 md:mb-24">
-          <p className={`text-neutral-700 ${caseStudyEditorialBodyClass}`}>
+          <p className={`text-neutral-200 ${caseStudyEditorialBodyClass}`}>
             I was surprised that the issues we found were common across officers. Connectivity often fails in basements and enclosed spaces, cutting off access to information and communication with the ops room. At the same time, routine knowledge and SOPs are more likely to be forgotten than complex procedures.
           </p>
-          <p className={`mt-8 md:mt-10 text-neutral-700 ${caseStudyEditorialBodyClass}`}>
+          <p className={`mt-8 md:mt-10 text-neutral-200 ${caseStudyEditorialBodyClass}`}>
             In such a high-risk environment, how can officers be expected to operate when systems tend to break down?</p>
         </div>
 
@@ -194,12 +191,12 @@ const IntellipalCaseStudy = () => {
             transition={{ duration: 0.8 }}
             className="w-full max-w-4xl space-y-6"
           >
-            <p className="text-xs uppercase tracking-widest font-medium text-[#003087]">SOLUTION</p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-900 leading-tight">
+            <p className="text-xs uppercase tracking-widest font-medium text-intellipal-accent">SOLUTION</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-100 leading-tight">
               INTELLIPAL.
             </h2>
-            <div className={`text-neutral-700 space-y-7 ${caseStudyEditorialBodyClass}`}>
-              <p className="font-semibold text-neutral-900">
+            <div className={`text-neutral-200 space-y-7 ${caseStudyEditorialBodyClass}`}>
+              <p className="font-semibold text-neutral-100">
                 An offline-first assistant for fast, reliable decision-making
               </p>
               <p>
@@ -235,15 +232,15 @@ const IntellipalCaseStudy = () => {
             transition={{ duration: 0.8 }}
             className="w-full max-w-4xl space-y-6"
           >
-            <p className="text-xs uppercase tracking-widest font-medium text-[#003087]">PROTOTYPING</p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-900 leading-tight">
+            <p className="text-xs uppercase tracking-widest font-medium text-intellipal-accent">PROTOTYPING</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-100 leading-tight">
               I got it wrong.
             </h2>
-            <div className={`text-neutral-700 space-y-7 ${caseStudyEditorialBodyClass}`}>
+            <div className={`text-neutral-200 space-y-7 ${caseStudyEditorialBodyClass}`}>
               <p>
                 I started by designing a familiar search interface. I benchmarked patterns from systems like Singapore Statutes Online (SSO), Google, and ChatGPT to match their existing mental models.
              </p>
-             <div className="rounded-xl overflow-hidden border border-neutral-200 bg-neutral-50 w-full max-w-3xl">
+             <div className="rounded-xl overflow-hidden border border-white/10 bg-white/5 w-full max-w-3xl">
                <img
                  src={intellipalWireframe}
                  alt="INTELLIPAL wireframe concept"
@@ -259,11 +256,11 @@ const IntellipalCaseStudy = () => {
                 it.
               </p>
             </div>
-            <h2 className="pt-4 text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-neutral-900 leading-tight">
+            <h2 className="pt-4 text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-neutral-100 leading-tight">
               <span>The moment it </span>
               <span className="inline-block rotate-12 translate-y-2">broke.</span>
             </h2>
-            <p className={`${caseStudyEditorialBodyClass} text-neutral-700`}>
+            <p className={`${caseStudyEditorialBodyClass} text-neutral-200`}>
               When we moved to high-fidelity testing, officers defaulted to typing short keywords (2-3 words) instead of natural-language queries. Even
               with microcopy encouraging full questions, behaviour didn't change.
             </p>
@@ -273,9 +270,9 @@ const IntellipalCaseStudy = () => {
                 alt="INTELLIPAL high-fidelity prototype"
                 className="w-[70%] h-auto object-contain mx-auto"
               />
-              <p className="mt-3 text-center text-sm text-neutral-500">Search Engine Interface</p>
+              <p className="mt-3 text-center text-sm text-neutral-400">Search Engine Interface</p>
             </div>
-            <div className={`${caseStudyEditorialBodyClass} text-neutral-700 space-y-6`}>
+            <div className={`${caseStudyEditorialBodyClass} text-neutral-200 space-y-6`}>
               <p>
                 After a pivotal usability test, I shifted INTELLIPAL from a search interface to a
                 conversational one. I noticed officers naturally asked follow-up questions, treating the
@@ -289,7 +286,7 @@ const IntellipalCaseStudy = () => {
                 alt="INTELLIPAL conversational interface"
                 className="w-[70%] h-auto object-contain mx-auto"
               />
-              <p className="mt-3 text-center text-sm text-neutral-500">Conversational Interface</p>
+              <p className="mt-3 text-center text-sm text-neutral-400">Conversational Interface</p>
             </div>
           </motion.div>
         </section>
@@ -302,11 +299,11 @@ const IntellipalCaseStudy = () => {
             transition={{ duration: 0.8 }}
             className="w-full max-w-4xl space-y-6"
           >
-            <p className="text-xs uppercase tracking-widest font-medium text-[#003087]">REFLECTION</p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-900 leading-tight">
+            <p className="text-xs uppercase tracking-widest font-medium text-intellipal-accent">REFLECTION</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-100 leading-tight">
               Final Thoughts.
             </h2>
-            <p className={`${caseStudyEditorialBodyClass} text-neutral-700`}>
+            <p className={`${caseStudyEditorialBodyClass} text-neutral-200`}>
             Ideally, this project would have involved field observation and in-context usability testing with active SPF officers. That wasn’t possible due to operational constraints. Instead, we worked with university students who had prior or ongoing experience in the police force, using them as proxies to approximate real workflows and decision contexts.
             It wasn't the most ideal scenario, but it was the best we could do with the resources we had.
             </p>

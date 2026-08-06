@@ -8,7 +8,11 @@
   /* Font stacks (mirror tailwind.config.ts theme.extend.fontFamily) */
   --ds-font-sans: Inter, system-ui, sans-serif;
   --ds-font-mono: "Space Mono", "Courier New", monospace;
-  --ds-font-serif: "Source Serif 4", "Crimson Text", Georgia, serif;
+  --ds-font-serif: "Source Serif 4", Georgia, serif;
+
+  /* Case study shell surface */
+  --ds-surface-base: hsl(var(--surface-base));
+  --ds-intellipal-accent: hsl(var(--intellipal-accent));
 
   /* Case study shell (CaseStudyLayout) */
   --ds-case-study-shell-max-width: 1600px;

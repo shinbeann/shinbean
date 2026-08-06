@@ -14,7 +14,7 @@ export function caseStudyTocNavClasses(sidebarVisible: boolean) {
 }
 
 export const caseStudyTocSectionLabelClass =
-  "text-xs uppercase tracking-widest font-semibold mb-3 text-neutral-800";
+  "text-xs uppercase tracking-widest font-semibold mb-3 text-white";
 
 const tocLinkBase =
   "block w-full text-left text-sm transition-colors py-1.5 border-l-2";

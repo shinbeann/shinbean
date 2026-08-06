@@ -276,7 +276,7 @@ const InsightCard = ({
           <div className="h-[1px] flex-1 bg-white/5"></div>
           
           {/* The Bridge Badge */}
-          <div className="flex items-center justify-center w-8 h-8 rounded-full border border-white/10 bg-[#0A0A0A] shadow-sm z-10">
+          <div className="flex items-center justify-center w-8 h-8 rounded-full border border-white/10 bg-white/5 shadow-sm z-10">
             <ArrowDown className="w-3.5 h-3.5 text-purple-400" style={{ strokeWidth: 3 }} />
           </div>
           
@@ -326,7 +326,7 @@ const NarrativeBridge = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className="text-neutral-300 text-sm font-medium text-center max-w-md bg-[#050505] px-4 z-10"
+        className="text-neutral-300 text-sm font-medium text-center max-w-md px-4 z-10"
       >
         To prove efficacy, we compared the post-task quiz scores of both groups (n=40).
       </motion.div>
@@ -365,7 +365,7 @@ const ResultsVisualizationCard = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="bg-[#0A0A0A] border border-white/5 rounded-3xl p-8 md:p-12"
+      className="bg-white/5 border border-white/5 rounded-3xl p-8 md:p-12"
     >
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end">
         {/* Left Side - The Narrative (4 cols) */}
@@ -635,7 +635,7 @@ const ComparisonSlider = ({ beforeLabel, afterLabel, beforeImage, afterImage, ca
         ref={containerRef}
         onMouseMove={handleMouseMove}
         onTouchMove={handleTouchMove}
-        className="relative w-full aspect-[16/9] bg-[#111] rounded-lg overflow-hidden cursor-col-resize select-none group touch-none"
+        className="relative w-full aspect-[16/9] bg-white/5 rounded-lg overflow-hidden cursor-col-resize select-none group touch-none"
         style={{
           maskImage: 'radial-gradient(ellipse 100% 100% at 50% 50%, black 60%, transparent 100%)',
           WebkitMaskImage: 'radial-gradient(ellipse 100% 100% at 50% 50%, black 60%, transparent 100%)'
@@ -651,7 +651,7 @@ const ComparisonSlider = ({ beforeLabel, afterLabel, beforeImage, afterImage, ca
 
         {/* Before Image (Foreground, clipped) */}
         <div 
-          className="absolute inset-0 bg-[#0A0A0A] border-r border-white/20 pointer-events-none"
+          className="absolute inset-0 bg-white/5 border-r border-white/20 pointer-events-none"
           style={{ width: `${sliderValue}%` }}
         >
           <div className="absolute inset-0 w-full max-w-full flex items-center justify-center overflow-hidden">

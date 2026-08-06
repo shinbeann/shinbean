@@ -78,7 +78,7 @@ const FloatingContactButton = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <span className="text-sm font-medium text-foreground">Get in Touch</span>
+            <span className="text-sm font-medium text-foreground">Contact Me</span>
           </div>
           
           <div className="flex items-center gap-2">
@@ -130,7 +130,7 @@ const FloatingContactButton = () => {
               {/* Status footer */}
               <div className="px-4 py-2 border-t border-border/40 bg-muted/30">
                 <p className="text-xs text-muted-foreground">
-                  <span className="text-green-500">●</span> Open to opportunities
+                  <span className="text-green-500">●</span> Available ⋅ Free all day
                 </p>
               </div>
             </motion.div>

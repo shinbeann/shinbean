@@ -37,7 +37,7 @@ interface CaseStudyLayoutProps {
 const CaseStudyLayout = ({
   children,
   tableOfContents,
-  theme = "light",
+  theme = "dark",
   navTone = "dark",
   rootClassName,
   showSidebarsAfter,
@@ -113,12 +113,11 @@ const CaseStudyLayout = ({
   return (
     <div
       className={cn(
-        "min-h-screen overflow-x-clip",
-        isDark ? "bg-[#050505]" : "bg-background",
+        "min-h-screen overflow-x-clip bg-surface-base text-foreground",
         rootClassName
       )}
     >
-      <Navigation tone={isDark ? "dark" : "light"} enableSmartHide={false} />
+      <Navigation tone="dark" enableSmartHide={false} />
 
       {hero != null && <div className="w-full overflow-x-hidden">{hero}</div>}
 

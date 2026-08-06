@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
 
 const EXPERIENCE = [
-  { company: "INTELLIPAL", role: "UX/UI Designer ⋅ HTX", date: "Enterprise Tool ->", sectionId: "intellipal" },
-  { company: "NEST", role: "Product Designer, Developer", date: "Digital Journal ->", sectionId: "nest" },
-  { company: "FlowTutor", role: "Product Designer", date: "EdTech ->", sectionId: "flowtutor" },
-  { company: "KidneyQuest", role: "UX/UI Designer ⋅ National Kidney Foundation", date: "Health ->", sectionId: "kidneyquest" },
+  { company: "INTELLIPAL", role: "HTX", date: "Enterprise Tool ->", sectionId: "intellipal" },
+  { company: "FlowTutor", role: "Self-initiated", date: "EdTech ->", sectionId: "flowtutor" },
+  { company: "KidneyQuest", role: "National Kidney Foundation", date: "Health ->", sectionId: "kidneyquest" },
 ];
 
 const ExperienceRow = ({
@@ -46,7 +45,7 @@ const ExperienceRow = ({
 };
 
 const Hero = () => {
-  const name = "Gay Shin Lee";
+  const name = "";
 
   return (
     <section
@@ -74,7 +73,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
         >
-          Product Designer
+          Hello! I am Shin Lee, a product designer with a computer science background.
         </motion.p>
 
         {/* Name */}
@@ -89,21 +88,18 @@ const Hero = () => {
 
         {/* Body text (Body → Divider/Experience: 96px) */}
         <motion.div
-          className="max-w-xl mb-24"
+          className="max-w-4xl mb-24"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1, duration: 0.5 }}
         >
-          <div className="space-y-1">
-            <p className="text-base md:text-lg text-foreground/80 leading-relaxed">
-              Welcome to my small corner of the web.
-            </p>
-            <p className="text-base md:text-lg text-foreground/80 leading-relaxed">
-              Currently building NEST, your new favorite digital journal.
-            </p>
-          </div>
+          <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-foreground">
+            <span>I drive impact through </span>
+            <span className="italic font-normal text-intellipal-accent">thoughtful, intentional </span>
+            <span className="italic font-normal text-foreground">designs.</span>
+          </p>
           <p className="text-sm md:text-base text-muted-foreground mt-8">
-            Open to opportunities · June 2026
+            <span className="text-green-500" aria-hidden="true">●</span> Open to work
           </p>
         </motion.div>
 
@@ -114,7 +110,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.5 }}
         >
-          <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground font-semibold mb-3">
+          <p className="text-xs uppercase tracking-[0.25em] text-white font-semibold mb-3">
             On this page
           </p>
           <div className="flex flex-col">

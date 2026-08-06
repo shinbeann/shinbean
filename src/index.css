@@ -71,11 +71,13 @@ All colors MUST be HSL.
     --sidebar-border: 0 0% 20%;
     --sidebar-ring: 0 0% 98%;
 
+    /* Case study + project surfaces */
+    --surface-base: 220 49% 10%; /* #0d1526 — shared case study shell */
+    --intellipal-accent: 218 100% 71%; /* #6EA8FF — 7.56:1 on surface-base */
+
     /* Project-specific vibes */
     --kidneyquest-gold: 37 82% 60%;
     --kidneyquest-teal: 194 49% 33%;
-    --intellipal-deep: 210 10% 9%;
-    --flowtutor-soft: 210 40% 30%;
   }
 }
 
@@ -129,17 +131,7 @@ All colors MUST be HSL.
     font-weight: 600;
   }
   
-  /* Long-read body text uses serif */
-  .prose {
-    @apply font-serif;
-    max-width: 75ch; /* 60-75 chars for comfortable reading */
-  }
-  
-  .prose p {
-    font-size: var(--text-base);
-    line-height: 1.556; /* 28px on 18px */
-    margin-bottom: 1.5rem;
-  }
+  /* Case study long-form body: use caseStudyEditorialBodyClass from @/design-system */
   
   /* Smooth scrolling for anchor links */
   html {

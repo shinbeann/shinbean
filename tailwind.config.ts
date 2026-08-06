@@ -20,7 +20,7 @@ export default {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         mono: ['Space Mono', 'Courier New', 'monospace'],
-        serif: ['Source Serif 4', 'Crimson Text', 'Georgia', 'serif'],
+        serif: ['Source Serif 4', 'Georgia', 'serif'],
       },
       spacing: {
         // 8px spacing scale for systematic consistency
@@ -128,6 +128,8 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        "surface-base": "hsl(var(--surface-base))",
+        "intellipal-accent": "hsl(var(--intellipal-accent))",
       },
       borderRadius: {
         lg: "var(--radius)",

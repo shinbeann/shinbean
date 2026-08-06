@@ -22,11 +22,56 @@ Global **colors**, **shadcn-style HSL variables**, and **base heading/body rules
 
 Defined in `tailwind.config.ts` → `theme.extend.fontFamily`:
 
-- **`font-sans`** — Inter, system-ui, sans-serif (default on `body` via `@apply font-sans`)
-- **`font-mono`** — Space Mono, Courier New, monospace
-- **`font-serif`** — Source Serif 4, Crimson Text, Georgia, serif (e.g. `.prose`)
+| Tailwind class | Primary font | Full stack | Loaded via Google Fonts? |
+|---|---|---|---|
+| `font-sans` (default) | **Inter** | Inter → system-ui → sans-serif | Yes — `index.html` |
+| `font-mono` | **Space Mono** | Space Mono → Courier New → monospace | Yes — `index.html` |
+| `font-serif` | **Source Serif 4** | Source Serif 4 → Georgia → serif | Yes — `index.html` |
+
+Global default: `body` applies `font-sans` in `src/index.css`, so **Inter** is the site-wide base unless a component overrides it.
+
+Google Fonts loads Inter (300–700), Space Mono (400, 700), and Source Serif 4 (400, 600, 700 + italic 400).
 
 `tokens.css` duplicates these stacks as `--ds-font-sans`, `--ds-font-mono`, `--ds-font-serif` for raw CSS or documentation parity.
+
+### Typography roles
+
+| Role | Token | Font |
+|---|---|---|
+| Default UI | `font-sans` | Inter |
+| Metadata / labels | `font-mono` | Space Mono |
+| Case study long-form body | `font-serif` via `caseStudyEditorialBodyClass` | Source Serif 4 |
+
+### Site font inventory (by page)
+
+| Page / component | Font(s) | Notes |
+|---|---|---|
+| **Index** (`/`) | Inter | Hero, nav, project sections; section `h2`s use explicit `font-sans` |
+| **Hero** | Inter | Inherits body; no override |
+| **About** (`/about`) | Inter | Entire page |
+| **NotFound** (404) | Inter | Default |
+| **IntellipalCaseStudy** | Inter + Source Serif 4 | Dark shell; `text-intellipal-accent` accent on `#0d1526` |
+| **FlowTutorCaseStudy** | Inter + Space Mono + Source Serif 4 | `font-mono` for metadata labels/badges; `font-serif` for editorial body and decorative numerals |
+| **KidneyQuestCaseStudy** | Inter + Source Serif 4 | Shell `font-sans`; editorial body `font-serif` |
+| **CaseStudy** (router) | Inter | Inherits `CaseStudyLayout` defaults |
+| **Navigation / Footer / FloatingContactButton** | Inter | Shared chrome |
+| **StackedCardCarousel** | Space Mono | Tags and captions (FlowTutor) |
+| **KidneyQuestInteractiveDemo** | Inter | Inherits `font-sans` on demo overlay buttons |
+| **shadcn UI** (`src/components/ui/*`) | Inter | Buttons, forms, dialogs |
+
+### CSS-level typography rules (`src/index.css`)
+
+- All `h1–h6` inherit **Inter** + bold weights from global base styles
+- Case study editorial body uses **`caseStudyEditorialBodyClass`** from this design system (not a global `.prose` class)
+- Body OpenType features: `font-feature-settings: 'cv11', 'ss01'` (Inter stylistic sets)
+
+### Unique font families in use
+
+1. **Inter** — primary UI, headings, hero, About, most case study chrome
+2. **Space Mono** — FlowTutor metadata/labels, carousel tags
+3. **Source Serif 4** — long-form case study body (`font-serif` / `caseStudyEditorialBodyClass`)
+4. **Georgia** — system serif fallback
+5. **system-ui / sans-serif / Courier New** — Tailwind fallback stacks only
 
 ### Type scale (CSS variables on `:root`)
 
@@ -42,9 +87,47 @@ In `src/index.css`, under `:root`:
 ### Case study editorial presets (`caseStudyTypography.ts`)
 
 - **`caseStudyEditorialBodyClass`** — `font-serif text-[18px] md:text-[20px] leading-[1.6] max-w-[65ch]`
-- **`caseStudyEditorialBodyStackClass`** — same as above + `space-y-7` for paragraph rhythm
 
-Use these tokens in long-form sections (problem/solution/research/reflection) so future case studies inherit the same readability standard.
+Use this token in long-form sections (problem/solution/research/reflection) so future case studies inherit the same readability standard.
+
+---
+
+## Colors
+
+### Global semantic tokens (`src/index.css` `:root`)
+
+Site-wide UI uses shadcn-style HSL tokens (`--background`, `--foreground`, `--muted-foreground`, etc.). See `:root` in `src/index.css` for the full set.
+
+### Case study surfaces
+
+| Token | Hex | Tailwind | Role |
+|---|---|---|---|
+| `--surface-base` | `#0d1526` | `bg-surface-base` | Shared shell on [`CaseStudyLayout`](../components/CaseStudyLayout.tsx) — all case studies inherit this |
+| `--intellipal-accent` | `#6EA8FF` | `text-intellipal-accent`, `bg-intellipal-accent/10` | Intellipal brand accent (7.56:1 on surface-base, WCAG AA/AAA) |
+
+### Project accent tokens
+
+| Token | Usage |
+|---|---|
+| `--kidneyquest-gold` | KidneyQuest highlights and table accents |
+| `--kidneyquest-teal` | KidneyQuest demo buttons (teal gradient) |
+
+### Intellipal dark theme (text on `surface-base`)
+
+| Role | Classes |
+|---|---|
+| Accent | `text-intellipal-accent` |
+| Body / editorial | `text-neutral-200` |
+| Headings | `text-neutral-100` |
+| Captions | `text-neutral-400` only (not 500/600 — fails AA at body size) |
+| Pull-quote emphasis | `text-red-400` |
+| Cards | `bg-white/5`, `border-white/10` |
+| Selection | `selection:bg-intellipal-accent/30` |
+
+### Follow-up (contrast fixes not in this pass)
+
+- **FlowTutor** `text-neutral-600` on dark shell — 2.53:1, needs bump to `neutral-400`
+- **NEST placeholder** copy on `surface-base` — revisit orange accent vs white-only text
 
 ---
 

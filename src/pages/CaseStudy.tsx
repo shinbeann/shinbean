@@ -12,13 +12,12 @@ const CaseStudy = () => {
 
   if (slug === "nest") {
     return (
-      <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#E07020" }}>
-        <CaseStudyLayout
-          tableOfContents={[]}
-          showContactSection={false}
-          hideTableOfContents
-          rootClassName="bg-transparent"
-        >
+      <CaseStudyLayout
+        tableOfContents={[]}
+        showContactSection={false}
+        hideTableOfContents
+        theme="dark"
+      >
           <div className="min-h-[calc(100vh-8rem)] flex flex-col items-center justify-center text-center px-6">
             <p className="text-white text-3xl md:text-5xl font-semibold">NEST is beta phase</p>
             <p className="text-white text-xl md:text-2xl mt-6">try it here!</p>
@@ -49,13 +48,11 @@ const CaseStudy = () => {
             </p>
           </div>
         </CaseStudyLayout>
-      </div>
     );
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
-      <CaseStudyLayout tableOfContents={[]} showContactSection={false}>
+    <CaseStudyLayout tableOfContents={[]} showContactSection={false} theme="dark">
         <div className="pt-24 min-h-[50vh] flex flex-col items-center justify-center text-center">
           <h1 className="text-3xl md:text-4xl font-semibold mb-4 text-foreground">
             Case study not found
@@ -76,7 +73,6 @@ const CaseStudy = () => {
           </Button>
         </div>
       </CaseStudyLayout>
-    </div>
   );
 };
 

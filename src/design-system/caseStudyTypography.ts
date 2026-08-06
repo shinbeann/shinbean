@@ -4,5 +4,3 @@
  */
 export const caseStudyEditorialBodyClass =
   "font-serif text-[18px] md:text-[20px] leading-[1.6] max-w-[65ch]";
-
-export const caseStudyEditorialBodyStackClass = `space-y-7 ${caseStudyEditorialBodyClass}`;
