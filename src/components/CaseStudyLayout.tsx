@@ -27,7 +27,6 @@ interface CaseStudyLayoutProps {
   navTone?: "light" | "dark";
   rootClassName?: string;
   showSidebarsAfter?: string; // Section ID after which sidebars should appear
-  showContactSection?: boolean; // When false, hide the Contact / Footer section
   /** When true, hide the left TOC sidebar and use full-width content */
   hideTableOfContents?: boolean;
   /** Optional full-width hero rendered above the 2-column grid; not constrained by TOC/content columns */
@@ -41,7 +40,6 @@ const CaseStudyLayout = ({
   navTone = "dark",
   rootClassName,
   showSidebarsAfter,
-  showContactSection = true,
   hideTableOfContents = false,
   hero,
 }: CaseStudyLayoutProps) => {
@@ -178,18 +176,13 @@ const CaseStudyLayout = ({
           </nav>
         )}
 
-        <main className="pb-48 min-w-0">
+        <main className="pb-[var(--ds-case-study-main-padding-bottom)] min-w-0">
           <div className="w-full md:w-8/12 lg:w-8/12 mx-auto px-4 md:px-0">{children}</div>
         </main>
       </div>
 
-      {showContactSection && <Footer />}
       <CaseStudyNav tone={navTone} />
-      <footer className="border-t border-border/60 py-6 px-4">
-        <p className="text-center text-sm text-muted-foreground">
-          Gay Shin Lee © 2026 All Rights Reserved
-        </p>
-      </footer>
+      <Footer />
       <FloatingScrollToTop />
     </div>
   );

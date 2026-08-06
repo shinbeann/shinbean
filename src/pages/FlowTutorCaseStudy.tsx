@@ -1,15 +1,26 @@
 import React, { useRef, useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import Footer from "@/components/Footer";
+import { cn } from "@/lib/utils";
 import StackedCardCarousel from "@/components/StackedCardCarousel";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
-import { caseStudyEditorialBodyClass } from "@/design-system";
+import { CaseStudyHeroMetadata } from "@/components/CaseStudyHeroMetadata";
+import {
+  cardPaddingClass,
+  caseStudyEditorialBodyClass,
+  caseStudyHeroShellClass,
+  caseStudySectionLabelClass,
+  heroHeadlineClass,
+  pageHorizontalPaddingClass,
+  scrollAnchorClass,
+  sectionSpacingYClass,
+} from "@/design-system";
 import { ArrowLeft, ArrowRight, Code, Brain, Layout, Sliders, ChevronRight, ChevronDown, ArrowDown, Search, Zap, Layers, AlertCircle, Eye, AlertTriangle, BookOpen, MessageSquare, FileText, CheckCircle, GripVertical, Sparkles, Maximize, Puzzle, XCircle, Lightbulb } from "lucide-react";
 
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import onboardingBefore from "@/assets/flowtutor/flowtutor-onboarding-before.png";
+import flowtutorHero from "@/assets/flowtutor/FT_hero.png";
 import onboardingAfter from "@/assets/flowtutor/flowtutor-onboarding-after.png";
 import pinBefore from "@/assets/flowtutor/flowtutor-pinbefore.png";
 import pinAfter from "@/assets/flowtutor/flowtutor-pinafter.png";
@@ -46,7 +57,7 @@ const SectionContainer = ({ id, children, className = "", hasBorder = false }: S
   return (
     <section 
       id={id} 
-      className={`py-24 md:py-28 scroll-mt-20 md:scroll-mt-24 ${className}`}
+      className={cn(sectionSpacingYClass, scrollAnchorClass, className)}
     >
       {hasBorder && (
         <div className="w-[30%] max-w-[270px] h-px bg-white/10 mx-auto mb-16 md:mb-24" />
@@ -71,7 +82,7 @@ const BentoCard = ({ title, body, evidence, delay, icon: Icon }: { title: string
       <div className="space-y-4">
         <div className="flex items-start justify-between min-h-[3.5rem]">
           <h3 className="text-lg md:text-xl font-bold text-white tracking-tight leading-tight max-w-[85%] md:max-w-[80%] break-words">{title}</h3>
-          {Icon && <Icon className="w-5 h-5 text-neutral-600 group-hover:text-purple-400 transition-colors mt-1" />}
+          {Icon && <Icon className="w-5 h-5 text-neutral-400 group-hover:text-flowtutor-accent transition-colors mt-1" />}
         </div>
         <p className="text-neutral-300 text-sm md:text-base leading-relaxed break-words">{body}</p>
       </div>
@@ -124,7 +135,7 @@ const HeuristicCard = ({
         </div>
         
         {/* Heuristic */}
-        <p className="text-xs font-mono text-purple-400 uppercase tracking-wider">{heuristic}</p>
+        <p className="text-xs font-mono text-flowtutor-accent uppercase tracking-wider">{heuristic}</p>
         
         {/* Issue Title */}
         <h3 className="text-lg md:text-xl font-bold text-white tracking-tight">{issue}</h3>
@@ -277,7 +288,7 @@ const InsightCard = ({
           
           {/* The Bridge Badge */}
           <div className="flex items-center justify-center w-8 h-8 rounded-full border border-white/10 bg-white/5 shadow-sm z-10">
-            <ArrowDown className="w-3.5 h-3.5 text-purple-400" style={{ strokeWidth: 3 }} />
+            <ArrowDown className="w-3.5 h-3.5 text-flowtutor-accent" style={{ strokeWidth: 3 }} />
           </div>
           
           {/* Right Line */}
@@ -290,7 +301,7 @@ const InsightCard = ({
             {solutionParts.map((part, index) => {
               if (part.startsWith('**') && part.endsWith('**')) {
                 const boldText = part.slice(2, -2);
-                return <span key={index} className="font-bold text-purple-400">{boldText}</span>;
+                return <span key={index} className="font-bold text-flowtutor-accent">{boldText}</span>;
               }
               return <span key={index}>{part}</span>;
             })}
@@ -370,7 +381,7 @@ const ResultsVisualizationCard = () => {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end">
         {/* Left Side - The Narrative (4 cols) */}
         <div className="md:col-span-4 space-y-6">
-          <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
+          <p className={cn(caseStudySectionLabelClass, "text-neutral-400")}>
             Impact
           </p>
           <div className="space-y-2">
@@ -552,17 +563,17 @@ const ABConditionCard = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay }}
-      className={`p-8 bg-white/5 border rounded-xl ${
-        isExperimental 
-          ? "border-purple-500/30 bg-white/10" 
-          : "border-white/10"
-      }`}
+      className={cn(
+        cardPaddingClass,
+        "bg-white/5 border rounded-xl",
+        isExperimental ? "border-purple-500/30 bg-white/10" : "border-white/10"
+      )}
     >
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <h3 className="text-xl font-bold text-white tracking-tight">{title}</h3>
           {isExperimental && (
-            <span className="px-2 py-1 bg-purple-500/20 border border-purple-500/30 rounded text-xs font-mono text-purple-400 uppercase tracking-wider">
+            <span className="px-2 py-1 bg-purple-500/20 border border-purple-500/30 rounded text-xs font-mono text-flowtutor-accent uppercase tracking-wider">
               Experimental
             </span>
           )}
@@ -596,11 +607,11 @@ const FeatureReveal = ({ title, description, isActive }: { title: string, descri
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: isActive ? 1 : 0.4, x: isActive ? 0 : -20 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={`p-8 rounded-xl border transition-all ${
-        isActive 
-          ? "bg-white/10 border-purple-500/30" 
-          : "bg-white/5 border-white/10"
-      }`}
+      className={cn(
+        cardPaddingClass,
+        "rounded-xl border transition-all",
+        isActive ? "bg-white/10 border-purple-500/30" : "bg-white/5 border-white/10"
+      )}
     >
       <h3 className="text-xl md:text-2xl font-bold text-white mb-3 tracking-tight">{title}</h3>
       <p className="text-neutral-300 text-base leading-relaxed">{description}</p>
@@ -750,7 +761,7 @@ const AnimatedStatItem = ({
           </span>
         )}
       </div>
-      <div className="text-purple-400 font-semibold uppercase tracking-wider text-xs">{label}</div>
+      <div className="text-flowtutor-accent font-semibold uppercase tracking-wider text-xs">{label}</div>
       <p className="text-neutral-400 text-sm max-w-full md:max-w-[250px] leading-relaxed break-words">{sublabel}</p>
     </div>
   );
@@ -941,13 +952,13 @@ const flowTutorToc = [
 ];
 
 const FlowTutorHero = () => (
-  <section className="relative w-full pt-24 md:pt-36 pb-16 md:pb-24 overflow-x-hidden">
-    <div className="w-full max-w-6xl mx-auto px-6 md:px-16 lg:px-24 min-w-0">
+  <section className={caseStudyHeroShellClass}>
+    <div className={cn("w-full max-w-6xl mx-auto min-w-0", pageHorizontalPaddingClass)}>
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-purple-400"
+        className={cn(heroHeadlineClass, "text-flowtutor-accent")}
       >
         FlowTutor.
       </motion.h1>
@@ -969,73 +980,36 @@ const FlowTutorHero = () => (
         FlowTutor introduces a split-learning interface that integrates video and hands-on practice in a single workspace, reducing interaction friction and enabling more continuous learning.
       </motion.p>
 
-      <motion.hr
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        className="border-white/10 mt-10"
+      <CaseStudyHeroMetadata
+        role="Product Designer"
+        contributions={[
+          "Advocated for and led user interviews with 6 diverse users to identify 4 critical pain points",
+          "Led a brainstorming session to ideate potential solutions based on pain points and heuristics",
+          "Optimised interaction design by aligning inputs and actions with user intent to improve usability",
+          "Designed a 3-state uncertainty model (directly relevant / related but unmentioned / out-of-scope) with distinct UI feedback for each state",
+        ]}
+        team="6 members"
+        timeline="August – September 2025"
+        organization="Self-initiated"
+        tools="Miro, Lovable"
+        labelClassName="text-neutral-400"
+        valueClassName="text-white"
+        contributionClassName="text-neutral-300"
       />
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        className="grid grid-cols-2 md:grid-cols-[repeat(4,1fr)] gap-y-8 gap-x-8 min-w-0 mt-4"
-      >
-        {[
-          { label: "ROLE", value: "Product Designer" },
-          { label: "TIMELINE", value: "August – September 2025" },
-          { label: "TEAM", value: "6 Members" },
-          { label: "TOOLS", value: "Miro, Lovable" },
-        ].map((item) => (
-          <div key={item.label} className="space-y-1.5 min-w-0">
-            <p className="text-sm uppercase tracking-[0.15em] font-medium text-neutral-400">{item.label}</p>
-            <p className="text-sm text-white font-medium break-words">{item.value}</p>
-          </div>
-        ))}
-      </motion.div>
-
-      <motion.hr
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.45 }}
-        className="border-white/10 mt-4"
-      />
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.55 }}
-        className="space-y-4 min-w-0 mt-10"
-      >
-        <p className="text-sm uppercase tracking-[0.15em] font-medium text-neutral-400">My contributions</p>
-        <ul className="space-y-3 text-neutral-300 text-sm md:text-base leading-relaxed list-disc list-outside pl-5 break-words">
-          <li>Advocated for and led user interviews with 6 diverse users to identify 4 critical pain points.</li>
-          <li>Led a brainstorming session to ideate potential solutions based on pain points and heuristics.</li>
-          <li>Optimised interaction design by aligning inputs and actions with user intent to improve usability.</li>
-          <li>Designed a 3-state uncertainty model (directly relevant / related but unmentioned / out-of-scope) with distinct UI feedback for each state.</li>
-        </ul>
-      </motion.div>
     </div>
 
-    {/* Purple impact banner */}
-    <div className="w-screen relative left-1/2 -translate-x-1/2 border-t border-b border-purple-500/30 bg-purple-500/[0.06] py-12 md:py-16 mt-16 md:mt-24">
-      <div className="max-w-5xl mx-auto px-6 md:px-16 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
-        {[
-          { stat: "+25%", desc: "Quiz score improvement over fragmented workflow baseline" },
-          { stat: "60%", desc: "Reduction in context-switching between tools" },
-          { stat: "50%", desc: "Faster information retrieval vs. tab-switching baseline" },
-        ].map((item, i) => (
-          <div
-            key={item.stat}
-            className={`flex flex-col items-center text-center ${i < 2 ? "md:border-r md:border-purple-500/20" : ""}`}
-          >
-            <p className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-purple-400">{item.stat}</p>
-            <p className="text-sm md:text-base text-neutral-400 mt-2 max-w-[240px]">{item.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.55 }}
+      className={cn("w-full max-w-7xl mx-auto mt-16 md:mt-24", pageHorizontalPaddingClass)}
+    >
+      <img
+        src={flowtutorHero}
+        alt="FlowTutor landing page on a laptop with tagline Learn smarter with AI-powered tutorial assistance"
+        className="w-full h-auto object-contain mx-auto"
+      />
+    </motion.div>
   </section>
 );
 
@@ -1045,12 +1019,11 @@ const FlowTutorCaseStudy = () => {
       tableOfContents={flowTutorToc}
       theme="dark"
       showSidebarsAfter="problem"
-      showContactSection={false}
       hero={<div className="text-white selection:bg-purple-500/30 font-sans"><FlowTutorHero /></div>}
     >
       <div className="text-white selection:bg-purple-500/30 font-sans overflow-x-hidden min-w-0">
         {/* 1. THE PROBLEM - This is the section that triggers sidebars */}
-        <section id="problem" className="relative flex flex-col py-24 md:py-28 scroll-mt-20 md:scroll-mt-24">
+        <section id="problem" className={cn("relative flex flex-col", sectionSpacingYClass, scrollAnchorClass)}>
           {/* Problem Section Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1061,7 +1034,7 @@ const FlowTutorCaseStudy = () => {
           >
             {/* Constrained Text Container */}
             <div className="w-full max-w-4xl space-y-6 text-left">
-              <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
+              <p className={cn(caseStudySectionLabelClass, "text-neutral-400")}>
                 PROBLEM
               </p>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white leading-tight">
@@ -1074,7 +1047,7 @@ const FlowTutorCaseStudy = () => {
 
             {/* Question centered in spacer between text and image */}
             <div className="w-full max-w-4xl h-24 md:h-32 flex items-center justify-center">
-              <p className="text-sm md:text-base uppercase tracking-widest font-bold text-purple-400 text-center">
+              <p className="text-sm md:text-base uppercase tracking-widest font-bold text-flowtutor-accent text-center">
                 IS THIS WHAT YOUR SCREEN LOOKS LIKE?
               </p>
             </div>
@@ -1093,7 +1066,7 @@ const FlowTutorCaseStudy = () => {
               </p>
               
               {/* Body Text Below Image */}
-              <div className={`w-full max-w-4xl pt-10 md:pt-12 space-y-7 text-neutral-300 ${caseStudyEditorialBodyClass}`}>
+              <div className={`w-full max-w-4xl pt-10 md:pt-12 text-neutral-300 ${caseStudyEditorialBodyClass}`}>
                 <p>
                   We sat down with 6 diverse users, from university freshmen to parents upskilling. My focus was simple: identify the exact moments where frustration spikes and focus breaks.
                 </p>
@@ -1239,13 +1212,13 @@ const FlowTutorCaseStudy = () => {
             id="solution"
           >
             <div className="flex flex-col gap-4">
-              <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
+              <p className={cn(caseStudySectionLabelClass, "text-neutral-400")}>
                 SOLUTION
               </p>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white leading-tight">
                 FlowTutor.
               </h2>
-              <div className={`text-neutral-300 space-y-7 ${caseStudyEditorialBodyClass}`}>
+              <div className={`text-neutral-300 ${caseStudyEditorialBodyClass}`}>
                 <p>
                 A web app that brings video, AI guidance, and note-taking into one unified workspace, removing tab-switching and supporting uninterrupted learning.
                 </p>
@@ -1304,13 +1277,13 @@ const FlowTutorCaseStudy = () => {
             transition={{ duration: 0.8 }}
           >
             <div className="flex flex-col gap-4">
-              <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
+              <p className={cn(caseStudySectionLabelClass, "text-neutral-400")}>
                 RESEARCH
               </p>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white leading-tight">
                 The Market Opportunity.
               </h2>
-              <div className={`text-neutral-300 space-y-7 ${caseStudyEditorialBodyClass}`}>
+              <div className={`text-neutral-300 ${caseStudyEditorialBodyClass}`}>
                 <p>
                   The global e-learning market is forecast to reach almost USD 400 billion in 2026, up from USD 198 billion in 2019.
                 </p>
@@ -1355,7 +1328,7 @@ const FlowTutorCaseStudy = () => {
         </SectionContainer>
 
         {/* 3. PAPER TO PIXEL */}
-        <section id="prototyping" className="relative py-24 md:py-28 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
+        <section id="prototyping" className={cn("relative -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden", sectionSpacingYClass, scrollAnchorClass)}>
           <div className="w-[30%] max-w-[270px] h-px bg-white/10 mx-auto mb-16 md:mb-24" />
           <div className="relative z-10">
           <div className="max-w-4xl mx-auto">
@@ -1367,7 +1340,7 @@ const FlowTutorCaseStudy = () => {
             transition={{ duration: 0.8 }}
           >
             <div id="heuristic-evaluation" className="flex flex-col gap-4 mt-16 scroll-mt-20 md:scroll-mt-24">
-              <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
+              <p className={cn(caseStudySectionLabelClass, "text-neutral-400")}>
                 PROTOTYPING
               </p>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">
@@ -1473,11 +1446,11 @@ const FlowTutorCaseStudy = () => {
             {/* What if… (keep headline vertically centered: match gap-12 above & below) */}
             <div className="mt-4 flex flex-col gap-12">
               <div className="w-full max-w-4xl flex justify-center">
-                <p className="text-sm md:text-base uppercase tracking-widest font-bold text-purple-400 text-center">
+                <p className="text-sm md:text-base uppercase tracking-widest font-bold text-flowtutor-accent text-center">
                   What if the best AI tutor sometimes refuses to answer?
                 </p>
               </div>
-              <div className={`text-neutral-300 space-y-7 ${caseStudyEditorialBodyClass}`}>
+              <div className={`text-neutral-300 ${caseStudyEditorialBodyClass}`}>
                 <p>
                  After the project was submitted, I independently designed a 3-state uncertainty model with distinct UI feedback for each query type.
                 </p>
@@ -1488,7 +1461,7 @@ const FlowTutorCaseStudy = () => {
                 <div className="border border-purple-500/30 rounded-xl overflow-hidden bg-neutral-900/60">
                   <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-purple-500/20">
                     <div className="p-5 md:p-6">
-                      <p className="text-purple-400 text-xs md:text-sm font-semibold tracking-wider uppercase">S1</p>
+                      <p className="text-flowtutor-accent text-xs md:text-sm font-semibold tracking-wider uppercase">S1</p>
                       <h3 className="text-white text-lg font-semibold mt-1">Directly Relevant</h3>
                       <p className="text-neutral-300 text-sm md:text-base mt-3">
                         Question is answered by video content.
@@ -1498,7 +1471,7 @@ const FlowTutorCaseStudy = () => {
                       </p>
                     </div>
                     <div className="p-5 md:p-6">
-                      <p className="text-purple-400 text-xs md:text-sm font-semibold tracking-wider uppercase">S2</p>
+                      <p className="text-flowtutor-accent text-xs md:text-sm font-semibold tracking-wider uppercase">S2</p>
                       <h3 className="text-white text-lg font-semibold mt-1">Related, Not Mentioned</h3>
                       <p className="text-neutral-300 text-sm md:text-base mt-3">
                         Topic is connected but outside this video&apos;s scope.
@@ -1508,7 +1481,7 @@ const FlowTutorCaseStudy = () => {
                       </p>
                     </div>
                     <div className="p-5 md:p-6">
-                      <p className="text-purple-400 text-xs md:text-sm font-semibold tracking-wider uppercase">S3</p>
+                      <p className="text-flowtutor-accent text-xs md:text-sm font-semibold tracking-wider uppercase">S3</p>
                       <h3 className="text-white text-lg font-semibold mt-1">Out of Scope</h3>
                       <p className="text-neutral-300 text-sm md:text-base mt-3">
                         Question has no connection to the video context.
@@ -1527,7 +1500,7 @@ const FlowTutorCaseStudy = () => {
                   <div>
                     <div className="w-full max-w-full overflow-hidden border border-purple-500/25 bg-[#f3f3f6] text-neutral-900 shadow-[0_8px_24px_rgba(0,0,0,0.22)]">
                       <div className="px-3 py-2 border-b border-neutral-300/80 bg-[#ececef]">
-                        <p className="text-sm font-medium text-neutral-600">FlowTutor · Transformer Models Explained</p>
+                        <p className="text-sm font-medium text-neutral-400">FlowTutor · Transformer Models Explained</p>
                       </div>
 
                       <div className="p-3 space-y-3">
@@ -1581,7 +1554,7 @@ const FlowTutorCaseStudy = () => {
                   <div className="lg:justify-self-end">
                     <div className="w-full max-w-full overflow-hidden border border-purple-500/25 bg-[#f3f3f6] text-neutral-900 shadow-[0_8px_24px_rgba(0,0,0,0.22)]">
                       <div className="px-3 py-2 border-b border-neutral-300/80 bg-[#ececef]">
-                        <p className="text-sm font-medium text-neutral-600">FlowTutor · Transformer Models Explained</p>
+                        <p className="text-sm font-medium text-neutral-400">FlowTutor · Transformer Models Explained</p>
                       </div>
 
                       <div className="p-3 space-y-3">
@@ -1603,12 +1576,12 @@ const FlowTutorCaseStudy = () => {
                                 That&apos;s a great connection! <strong>bert</strong> is related to this architecture, but this specific video focuses on the underlying{" "}
                                 <span className="text-[#6f63d3] font-semibold">Transformer Models Explained.</span>
                               </p>
-                              <p className="text-sm leading-snug text-neutral-600 mt-1.5">
+                              <p className="text-sm leading-snug text-neutral-400 mt-1.5">
                                 To keep you focused on the core concepts here, I haven&apos;t explained it yet. I&apos;ve saved &apos;bert&apos; to your Post-Lesson Research List.
                               </p>
                               <div className="mt-2 flex items-center gap-4 text-xs">
                                 <span className="inline-flex items-center gap-1.5 rounded-full bg-[#E5E7EB] px-2 py-0.5 text-[#008000] font-semibold">✓ Saved</span>
-                                <span className="text-neutral-600">↗ View Research List</span>
+                                <span className="text-neutral-400">↗ View Research List</span>
                               </div>
                             </div>
                           </div>
@@ -1626,7 +1599,7 @@ const FlowTutorCaseStudy = () => {
                   <div>
                     <div className="w-full max-w-full overflow-hidden border border-purple-500/25 bg-[#f3f3f6] text-neutral-900 shadow-[0_8px_24px_rgba(0,0,0,0.22)]">
                       <div className="px-3 py-2 border-b border-neutral-300/80 bg-[#ececef]">
-                        <p className="text-sm font-medium text-neutral-600">FlowTutor · Transformer Models Explained</p>
+                        <p className="text-sm font-medium text-neutral-400">FlowTutor · Transformer Models Explained</p>
                       </div>
 
                       <div className="p-3 space-y-3">
@@ -1671,7 +1644,7 @@ const FlowTutorCaseStudy = () => {
       </section>
 
         {/* 4. THE LAB PIVOT (Validating & Refining) */}
-        <section id="lab-pivot" className="relative py-24 md:py-28 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
+        <section id="lab-pivot" className={cn("relative -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden", sectionSpacingYClass, scrollAnchorClass)}>
           <div className="relative z-10">
             <div className="max-w-4xl mx-auto">
               <div className="flex flex-col gap-8">
@@ -1685,7 +1658,7 @@ const FlowTutorCaseStudy = () => {
                 >
                   <div className="flex flex-col gap-4">
                     <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">The Lab Pivot.</h2>
-                    <div className={`text-neutral-300 space-y-7 ${caseStudyEditorialBodyClass}`}>
+                    <div className={`text-neutral-300 ${caseStudyEditorialBodyClass}`}>
                       <p>
                         With a functioning prototype, we moved from identifying usability issues to measuring impact.
                       </p>
@@ -1744,7 +1717,7 @@ const FlowTutorCaseStudy = () => {
         </div>
 
         {/* 7. THE VALIDATION (Iteration 3: Web Experiment) */}
-        <section id="validation" className="relative py-24 md:py-28 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
+        <section id="validation" className={cn("relative -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden", sectionSpacingYClass, scrollAnchorClass)}>
           <div className="relative z-10">
             <div className="max-w-4xl mx-auto">
               <div className="flex flex-col gap-8">
@@ -1796,7 +1769,7 @@ const FlowTutorCaseStudy = () => {
         </section>
 
         {/* 8. REFLECTION */}
-        <section id="reflection" className="relative py-24 md:py-28 scroll-mt-20 md:scroll-mt-24 -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden">
+        <section id="reflection" className={cn("relative -mx-4 md:-mx-6 px-4 md:px-6 overflow-hidden", sectionSpacingYClass, scrollAnchorClass)}>
           <div className="w-[30%] max-w-[270px] h-px bg-white/10 mx-auto mb-16 md:mb-24" />
           <div className="relative z-10">
           <div className="max-w-4xl mx-auto">
@@ -1808,20 +1781,20 @@ const FlowTutorCaseStudy = () => {
             transition={{ duration: 0.8 }}
           >
             <div className="flex flex-col gap-4">
-              <p className="text-xs uppercase tracking-widest font-medium text-neutral-400 text-center">
+              <p className={cn(caseStudySectionLabelClass, "text-neutral-400 text-center")}>
                 REFLECTION
               </p>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white text-center">Designing for AI Uncertainty.</h2>
-              <div className={`text-neutral-300 space-y-7 ${caseStudyEditorialBodyClass}`}>
+              <div className={`text-neutral-300 ${caseStudyEditorialBodyClass}`}>
                 <p>
                   Due to the 4-week timeline, the current iteration of{" "}
-                  <span className="font-bold text-purple-400">FlowTutor assumes the AI is always correct</span>{" "}
+                  <span className="font-bold text-flowtutor-accent">FlowTutor assumes the AI is always correct</span>{" "}
                   and the{" "}
-                  <span className="font-bold text-purple-400">video context is always sufficient</span>. But in a real-world deployment, LLMs hallucinate and sometimes fail to retrieve context.
+                  <span className="font-bold text-flowtutor-accent">video context is always sufficient</span>. But in a real-world deployment, LLMs hallucinate and sometimes fail to retrieve context.
                 </p>
                 <p>
                   If I had more time, I would{" "}
-                  <span className="font-bold text-purple-400">implement Minimum Context Guardrails</span>. If video transcripts are too sparse, the system should disable the Quizlet and pivot to a &lsquo;Visual Summary&rsquo; instead. This prevents the &lsquo;garbage-in, garbage-out&rsquo; problem.
+                  <span className="font-bold text-flowtutor-accent">implement Minimum Context Guardrails</span>. If video transcripts are too sparse, the system should disable the Quizlet and pivot to a &lsquo;Visual Summary&rsquo; instead. This prevents the &lsquo;garbage-in, garbage-out&rsquo; problem.
                 </p>
                 <div className="my-16 md:my-24 w-[30%] max-w-[270px] h-px bg-white/10 mx-auto" />
                 <p className={`${caseStudyEditorialBodyClass} text-neutral-300`}>

@@ -1,11 +1,22 @@
 import { motion } from "framer-motion";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
+import intellipalHero from "@/assets/intellipal/IN_hero.png";
 import intellipalSolution1 from "@/assets/intellipal/IN_solution1.png";
 import intellipalSolution2 from "@/assets/intellipal/IN_solution2.png";
 import intellipalHifi1 from "@/assets/intellipal/IN_hifi1.png";
 import intellipalHifi2 from "@/assets/intellipal/IN_hifi2.png";
+import intellipalThoughts from "@/assets/intellipal/IN_thoughts.jpg";
 import intellipalWireframe from "@/assets/intellipal/IN_wireframe.png";
-import { caseStudyEditorialBodyClass } from "@/design-system";
+import { cn } from "@/lib/utils";
+import { CaseStudyHeroMetadata } from "@/components/CaseStudyHeroMetadata";
+import {
+  caseStudyEditorialBodyClass,
+  caseStudyHeroShellClass,
+  caseStudySectionLabelClass,
+  heroHeadlineClass,
+  pageHorizontalPaddingClass,
+  scrollAnchorClass,
+} from "@/design-system";
 
 const intellipalToc = [
   {
@@ -21,13 +32,13 @@ const intellipalToc = [
 ];
 
 const IntellipalHero = () => (
-  <section className="relative w-full pt-24 md:pt-36 pb-16 md:pb-24 overflow-x-hidden">
-    <div className="w-full max-w-6xl mx-auto px-6 md:px-16 lg:px-24 min-w-0">
+  <section className={caseStudyHeroShellClass}>
+    <div className={cn("w-full max-w-6xl mx-auto min-w-0", pageHorizontalPaddingClass)}>
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-intellipal-accent"
+        className={cn(heroHeadlineClass, "text-intellipal-accent")}
       >
         INTELLIPAL.
       </motion.h1>
@@ -49,72 +60,35 @@ const IntellipalHero = () => (
         INTELLIPAL removes that uncertainty, even in offline environments.
       </motion.p>
 
-      <motion.hr
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        className="border-white/10 mt-10"
+      <CaseStudyHeroMetadata
+        role="UX/UI Designer"
+        contributions={[
+          "UX Research & Synthesis",
+          "Interaction Design & Prototyping",
+          "Usability Testing & Iteration",
+          "Frontend Development & Integration",
+        ]}
+        team="5 Software Engineers"
+        timeline="Sept 2025 – Apr 2026"
+        organization="HTX (Home Team Science & Technology Agency)"
+        tools="Figma, Android Studio"
+        labelClassName="text-intellipal-accent"
+        valueClassName="text-neutral-100"
       />
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        className="grid grid-cols-2 md:grid-cols-[repeat(4,1fr)] gap-y-8 gap-x-8 min-w-0 mt-4"
-      >
-        {[
-          { label: "ROLE", value: "UX/UI Designer" },
-          { label: "TIMELINE", value: "Sept 2025 – Apr 2026" },
-          { label: "ORGANIZATION", value: "HTX (Home Team Science & Technology Agency)" },
-          { label: "TOOLS", value: "Figma, Android Studio" },
-        ].map((item) => (
-          <div key={item.label} className="space-y-1.5 min-w-0">
-            <p className="text-[11px] uppercase tracking-[0.15em] font-medium text-intellipal-accent">{item.label}</p>
-            <p className="text-sm text-neutral-100 font-medium break-words">{item.value}</p>
-          </div>
-        ))}
-      </motion.div>
-
-      <motion.hr
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.45 }}
-        className="border-white/10 mt-4"
-      />
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.55 }}
-        className="space-y-4 min-w-0 mt-10"
-      >
-        <p className="text-[11px] uppercase tracking-[0.15em] font-medium text-neutral-400">My role</p>
-        <ul className="space-y-3 text-neutral-200 text-sm md:text-base leading-relaxed list-disc list-outside pl-5 break-words">
-          <li>UX research & synthesis</li>
-          <li>Interaction design & prototyping</li>
-          <li>Usability testing & iteration</li>
-          <li>Frontend development & integration</li>
-        </ul>
-      </motion.div>
     </div>
 
-    <div className="w-screen relative left-1/2 -translate-x-1/2 border-t border-b border-intellipal-accent/30 bg-intellipal-accent/10 py-12 md:py-16 mt-16 md:mt-24">
-      <div className="max-w-5xl mx-auto px-6 md:px-16 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
-        {[
-          { stat: "Offline", desc: "Core retrieval and answering without network dependency" },
-          { stat: "Instant", desc: "Dense + sparse search to balance recall and precision on SOP text" },
-          { stat: "Grounded", desc: "Answers tied to retrieved passages—not unconstrained generation" },
-        ].map((item, i) => (
-          <div
-            key={item.stat}
-            className={`flex flex-col items-center text-center ${i < 2 ? "md:border-r md:border-intellipal-accent/20" : ""}`}
-          >
-            <p className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-intellipal-accent">{item.stat}</p>
-            <p className="text-sm md:text-base text-neutral-200 mt-2 max-w-[240px]">{item.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.55 }}
+      className={cn("w-full max-w-7xl mx-auto mt-16 md:mt-24", pageHorizontalPaddingClass)}
+    >
+      <img
+        src={intellipalHero}
+        alt="INTELLIPAL app on two smartphones showing SOP search prompts and riot control guidance"
+        className="w-full h-auto object-contain mx-auto"
+      />
+    </motion.div>
   </section>
 );
 
@@ -125,7 +99,6 @@ const IntellipalCaseStudy = () => {
       theme="dark"
       navTone="dark"
       showSidebarsAfter="problem"
-      showContactSection={false}
       hero={
         <div className="selection:bg-intellipal-accent/30 font-sans">
           <IntellipalHero />
@@ -133,7 +106,7 @@ const IntellipalCaseStudy = () => {
       }
     >
       <div className="selection:bg-intellipal-accent/30 font-sans overflow-x-hidden min-w-0">
-        <section id="problem" className="relative flex flex-col pt-24 md:pt-32 pb-20 scroll-mt-20 md:scroll-mt-24">
+        <section id="problem" className={cn("relative flex flex-col pt-24 md:pt-32 pb-20", scrollAnchorClass)}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -142,11 +115,11 @@ const IntellipalCaseStudy = () => {
             className="flex flex-col"
           >
             <div className="w-full max-w-4xl space-y-6 text-left">
-              <p className="text-xs uppercase tracking-widest font-medium text-intellipal-accent">PROBLEM</p>
+              <p className={cn(caseStudySectionLabelClass, "text-intellipal-accent")}>PROBLEM</p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-100 leading-tight">
                 SOPs without signal.
               </h2>
-              <div className={`text-neutral-200 space-y-7 ${caseStudyEditorialBodyClass}`}>
+              <div className={`text-neutral-200 ${caseStudyEditorialBodyClass}`}>
                 <p>During field operations, officers frequently encounter:</p>
                 <ul className="list-disc list-outside pl-6 space-y-1">
                   <li>Legal classification that falls into a grey area</li>
@@ -183,7 +156,7 @@ const IntellipalCaseStudy = () => {
             In such a high-risk environment, how can officers be expected to operate when systems tend to break down?</p>
         </div>
 
-        <section id="solution" className="relative pb-20 scroll-mt-20 md:scroll-mt-24">
+        <section id="solution" className={cn("relative pb-20", scrollAnchorClass)}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -191,11 +164,11 @@ const IntellipalCaseStudy = () => {
             transition={{ duration: 0.8 }}
             className="w-full max-w-4xl space-y-6"
           >
-            <p className="text-xs uppercase tracking-widest font-medium text-intellipal-accent">SOLUTION</p>
+            <p className={cn(caseStudySectionLabelClass, "text-intellipal-accent")}>SOLUTION</p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-100 leading-tight">
               INTELLIPAL.
             </h2>
-            <div className={`text-neutral-200 space-y-7 ${caseStudyEditorialBodyClass}`}>
+            <div className={`text-neutral-200 ${caseStudyEditorialBodyClass}`}>
               <p className="font-semibold text-neutral-100">
                 An offline-first assistant for fast, reliable decision-making
               </p>
@@ -224,7 +197,7 @@ const IntellipalCaseStudy = () => {
           </motion.div>
         </section>
 
-        <section id="system" className="relative pb-20 scroll-mt-20 md:scroll-mt-24">
+        <section id="system" className={cn("relative pb-20", scrollAnchorClass)}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -232,15 +205,15 @@ const IntellipalCaseStudy = () => {
             transition={{ duration: 0.8 }}
             className="w-full max-w-4xl space-y-6"
           >
-            <p className="text-xs uppercase tracking-widest font-medium text-intellipal-accent">PROTOTYPING</p>
+            <p className={cn(caseStudySectionLabelClass, "text-intellipal-accent")}>PROTOTYPING</p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-100 leading-tight">
               I got it wrong.
             </h2>
-            <div className={`text-neutral-200 space-y-7 ${caseStudyEditorialBodyClass}`}>
+            <div className={`text-neutral-200 ${caseStudyEditorialBodyClass}`}>
               <p>
                 I started by designing a familiar search interface. I benchmarked patterns from systems like Singapore Statutes Online (SSO), Google, and ChatGPT to match their existing mental models.
              </p>
-             <div className="rounded-xl overflow-hidden border border-white/10 bg-white/5 w-full max-w-3xl">
+             <div className=" overflow-hidden border border-white/10 bg-white/5 w-full max-w-3xl">
                <img
                  src={intellipalWireframe}
                  alt="INTELLIPAL wireframe concept"
@@ -291,7 +264,7 @@ const IntellipalCaseStudy = () => {
           </motion.div>
         </section>
 
-        <section id="reflection" className="relative pb-32 scroll-mt-20 md:scroll-mt-24">
+        <section id="reflection" className="relative pb-32 scrollAnchorClass">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -299,7 +272,7 @@ const IntellipalCaseStudy = () => {
             transition={{ duration: 0.8 }}
             className="w-full max-w-4xl space-y-6"
           >
-            <p className="text-xs uppercase tracking-widest font-medium text-intellipal-accent">REFLECTION</p>
+            <p className={cn(caseStudySectionLabelClass, "text-intellipal-accent")}>REFLECTION</p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-100 leading-tight">
               Final Thoughts.
             </h2>
@@ -307,6 +280,19 @@ const IntellipalCaseStudy = () => {
             Ideally, this project would have involved field observation and in-context usability testing with active SPF officers. That wasn’t possible due to operational constraints. Instead, we worked with university students who had prior or ongoing experience in the police force, using them as proxies to approximate real workflows and decision contexts.
             It wasn't the most ideal scenario, but it was the best we could do with the resources we had.
             </p>
+            <p className={`${caseStudyEditorialBodyClass} text-neutral-200`}>
+              P.S. I had the opportunity to share this project with David Neo. I was very nervous!
+            </p>
+            <div className="max-w-3xl mx-auto">
+              <img
+                src={intellipalThoughts}
+                alt="David Neo, Prof Phoon Kok Kwang, and the author reviewing the INTELLIPAL prototype on a smartphone"
+                className="w-[50%] h-[50%] object-contain mx-auto"
+              />
+              <p className="mt-3 text-center text-sm text-neutral-400">
+                David Neo, Prof Phoon Kok Kwang and I
+              </p>
+            </div>
           </motion.div>
         </section>
       </div>

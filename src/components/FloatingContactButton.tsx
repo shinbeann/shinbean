@@ -60,14 +60,14 @@ const FloatingContactButton = () => {
         y: isVisible ? 0 : 20,
       }}
       transition={{ duration: 0.2 }}
-      className="fixed bottom-6 right-6 z-50"
+      className="fixed bottom-8 right-8 z-50"
     >
       {/* Main Container */}
       <div className="bg-background/80 backdrop-blur-xl border border-border/60 rounded-2xl shadow-lg overflow-hidden min-w-[240px]">
         {/* Header - Always Visible */}
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="w-full flex items-center justify-between gap-3 px-4 py-3 hover:bg-muted/50 transition-colors"
+          className="w-full flex items-center justify-between gap-3 px-4 min-h-11 hover:bg-muted/50 transition-colors"
         >
           <div className="flex items-center gap-3">
             {/* Profile Avatar */}
@@ -114,7 +114,7 @@ const FloatingContactButton = () => {
                     href={link.href}
                     target={link.external ? "_blank" : undefined}
                     rel={link.external ? "noopener noreferrer" : undefined}
-                    className="flex items-center justify-between px-4 py-2.5 hover:bg-muted/50 transition-colors group"
+                    className="flex items-center justify-between px-4 min-h-11 hover:bg-muted/50 transition-colors group"
                   >
                     <div className="flex items-center gap-3">
                       <link.icon className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />

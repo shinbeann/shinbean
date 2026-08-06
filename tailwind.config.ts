@@ -130,6 +130,9 @@ export default {
         },
         "surface-base": "hsl(var(--surface-base))",
         "intellipal-accent": "hsl(var(--intellipal-accent))",
+        "kidneyquest-gold": "hsl(var(--kidneyquest-gold))",
+        "kidneyquest-teal": "hsl(var(--kidneyquest-teal))",
+        "flowtutor-accent": "hsl(var(--flowtutor-accent))",
       },
       borderRadius: {
         lg: "var(--radius)",

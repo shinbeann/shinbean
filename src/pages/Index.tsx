@@ -3,10 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { ArrowUpRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
-
+import Footer from "@/components/Footer";
 import FloatingContactButton from "@/components/FloatingContactButton";
 import Hero from "@/components/Hero";
 import { KidneyQuestInteractiveDemo } from "@/components/KidneyQuestInteractiveDemo";
+import { pageHorizontalPaddingClass, scrollAnchorClass, sectionSpacingYClass } from "@/design-system";
+import { cn } from "@/lib/utils";
 import ftHeroVid from "@/assets/flowtutor/ft_herovid.mp4";
 import { publicMedia } from "@/lib/publicMedia";
 
@@ -38,7 +40,7 @@ const Index = () => {
 
       {/* SECTION 1: INTELLIPAL - Monochrome/Tech */}
       <section id="intellipal" className="intellipal-section relative">
-        <div className="container max-w-6xl mx-auto px-4 py-16 md:py-32 relative z-10">
+        <div className={cn("container max-w-6xl mx-auto relative z-10", pageHorizontalPaddingClass, sectionSpacingYClass)}>
           <motion.div
             className="min-h-[60vh] md:min-h-[80vh] flex flex-col gap-8 md:gap-16 md:flex-row items-start"
             {...scrollReveal}
@@ -95,13 +97,13 @@ const Index = () => {
       </section>
 
       {/* SECTION 2: FLOWTUTOR - Deep Midnight Blue */}
-      <section id="flowtutor" className="flowtutor-section relative min-h-screen scroll-mt-20">
+      <section id="flowtutor" className={cn("flowtutor-section relative min-h-screen", scrollAnchorClass)}>
         {/* Northern Lights Glow Effect */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="northern-lights-glow" />
         </div>
 
-        <div className="container max-w-6xl mx-auto px-4 pt-8 md:pt-16 pb-16 md:pb-32 relative z-10">
+        <div className={cn("container max-w-6xl mx-auto relative z-10", pageHorizontalPaddingClass, sectionSpacingYClass)}>
           <motion.div
             className="min-h-[60vh] md:min-h-[80vh] flex flex-col gap-8 md:gap-16 md:flex-row items-start"
             initial={{ opacity: 0 }}
@@ -164,11 +166,11 @@ const Index = () => {
       </section>
 
       {/* SECTION 3: KIDNEYQUEST - Marigold Yellow Spotlight */}
-      <section id="kidneyquest" className="kidneyquest-section relative scroll-mt-20">
+      <section id="kidneyquest" className={cn("kidneyquest-section relative", scrollAnchorClass)}>
         {/* Yellow Spotlight Effect */}
         <div className="absolute inset-0 kidneyquest-spotlight pointer-events-none" />
 
-        <div className="container max-w-6xl mx-auto px-4 py-16 md:py-32 relative z-10">
+        <div className={cn("container max-w-6xl mx-auto relative z-10", pageHorizontalPaddingClass, sectionSpacingYClass)}>
           <motion.div
             className="min-h-[60vh] md:min-h-[80vh] flex flex-col gap-8 md:gap-16 md:flex-row md:flex-row-reverse items-start"
             {...scrollReveal}
@@ -216,11 +218,7 @@ const Index = () => {
 
       <FloatingContactButton />
 
-      <footer className="border-t border-border/60 py-6 px-4">
-        <p className="text-center text-sm text-muted-foreground">
-          Gay Shin Lee © 2026 All Rights Reserved
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 };

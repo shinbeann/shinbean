@@ -14,7 +14,6 @@ const CaseStudy = () => {
     return (
       <CaseStudyLayout
         tableOfContents={[]}
-        showContactSection={false}
         hideTableOfContents
         theme="dark"
       >
@@ -29,30 +28,13 @@ const CaseStudy = () => {
             >
               https://nest-journal.vercel.app/
             </a>
-            <p className="text-white/90 text-sm md:text-base mt-10">
-              <Link to="/case-study/intellipal" className="underline underline-offset-4 hover:opacity-90">
-                INTELLIPAL
-              </Link>{" "}
-              /{" "}
-              <Link to="/case-study/flowtutor" className="underline underline-offset-4 hover:opacity-90">
-                FlowTutor
-              </Link>{" "}
-              /{" "}
-              <Link to="/case-study/kidneyquest" className="underline underline-offset-4 hover:opacity-90">
-                KidneyQuest
-              </Link>{" "}
-              /{" "}
-              <Link to="/case-study/nest" className="underline underline-offset-4 hover:opacity-90">
-                NEST
-              </Link>
-            </p>
           </div>
         </CaseStudyLayout>
     );
   }
 
   return (
-    <CaseStudyLayout tableOfContents={[]} showContactSection={false} theme="dark">
+    <CaseStudyLayout tableOfContents={[]} theme="dark">
         <div className="pt-24 min-h-[50vh] flex flex-col items-center justify-center text-center">
           <h1 className="text-3xl md:text-4xl font-semibold mb-4 text-foreground">
             Case study not found

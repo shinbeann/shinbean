@@ -1,4 +1,7 @@
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import { introBodyClass, pageHorizontalPaddingClass } from "@/design-system";
+import { cn } from "@/lib/utils";
 import meBookImage from "@/assets/personal/me-book.jpg";
 import meViolinImage from "@/assets/personal/me-violin.jpg";
 import meSkiImage from "@/assets/personal/me-ski.jpg";
@@ -76,7 +79,7 @@ const About = () => {
         />
       </div>
 
-      <main className="flex-grow pt-24 pb-20 px-4 relative z-[2]">
+      <main className={cn("flex-grow pt-24 pb-20 relative z-[2]", pageHorizontalPaddingClass)}>
         <article className="container mx-auto max-w-5xl space-y-16">
           {/* Section 1: Bio / Hook */}
           <motion.section
@@ -90,14 +93,14 @@ const About = () => {
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-tight">
                 Gay Shin Lee
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground tracking-wide max-w-prose">
+              <p className={cn(introBodyClass, "max-w-prose")}>
                 Before pivoting to product design, I was a software engineer working on payment engines for FAST instant transfers, test automation, and QA pipelines at a regional bank. 
 
               </p>
-              <p className="text-lg md:text-xl text-muted-foreground tracking-wide max-w-prose">
+              <p className={cn(introBodyClass, "max-w-prose")}>
                 That engineering foundation shaped how I approach design today. As AI tools came around, I used Cursor and Claude code not just to write code, but as a playground to prototype ideas, explore interactions, and accelerate my learning as a designer.  
               </p>
-              <p className="text-lg md:text-xl text-muted-foreground tracking-wide max-w-prose">
+              <p className={cn(introBodyClass, "max-w-prose")}>
               I love turning concepts into tangible experiences through rapid prototyping and building small tools. This website itself is a testament to that mindset. A space where code and design come together and bring ideas to life ❤️. 
               </p>
               <div className="flex items-center gap-4 pt-0">
@@ -321,11 +324,7 @@ const About = () => {
         </article>
       </main>
 
-      <footer className="border-t border-border/60 py-6 px-4">
-        <p className="text-center text-sm text-muted-foreground">
-          Gay Shin Lee © 2026 All Rights Reserved
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 };

@@ -26,9 +26,9 @@ const CaseStudyNav = ({ tone = "dark" }: CaseStudyNavProps) => {
                   ? "text-white font-semibold border-white"
                   : "text-[#003087] font-semibold border-[#003087]"
                 : s.disabled
-                ? "text-neutral-600 cursor-default border-transparent"
+                ? "text-neutral-400 cursor-default border-transparent"
                 : tone === "dark"
-                  ? "text-neutral-500 hover:text-neutral-300 border-transparent"
+                  ? "text-neutral-400 hover:text-neutral-300 border-transparent"
                   : "text-neutral-700 hover:text-[#003087] border-transparent"
             }`}
           >
@@ -42,7 +42,7 @@ const CaseStudyNav = ({ tone = "dark" }: CaseStudyNavProps) => {
             {i < studies.length - 1 && (
               <span
                 className={`text-sm select-none ${
-                  tone === "dark" ? "text-neutral-600" : "text-neutral-600"
+                  tone === "dark" ? "text-neutral-400" : "text-neutral-400"
                 }`}
               >
                 /

@@ -75,9 +75,10 @@ All colors MUST be HSL.
     --surface-base: 220 49% 10%; /* #0d1526 — shared case study shell */
     --intellipal-accent: 218 100% 71%; /* #6EA8FF — 7.56:1 on surface-base */
 
-    /* Project-specific vibes */
+    /* Project-specific */
     --kidneyquest-gold: 37 82% 60%;
     --kidneyquest-teal: 194 49% 33%;
+    --flowtutor-accent: 270 91% 65%; /* purple-400 equivalent on dark shell */
   }
 }
 
@@ -157,7 +158,7 @@ All colors MUST be HSL.
   }
   
   .content-spacing-y {
-    @apply space-y-8;
+    @apply space-y-6;
   }
   
   .card-padding {

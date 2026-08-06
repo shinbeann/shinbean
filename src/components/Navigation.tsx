@@ -95,7 +95,7 @@ const Navigation = ({ tone = "dark", enableSmartHide = true }: NavigationProps) 
           {/* Mobile Menu Button - WCAG AA contrast compliant */}
           <button
             onClick={() => setIsMenuOpen((open) => !open)}
-            className="ml-auto inline-flex rounded-full bg-white/20 p-2 text-white transition-colors hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white/50 md:hidden"
+            className="ml-auto inline-flex items-center justify-center min-h-11 min-w-11 rounded-full bg-white/20 text-white transition-colors hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white/50 md:hidden"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
           >

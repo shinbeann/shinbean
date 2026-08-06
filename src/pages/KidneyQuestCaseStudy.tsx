@@ -1,8 +1,17 @@
 import { useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import { cn } from "@/lib/utils";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
-import { caseStudyEditorialBodyClass } from "@/design-system";
+import { CaseStudyHeroMetadata } from "@/components/CaseStudyHeroMetadata";
+import {
+  caseStudyEditorialBodyClass,
+  caseStudyHeroShellClassNoBottom,
+  caseStudySectionLabelClass,
+  heroHeadlineClass,
+  pageHorizontalPaddingClass,
+  scrollAnchorClass,
+} from "@/design-system";
 import kqInflatable from "@/assets/kidneyquest/kq_inflatable.jpg";
 import kqLanguage from "@/assets/kidneyquest/kq_language.png";
 import kqIntro from "@/assets/kidneyquest/kq_intro.png";
@@ -17,13 +26,13 @@ import kqTeam2 from "@/assets/kidneyquest/kq_team2.jpg";
 
 
 const KidneyQuestHero = () => (
-  <section className="relative w-full pt-24 md:pt-36 overflow-x-hidden">
-    <div className="w-full max-w-6xl mx-auto px-6 md:px-16 lg:px-24 min-w-0">
+  <section className={caseStudyHeroShellClassNoBottom}>
+    <div className={cn("w-full max-w-6xl mx-auto min-w-0", pageHorizontalPaddingClass)}>
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-[#FFD700]"
+        className={cn(heroHeadlineClass, "text-kidneyquest-gold")}
       >
         KidneyQuest.
       </motion.h1>
@@ -34,60 +43,28 @@ const KidneyQuestHero = () => (
         transition={{ duration: 0.8, delay: 0.15 }}
         className={`text-neutral-400 w-full break-words mt-10 ${caseStudyEditorialBodyClass}`}
       >
-        NKF's kidney inflatable drew crowds but left visitors with a brochure they'd never read. We created KidneyQuest to turn kidney health education into a playful, memorable AR experience to replace paper handouts with a <span className="text-[#FFD700]">3-minute, self-directed mini-game.</span>
+        NKF's kidney inflatable drew crowds but left visitors with a brochure they'd never read. We created KidneyQuest to turn kidney health education into a playful, memorable AR experience to replace paper handouts with a <span className="text-kidneyquest-gold">3-minute, self-directed mini-game.</span>
       </motion.p>
 
-      <motion.hr
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        className="border-white/10 mt-10"
+      <CaseStudyHeroMetadata
+        role="UI/UX Designer"
+        contributions={[
+          "Led user research with 3 participant interviews and a 61-response survey to understand visitor behavior at public exhibits",
+          "Conducted affinity mapping and synthesis sessions to identify patterns in content preferences and engagement barriers",
+          "Facilitated Crazy 8s ideation workshops to rapidly explore game concepts and converge on the AR mini-game direction",
+          "Adapted NKF's design system for mobile-first, multilingual delivery across 4 languages",
+        ]}
+        timeline="September – December 2025"
+        organization="National Kidney Foundation (NKF)"
+        tools="Figma, Figma Make, Nano Banana, 8th Wall, Miro"
+        labelClassName="text-neutral-400"
+        valueClassName="text-white"
+        contributionClassName="text-neutral-400"
       />
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        className="grid grid-cols-2 md:grid-cols-[repeat(4,1fr)] gap-y-8 gap-x-8 min-w-0 mt-4"
-      >
-        {[
-          { label: "ROLE", value: "UI/UX Designer" },
-          { label: "TIMELINE", value: "September – December 2025" },
-          { label: "CLIENT", value: "National Kidney Foundation (NKF)" },
-          { label: "TOOLS", value: "Figma, Figma Make, Nano Banana, 8th Wall, Miro" },
-        ].map((item) => (
-          <div key={item.label} className="space-y-1.5 min-w-0">
-            <p className="text-[11px] uppercase tracking-[0.15em] font-medium text-neutral-500">{item.label}</p>
-            <p className="text-sm text-white font-medium break-words">{item.value}</p>
-          </div>
-        ))}
-      </motion.div>
-
-      <motion.hr
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.45 }}
-        className="border-white/10 mt-4"
-      />
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.55 }}
-        className="space-y-4 min-w-0 mt-10"
-      >
-        <p className="text-[11px] uppercase tracking-[0.15em] font-medium text-neutral-500">My contributions</p>
-        <ul className="space-y-3 text-neutral-400 text-sm md:text-base leading-relaxed list-disc list-outside pl-5 break-words">
-          <li>Led user research with 3 participant interviews and a 61-response survey to understand visitor behavior at public exhibits.</li>
-          <li>Conducted affinity mapping and synthesis sessions to identify patterns in content preferences and engagement barriers.</li>
-          <li>Facilitated Crazy 8s ideation workshops to rapidly explore game concepts and converge on the AR mini-game direction.</li>
-          <li>Adapted NKF's design system for mobile-first, multilingual delivery across 4 languages.</li>
-        </ul>
-      </motion.div>
     </div>
 
     {/* Yellow impact banner */}
-    <div className="w-screen relative left-1/2 -translate-x-1/2 bg-[#E5A500] py-12 md:py-16 mt-10 md:mt-16">
+    <div className="w-screen relative left-1/2 -translate-x-1/2 bg-kidneyquest-gold py-12 md:py-16 mt-10 md:mt-16">
       <div className="max-w-5xl mx-auto px-6 md:px-16 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
         {[
           { stat: "3×", desc: "Knowledge retention vs. brochure baseline" },
@@ -191,11 +168,10 @@ const KidneyQuestCaseStudy = () => {
       tableOfContents={kidneyQuestToc}
       theme="dark"
       showSidebarsAfter="problem"
-      showContactSection={false}
       hero={<div className="text-white selection:bg-amber-500/30 font-sans"><KidneyQuestHero /></div>}
     >
       <div className="text-white selection:bg-amber-500/30 font-sans overflow-x-hidden min-w-0">
-        <section id="problem" className="relative flex flex-col pt-24 md:pt-32 pb-20 scroll-mt-20 md:scroll-mt-24">
+        <section id="problem" className={cn("relative flex flex-col pt-24 md:pt-32 pb-20", scrollAnchorClass)}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -204,19 +180,19 @@ const KidneyQuestCaseStudy = () => {
             className="flex flex-col max-w-4xl mx-auto space-y-6"
           >
             <div className="space-y-6">
-              <p className="text-xs uppercase tracking-widest font-medium text-neutral-500">
+              <p className={cn(caseStudySectionLabelClass, "text-neutral-400")}>
                 PROBLEM
               </p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
                 The Kidney in the Room.
               </h2>
             </div>
-            <div className={`text-neutral-400 space-y-7 ${caseStudyEditorialBodyClass}`}>
+            <div className={`text-neutral-400 ${caseStudyEditorialBodyClass}`}>
               <p>
                 Diabetes and hypertension are the silent killers driving Chronic Kidney Disease (CKD), particularly in adults over 50. To combat this, the National Kidney Foundation (NKF) uses a massive, physical Inflatable Kidney at public roadshows to attract attention.
               </p>
               <p>
-                It is visually impressive. It draws a crowd. But it had a <span className="text-[#FFD700] font-semibold">fundamental flaw.</span>
+                It is visually impressive. It draws a crowd. But it had a <span className="text-kidneyquest-gold font-semibold">fundamental flaw.</span>
               </p>
             </div>
             {/* Image + Flaw cards layout */}
@@ -242,7 +218,7 @@ const KidneyQuestCaseStudy = () => {
                       className="w-full h-auto object-cover"
                     />
                   </div>
-                  <p className="text-sm text-neutral-500 italic text-center mt-2">
+                  <p className="text-sm text-neutral-400 italic text-center mt-2">
                     NKF Inflatable Kidney exhibit
                   </p>
                 </motion.div>
@@ -275,14 +251,14 @@ const KidneyQuestCaseStudy = () => {
                     transition={{ duration: 0.5, delay: 3.2 + i * 0.1 }}
                     className="flex flex-col gap-2 p-5 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors"
                   >
-                    <span className="text-2xl md:text-3xl font-bold tracking-tight leading-none text-[#FFD700]">0{i + 1}</span>
+                    <span className="text-2xl md:text-3xl font-bold tracking-tight leading-none text-kidneyquest-gold">0{i + 1}</span>
                     <h3 className="font-bold text-white">{card.title}</h3>
                     <p className="text-sm text-neutral-400 leading-relaxed">{card.text}</p>
                   </motion.div>
                 ))}
               </motion.div>
             </div>
-            <section id="solution" className="pt-16 md:pt-24 scroll-mt-20 md:scroll-mt-24">
+            <section id="solution" className={cn("pt-16 md:pt-24", scrollAnchorClass)}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -292,13 +268,13 @@ const KidneyQuestCaseStudy = () => {
               >
                 <p className={`${caseStudyEditorialBodyClass} font-medium text-white/90 tracking-tight text-center mx-auto`}>
                   How might we create a{" "}
-                  <span className="font-bold text-[#FFD700]">sustainable, cost-effective interaction</span>{" "}
+                  <span className="font-bold text-kidneyquest-gold">sustainable, cost-effective interaction</span>{" "}
                   that ensures participants walk away with{" "}
-                  <span className="font-bold text-[#FFD700]">3 key kidney health takeaways in under 3 minutes, without printed brochures?</span>{" "}
+                  <span className="font-bold text-kidneyquest-gold">3 key kidney health takeaways in under 3 minutes, without printed brochures?</span>{" "}
                 </p>
               </motion.div>
               <div className="space-y-6">
-                <p className="text-xs uppercase tracking-widest font-medium text-neutral-500">
+                <p className={cn(caseStudySectionLabelClass, "text-neutral-400")}>
                   Solution
                 </p>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
@@ -336,10 +312,10 @@ const KidneyQuestCaseStudy = () => {
                   <ArVideo src={kqAr} />
                 </div>
 
-                <div id="research" className="pt-16 md:pt-24 scroll-mt-20 md:scroll-mt-24">
+                <div id="research" className={cn("pt-16 md:pt-24", scrollAnchorClass)}>
                   <div className="w-[30%] max-w-[270px] h-px bg-white/10 mx-auto mb-16 md:mb-24" />
                   <div className="space-y-4">
-                    <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">RESEARCH</p>
+                    <p className={cn(caseStudySectionLabelClass, "text-neutral-400")}>RESEARCH</p>
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
                       Public Engagement with Exhibits.
                     </h2>
@@ -377,7 +353,7 @@ const KidneyQuestCaseStudy = () => {
                           transition={{ duration: 0.6, delay: i * 0.1 }}
                           className="flex flex-col gap-3 p-6 bg-white/5 border border-white/10 rounded-xl"
                         >
-                          <p className="text-3xl md:text-4xl font-bold text-[#FFD700]">{card.metric}</p>
+                          <p className="text-3xl md:text-4xl font-bold text-kidneyquest-gold">{card.metric}</p>
                           <h3 className="text-lg font-bold text-white">{card.title}</h3>
                           {/* Bridge: same pattern as FlowTutor Lab Pivot insight cards */}
                           <div
@@ -386,7 +362,7 @@ const KidneyQuestCaseStudy = () => {
                           >
                             <div className="h-px flex-1 bg-white/5 min-w-[1rem]" />
                             <div className="flex items-center justify-center w-8 h-8 rounded-full border border-white/10 bg-white/5 shadow-sm z-10 shrink-0">
-                              <ArrowDown className="w-3.5 h-3.5 text-[#FFD700]" style={{ strokeWidth: 3 }} />
+                              <ArrowDown className="w-3.5 h-3.5 text-kidneyquest-gold" style={{ strokeWidth: 3 }} />
                             </div>
                             <div className="h-px flex-1 bg-white/5 min-w-[1rem]" />
                           </div>
@@ -409,7 +385,7 @@ const KidneyQuestCaseStudy = () => {
                             className="w-full h-auto object-cover"
                           />
                         </div>
-                        <p className="text-sm text-neutral-500 italic text-center mt-2">
+                        <p className="text-sm text-neutral-400 italic text-center mt-2">
                           Modified MoSCoW prioritisation
                         </p>
                       </div>
@@ -421,7 +397,7 @@ const KidneyQuestCaseStudy = () => {
                             className="w-full h-auto object-cover"
                           />
                         </div>
-                        <p className="text-sm text-neutral-500 italic text-center mt-2">
+                        <p className="text-sm text-neutral-400 italic text-center mt-2">
                           Group brainstorming
                         </p>
                       </div>
@@ -439,14 +415,14 @@ const KidneyQuestCaseStudy = () => {
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="border border-white/10 rounded-xl p-6 bg-white/[0.02]">
-                          <p className="text-xs uppercase tracking-widest text-neutral-500 mb-3 flex items-center gap-1.5">
-                            <span className="text-neutral-500">✕</span> REJECTED
+                          <p className="text-xs uppercase tracking-widest text-neutral-400 mb-3 flex items-center gap-1.5">
+                            <span className="text-neutral-400">✕</span> REJECTED
                           </p>
                           <h4 className="text-lg font-semibold text-white mb-2">Native App</h4>
                           <p className={`${caseStudyEditorialBodyClass} text-neutral-400`}>Best AR performance, but 100% of interviewees refused to download a new app at a public event.</p>
                         </div>
-                        <div className="border border-[#E5A500]/60 rounded-xl p-6 bg-[#E5A500]/[0.04]">
-                          <p className="text-xs uppercase tracking-widest text-[#E5A500] mb-3 flex items-center gap-1.5">
+                        <div className="border border-kidneyquest-gold/60 rounded-xl p-6 bg-kidneyquest-gold/[0.04]">
+                          <p className="text-xs uppercase tracking-widest text-kidneyquest-gold mb-3 flex items-center gap-1.5">
                             <span>✓</span> CHOSEN
                           </p>
                           <h4 className="text-lg font-semibold text-white mb-2">WebAR via QR (8th Wall)</h4>
@@ -467,14 +443,14 @@ const KidneyQuestCaseStudy = () => {
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="border border-white/10 rounded-xl p-6 bg-white/[0.02]">
-                          <p className="text-xs uppercase tracking-widest text-neutral-500 mb-3 flex items-center gap-1.5">
-                            <span className="text-neutral-500">✕</span> REJECTED
+                          <p className="text-xs uppercase tracking-widest text-neutral-400 mb-3 flex items-center gap-1.5">
+                            <span className="text-neutral-400">✕</span> REJECTED
                           </p>
                           <h4 className="text-lg font-semibold text-white mb-2">Mascot-Led Tutorial</h4>
                           <p className={`${caseStudyEditorialBodyClass} text-neutral-400`}>3 of 4 usability testers spent &gt;60s understanding the narrative before reaching any health content.</p>
                         </div>
-                        <div className="border border-[#E5A500]/60 rounded-xl p-6 bg-[#E5A500]/[0.04]">
-                          <p className="text-xs uppercase tracking-widest text-[#E5A500] mb-3 flex items-center gap-1.5">
+                        <div className="border border-kidneyquest-gold/60 rounded-xl p-6 bg-kidneyquest-gold/[0.04]">
+                          <p className="text-xs uppercase tracking-widest text-kidneyquest-gold mb-3 flex items-center gap-1.5">
                             <span>✓</span> CHOSEN
                           </p>
                           <h4 className="text-lg font-semibold text-white mb-2">Direct Trivia + Visual Feedback</h4>
@@ -494,14 +470,14 @@ const KidneyQuestCaseStudy = () => {
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="border border-white/10 rounded-xl p-6 bg-white/[0.02]">
-                          <p className="text-xs uppercase tracking-widest text-neutral-500 mb-3 flex items-center gap-1.5">
-                            <span className="text-neutral-500">✕</span> REJECTED
+                          <p className="text-xs uppercase tracking-widest text-neutral-400 mb-3 flex items-center gap-1.5">
+                            <span className="text-neutral-400">✕</span> REJECTED
                           </p>
                           <h4 className="text-lg font-semibold text-white mb-2">Auto-detect device language</h4>
                           <p className={`${caseStudyEditorialBodyClass} text-neutral-400`}>Phone language settings did not match users' preferred reading language.</p>
                         </div>
-                        <div className="border border-[#E5A500]/60 rounded-xl p-6 bg-[#E5A500]/[0.04]">
-                          <p className="text-xs uppercase tracking-widest text-[#E5A500] mb-3 flex items-center gap-1.5">
+                        <div className="border border-kidneyquest-gold/60 rounded-xl p-6 bg-kidneyquest-gold/[0.04]">
+                          <p className="text-xs uppercase tracking-widest text-kidneyquest-gold mb-3 flex items-center gap-1.5">
                             <span>✓</span> CHOSEN
                           </p>
                           <h4 className="text-lg font-semibold text-white mb-2">First-screen language picker</h4>
@@ -510,16 +486,16 @@ const KidneyQuestCaseStudy = () => {
                       </div>
                       <p className={`${caseStudyEditorialBodyClass} text-neutral-400 pt-8 md:pt-4`}>
                         Across all decisions, we{" "}
-                        <span className="font-bold text-[#FFD700]">prioritised minimising friction</span>
+                        <span className="font-bold text-kidneyquest-gold">prioritised minimising friction</span>
                         {" "}and{" "}
-                        <span className="font-bold text-[#FFD700]">delivering value within seconds.</span>
+                        <span className="font-bold text-kidneyquest-gold">delivering value within seconds.</span>
                       </p>
                   </div>
 
-                  <div id="prototyping" className="pt-16 md:pt-24 scroll-mt-20 md:scroll-mt-24">
+                  <div id="prototyping" className={cn("pt-16 md:pt-24", scrollAnchorClass)}>
                       <div className="w-[30%] max-w-[270px] h-px bg-white/10 mx-auto mb-16 md:mb-24" />
                       <div className="space-y-4">
-                        <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
+                        <p className={cn(caseStudySectionLabelClass, "text-neutral-400")}>
                           PROTOTYPING
                         </p>
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
@@ -527,7 +503,7 @@ const KidneyQuestCaseStudy = () => {
                         </h2>
                         <p className={`${caseStudyEditorialBodyClass} text-neutral-400`}>
                           As a team of non-designers, our initial instinct was to design cute mascot and themes. But early stakeholder feedback and usability testing revealed{" "}
-                          <span className="font-bold text-[#FFD700]">visual noise, cognitive overload and heuristic issues</span>.
+                          <span className="font-bold text-kidneyquest-gold">visual noise, cognitive overload and heuristic issues</span>.
                         </p>
                         <img
                           src={kqIter}
@@ -700,16 +676,16 @@ const KidneyQuestCaseStudy = () => {
                         </div>
 
                         {/* Reflection section — same spacing as Prototyping (pt, divider, content) */}
-                        <div id="reflection" className="pt-16 md:pt-24 scroll-mt-20 md:scroll-mt-24">
+                        <div id="reflection" className={cn("pt-16 md:pt-24", scrollAnchorClass)}>
                           <div className="w-[30%] max-w-[270px] h-px bg-white/10 mx-auto mb-16 md:mb-24" />
                           <div className="space-y-4">
-                            <p className="text-xs uppercase tracking-widest font-medium text-neutral-400">
+                            <p className={cn(caseStudySectionLabelClass, "text-neutral-400")}>
                               Reflection
                             </p>
                           <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white">
                             Constraints, constraints, constraints.
                           </h3>
-                          <div className={`text-neutral-400 space-y-7 ${caseStudyEditorialBodyClass}`}>
+                          <div className={`text-neutral-400 ${caseStudyEditorialBodyClass}`}>
                             <p>
                               Tight timeline and technical constraints forced a discipline we should have started with: testing assumptions before committing to features. Early in the project, the team had a long list of interactions we wanted to build: photobooth, mascot animations. But due to the technical difficulties we faced, deadlines were pushed back and features had to be cut.
                             </p>

@@ -1,4 +1,11 @@
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import {
+  caseStudyTocSectionLabelClass,
+  heroHeadlineClass,
+  introBodyClass,
+  pageHorizontalPaddingClass,
+} from "@/design-system";
 
 const EXPERIENCE = [
   { company: "INTELLIPAL", role: "HTX", date: "Enterprise Tool ->", sectionId: "intellipal" },
@@ -45,11 +52,12 @@ const ExperienceRow = ({
 };
 
 const Hero = () => {
-  const name = "";
-
   return (
     <section
-      className="relative min-h-screen flex items-end pb-12 md:pb-20 px-6 md:px-16 lg:px-24 overflow-hidden"
+      className={cn(
+        "relative min-h-screen flex items-end pb-12 md:pb-20 overflow-hidden",
+        pageHorizontalPaddingClass
+      )}
       style={{
         background: "linear-gradient(to bottom, #000000 0%, #000000 60%, #0d1526 100%)",
       }}
@@ -68,7 +76,7 @@ const Hero = () => {
       <div className="max-w-5xl w-full relative z-10">
         {/* Subtitle */}
         <motion.p
-          className="text-lg md:text-xl text-muted-foreground tracking-wide mb-4"
+          className={cn(introBodyClass, "mb-4")}
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
@@ -76,28 +84,18 @@ const Hero = () => {
           Hello! I am Shin Lee, a product designer with a computer science background.
         </motion.p>
 
-        {/* Name */}
-        <motion.h1
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-6xl font-bold tracking-tight leading-none mb-8 flex items-baseline gap-3 flex-wrap"
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.5 }}
-        >
-          {name}
-        </motion.h1>
-
-        {/* Body text (Body → Divider/Experience: 96px) */}
+        {/* Headline */}
         <motion.div
           className="max-w-4xl mb-24"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1, duration: 0.5 }}
         >
-          <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-foreground">
+          <motion.h1 className={cn(heroHeadlineClass, "text-foreground")}>
             <span>I drive impact through </span>
-            <span className="italic font-normal text-intellipal-accent">thoughtful, intentional </span>
-            <span className="italic font-normal text-foreground">designs.</span>
-          </p>
+            <span className="italic text-intellipal-accent">thoughtful, intentional </span>
+            <span className="italic text-foreground">designs.</span>
+          </motion.h1>
           <p className="text-sm md:text-base text-muted-foreground mt-8">
             <span className="text-green-500" aria-hidden="true">●</span> Open to work
           </p>
@@ -110,7 +108,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.5 }}
         >
-          <p className="text-xs uppercase tracking-[0.25em] text-white font-semibold mb-3">
+          <p className={caseStudyTocSectionLabelClass}>
             On this page
           </p>
           <div className="flex flex-col">

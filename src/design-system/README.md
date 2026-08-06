@@ -6,10 +6,12 @@ Single place for **reusable layout tokens**, **case study sidebar** styles, and 
 
 | File | Purpose |
 |------|---------|
-| `tokens.css` | CSS custom properties (`--ds-*`) for case study shell, TOC column width, scroll alignment |
+| `tokens.css` | CSS custom properties (`--ds-*`) for case study shell, TOC column width, scroll alignment, project accents |
 | `tokens.ts` | Same numbers in TypeScript for `scrollTo`, `getBoundingClientRect` checks, etc. |
 | `caseStudySidebar.ts` | Composed Tailwind class strings for the sticky “On this page” nav |
 | `caseStudyTypography.ts` | Shared editorial typography presets for long-form case study copy |
+| `spacing.ts` | Page padding, hero shell, scroll anchor, section/card spacing class strings |
+| `typography.ts` | Hero headline, intro body, section/meta label presets |
 | `index.ts` | Barrel re-exports |
 
 Global **colors**, **shadcn-style HSL variables**, and **base heading/body rules** live in `src/index.css`. The **8px spacing scale** and **font size scale** are extended in `tailwind.config.ts`.
@@ -84,11 +86,26 @@ In `src/index.css`, under `:root`:
 
 `tailwind.config.ts` → `theme.extend.fontSize` provides **`text-xs`** through **`text-7xl`** with line heights and letter spacing. Prefer these utilities in components for consistency.
 
-### Case study editorial presets (`caseStudyTypography.ts`)
+### Case study editorial presets (`caseStudyTypography.ts` + `typography.ts`)
 
-- **`caseStudyEditorialBodyClass`** — `font-serif text-[18px] md:text-[20px] leading-[1.6] max-w-[65ch]`
+- **`caseStudyEditorialBodyClass`** — `content-spacing-y font-serif text-[18px] md:text-[20px] leading-[1.6] max-w-[65ch]`
+- **`heroHeadlineClass`** — home hero + case study title scale
+- **`introBodyClass`** — hero subtitle and About bio paragraphs
+- **`caseStudySectionLabelClass`** — PROBLEM / SOLUTION eyebrows
+- **`caseStudyMetaLabelClass`** — ROLE / TIMELINE meta labels
 
-Use this token in long-form sections (problem/solution/research/reflection) so future case studies inherit the same readability standard.
+---
+
+## Adoption checklist (by page)
+
+| Page / component | `@/design-system` imports | Global utilities |
+|------------------|---------------------------|------------------|
+| **Index** | `pageHorizontalPaddingClass`, `sectionSpacingYClass`, `scrollAnchorClass` | section CSS classes |
+| **Hero** | `introBodyClass`, `heroHeadlineClass`, `pageHorizontalPaddingClass`, `caseStudyTocSectionLabelClass` | `text-intellipal-accent` |
+| **About** | `introBodyClass`, `pageHorizontalPaddingClass` | — |
+| **CaseStudyLayout** | Full sidebar + shell exports | `bg-surface-base`, `pb-[var(--ds-case-study-main-padding-bottom)]` |
+| **Intellipal / FlowTutor / KidneyQuest** | Hero, editorial, section/meta labels, spacing | project accent colors |
+| **Footer** | `pageHorizontalPaddingClass` | copyright-only |
 
 ---
 
@@ -104,6 +121,9 @@ Site-wide UI uses shadcn-style HSL tokens (`--background`, `--foreground`, `--mu
 |---|---|---|---|
 | `--surface-base` | `#0d1526` | `bg-surface-base` | Shared shell on [`CaseStudyLayout`](../components/CaseStudyLayout.tsx) — all case studies inherit this |
 | `--intellipal-accent` | `#6EA8FF` | `text-intellipal-accent`, `bg-intellipal-accent/10` | Intellipal brand accent (7.56:1 on surface-base, WCAG AA/AAA) |
+| `--flowtutor-accent` | purple-400 equivalent | `text-flowtutor-accent` | FlowTutor hero and highlights on dark shell |
+| `--kidneyquest-gold` | marigold gold | `text-kidneyquest-gold`, `bg-kidneyquest-gold` | KidneyQuest hero and decision cards |
+| `--kidneyquest-teal` | teal | `text-kidneyquest-teal` | KidneyQuest demo accents |
 
 ### Project accent tokens
 
@@ -111,6 +131,7 @@ Site-wide UI uses shadcn-style HSL tokens (`--background`, `--foreground`, `--mu
 |---|---|
 | `--kidneyquest-gold` | KidneyQuest highlights and table accents |
 | `--kidneyquest-teal` | KidneyQuest demo buttons (teal gradient) |
+| `--flowtutor-accent` | FlowTutor hero and UI highlights |
 
 ### Intellipal dark theme (text on `surface-base`)
 
@@ -126,7 +147,6 @@ Site-wide UI uses shadcn-style HSL tokens (`--background`, `--foreground`, `--mu
 
 ### Follow-up (contrast fixes not in this pass)
 
-- **FlowTutor** `text-neutral-600` on dark shell — 2.53:1, needs bump to `neutral-400`
 - **NEST placeholder** copy on `surface-base` — revisit orange accent vs white-only text
 
 ---
@@ -137,15 +157,30 @@ Site-wide UI uses shadcn-style HSL tokens (`--background`, `--foreground`, `--mu
 
 `tailwind.config.ts` → `theme.extend.spacing` maps `1` = 4px, `2` = 8px, `4` = 16px, `6` = 24px, `8` = 32px, `12` = 48px, `16` = 64px, etc.
 
+### TypeScript exports (`spacing.ts`)
+
+| Export | Maps to |
+|--------|---------|
+| `pageHorizontalPaddingClass` | `px-6 md:px-16 lg:px-24` |
+| `caseStudyHeroShellClass` | Hero section with top/bottom padding |
+| `caseStudyHeroShellClassNoBottom` | Hero without bottom padding (KidneyQuest) |
+| `scrollAnchorClass` | `scroll-mt-20 md:scroll-mt-24` |
+| `sectionSpacingYClass` | `.section-spacing-y` |
+| `cardPaddingClass` | `.card-padding` |
+
 ### Semantic utilities (`index.css` `@layer components`)
 
-- **`.section-spacing-y`** — `py-16 md:py-24 lg:py-32` for vertical section rhythm
-- **`.content-spacing-y`** — `space-y-8` between stacked blocks
-- **`.card-padding`** — `p-8` for card interiors
+- **`.section-spacing-y`** — `py-16 md:py-24 lg:py-32` (Index project sections, FlowTutor sections)
+- **`.content-spacing-y`** — `space-y-6` between stacked blocks; wired via `caseStudyEditorialBodyClass`
+- **`.card-padding`** — `p-8` for card interiors (FlowTutor A/B and feature cards)
 
-### `:root` spacing tokens (`index.css`)
+### Layout token
 
-Optional CSS variables: `--spacing-1` (8px) through `--spacing-16` (128px) for non-Tailwind CSS.
+- **`--ds-case-study-main-padding-bottom`** — wired on `CaseStudyLayout` `<main>` as `pb-[var(--ds-case-study-main-padding-bottom)]`
+
+### Footer policy
+
+Sitewide footer is **copyright-only** via [`Footer.tsx`](../components/Footer.tsx). Contact intent on home is served by `FloatingContactButton`.
 
 ---
 
@@ -194,6 +229,10 @@ import {
   caseStudyLayout,
   caseStudyTocNavClasses,
   caseStudyShellGridClass,
+  pageHorizontalPaddingClass,
+  heroHeadlineClass,
+  introBodyClass,
+  caseStudyEditorialBodyClass,
 } from "@/design-system";
 ```
 
