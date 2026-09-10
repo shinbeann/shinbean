@@ -8,13 +8,14 @@ import {
 } from "@/design-system";
 
 const EXPERIENCE = [
+  { company: "MyICA", role: "IDEMIA Public Security", date: "Digital Government Services ->", sectionId: "myica" },
   { company: "INTELLIPAL", role: "HTX", date: "Enterprise Tool ->", sectionId: "intellipal" },
   { company: "FlowTutor", role: "Self-initiated", date: "EdTech ->", sectionId: "flowtutor" },
   { company: "KidneyQuest", role: "National Kidney Foundation", date: "Health ->", sectionId: "kidneyquest" },
 ];
 
 const ExperienceRow = ({
-  company,
+  company, 
   role,
   date,
   isFirst,
@@ -92,12 +93,12 @@ const Hero = () => {
           transition={{ delay: 1.1, duration: 0.5 }}
         >
           <motion.h1 className={cn(heroHeadlineClass, "text-foreground")}>
-            <span>I drive impact through </span>
+            <span>I turn complex systems into </span>
             <span className="italic text-intellipal-accent">thoughtful, intentional </span>
             <span className="italic text-foreground">designs.</span>
           </motion.h1>
           <p className="text-sm md:text-base text-muted-foreground mt-8">
-            <span className="text-green-500" aria-hidden="true">●</span> Open to work
+            Previously with, Idemia Public Security, Techcreate and DBS
           </p>
         </motion.div>
 
