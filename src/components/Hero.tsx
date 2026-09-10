@@ -98,7 +98,7 @@ const Hero = () => {
             <span className="italic text-foreground">designs.</span>
           </motion.h1>
           <p className="text-sm md:text-base text-muted-foreground mt-8">
-            Previously with, Idemia Public Security, Techcreate and DBS
+            Previously with Idemia Public Security, Techcreate and DBS
           </p>
         </motion.div>
 
