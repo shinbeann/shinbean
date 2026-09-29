@@ -60,19 +60,18 @@ const Hero = () => {
         pageHorizontalPaddingClass
       )}
       style={{
-        background: "linear-gradient(to bottom, #000000 0%, #000000 60%, #0d1526 100%)",
+        background: `
+          radial-gradient(
+            ellipse 60% 55% at 85% 10%,
+            hsla(220, 60%, 45%, 0.18) 0%,
+            hsla(45, 80%, 55%, 0.08) 45%,
+            transparent 100%
+          ),
+          linear-gradient(to bottom, #000000 0%, #000000 60%, #0d1526 100%)
+        `,
       }}
     >
-      {/* Soft blue-yellow radial glow – heavy blur, Screen blend so it adds light not mud */}
-      <div
-        className="absolute top-0 right-0 w-[800px] h-[800px] pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(circle at 80% 20%, hsla(220, 60%, 45%, 0.25) 0%, hsla(45, 80%, 55%, 0.15) 35%, transparent 70%)",
-          filter: "blur(175px)",
-          mixBlendMode: "screen",
-        }}
-      />
+
 
       <div className="max-w-5xl w-full relative z-10">
         {/* Subtitle */}

@@ -11,6 +11,7 @@ import { pageHorizontalPaddingClass, scrollAnchorClass, sectionSpacingYClass } f
 import { cn } from "@/lib/utils";
 import ftHeroVid from "@/assets/flowtutor/ft_herovid.mp4";
 import { publicMedia } from "@/lib/publicMedia";
+import myicaHero from "@/assets/myica/ICA_hero.png";
 
 const scrollReveal = {
   initial: { opacity: 0, y: 24 },
@@ -46,6 +47,7 @@ const Index = () => {
             {...scrollReveal}
             transition={{ duration: 0.6 }}
           >
+            {/* Text column */}
             <div className="w-full md:w-1/3 md:sticky md:top-28 self-start space-y-4">
               <p className="text-xs uppercase tracking-[0.25em] text-myica-accent">
                 <span className="font-bold">MyICA</span>
@@ -54,7 +56,7 @@ const Index = () => {
                 Accessible digital government services.
               </h2>
               <p className="text-sm md:text-base text-neutral-400 leading-relaxed">
-                Designing MyICA so immigration and checkpoint journeys work for people using assistive technology, not only for people who can see and tap everything.
+                Making an essential immigration service more accessible to people using assistive technology.
               </p>
 
               <div className="mt-6 md:mt-8">
@@ -66,9 +68,27 @@ const Index = () => {
                     Read MyICA case study
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neutral-300 group-hover:w-full transition-all duration-300" />
                   </span>
-                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true" />
+                  <ArrowUpRight
+                    className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                    aria-hidden="true"
+                  />
                 </Link>
               </div>
+            </div>
+
+            {/* Image column */}
+            <div className="w-full md:w-2/3 space-y-8 md:space-y-10">
+              <motion.div
+                {...scrollReveal}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="relative w-full"
+              >
+                <img
+                  src={myicaHero}
+                  alt="MyICA app screens showing an immigration service flow"
+                  className="w-full h-auto object-contain md:scale-150 md:origin-center"
+                />
+              </motion.div>
             </div>
           </motion.div>
         </div>
