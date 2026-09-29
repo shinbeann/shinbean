@@ -13,6 +13,7 @@
   /* Case study shell surface */
   --ds-surface-base: hsl(var(--surface-base));
   --ds-intellipal-accent: hsl(var(--intellipal-accent));
+  --ds-myica-accent: hsl(var(--myica-accent));
   --ds-flowtutor-accent: hsl(var(--flowtutor-accent));
   --ds-kidneyquest-gold: hsl(var(--kidneyquest-gold));
   --ds-kidneyquest-teal: hsl(var(--kidneyquest-teal));

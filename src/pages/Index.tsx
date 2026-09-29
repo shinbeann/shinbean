@@ -38,6 +38,42 @@ const Index = () => {
       {/* HERO */}
       <Hero />
 
+      {/* SECTION: MyICA */}
+      <section id="myica" className={cn("myica-section relative", scrollAnchorClass)}>
+        <div className={cn("container max-w-6xl mx-auto relative z-10", pageHorizontalPaddingClass, sectionSpacingYClass)}>
+          <motion.div
+            className="min-h-[60vh] md:min-h-[80vh] flex flex-col gap-8 md:gap-16 md:flex-row items-start"
+            {...scrollReveal}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="w-full md:w-1/3 md:sticky md:top-28 self-start space-y-4">
+              <p className="text-xs uppercase tracking-[0.25em] text-myica-accent">
+                <span className="font-bold">MyICA</span>
+              </p>
+              <h2 className="font-sans text-2xl sm:text-3xl md:text-4xl font-normal text-neutral-200">
+                Accessible digital government services.
+              </h2>
+              <p className="text-sm md:text-base text-neutral-400 leading-relaxed">
+                Designing MyICA so immigration and checkpoint journeys work for people using assistive technology, not only for people who can see and tap everything.
+              </p>
+
+              <div className="mt-6 md:mt-8">
+                <Link
+                  to="/case-study/myica"
+                  className="group inline-flex items-center gap-2 text-sm font-medium text-neutral-400 hover:text-neutral-300 transition-all duration-200"
+                >
+                  <span className="relative">
+                    Read MyICA case study
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neutral-300 group-hover:w-full transition-all duration-300" />
+                  </span>
+                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true" />
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* SECTION 1: INTELLIPAL - Monochrome/Tech */}
       <section id="intellipal" className="intellipal-section relative">
         <div className={cn("container max-w-6xl mx-auto relative z-10", pageHorizontalPaddingClass, sectionSpacingYClass)}>

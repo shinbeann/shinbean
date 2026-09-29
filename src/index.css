@@ -74,6 +74,7 @@ All colors MUST be HSL.
     /* Case study + project surfaces */
     --surface-base: 220 49% 10%; /* #0d1526 — shared case study shell */
     --intellipal-accent: 218 100% 71%; /* #6EA8FF — 7.56:1 on surface-base */
+    --myica-accent: 6 90% 72%; /* coral-red — 4.5:1+ on surface-base */
 
     /* Project-specific */
     --kidneyquest-gold: 37 82% 60%;
@@ -214,6 +215,15 @@ All colors MUST be HSL.
 
   .kidneyquest-text-muted {
     color: rgba(255, 215, 0, 0.6);
+  }
+
+  .myica-section {
+    background: linear-gradient(
+      to bottom,
+      #000000 0%,
+      #140a0a 40%,
+      #0d1526 100%
+    );
   }
 
   /* SECTION 3: INTELLIPAL - Monochrome/Tech */

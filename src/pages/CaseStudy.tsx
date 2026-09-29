@@ -4,7 +4,7 @@ import CaseStudyLayout from "@/components/CaseStudyLayout";
 
 /**
  * Fallback for /case-study/:slug when no dedicated case study page exists.
- * FlowTutor, KidneyQuest, and INTELLIPAL use dedicated pages.
+ * FlowTutor, KidneyQuest, INTELLIPAL, and MyICA use dedicated pages.
  * NEST and unknown slugs fall through to this placeholder until a page exists.
  */
 const CaseStudy = () => {
@@ -41,10 +41,14 @@ const CaseStudy = () => {
           </h1>
           <p className="text-muted-foreground mb-8 max-w-md">
             View{" "}
+            <Link to="/case-study/myica" className="text-foreground underline hover:no-underline">
+              MyICA
+            </Link>
+            {", "}
             <Link to="/case-study/flowtutor" className="text-foreground underline hover:no-underline">
               FlowTutor
-            </Link>{" "}
-            or{" "}
+            </Link>
+            {", or "}
             <Link to="/case-study/kidneyquest" className="text-foreground underline hover:no-underline">
               KidneyQuest
             </Link>{" "}

@@ -12,6 +12,7 @@ import NotFound from "./pages/NotFound";
 const FlowTutorCaseStudy = lazy(() => import("./pages/FlowTutorCaseStudy"));
 const KidneyQuestCaseStudy = lazy(() => import("./pages/KidneyQuestCaseStudy"));
 const IntellipalCaseStudy = lazy(() => import("./pages/IntellipalCaseStudy"));
+const MyICACaseStudy = lazy(() => import("./pages/MyICACaseStudy"));
 
 const caseStudyFallback = (
   <div className="min-h-screen flex items-center justify-center bg-background text-muted-foreground text-sm">
@@ -51,6 +52,14 @@ const App = () => (
             element={
               <Suspense fallback={caseStudyFallback}>
                 <IntellipalCaseStudy />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/case-study/myica"
+            element={
+              <Suspense fallback={caseStudyFallback}>
+                <MyICACaseStudy />
               </Suspense>
             }
           />
